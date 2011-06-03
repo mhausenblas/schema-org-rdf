@@ -81,5 +81,5 @@ def get_type_details(url):
     return details
 
 def get_label(s):
-    s = re.sub('(.)([A-Z][a-z])', '\\1 \\2', s)
+    s = re.sub('(?<=.)([A-Z][a-z])', ' \\1', s)
     return s[0].upper() + s[1:]

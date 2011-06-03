@@ -1320,7 +1320,7 @@
         "WebPage"
       ], 
       "id": "mainContentOfPage", 
-      "label": "Main Content OfPage", 
+      "label": "Main Content Of Page", 
       "ranges": [
         "WebPageElement"
       ], 
@@ -1481,7 +1481,7 @@
         "TVSeries"
       ], 
       "id": "numberOfEpisodes", 
-      "label": "Number OfEpisodes", 
+      "label": "Number Of Episodes", 
       "ranges": [
         "Number"
       ], 
@@ -1494,7 +1494,7 @@
         "Book"
       ], 
       "id": "numberOfPages", 
-      "label": "Number OfPages", 
+      "label": "Number Of Pages", 
       "ranges": [
         "Integer"
       ], 
@@ -1575,7 +1575,7 @@
         "TVEpisode"
       ], 
       "id": "partOfSeason", 
-      "label": "Part OfSeason", 
+      "label": "Part Of Season", 
       "ranges": [
         "TVSeason"
       ], 
@@ -1761,7 +1761,7 @@
         "WebPage"
       ], 
       "id": "primaryImageOfPage", 
-      "label": "Primary Image OfPage", 
+      "label": "Primary Image Of Page", 
       "ranges": [
         "ImageObject"
       ], 
@@ -1947,7 +1947,7 @@
         "ImageObject"
       ], 
       "id": "representativeOfPage", 
-      "label": "Representative OfPage", 
+      "label": "Representative Of Page", 
       "ranges": [
         "Boolean"
       ], 
@@ -2422,8 +2422,11 @@
       "comment_plain": "Web page type: About page.", 
       "id": "AboutPage", 
       "label": "About Page", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/AboutPage"
     }, 
     "AccountingService": {
@@ -2437,8 +2440,12 @@
       "comment_plain": "Accountancy business.", 
       "id": "AccountingService", 
       "label": "Accounting Service", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FinancialService", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/AccountingService"
     }, 
     "AdministrativeArea": {
@@ -2450,12 +2457,15 @@
       "comment_plain": "A geographical region under the jurisdiction of a particular government.", 
       "id": "AdministrativeArea", 
       "label": "Administrative Area", 
+      "properties": [], 
       "subtypes": [
         "City", 
         "Country", 
         "State"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Place"
+      ], 
       "url": "http://schema.org/AdministrativeArea"
     }, 
     "AdultEntertainment": {
@@ -2469,8 +2479,11 @@
       "comment_plain": "An adult entertainment establishment.", 
       "id": "AdultEntertainment", 
       "label": "Adult Entertainment", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness"
+      ], 
       "url": "http://schema.org/AdultEntertainment"
     }, 
     "AggregateOffer": {
@@ -2483,8 +2496,15 @@
       "comment_plain": "When a single product that has different offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.", 
       "id": "AggregateOffer", 
       "label": "Aggregate Offer", 
+      "properties": [
+        "highPrice", 
+        "lowPrice", 
+        "offerCount"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Offer"
+      ], 
       "url": "http://schema.org/AggregateOffer"
     }, 
     "AggregateRating": {
@@ -2497,8 +2517,15 @@
       "comment_plain": "The average rating based on multiple ratings or reviews.", 
       "id": "AggregateRating", 
       "label": "Aggregate Rating", 
+      "properties": [
+        "itemReviewed", 
+        "ratingCount", 
+        "reviewCount"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Rating"
+      ], 
       "url": "http://schema.org/AggregateRating"
     }, 
     "Airport": {
@@ -2511,8 +2538,11 @@
       "comment_plain": "An airport.", 
       "id": "Airport", 
       "label": "Airport", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Airport"
     }, 
     "AmusementPark": {
@@ -2526,8 +2556,11 @@
       "comment_plain": "An amusement park.", 
       "id": "AmusementPark", 
       "label": "Amusement Park", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness"
+      ], 
       "url": "http://schema.org/AmusementPark"
     }, 
     "AnimalShelter": {
@@ -2540,8 +2573,11 @@
       "comment_plain": "Animal shelter.", 
       "id": "AnimalShelter", 
       "label": "Animal Shelter", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/AnimalShelter"
     }, 
     "ApartmentComplex": {
@@ -2554,8 +2590,11 @@
       "comment_plain": "Residence type: Apartment complex.", 
       "id": "ApartmentComplex", 
       "label": "Apartment Complex", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Residence"
+      ], 
       "url": "http://schema.org/ApartmentComplex"
     }, 
     "Aquarium": {
@@ -2568,8 +2607,11 @@
       "comment_plain": "Aquarium.", 
       "id": "Aquarium", 
       "label": "Aquarium", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Aquarium"
     }, 
     "ArtGallery": {
@@ -2583,8 +2625,11 @@
       "comment_plain": "An art gallery.", 
       "id": "ArtGallery", 
       "label": "Art Gallery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness"
+      ], 
       "url": "http://schema.org/ArtGallery"
     }, 
     "Article": {
@@ -2596,12 +2641,18 @@
       "comment_plain": "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.", 
       "id": "Article", 
       "label": "Article", 
+      "properties": [
+        "articleBody", 
+        "articleSection"
+      ], 
       "subtypes": [
         "BlogPosting", 
         "NewsArticle", 
         "ScholarlyArticle"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Article"
     }, 
     "Attorney": {
@@ -2615,8 +2666,11 @@
       "comment_plain": "Professional service: Attorney.", 
       "id": "Attorney", 
       "label": "Attorney", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/Attorney"
     }, 
     "AudioObject": {
@@ -2629,8 +2683,11 @@
       "comment_plain": "An audio file.", 
       "id": "AudioObject", 
       "label": "Audio Object", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MediaObject"
+      ], 
       "url": "http://schema.org/AudioObject"
     }, 
     "AutoBodyShop": {
@@ -2644,8 +2701,11 @@
       "comment_plain": "Auto body shop.", 
       "id": "AutoBodyShop", 
       "label": "Auto Body Shop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/AutoBodyShop"
     }, 
     "AutoDealer": {
@@ -2659,8 +2719,11 @@
       "comment_plain": "An car dealership.", 
       "id": "AutoDealer", 
       "label": "Auto Dealer", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/AutoDealer"
     }, 
     "AutoPartsStore": {
@@ -2674,8 +2737,12 @@
       "comment_plain": "An auto parts store.", 
       "id": "AutoPartsStore", 
       "label": "Auto Parts Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness", 
+        "Store"
+      ], 
       "url": "http://schema.org/AutoPartsStore"
     }, 
     "AutoRental": {
@@ -2689,8 +2756,11 @@
       "comment_plain": "A car rental business.", 
       "id": "AutoRental", 
       "label": "Auto Rental", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/AutoRental"
     }, 
     "AutoRepair": {
@@ -2704,8 +2774,11 @@
       "comment_plain": "Car repair business.", 
       "id": "AutoRepair", 
       "label": "Auto Repair", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/AutoRepair"
     }, 
     "AutoWash": {
@@ -2719,8 +2792,11 @@
       "comment_plain": "A car wash business.", 
       "id": "AutoWash", 
       "label": "Auto Wash", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/AutoWash"
     }, 
     "AutomatedTeller": {
@@ -2734,8 +2810,11 @@
       "comment_plain": "ATM/cash machine.", 
       "id": "AutomatedTeller", 
       "label": "Automated Teller", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FinancialService"
+      ], 
       "url": "http://schema.org/AutomatedTeller"
     }, 
     "AutomotiveBusiness": {
@@ -2748,6 +2827,7 @@
       "comment_plain": "Car repair, sales, or parts.", 
       "id": "AutomotiveBusiness", 
       "label": "Automotive Business", 
+      "properties": [], 
       "subtypes": [
         "AutoBodyShop", 
         "AutoDealer", 
@@ -2759,7 +2839,9 @@
         "MotorcycleDealer", 
         "MotorcycleRepair"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/AutomotiveBusiness"
     }, 
     "Bakery": {
@@ -2773,8 +2855,11 @@
       "comment_plain": "A bakery.", 
       "id": "Bakery", 
       "label": "Bakery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/Bakery"
     }, 
     "BankOrCreditUnion": {
@@ -2787,9 +2872,12 @@
       "comment": "Bank or credit union.", 
       "comment_plain": "Bank or credit union.", 
       "id": "BankOrCreditUnion", 
-      "label": "Bank OrCredit Union", 
+      "label": "Bank Or Credit Union", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FinancialService"
+      ], 
       "url": "http://schema.org/BankOrCreditUnion"
     }, 
     "BarOrPub": {
@@ -2802,9 +2890,12 @@
       "comment": "A bar or pub.", 
       "comment_plain": "A bar or pub.", 
       "id": "BarOrPub", 
-      "label": "Bar OrPub", 
+      "label": "Bar Or Pub", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/BarOrPub"
     }, 
     "Beach": {
@@ -2817,8 +2908,11 @@
       "comment_plain": "Beach.", 
       "id": "Beach", 
       "label": "Beach", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Beach"
     }, 
     "BeautySalon": {
@@ -2832,8 +2926,11 @@
       "comment_plain": "Beauty salon.", 
       "id": "BeautySalon", 
       "label": "Beauty Salon", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HealthAndBeautyBusiness"
+      ], 
       "url": "http://schema.org/BeautySalon"
     }, 
     "BedAndBreakfast": {
@@ -2847,8 +2944,11 @@
       "comment_plain": "Bed and breakfast.", 
       "id": "BedAndBreakfast", 
       "label": "Bed And Breakfast", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LodgingBusiness"
+      ], 
       "url": "http://schema.org/BedAndBreakfast"
     }, 
     "BikeStore": {
@@ -2862,8 +2962,11 @@
       "comment_plain": "A bike store.", 
       "id": "BikeStore", 
       "label": "Bike Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/BikeStore"
     }, 
     "Blog": {
@@ -2875,8 +2978,13 @@
       "comment_plain": "A blog", 
       "id": "Blog", 
       "label": "Blog", 
+      "properties": [
+        "blogPosts"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Blog"
     }, 
     "BlogPosting": {
@@ -2889,8 +2997,11 @@
       "comment_plain": "A blog post.", 
       "id": "BlogPosting", 
       "label": "Blog Posting", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Article"
+      ], 
       "url": "http://schema.org/BlogPosting"
     }, 
     "BodyOfWater": {
@@ -2902,7 +3013,8 @@
       "comment": "A body of water, such as a sea, ocean, or lake.", 
       "comment_plain": "A body of water, such as a sea, ocean, or lake.", 
       "id": "BodyOfWater", 
-      "label": "Body OfWater", 
+      "label": "Body Of Water", 
+      "properties": [], 
       "subtypes": [
         "Canal", 
         "LakeBodyOfWater", 
@@ -2913,7 +3025,9 @@
         "SeaBodyOfWater", 
         "Waterfall"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Landform"
+      ], 
       "url": "http://schema.org/BodyOfWater"
     }, 
     "Book": {
@@ -2925,8 +3039,17 @@
       "comment_plain": "A book.", 
       "id": "Book", 
       "label": "Book", 
+      "properties": [
+        "bookEdition", 
+        "bookFormat", 
+        "illustrator", 
+        "isbn", 
+        "numberOfPages"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Book"
     }, 
     "BookFormatType": {
@@ -2944,8 +3067,11 @@
         "http://schema.org/Paperback"
       ], 
       "label": "Book Format Type", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Enumeration"
+      ], 
       "url": "http://schema.org/BookFormatType"
     }, 
     "BookStore": {
@@ -2959,8 +3085,11 @@
       "comment_plain": "A bookstore.", 
       "id": "BookStore", 
       "label": "Book Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/BookStore"
     }, 
     "Boolean": {
@@ -2975,8 +3104,11 @@
         "http://schema.org/True"
       ], 
       "label": "Boolean", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "DataType"
+      ], 
       "url": "http://schema.org/Boolean"
     }, 
     "BowlingAlley": {
@@ -2990,8 +3122,11 @@
       "comment_plain": "A bowling alley.", 
       "id": "BowlingAlley", 
       "label": "Bowling Alley", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/BowlingAlley"
     }, 
     "Brewery": {
@@ -3005,8 +3140,11 @@
       "comment_plain": "Brewery.", 
       "id": "Brewery", 
       "label": "Brewery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/Brewery"
     }, 
     "BuddhistTemple": {
@@ -3020,8 +3158,11 @@
       "comment_plain": "A Buddhist temple.", 
       "id": "BuddhistTemple", 
       "label": "Buddhist Temple", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PlaceOfWorship"
+      ], 
       "url": "http://schema.org/BuddhistTemple"
     }, 
     "BusStation": {
@@ -3034,8 +3175,11 @@
       "comment_plain": "A bus station.", 
       "id": "BusStation", 
       "label": "Bus Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/BusStation"
     }, 
     "BusStop": {
@@ -3048,8 +3192,11 @@
       "comment_plain": "A bus stop.", 
       "id": "BusStop", 
       "label": "Bus Stop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/BusStop"
     }, 
     "BusinessEvent": {
@@ -3061,8 +3208,11 @@
       "comment_plain": "Event type: Business event.", 
       "id": "BusinessEvent", 
       "label": "Business Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/BusinessEvent"
     }, 
     "CafeOrCoffeeShop": {
@@ -3075,9 +3225,12 @@
       "comment": "A cafe or coffee shop.", 
       "comment_plain": "A cafe or coffee shop.", 
       "id": "CafeOrCoffeeShop", 
-      "label": "Cafe OrCoffee Shop", 
+      "label": "Cafe Or Coffee Shop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/CafeOrCoffeeShop"
     }, 
     "Campground": {
@@ -3090,8 +3243,11 @@
       "comment_plain": "A campground.", 
       "id": "Campground", 
       "label": "Campground", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Campground"
     }, 
     "Canal": {
@@ -3105,8 +3261,11 @@
       "comment_plain": null, 
       "id": "Canal", 
       "label": "Canal", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/Canal"
     }, 
     "Casino": {
@@ -3120,8 +3279,11 @@
       "comment_plain": "A casino.", 
       "id": "Casino", 
       "label": "Casino", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness"
+      ], 
       "url": "http://schema.org/Casino"
     }, 
     "CatholicChurch": {
@@ -3135,8 +3297,11 @@
       "comment_plain": "A Catholic church.", 
       "id": "CatholicChurch", 
       "label": "Catholic Church", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PlaceOfWorship"
+      ], 
       "url": "http://schema.org/CatholicChurch"
     }, 
     "Cemetery": {
@@ -3149,8 +3314,11 @@
       "comment_plain": "A graveyard.", 
       "id": "Cemetery", 
       "label": "Cemetery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Cemetery"
     }, 
     "CheckoutPage": {
@@ -3163,8 +3331,11 @@
       "comment_plain": "Web page type: Checkout page.", 
       "id": "CheckoutPage", 
       "label": "Checkout Page", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/CheckoutPage"
     }, 
     "ChildCare": {
@@ -3177,8 +3348,11 @@
       "comment_plain": "A Childcare center.", 
       "id": "ChildCare", 
       "label": "Child Care", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/ChildCare"
     }, 
     "ChildrensEvent": {
@@ -3190,8 +3364,11 @@
       "comment_plain": "Event type: Children's event.", 
       "id": "ChildrensEvent", 
       "label": "Childrens Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/ChildrensEvent"
     }, 
     "Church": {
@@ -3205,8 +3382,11 @@
       "comment_plain": "A church.", 
       "id": "Church", 
       "label": "Church", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PlaceOfWorship"
+      ], 
       "url": "http://schema.org/Church"
     }, 
     "City": {
@@ -3219,8 +3399,11 @@
       "comment_plain": "A city or town.", 
       "id": "City", 
       "label": "City", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AdministrativeArea"
+      ], 
       "url": "http://schema.org/City"
     }, 
     "CityHall": {
@@ -3234,8 +3417,11 @@
       "comment_plain": "A city hall.", 
       "id": "CityHall", 
       "label": "City Hall", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "GovernmentBuilding"
+      ], 
       "url": "http://schema.org/CityHall"
     }, 
     "CivicStructure": {
@@ -3247,6 +3433,9 @@
       "comment_plain": "A public structure, such as a town hall or concert hall.", 
       "id": "CivicStructure", 
       "label": "Civic Structure", 
+      "properties": [
+        "openingHours"
+      ], 
       "subtypes": [
         "Airport", 
         "Aquarium", 
@@ -3276,7 +3465,9 @@
         "TrainStation", 
         "Zoo"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Place"
+      ], 
       "url": "http://schema.org/CivicStructure"
     }, 
     "ClothingStore": {
@@ -3290,8 +3481,11 @@
       "comment_plain": "A clothing store.", 
       "id": "ClothingStore", 
       "label": "Clothing Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/ClothingStore"
     }, 
     "CollectionPage": {
@@ -3304,11 +3498,14 @@
       "comment_plain": "Web page type: Collection page.", 
       "id": "CollectionPage", 
       "label": "Collection Page", 
+      "properties": [], 
       "subtypes": [
         "ImageGallery", 
         "VideoGallery"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/CollectionPage"
     }, 
     "CollegeOrUniversity": {
@@ -3320,9 +3517,12 @@
       "comment": "A college, university, or other third-level educational institution.", 
       "comment_plain": "A college, university, or other third-level educational institution.", 
       "id": "CollegeOrUniversity", 
-      "label": "College OrUniversity", 
+      "label": "College Or University", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EducationalOrganization"
+      ], 
       "url": "http://schema.org/CollegeOrUniversity"
     }, 
     "ComedyClub": {
@@ -3336,8 +3536,11 @@
       "comment_plain": "A comedy club.", 
       "id": "ComedyClub", 
       "label": "Comedy Club", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness"
+      ], 
       "url": "http://schema.org/ComedyClub"
     }, 
     "ComedyEvent": {
@@ -3349,8 +3552,11 @@
       "comment_plain": "Event type: Comedy event.", 
       "id": "ComedyEvent", 
       "label": "Comedy Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/ComedyEvent"
     }, 
     "ComputerStore": {
@@ -3364,8 +3570,11 @@
       "comment_plain": "A computer store.", 
       "id": "ComputerStore", 
       "label": "Computer Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/ComputerStore"
     }, 
     "ContactPage": {
@@ -3378,8 +3587,11 @@
       "comment_plain": "Web page type: Contact page.", 
       "id": "ContactPage", 
       "label": "Contact Page", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/ContactPage"
     }, 
     "ContactPoint": {
@@ -3392,10 +3604,18 @@
       "comment_plain": "A contact point\u2014for example, a Customer Complaints department.", 
       "id": "ContactPoint", 
       "label": "Contact Point", 
+      "properties": [
+        "contactType", 
+        "email", 
+        "faxNumber", 
+        "telephone"
+      ], 
       "subtypes": [
         "PostalAddress"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "StructuredValue"
+      ], 
       "url": "http://schema.org/ContactPoint"
     }, 
     "Continent": {
@@ -3408,8 +3628,11 @@
       "comment_plain": "One of the continents (for example, Europe or Africa).", 
       "id": "Continent", 
       "label": "Continent", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Landform"
+      ], 
       "url": "http://schema.org/Continent"
     }, 
     "ConvenienceStore": {
@@ -3423,8 +3646,11 @@
       "comment_plain": "A convenience store.", 
       "id": "ConvenienceStore", 
       "label": "Convenience Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/ConvenienceStore"
     }, 
     "Corporation": {
@@ -3436,8 +3662,11 @@
       "comment_plain": "Organization: A business corporation.", 
       "id": "Corporation", 
       "label": "Corporation", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization"
+      ], 
       "url": "http://schema.org/Corporation"
     }, 
     "Country": {
@@ -3450,8 +3679,11 @@
       "comment_plain": "A country.", 
       "id": "Country", 
       "label": "Country", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AdministrativeArea"
+      ], 
       "url": "http://schema.org/Country"
     }, 
     "Courthouse": {
@@ -3465,8 +3697,11 @@
       "comment_plain": "A courthouse.", 
       "id": "Courthouse", 
       "label": "Courthouse", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "GovernmentBuilding"
+      ], 
       "url": "http://schema.org/Courthouse"
     }, 
     "CreativeWork": {
@@ -3477,6 +3712,28 @@
       "comment_plain": "The most generic kind of creative work, including books, movies, photographs, software programs, etc.", 
       "id": "CreativeWork", 
       "label": "Creative Work", 
+      "properties": [
+        "about", 
+        "aggregateRating", 
+        "audio", 
+        "author", 
+        "awards", 
+        "contentLocation", 
+        "contentRating", 
+        "datePublished", 
+        "editor", 
+        "encodings", 
+        "genre", 
+        "headline", 
+        "inLanguage", 
+        "interactionCount", 
+        "isFamilyFriendly", 
+        "keywords", 
+        "offers", 
+        "publisher", 
+        "reviews", 
+        "video"
+      ], 
       "subtypes": [
         "Article", 
         "Blog", 
@@ -3498,7 +3755,9 @@
         "WebPage", 
         "WebPageElement"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/CreativeWork"
     }, 
     "Crematorium": {
@@ -3511,8 +3770,11 @@
       "comment_plain": "A crematorium.", 
       "id": "Crematorium", 
       "label": "Crematorium", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Crematorium"
     }, 
     "DanceEvent": {
@@ -3524,8 +3786,11 @@
       "comment_plain": "Event type: A social dance.", 
       "id": "DanceEvent", 
       "label": "Dance Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/DanceEvent"
     }, 
     "DanceGroup": {
@@ -3538,8 +3803,11 @@
       "comment_plain": "A dance group\u2014for example, the Alvin Ailey Dance Theater or Riverdance.", 
       "id": "DanceGroup", 
       "label": "Dance Group", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PerformingGroup"
+      ], 
       "url": "http://schema.org/DanceGroup"
     }, 
     "DataType": {
@@ -3548,6 +3816,7 @@
       "comment_plain": "The basic data types such as Integers, Strings, etc.", 
       "id": "DataType", 
       "label": "Data Type", 
+      "properties": [], 
       "subtypes": [
         "Boolean", 
         "Date", 
@@ -3565,8 +3834,11 @@
       "comment_plain": "A date value in ISO 8601 date format.", 
       "id": "Date", 
       "label": "Date", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "DataType"
+      ], 
       "url": "http://schema.org/Date"
     }, 
     "DaySpa": {
@@ -3580,8 +3852,11 @@
       "comment_plain": "A day spa.", 
       "id": "DaySpa", 
       "label": "Day Spa", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HealthAndBeautyBusiness"
+      ], 
       "url": "http://schema.org/DaySpa"
     }, 
     "DefenceEstablishment": {
@@ -3595,8 +3870,11 @@
       "comment_plain": "A defence establishment, such as an army or navy base.", 
       "id": "DefenceEstablishment", 
       "label": "Defence Establishment", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "GovernmentBuilding"
+      ], 
       "url": "http://schema.org/DefenceEstablishment"
     }, 
     "Dentist": {
@@ -3610,8 +3888,12 @@
       "comment_plain": "A dentist.", 
       "id": "Dentist", 
       "label": "Dentist", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MedicalOrganization", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/Dentist"
     }, 
     "DepartmentStore": {
@@ -3625,8 +3907,11 @@
       "comment_plain": "A department store.", 
       "id": "DepartmentStore", 
       "label": "Department Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/DepartmentStore"
     }, 
     "Distance": {
@@ -3639,8 +3924,11 @@
       "comment_plain": "Properties that take Distances as values are of the form '<Number> <Length unit of measure>'. E.g., '7 ft'", 
       "id": "Distance", 
       "label": "Distance", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Quantity"
+      ], 
       "url": "http://schema.org/Distance"
     }, 
     "DryCleaningOrLaundry": {
@@ -3652,9 +3940,12 @@
       "comment": "A dry-cleaning business.", 
       "comment_plain": "A dry-cleaning business.", 
       "id": "DryCleaningOrLaundry", 
-      "label": "Dry Cleaning OrLaundry", 
+      "label": "Dry Cleaning Or Laundry", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/DryCleaningOrLaundry"
     }, 
     "Duration": {
@@ -3667,8 +3958,11 @@
       "comment_plain": "Quantity: Duration (use  ISO 8601 duration format).", 
       "id": "Duration", 
       "label": "Duration", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Quantity"
+      ], 
       "url": "http://schema.org/Duration"
     }, 
     "EducationEvent": {
@@ -3680,8 +3974,11 @@
       "comment_plain": "Event type: Education event.", 
       "id": "EducationEvent", 
       "label": "Education Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/EducationEvent"
     }, 
     "EducationalOrganization": {
@@ -3693,6 +3990,9 @@
       "comment_plain": "An educational organization.", 
       "id": "EducationalOrganization", 
       "label": "Educational Organization", 
+      "properties": [
+        "alumni"
+      ], 
       "subtypes": [
         "CollegeOrUniversity", 
         "ElementarySchool", 
@@ -3701,7 +4001,9 @@
         "Preschool", 
         "School"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization"
+      ], 
       "url": "http://schema.org/EducationalOrganization"
     }, 
     "Electrician": {
@@ -3715,8 +4017,12 @@
       "comment_plain": "An electrician.", 
       "id": "Electrician", 
       "label": "Electrician", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/Electrician"
     }, 
     "ElectronicsStore": {
@@ -3730,8 +4036,11 @@
       "comment_plain": "An electronics store.", 
       "id": "ElectronicsStore", 
       "label": "Electronics Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/ElectronicsStore"
     }, 
     "ElementarySchool": {
@@ -3744,8 +4053,11 @@
       "comment_plain": "An elementary school.", 
       "id": "ElementarySchool", 
       "label": "Elementary School", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EducationalOrganization"
+      ], 
       "url": "http://schema.org/ElementarySchool"
     }, 
     "Embassy": {
@@ -3759,8 +4071,11 @@
       "comment_plain": "An embassy.", 
       "id": "Embassy", 
       "label": "Embassy", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "GovernmentBuilding"
+      ], 
       "url": "http://schema.org/Embassy"
     }, 
     "EmergencyService": {
@@ -3773,12 +4088,15 @@
       "comment_plain": "An emergency service, such as a fire station or ER.", 
       "id": "EmergencyService", 
       "label": "Emergency Service", 
+      "properties": [], 
       "subtypes": [
         "FireStation", 
         "Hospital", 
         "PoliceStation"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/EmergencyService"
     }, 
     "EmploymentAgency": {
@@ -3791,8 +4109,11 @@
       "comment_plain": "An employment agency.", 
       "id": "EmploymentAgency", 
       "label": "Employment Agency", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/EmploymentAgency"
     }, 
     "EntertainmentBusiness": {
@@ -3805,6 +4126,7 @@
       "comment_plain": "A business providing entertainment.", 
       "id": "EntertainmentBusiness", 
       "label": "Entertainment Business", 
+      "properties": [], 
       "subtypes": [
         "AdultEntertainment", 
         "AmusementPark", 
@@ -3814,7 +4136,9 @@
         "MovieTheater", 
         "NightClub"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/EntertainmentBusiness"
     }, 
     "Enumeration": {
@@ -3826,12 +4150,15 @@
       "comment_plain": "Lists or enumerations\u2014for example, a list of cuisines or music genres, etc.", 
       "id": "Enumeration", 
       "label": "Enumeration", 
+      "properties": [], 
       "subtypes": [
         "BookFormatType", 
         "ItemAvailability", 
         "OfferItemCondition"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
       "url": "http://schema.org/Enumeration"
     }, 
     "Event": {
@@ -3842,6 +4169,17 @@
       "comment_plain": "An event happening at a certain time at a certain location.", 
       "id": "Event", 
       "label": "Event", 
+      "properties": [
+        "attendees", 
+        "duration", 
+        "endDate", 
+        "location", 
+        "offers", 
+        "performers", 
+        "startDate", 
+        "subEvents", 
+        "superEvent"
+      ], 
       "subtypes": [
         "BusinessEvent", 
         "ChildrensEvent", 
@@ -3859,7 +4197,9 @@
         "UserInteraction", 
         "VisualArtsEvent"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/Event"
     }, 
     "EventVenue": {
@@ -3872,8 +4212,11 @@
       "comment_plain": "An event venue.", 
       "id": "EventVenue", 
       "label": "Event Venue", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/EventVenue"
     }, 
     "ExerciseGym": {
@@ -3887,8 +4230,11 @@
       "comment_plain": "A gym.", 
       "id": "ExerciseGym", 
       "label": "Exercise Gym", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/ExerciseGym"
     }, 
     "FastFoodRestaurant": {
@@ -3902,8 +4248,11 @@
       "comment_plain": "A fast-food restaurant.", 
       "id": "FastFoodRestaurant", 
       "label": "Fast Food Restaurant", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/FastFoodRestaurant"
     }, 
     "Festival": {
@@ -3915,8 +4264,11 @@
       "comment_plain": "Event type: Festival.", 
       "id": "Festival", 
       "label": "Festival", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/Festival"
     }, 
     "FinancialService": {
@@ -3929,13 +4281,16 @@
       "comment_plain": "Financial services business.", 
       "id": "FinancialService", 
       "label": "Financial Service", 
+      "properties": [], 
       "subtypes": [
         "AccountingService", 
         "AutomatedTeller", 
         "BankOrCreditUnion", 
         "InsuranceAgency"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/FinancialService"
     }, 
     "FireStation": {
@@ -3948,8 +4303,12 @@
       "comment_plain": "A fire station. With firemen.", 
       "id": "FireStation", 
       "label": "Fire Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EmergencyService", 
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/FireStation"
     }, 
     "Float": {
@@ -3961,8 +4320,11 @@
       "comment_plain": "Data type: Floating number.", 
       "id": "Float", 
       "label": "Float", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Number"
+      ], 
       "url": "http://schema.org/Float"
     }, 
     "Florist": {
@@ -3976,8 +4338,11 @@
       "comment_plain": "A florist.", 
       "id": "Florist", 
       "label": "Florist", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/Florist"
     }, 
     "FoodEstablishment": {
@@ -3990,6 +4355,11 @@
       "comment_plain": "A food-related business.", 
       "id": "FoodEstablishment", 
       "label": "Food Establishment", 
+      "properties": [
+        "acceptsReservations", 
+        "menu", 
+        "servesCuisine"
+      ], 
       "subtypes": [
         "Bakery", 
         "BarOrPub", 
@@ -4000,7 +4370,9 @@
         "Restaurant", 
         "Winery"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/FoodEstablishment"
     }, 
     "FoodEvent": {
@@ -4012,8 +4384,11 @@
       "comment_plain": "Event type: Food event.", 
       "id": "FoodEvent", 
       "label": "Food Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/FoodEvent"
     }, 
     "FurnitureStore": {
@@ -4027,8 +4402,11 @@
       "comment_plain": "A furniture store.", 
       "id": "FurnitureStore", 
       "label": "Furniture Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/FurnitureStore"
     }, 
     "GardenStore": {
@@ -4042,8 +4420,11 @@
       "comment_plain": "A garden store.", 
       "id": "GardenStore", 
       "label": "Garden Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/GardenStore"
     }, 
     "GasStation": {
@@ -4057,8 +4438,11 @@
       "comment_plain": "A gas station.", 
       "id": "GasStation", 
       "label": "Gas Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/GasStation"
     }, 
     "GatedResidenceCommunity": {
@@ -4071,8 +4455,11 @@
       "comment_plain": "Residence type: Gated community.", 
       "id": "GatedResidenceCommunity", 
       "label": "Gated Residence Community", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Residence"
+      ], 
       "url": "http://schema.org/GatedResidenceCommunity"
     }, 
     "GeneralContractor": {
@@ -4086,8 +4473,12 @@
       "comment_plain": "A general contractor.", 
       "id": "GeneralContractor", 
       "label": "General Contractor", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/GeneralContractor"
     }, 
     "GeoCoordinates": {
@@ -4100,8 +4491,15 @@
       "comment_plain": "The geographic coordinates of a place or event.", 
       "id": "GeoCoordinates", 
       "label": "Geo Coordinates", 
+      "properties": [
+        "elevation", 
+        "latitude", 
+        "longitude"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "StructuredValue"
+      ], 
       "url": "http://schema.org/GeoCoordinates"
     }, 
     "GolfCourse": {
@@ -4115,8 +4513,11 @@
       "comment_plain": "A golf course.", 
       "id": "GolfCourse", 
       "label": "Golf Course", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/GolfCourse"
     }, 
     "GovernmentBuilding": {
@@ -4129,6 +4530,7 @@
       "comment_plain": "A government building.", 
       "id": "GovernmentBuilding", 
       "label": "Government Building", 
+      "properties": [], 
       "subtypes": [
         "CityHall", 
         "Courthouse", 
@@ -4136,7 +4538,9 @@
         "Embassy", 
         "LegislativeBuilding"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/GovernmentBuilding"
     }, 
     "GovernmentOffice": {
@@ -4149,10 +4553,13 @@
       "comment_plain": "A government office\u2014for example, an IRS or DMV office.", 
       "id": "GovernmentOffice", 
       "label": "Government Office", 
+      "properties": [], 
       "subtypes": [
         "PostOffice"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/GovernmentOffice"
     }, 
     "GovernmentOrganization": {
@@ -4164,8 +4571,11 @@
       "comment_plain": "A governmental organization or agency.", 
       "id": "GovernmentOrganization", 
       "label": "Government Organization", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization"
+      ], 
       "url": "http://schema.org/GovernmentOrganization"
     }, 
     "GroceryStore": {
@@ -4179,8 +4589,11 @@
       "comment_plain": "A grocery store.", 
       "id": "GroceryStore", 
       "label": "Grocery Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/GroceryStore"
     }, 
     "HVACBusiness": {
@@ -4194,8 +4607,11 @@
       "comment_plain": "An HVAC service.", 
       "id": "HVACBusiness", 
       "label": "HVAC Business", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness"
+      ], 
       "url": "http://schema.org/HVACBusiness"
     }, 
     "HairSalon": {
@@ -4209,8 +4625,11 @@
       "comment_plain": "A hair salon.", 
       "id": "HairSalon", 
       "label": "Hair Salon", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HealthAndBeautyBusiness"
+      ], 
       "url": "http://schema.org/HairSalon"
     }, 
     "HardwareStore": {
@@ -4224,8 +4643,11 @@
       "comment_plain": "A hardware store.", 
       "id": "HardwareStore", 
       "label": "Hardware Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/HardwareStore"
     }, 
     "HealthAndBeautyBusiness": {
@@ -4238,6 +4660,7 @@
       "comment_plain": "Health and beauty.", 
       "id": "HealthAndBeautyBusiness", 
       "label": "Health And Beauty Business", 
+      "properties": [], 
       "subtypes": [
         "BeautySalon", 
         "DaySpa", 
@@ -4246,7 +4669,9 @@
         "NailSalon", 
         "TattooParlor"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/HealthAndBeautyBusiness"
     }, 
     "HealthClub": {
@@ -4260,8 +4685,12 @@
       "comment_plain": "A health club.", 
       "id": "HealthClub", 
       "label": "Health Club", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HealthAndBeautyBusiness", 
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/HealthClub"
     }, 
     "HighSchool": {
@@ -4274,8 +4703,11 @@
       "comment_plain": "A high school.", 
       "id": "HighSchool", 
       "label": "High School", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EducationalOrganization"
+      ], 
       "url": "http://schema.org/HighSchool"
     }, 
     "HinduTemple": {
@@ -4289,8 +4721,11 @@
       "comment_plain": "A Hindu temple.", 
       "id": "HinduTemple", 
       "label": "Hindu Temple", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PlaceOfWorship"
+      ], 
       "url": "http://schema.org/HinduTemple"
     }, 
     "HobbyShop": {
@@ -4304,8 +4739,11 @@
       "comment_plain": "A hobby store.", 
       "id": "HobbyShop", 
       "label": "Hobby Shop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/HobbyShop"
     }, 
     "HomeAndConstructionBusiness": {
@@ -4318,6 +4756,7 @@
       "comment_plain": "A construction business.", 
       "id": "HomeAndConstructionBusiness", 
       "label": "Home And Construction Business", 
+      "properties": [], 
       "subtypes": [
         "Electrician", 
         "GeneralContractor", 
@@ -4328,7 +4767,9 @@
         "Plumber", 
         "RoofingContractor"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/HomeAndConstructionBusiness"
     }, 
     "HomeGoodsStore": {
@@ -4342,8 +4783,11 @@
       "comment_plain": "A home goods store.", 
       "id": "HomeGoodsStore", 
       "label": "Home Goods Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/HomeGoodsStore"
     }, 
     "Hospital": {
@@ -4357,8 +4801,13 @@
       "comment_plain": "A hospital.", 
       "id": "Hospital", 
       "label": "Hospital", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EmergencyService", 
+        "MedicalOrganization", 
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Hospital"
     }, 
     "Hostel": {
@@ -4372,8 +4821,11 @@
       "comment_plain": "A hostel.", 
       "id": "Hostel", 
       "label": "Hostel", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LodgingBusiness"
+      ], 
       "url": "http://schema.org/Hostel"
     }, 
     "Hotel": {
@@ -4387,8 +4839,11 @@
       "comment_plain": "A hotel.", 
       "id": "Hotel", 
       "label": "Hotel", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LodgingBusiness"
+      ], 
       "url": "http://schema.org/Hotel"
     }, 
     "HousePainter": {
@@ -4402,8 +4857,12 @@
       "comment_plain": "A house painting service.", 
       "id": "HousePainter", 
       "label": "House Painter", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/HousePainter"
     }, 
     "IceCreamShop": {
@@ -4417,8 +4876,11 @@
       "comment_plain": "An ice cream shop", 
       "id": "IceCreamShop", 
       "label": "Ice Cream Shop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/IceCreamShop"
     }, 
     "ImageGallery": {
@@ -4432,8 +4894,11 @@
       "comment_plain": "Web page type: Image gallery page.", 
       "id": "ImageGallery", 
       "label": "Image Gallery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CollectionPage"
+      ], 
       "url": "http://schema.org/ImageGallery"
     }, 
     "ImageObject": {
@@ -4446,8 +4911,16 @@
       "comment_plain": "An image file.", 
       "id": "ImageObject", 
       "label": "Image Object", 
+      "properties": [
+        "caption", 
+        "exifData", 
+        "representativeOfPage", 
+        "thumbnail"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MediaObject"
+      ], 
       "url": "http://schema.org/ImageObject"
     }, 
     "InsuranceAgency": {
@@ -4461,8 +4934,11 @@
       "comment_plain": "Insurance agency.", 
       "id": "InsuranceAgency", 
       "label": "Insurance Agency", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FinancialService"
+      ], 
       "url": "http://schema.org/InsuranceAgency"
     }, 
     "Intangible": {
@@ -4473,6 +4949,7 @@
       "comment_plain": "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc.", 
       "id": "Intangible", 
       "label": "Intangible", 
+      "properties": [], 
       "subtypes": [
         "Enumeration", 
         "Language", 
@@ -4481,7 +4958,9 @@
         "Rating", 
         "StructuredValue"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/Intangible"
     }, 
     "Integer": {
@@ -4493,8 +4972,11 @@
       "comment_plain": "Data type: Integer.", 
       "id": "Integer", 
       "label": "Integer", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Number"
+      ], 
       "url": "http://schema.org/Integer"
     }, 
     "InternetCafe": {
@@ -4507,8 +4989,11 @@
       "comment_plain": "An internet cafe.", 
       "id": "InternetCafe", 
       "label": "Internet Cafe", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/InternetCafe"
     }, 
     "ItemAvailability": {
@@ -4529,8 +5014,11 @@
         "http://schema.org/PreOrder"
       ], 
       "label": "Item Availability", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Enumeration"
+      ], 
       "url": "http://schema.org/ItemAvailability"
     }, 
     "ItemList": {
@@ -4542,8 +5030,13 @@
       "comment_plain": "A list of items of any sort\u2014for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting.", 
       "id": "ItemList", 
       "label": "Item List", 
+      "properties": [
+        "itemListElement"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/ItemList"
     }, 
     "ItemPage": {
@@ -4556,8 +5049,11 @@
       "comment_plain": "A page devoted to a single item, such as a particular product or hotel.", 
       "id": "ItemPage", 
       "label": "Item Page", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/ItemPage"
     }, 
     "JewelryStore": {
@@ -4571,8 +5067,11 @@
       "comment_plain": "A jewelry store.", 
       "id": "JewelryStore", 
       "label": "Jewelry Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/JewelryStore"
     }, 
     "LakeBodyOfWater": {
@@ -4585,9 +5084,12 @@
       "comment": "A lake (for example, Lake Pontrachain).", 
       "comment_plain": "A lake (for example, Lake Pontrachain).", 
       "id": "LakeBodyOfWater", 
-      "label": "Lake Body OfWater", 
+      "label": "Lake Body Of Water", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/LakeBodyOfWater"
     }, 
     "Landform": {
@@ -4599,13 +5101,16 @@
       "comment_plain": "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.", 
       "id": "Landform", 
       "label": "Landform", 
+      "properties": [], 
       "subtypes": [
         "BodyOfWater", 
         "Continent", 
         "Mountain", 
         "Volcano"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Place"
+      ], 
       "url": "http://schema.org/Landform"
     }, 
     "LandmarksOrHistoricalBuildings": {
@@ -4616,9 +5121,12 @@
       "comment": "An historical landmark or building.", 
       "comment_plain": "An historical landmark or building.", 
       "id": "LandmarksOrHistoricalBuildings", 
-      "label": "Landmarks OrHistorical Buildings", 
+      "label": "Landmarks Or Historical Buildings", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Place"
+      ], 
       "url": "http://schema.org/LandmarksOrHistoricalBuildings"
     }, 
     "Language": {
@@ -4630,8 +5138,11 @@
       "comment_plain": "Natural languages such as Spanish, Tamil, Hindi, English, etc. and programming languages such as Scheme and Lisp.", 
       "id": "Language", 
       "label": "Language", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
       "url": "http://schema.org/Language"
     }, 
     "LegislativeBuilding": {
@@ -4645,8 +5156,11 @@
       "comment_plain": "A legislative building\u2014for example, the state capitol.", 
       "id": "LegislativeBuilding", 
       "label": "Legislative Building", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "GovernmentBuilding"
+      ], 
       "url": "http://schema.org/LegislativeBuilding"
     }, 
     "Library": {
@@ -4659,8 +5173,11 @@
       "comment_plain": "A library.", 
       "id": "Library", 
       "label": "Library", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/Library"
     }, 
     "LiquorStore": {
@@ -4674,8 +5191,11 @@
       "comment_plain": "A liquor store.", 
       "id": "LiquorStore", 
       "label": "Liquor Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/LiquorStore"
     }, 
     "LiteraryEvent": {
@@ -4687,8 +5207,11 @@
       "comment_plain": "Event type: Literary event.", 
       "id": "LiteraryEvent", 
       "label": "Literary Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/LiteraryEvent"
     }, 
     "LocalBusiness": {
@@ -4700,6 +5223,13 @@
       "comment_plain": "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.", 
       "id": "LocalBusiness", 
       "label": "Local Business", 
+      "properties": [
+        "branchOf", 
+        "currenciesAccepted", 
+        "openingHours", 
+        "paymentAccepted", 
+        "priceRange"
+      ], 
       "subtypes": [
         "AnimalShelter", 
         "AutomotiveBusiness", 
@@ -4729,7 +5259,10 @@
         "TouristInformationCenter", 
         "TravelAgency"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization", 
+        "Place"
+      ], 
       "url": "http://schema.org/LocalBusiness"
     }, 
     "Locksmith": {
@@ -4743,8 +5276,12 @@
       "comment_plain": "A locksmith.", 
       "id": "Locksmith", 
       "label": "Locksmith", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/Locksmith"
     }, 
     "LodgingBusiness": {
@@ -4757,13 +5294,16 @@
       "comment_plain": "A lodging business, such as a motel, hotel, or inn.", 
       "id": "LodgingBusiness", 
       "label": "Lodging Business", 
+      "properties": [], 
       "subtypes": [
         "BedAndBreakfast", 
         "Hostel", 
         "Hotel", 
         "Motel"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/LodgingBusiness"
     }, 
     "Map": {
@@ -4775,8 +5315,11 @@
       "comment_plain": "A map.", 
       "id": "Map", 
       "label": "Map", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Map"
     }, 
     "Mass": {
@@ -4789,8 +5332,11 @@
       "comment_plain": "Properties that take Mass as values are of the form '<Number> <Mass unit of measure>'. E.g., '7 kg'", 
       "id": "Mass", 
       "label": "Mass", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Quantity"
+      ], 
       "url": "http://schema.org/Mass"
     }, 
     "MediaObject": {
@@ -4802,13 +5348,31 @@
       "comment_plain": "An image, video, or audio object embedded in a web page. Note that a creative work may have many media objects associated with it on the same web page. For example, a page about a single song (MusicRecording) may have a music video (VideoObject), and a high and low bandwidth audio stream (2 AudioObject's).", 
       "id": "MediaObject", 
       "label": "Media Object", 
+      "properties": [
+        "bitrate", 
+        "contentSize", 
+        "contentURL", 
+        "duration", 
+        "embedURL", 
+        "encodesCreativeWork", 
+        "encodingFormat", 
+        "expires", 
+        "height", 
+        "playerType", 
+        "regionsAllowed", 
+        "requiresSubscription", 
+        "uploadDate", 
+        "width"
+      ], 
       "subtypes": [
         "AudioObject", 
         "ImageObject", 
         "MusicVideoObject", 
         "VideoObject"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/MediaObject"
     }, 
     "MedicalClinic": {
@@ -4822,8 +5386,11 @@
       "comment_plain": "A medical clinic.", 
       "id": "MedicalClinic", 
       "label": "Medical Clinic", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MedicalOrganization"
+      ], 
       "url": "http://schema.org/MedicalClinic"
     }, 
     "MedicalOrganization": {
@@ -4836,6 +5403,7 @@
       "comment_plain": "A medical organization, such as a doctor's office or clinic.", 
       "id": "MedicalOrganization", 
       "label": "Medical Organization", 
+      "properties": [], 
       "subtypes": [
         "Dentist", 
         "Hospital", 
@@ -4845,7 +5413,9 @@
         "Physician", 
         "VeterinaryCare"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/MedicalOrganization"
     }, 
     "MensClothingStore": {
@@ -4859,8 +5429,11 @@
       "comment_plain": "A men's clothing store.", 
       "id": "MensClothingStore", 
       "label": "Mens Clothing Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/MensClothingStore"
     }, 
     "MiddleSchool": {
@@ -4873,8 +5446,11 @@
       "comment_plain": "A middle school.", 
       "id": "MiddleSchool", 
       "label": "Middle School", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EducationalOrganization"
+      ], 
       "url": "http://schema.org/MiddleSchool"
     }, 
     "MobilePhoneStore": {
@@ -4888,8 +5464,11 @@
       "comment_plain": "A mobile-phone store.", 
       "id": "MobilePhoneStore", 
       "label": "Mobile Phone Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/MobilePhoneStore"
     }, 
     "Mosque": {
@@ -4903,8 +5482,11 @@
       "comment_plain": "A mosque.", 
       "id": "Mosque", 
       "label": "Mosque", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PlaceOfWorship"
+      ], 
       "url": "http://schema.org/Mosque"
     }, 
     "Motel": {
@@ -4918,8 +5500,11 @@
       "comment_plain": "A motel.", 
       "id": "Motel", 
       "label": "Motel", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LodgingBusiness"
+      ], 
       "url": "http://schema.org/Motel"
     }, 
     "MotorcycleDealer": {
@@ -4933,8 +5518,11 @@
       "comment_plain": "A motorcycle dealer.", 
       "id": "MotorcycleDealer", 
       "label": "Motorcycle Dealer", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/MotorcycleDealer"
     }, 
     "MotorcycleRepair": {
@@ -4948,8 +5536,11 @@
       "comment_plain": "A motorcycle repair shop.", 
       "id": "MotorcycleRepair", 
       "label": "Motorcycle Repair", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AutomotiveBusiness"
+      ], 
       "url": "http://schema.org/MotorcycleRepair"
     }, 
     "Mountain": {
@@ -4962,8 +5553,11 @@
       "comment_plain": "A mountain, like Mount Whitney or Mount Everest", 
       "id": "Mountain", 
       "label": "Mountain", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Landform"
+      ], 
       "url": "http://schema.org/Mountain"
     }, 
     "Movie": {
@@ -4975,8 +5569,19 @@
       "comment_plain": null, 
       "id": "Movie", 
       "label": "Movie", 
+      "properties": [
+        "actors", 
+        "director", 
+        "duration", 
+        "musicBy", 
+        "producer", 
+        "productionCompany", 
+        "trailer"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Movie"
     }, 
     "MovieRentalStore": {
@@ -4990,8 +5595,11 @@
       "comment_plain": "A movie rental store.", 
       "id": "MovieRentalStore", 
       "label": "Movie Rental Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/MovieRentalStore"
     }, 
     "MovieTheater": {
@@ -5005,8 +5613,12 @@
       "comment_plain": "A movie theater.", 
       "id": "MovieTheater", 
       "label": "Movie Theater", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness", 
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/MovieTheater"
     }, 
     "MovingCompany": {
@@ -5020,8 +5632,11 @@
       "comment_plain": "A moving company.", 
       "id": "MovingCompany", 
       "label": "Moving Company", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness"
+      ], 
       "url": "http://schema.org/MovingCompany"
     }, 
     "Museum": {
@@ -5034,8 +5649,11 @@
       "comment_plain": "A museum.", 
       "id": "Museum", 
       "label": "Museum", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Museum"
     }, 
     "MusicAlbum": {
@@ -5048,8 +5666,13 @@
       "comment_plain": "A collection of music tracks.", 
       "id": "MusicAlbum", 
       "label": "Music Album", 
+      "properties": [
+        "byArtist"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MusicPlaylist"
+      ], 
       "url": "http://schema.org/MusicAlbum"
     }, 
     "MusicEvent": {
@@ -5061,8 +5684,11 @@
       "comment_plain": "Event type: Music event.", 
       "id": "MusicEvent", 
       "label": "Music Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/MusicEvent"
     }, 
     "MusicGroup": {
@@ -5075,8 +5701,15 @@
       "comment_plain": "A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.", 
       "id": "MusicGroup", 
       "label": "Music Group", 
+      "properties": [
+        "albums", 
+        "musicGroupMember", 
+        "tracks"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PerformingGroup"
+      ], 
       "url": "http://schema.org/MusicGroup"
     }, 
     "MusicPlaylist": {
@@ -5088,10 +5721,16 @@
       "comment_plain": "A collection of music tracks in playlist form.", 
       "id": "MusicPlaylist", 
       "label": "Music Playlist", 
+      "properties": [
+        "numTracks", 
+        "tracks"
+      ], 
       "subtypes": [
         "MusicAlbum"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/MusicPlaylist"
     }, 
     "MusicRecording": {
@@ -5103,8 +5742,16 @@
       "comment_plain": null, 
       "id": "MusicRecording", 
       "label": "Music Recording", 
+      "properties": [
+        "byArtist", 
+        "duration", 
+        "inAlbum", 
+        "inPlaylist"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/MusicRecording"
     }, 
     "MusicStore": {
@@ -5118,8 +5765,11 @@
       "comment_plain": "A music store.", 
       "id": "MusicStore", 
       "label": "Music Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/MusicStore"
     }, 
     "MusicVenue": {
@@ -5132,8 +5782,11 @@
       "comment_plain": "A music venue.", 
       "id": "MusicVenue", 
       "label": "Music Venue", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/MusicVenue"
     }, 
     "MusicVideoObject": {
@@ -5146,8 +5799,11 @@
       "comment_plain": "A music video file.", 
       "id": "MusicVideoObject", 
       "label": "Music Video Object", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MediaObject"
+      ], 
       "url": "http://schema.org/MusicVideoObject"
     }, 
     "NGO": {
@@ -5159,8 +5815,11 @@
       "comment_plain": "Organization: Non-governmental Organization.", 
       "id": "NGO", 
       "label": "NGO", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization"
+      ], 
       "url": "http://schema.org/NGO"
     }, 
     "NailSalon": {
@@ -5174,8 +5833,11 @@
       "comment_plain": "A nail salon.", 
       "id": "NailSalon", 
       "label": "Nail Salon", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HealthAndBeautyBusiness"
+      ], 
       "url": "http://schema.org/NailSalon"
     }, 
     "NewsArticle": {
@@ -5188,8 +5850,11 @@
       "comment_plain": "A news article", 
       "id": "NewsArticle", 
       "label": "News Article", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Article"
+      ], 
       "url": "http://schema.org/NewsArticle"
     }, 
     "NightClub": {
@@ -5203,8 +5868,11 @@
       "comment_plain": "A nightclub or discotheque.", 
       "id": "NightClub", 
       "label": "Night Club", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EntertainmentBusiness"
+      ], 
       "url": "http://schema.org/NightClub"
     }, 
     "Notary": {
@@ -5218,8 +5886,11 @@
       "comment_plain": "A notary.", 
       "id": "Notary", 
       "label": "Notary", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/Notary"
     }, 
     "Number": {
@@ -5230,11 +5901,14 @@
       "comment_plain": "Data type: Number.", 
       "id": "Number", 
       "label": "Number", 
+      "properties": [], 
       "subtypes": [
         "Float", 
         "Integer"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "DataType"
+      ], 
       "url": "http://schema.org/Number"
     }, 
     "NutritionInformation": {
@@ -5247,8 +5921,24 @@
       "comment_plain": "Nutritional information about the recipe.", 
       "id": "NutritionInformation", 
       "label": "Nutrition Information", 
+      "properties": [
+        "calories", 
+        "carbohydrateContent", 
+        "cholesterolContent", 
+        "fatContent", 
+        "fiberContent", 
+        "proteinContent", 
+        "saturatedFatContent", 
+        "servingSize", 
+        "sodiumContent", 
+        "sugarContent", 
+        "transFatContent", 
+        "unsaturatedFatContent"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "StructuredValue"
+      ], 
       "url": "http://schema.org/NutritionInformation"
     }, 
     "OceanBodyOfWater": {
@@ -5261,9 +5951,12 @@
       "comment": "An ocean (for example, the Pacific).", 
       "comment_plain": "An ocean (for example, the Pacific).", 
       "id": "OceanBodyOfWater", 
-      "label": "Ocean Body OfWater", 
+      "label": "Ocean Body Of Water", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/OceanBodyOfWater"
     }, 
     "Offer": {
@@ -5275,10 +5968,23 @@
       "comment_plain": "An offer to sell an item\u2014for example, an offer to sell a product, the DVD of a movie, or tickets to an event.", 
       "id": "Offer", 
       "label": "Offer", 
+      "properties": [
+        "aggregateRating", 
+        "availability", 
+        "itemCondition", 
+        "itemOffered", 
+        "price", 
+        "priceCurrency", 
+        "priceValidUntil", 
+        "reviews", 
+        "seller"
+      ], 
       "subtypes": [
         "AggregateOffer"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
       "url": "http://schema.org/Offer"
     }, 
     "OfferItemCondition": {
@@ -5297,8 +6003,11 @@
         "http://schema.org/UsedCondition"
       ], 
       "label": "Offer Item Condition", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Enumeration"
+      ], 
       "url": "http://schema.org/OfferItemCondition"
     }, 
     "OfficeEquipmentStore": {
@@ -5312,8 +6021,11 @@
       "comment_plain": "An office equipment store.", 
       "id": "OfficeEquipmentStore", 
       "label": "Office Equipment Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/OfficeEquipmentStore"
     }, 
     "Optician": {
@@ -5327,8 +6039,11 @@
       "comment_plain": "An optician's store.", 
       "id": "Optician", 
       "label": "Optician", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MedicalOrganization"
+      ], 
       "url": "http://schema.org/Optician"
     }, 
     "Organization": {
@@ -5339,6 +6054,22 @@
       "comment_plain": "An organization such as a school, NGO, corporation, club, etc.", 
       "id": "Organization", 
       "label": "Organization", 
+      "properties": [
+        "address", 
+        "aggregateRating", 
+        "contactPoints", 
+        "email", 
+        "employees", 
+        "events", 
+        "faxNumber", 
+        "founders", 
+        "foundingDate", 
+        "interactionCount", 
+        "location", 
+        "members", 
+        "reviews", 
+        "telephone"
+      ], 
       "subtypes": [
         "Corporation", 
         "EducationalOrganization", 
@@ -5348,7 +6079,9 @@
         "PerformingGroup", 
         "SportsTeam"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/Organization"
     }, 
     "OutletStore": {
@@ -5362,8 +6095,11 @@
       "comment_plain": "An outlet store.", 
       "id": "OutletStore", 
       "label": "Outlet Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/OutletStore"
     }, 
     "Painting": {
@@ -5375,8 +6111,11 @@
       "comment_plain": "A painting.", 
       "id": "Painting", 
       "label": "Painting", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Painting"
     }, 
     "Park": {
@@ -5389,8 +6128,11 @@
       "comment_plain": "A park.", 
       "id": "Park", 
       "label": "Park", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Park"
     }, 
     "ParkingFacility": {
@@ -5403,8 +6145,11 @@
       "comment_plain": "A parking lot or other parking facility.", 
       "id": "ParkingFacility", 
       "label": "Parking Facility", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/ParkingFacility"
     }, 
     "PawnShop": {
@@ -5418,8 +6163,11 @@
       "comment_plain": "A pawnstore.", 
       "id": "PawnShop", 
       "label": "Pawn Shop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/PawnShop"
     }, 
     "PerformingArtsTheater": {
@@ -5432,8 +6180,11 @@
       "comment_plain": "A theatre or other performing art center.", 
       "id": "PerformingArtsTheater", 
       "label": "Performing Arts Theater", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/PerformingArtsTheater"
     }, 
     "PerformingGroup": {
@@ -5445,12 +6196,15 @@
       "comment_plain": "A performance group, such as a band, an orchestra, or a circus.", 
       "id": "PerformingGroup", 
       "label": "Performing Group", 
+      "properties": [], 
       "subtypes": [
         "DanceGroup", 
         "MusicGroup", 
         "TheaterGroup"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization"
+      ], 
       "url": "http://schema.org/PerformingGroup"
     }, 
     "Person": {
@@ -5461,8 +6215,39 @@
       "comment_plain": "A person (alive, dead, undead, or fictional).", 
       "id": "Person", 
       "label": "Person", 
+      "properties": [
+        "address", 
+        "affiliation", 
+        "alumniOf", 
+        "awards", 
+        "birthDate", 
+        "children", 
+        "colleagues", 
+        "contactPoints", 
+        "deathDate", 
+        "email", 
+        "faxNumber", 
+        "follows", 
+        "gender", 
+        "homeLocation", 
+        "interactionCount", 
+        "jobTitle", 
+        "knows", 
+        "memberOf", 
+        "nationality", 
+        "parents", 
+        "performerIn", 
+        "relatedTo", 
+        "siblings", 
+        "spouse", 
+        "telephone", 
+        "workLocation", 
+        "worksFor"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/Person"
     }, 
     "PetStore": {
@@ -5476,8 +6261,11 @@
       "comment_plain": "A pet store.", 
       "id": "PetStore", 
       "label": "Pet Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/PetStore"
     }, 
     "Pharmacy": {
@@ -5491,8 +6279,11 @@
       "comment_plain": "A pharmacy or drugstore.", 
       "id": "Pharmacy", 
       "label": "Pharmacy", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MedicalOrganization"
+      ], 
       "url": "http://schema.org/Pharmacy"
     }, 
     "Photograph": {
@@ -5504,8 +6295,11 @@
       "comment_plain": "A photograph.", 
       "id": "Photograph", 
       "label": "Photograph", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Photograph"
     }, 
     "Physician": {
@@ -5519,8 +6313,11 @@
       "comment_plain": "A doctor's office.", 
       "id": "Physician", 
       "label": "Physician", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MedicalOrganization"
+      ], 
       "url": "http://schema.org/Physician"
     }, 
     "Place": {
@@ -5531,6 +6328,19 @@
       "comment_plain": "Entities that have a somewhat fixed, physical extension.", 
       "id": "Place", 
       "label": "Place", 
+      "properties": [
+        "address", 
+        "aggregateRating", 
+        "containedIn", 
+        "events", 
+        "faxNumber", 
+        "geo", 
+        "interactionCount", 
+        "maps", 
+        "photos", 
+        "reviews", 
+        "telephone"
+      ], 
       "subtypes": [
         "AdministrativeArea", 
         "CivicStructure", 
@@ -5540,7 +6350,9 @@
         "Residence", 
         "TouristAttraction"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/Place"
     }, 
     "PlaceOfWorship": {
@@ -5552,7 +6364,8 @@
       "comment": "Place of worship, such as a church, synagogue, or mosque.", 
       "comment_plain": "Place of worship, such as a church, synagogue, or mosque.", 
       "id": "PlaceOfWorship", 
-      "label": "Place OfWorship", 
+      "label": "Place Of Worship", 
+      "properties": [], 
       "subtypes": [
         "BuddhistTemple", 
         "CatholicChurch", 
@@ -5561,7 +6374,9 @@
         "Mosque", 
         "Synagogue"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/PlaceOfWorship"
     }, 
     "Playground": {
@@ -5574,8 +6389,11 @@
       "comment_plain": "A playground.", 
       "id": "Playground", 
       "label": "Playground", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Playground"
     }, 
     "Plumber": {
@@ -5589,8 +6407,12 @@
       "comment_plain": "A plumbing service.", 
       "id": "Plumber", 
       "label": "Plumber", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/Plumber"
     }, 
     "PoliceStation": {
@@ -5603,8 +6425,12 @@
       "comment_plain": "A police station.", 
       "id": "PoliceStation", 
       "label": "Police Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EmergencyService", 
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/PoliceStation"
     }, 
     "Pond": {
@@ -5618,8 +6444,11 @@
       "comment_plain": null, 
       "id": "Pond", 
       "label": "Pond", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/Pond"
     }, 
     "PostOffice": {
@@ -5633,8 +6462,11 @@
       "comment_plain": "A post office.", 
       "id": "PostOffice", 
       "label": "Post Office", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "GovernmentOffice"
+      ], 
       "url": "http://schema.org/PostOffice"
     }, 
     "PostalAddress": {
@@ -5648,8 +6480,18 @@
       "comment_plain": "The mailing address.", 
       "id": "PostalAddress", 
       "label": "Postal Address", 
+      "properties": [
+        "addressCountry", 
+        "addressLocality", 
+        "addressRegion", 
+        "postOfficeBoxNumber", 
+        "postalCode", 
+        "streetAddress"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "ContactPoint"
+      ], 
       "url": "http://schema.org/PostalAddress"
     }, 
     "Preschool": {
@@ -5662,8 +6504,11 @@
       "comment_plain": "A preschool.", 
       "id": "Preschool", 
       "label": "Preschool", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EducationalOrganization"
+      ], 
       "url": "http://schema.org/Preschool"
     }, 
     "Product": {
@@ -5674,8 +6519,19 @@
       "comment_plain": "A product is anything that is made available for sale\u2014for example, a pair of shoes, a concert ticket, or a car.", 
       "id": "Product", 
       "label": "Product", 
+      "properties": [
+        "aggregateRating", 
+        "brand", 
+        "manufacturer", 
+        "model", 
+        "offers", 
+        "productID", 
+        "reviews"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Thing"
+      ], 
       "url": "http://schema.org/Product"
     }, 
     "ProfessionalService": {
@@ -5688,6 +6544,7 @@
       "comment_plain": "Provider of professional services.", 
       "id": "ProfessionalService", 
       "label": "Professional Service", 
+      "properties": [], 
       "subtypes": [
         "AccountingService", 
         "Attorney", 
@@ -5700,7 +6557,9 @@
         "Plumber", 
         "RoofingContractor"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/ProfessionalService"
     }, 
     "ProfilePage": {
@@ -5713,8 +6572,11 @@
       "comment_plain": "Web page type: Profile page.", 
       "id": "ProfilePage", 
       "label": "Profile Page", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/ProfilePage"
     }, 
     "PublicSwimmingPool": {
@@ -5728,8 +6590,11 @@
       "comment_plain": "A public swimming pool.", 
       "id": "PublicSwimmingPool", 
       "label": "Public Swimming Pool", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/PublicSwimmingPool"
     }, 
     "Quantity": {
@@ -5741,12 +6606,15 @@
       "comment_plain": "Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 Kg' or '4 milligrams'.", 
       "id": "Quantity", 
       "label": "Quantity", 
+      "properties": [], 
       "subtypes": [
         "Distance", 
         "Duration", 
         "Mass"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
       "url": "http://schema.org/Quantity"
     }, 
     "RVPark": {
@@ -5759,8 +6627,11 @@
       "comment_plain": "An RV park.", 
       "id": "RVPark", 
       "label": "RV Park", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/RVPark"
     }, 
     "RadioStation": {
@@ -5773,8 +6644,11 @@
       "comment_plain": "A radio station.", 
       "id": "RadioStation", 
       "label": "Radio Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/RadioStation"
     }, 
     "Rating": {
@@ -5786,10 +6660,17 @@
       "comment_plain": "The rating of the video.", 
       "id": "Rating", 
       "label": "Rating", 
+      "properties": [
+        "bestRating", 
+        "ratingValue", 
+        "worstRating"
+      ], 
       "subtypes": [
         "AggregateRating"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
       "url": "http://schema.org/Rating"
     }, 
     "RealEstateAgent": {
@@ -5802,8 +6683,11 @@
       "comment_plain": "A real-estate agent.", 
       "id": "RealEstateAgent", 
       "label": "Real Estate Agent", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/RealEstateAgent"
     }, 
     "Recipe": {
@@ -5815,8 +6699,22 @@
       "comment_plain": "A recipe.", 
       "id": "Recipe", 
       "label": "Recipe", 
+      "properties": [
+        "cookTime", 
+        "cookingMethod", 
+        "ingredients", 
+        "nutrition", 
+        "prepTime", 
+        "recipeCategory", 
+        "recipeCuisine", 
+        "recipeInstructions", 
+        "recipeYield", 
+        "totalTime"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Recipe"
     }, 
     "RecyclingCenter": {
@@ -5829,8 +6727,11 @@
       "comment_plain": "A recycling center.", 
       "id": "RecyclingCenter", 
       "label": "Recycling Center", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/RecyclingCenter"
     }, 
     "Reservoir": {
@@ -5844,8 +6745,11 @@
       "comment_plain": null, 
       "id": "Reservoir", 
       "label": "Reservoir", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/Reservoir"
     }, 
     "Residence": {
@@ -5857,12 +6761,15 @@
       "comment_plain": "The place where a person lives.", 
       "id": "Residence", 
       "label": "Residence", 
+      "properties": [], 
       "subtypes": [
         "ApartmentComplex", 
         "GatedResidenceCommunity", 
         "SingleFamilyResidence"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Place"
+      ], 
       "url": "http://schema.org/Residence"
     }, 
     "Restaurant": {
@@ -5876,8 +6783,11 @@
       "comment_plain": "A restaurant.", 
       "id": "Restaurant", 
       "label": "Restaurant", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/Restaurant"
     }, 
     "Review": {
@@ -5889,8 +6799,15 @@
       "comment_plain": "A review of an item - for example, a restaurant, movie, or store.", 
       "id": "Review", 
       "label": "Review", 
+      "properties": [
+        "itemReviewed", 
+        "reviewBody", 
+        "reviewRating"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Review"
     }, 
     "RiverBodyOfWater": {
@@ -5903,9 +6820,12 @@
       "comment": "A river (for example, the broad majestic Shannon).", 
       "comment_plain": "A river (for example, the broad majestic Shannon).", 
       "id": "RiverBodyOfWater", 
-      "label": "River Body OfWater", 
+      "label": "River Body Of Water", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/RiverBodyOfWater"
     }, 
     "RoofingContractor": {
@@ -5919,8 +6839,12 @@
       "comment_plain": "A roofing contractor.", 
       "id": "RoofingContractor", 
       "label": "Roofing Contractor", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HomeAndConstructionBusiness", 
+        "ProfessionalService"
+      ], 
       "url": "http://schema.org/RoofingContractor"
     }, 
     "SaleEvent": {
@@ -5932,8 +6856,11 @@
       "comment_plain": "Event type: Sales event.", 
       "id": "SaleEvent", 
       "label": "Sale Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/SaleEvent"
     }, 
     "ScholarlyArticle": {
@@ -5946,8 +6873,11 @@
       "comment_plain": "A scholarly article.", 
       "id": "ScholarlyArticle", 
       "label": "Scholarly Article", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Article"
+      ], 
       "url": "http://schema.org/ScholarlyArticle"
     }, 
     "School": {
@@ -5960,8 +6890,11 @@
       "comment_plain": "A school.", 
       "id": "School", 
       "label": "School", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "EducationalOrganization"
+      ], 
       "url": "http://schema.org/School"
     }, 
     "Sculpture": {
@@ -5973,8 +6906,11 @@
       "comment_plain": "A piece of sculpture.", 
       "id": "Sculpture", 
       "label": "Sculpture", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/Sculpture"
     }, 
     "SeaBodyOfWater": {
@@ -5987,9 +6923,12 @@
       "comment": "A sea (for example, the Caspian sea).", 
       "comment_plain": "A sea (for example, the Caspian sea).", 
       "id": "SeaBodyOfWater", 
-      "label": "Sea Body OfWater", 
+      "label": "Sea Body Of Water", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/SeaBodyOfWater"
     }, 
     "SearchResultsPage": {
@@ -6002,8 +6941,11 @@
       "comment_plain": "Web page type: Search results page.", 
       "id": "SearchResultsPage", 
       "label": "Search Results Page", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPage"
+      ], 
       "url": "http://schema.org/SearchResultsPage"
     }, 
     "SelfStorage": {
@@ -6016,8 +6958,11 @@
       "comment_plain": "Self-storage facility.", 
       "id": "SelfStorage", 
       "label": "Self Storage", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/SelfStorage"
     }, 
     "ShoeStore": {
@@ -6031,8 +6976,11 @@
       "comment_plain": "A shoe store.", 
       "id": "ShoeStore", 
       "label": "Shoe Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/ShoeStore"
     }, 
     "ShoppingCenter": {
@@ -6045,8 +6993,11 @@
       "comment_plain": "A shopping center or mall.", 
       "id": "ShoppingCenter", 
       "label": "Shopping Center", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/ShoppingCenter"
     }, 
     "SingleFamilyResidence": {
@@ -6059,8 +7010,11 @@
       "comment_plain": "Residence type: Single-family home.", 
       "id": "SingleFamilyResidence", 
       "label": "Single Family Residence", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Residence"
+      ], 
       "url": "http://schema.org/SingleFamilyResidence"
     }, 
     "SiteNavigationElement": {
@@ -6073,8 +7027,11 @@
       "comment_plain": "A navigation element of the page.", 
       "id": "SiteNavigationElement", 
       "label": "Site Navigation Element", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPageElement"
+      ], 
       "url": "http://schema.org/SiteNavigationElement"
     }, 
     "SkiResort": {
@@ -6088,8 +7045,11 @@
       "comment_plain": "A ski resort.", 
       "id": "SkiResort", 
       "label": "Ski Resort", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/SkiResort"
     }, 
     "SocialEvent": {
@@ -6101,8 +7061,11 @@
       "comment_plain": "Event type: Social event.", 
       "id": "SocialEvent", 
       "label": "Social Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/SocialEvent"
     }, 
     "SportingGoodsStore": {
@@ -6116,8 +7079,11 @@
       "comment_plain": "A sporting goods store.", 
       "id": "SportingGoodsStore", 
       "label": "Sporting Goods Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/SportingGoodsStore"
     }, 
     "SportsActivityLocation": {
@@ -6130,6 +7096,7 @@
       "comment_plain": "A sports location, such as a playing field.", 
       "id": "SportsActivityLocation", 
       "label": "Sports Activity Location", 
+      "properties": [], 
       "subtypes": [
         "BowlingAlley", 
         "ExerciseGym", 
@@ -6141,7 +7108,9 @@
         "StadiumOrArena", 
         "TennisComplex"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/SportsActivityLocation"
     }, 
     "SportsClub": {
@@ -6155,8 +7124,11 @@
       "comment_plain": "A sports club.", 
       "id": "SportsClub", 
       "label": "Sports Club", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/SportsClub"
     }, 
     "SportsEvent": {
@@ -6168,8 +7140,11 @@
       "comment_plain": "Event type: Sports event.", 
       "id": "SportsEvent", 
       "label": "Sports Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/SportsEvent"
     }, 
     "SportsTeam": {
@@ -6181,8 +7156,11 @@
       "comment_plain": "Organization: Sports team.", 
       "id": "SportsTeam", 
       "label": "Sports Team", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Organization"
+      ], 
       "url": "http://schema.org/SportsTeam"
     }, 
     "StadiumOrArena": {
@@ -6194,9 +7172,13 @@
       "comment": "A stadium.", 
       "comment_plain": "A stadium.", 
       "id": "StadiumOrArena", 
-      "label": "Stadium OrArena", 
+      "label": "Stadium Or Arena", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation", 
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/StadiumOrArena"
     }, 
     "State": {
@@ -6209,8 +7191,11 @@
       "comment_plain": "A state or province.", 
       "id": "State", 
       "label": "State", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "AdministrativeArea"
+      ], 
       "url": "http://schema.org/State"
     }, 
     "Store": {
@@ -6223,6 +7208,7 @@
       "comment_plain": "A retail good store.", 
       "id": "Store", 
       "label": "Store", 
+      "properties": [], 
       "subtypes": [
         "AutoPartsStore", 
         "BikeStore", 
@@ -6255,7 +7241,9 @@
         "ToyStore", 
         "WholesaleStore"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/Store"
     }, 
     "StructuredValue": {
@@ -6267,12 +7255,15 @@
       "comment_plain": "Structured values are strings\u2014for example, addresses\u2014that have certain constraints on their structure.", 
       "id": "StructuredValue", 
       "label": "Structured Value", 
+      "properties": [], 
       "subtypes": [
         "ContactPoint", 
         "GeoCoordinates", 
         "NutritionInformation"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Intangible"
+      ], 
       "url": "http://schema.org/StructuredValue"
     }, 
     "SubwayStation": {
@@ -6285,8 +7276,11 @@
       "comment_plain": "A subway station.", 
       "id": "SubwayStation", 
       "label": "Subway Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/SubwayStation"
     }, 
     "Synagogue": {
@@ -6300,8 +7294,11 @@
       "comment_plain": "A synagogue.", 
       "id": "Synagogue", 
       "label": "Synagogue", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PlaceOfWorship"
+      ], 
       "url": "http://schema.org/Synagogue"
     }, 
     "TVEpisode": {
@@ -6313,8 +7310,20 @@
       "comment_plain": "An episode of a TV series or season.", 
       "id": "TVEpisode", 
       "label": "TV Episode", 
+      "properties": [
+        "actors", 
+        "director", 
+        "episodeNumber", 
+        "musicBy", 
+        "partOfSeason", 
+        "partOfTVSeries", 
+        "producer", 
+        "productionCompany"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/TVEpisode"
     }, 
     "TVSeason": {
@@ -6326,8 +7335,19 @@
       "comment_plain": "A TV season.", 
       "id": "TVSeason", 
       "label": "TV Season", 
+      "properties": [
+        "endDate", 
+        "episodes", 
+        "numberOfEpisodes", 
+        "partOfTVSeries", 
+        "seasonNumber", 
+        "startDate", 
+        "trailer"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/TVSeason"
     }, 
     "TVSeries": {
@@ -6339,8 +7359,23 @@
       "comment_plain": "A television series.", 
       "id": "TVSeries", 
       "label": "TV Series", 
+      "properties": [
+        "actors", 
+        "director", 
+        "endDate", 
+        "episodes", 
+        "musicBy", 
+        "numberOfEpisodes", 
+        "producer", 
+        "productionCompany", 
+        "seasons", 
+        "startDate", 
+        "trailer"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/TVSeries"
     }, 
     "Table": {
@@ -6353,8 +7388,11 @@
       "comment_plain": "A table on the page.", 
       "id": "Table", 
       "label": "Table", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPageElement"
+      ], 
       "url": "http://schema.org/Table"
     }, 
     "TattooParlor": {
@@ -6368,8 +7406,11 @@
       "comment_plain": "A tattoo parlor.", 
       "id": "TattooParlor", 
       "label": "Tattoo Parlor", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "HealthAndBeautyBusiness"
+      ], 
       "url": "http://schema.org/TattooParlor"
     }, 
     "TaxiStand": {
@@ -6382,8 +7423,11 @@
       "comment_plain": "A taxi stand.", 
       "id": "TaxiStand", 
       "label": "Taxi Stand", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/TaxiStand"
     }, 
     "TelevisionStation": {
@@ -6396,8 +7440,11 @@
       "comment_plain": "A television station.", 
       "id": "TelevisionStation", 
       "label": "Television Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/TelevisionStation"
     }, 
     "TennisComplex": {
@@ -6411,8 +7458,11 @@
       "comment_plain": "A tennis complex.", 
       "id": "TennisComplex", 
       "label": "Tennis Complex", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "SportsActivityLocation"
+      ], 
       "url": "http://schema.org/TennisComplex"
     }, 
     "Text": {
@@ -6423,10 +7473,13 @@
       "comment_plain": "Data type: Text.", 
       "id": "Text", 
       "label": "Text", 
+      "properties": [], 
       "subtypes": [
         "URL"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "DataType"
+      ], 
       "url": "http://schema.org/Text"
     }, 
     "TheaterEvent": {
@@ -6438,8 +7491,11 @@
       "comment_plain": "Event type: Theater performance.", 
       "id": "TheaterEvent", 
       "label": "Theater Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/TheaterEvent"
     }, 
     "TheaterGroup": {
@@ -6452,8 +7508,11 @@
       "comment_plain": "A theater group or company\u2014for example, the Royal Shakespeare Company or Druid Theatre.", 
       "id": "TheaterGroup", 
       "label": "Theater Group", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "PerformingGroup"
+      ], 
       "url": "http://schema.org/TheaterGroup"
     }, 
     "Thing": {
@@ -6462,6 +7521,12 @@
       "comment_plain": "The most generic type of item.", 
       "id": "Thing", 
       "label": "Thing", 
+      "properties": [
+        "description", 
+        "image", 
+        "name", 
+        "url"
+      ], 
       "subtypes": [
         "CreativeWork", 
         "Event", 
@@ -6485,8 +7550,11 @@
       "comment_plain": "A tire shop.", 
       "id": "TireShop", 
       "label": "Tire Shop", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/TireShop"
     }, 
     "TouristAttraction": {
@@ -6498,8 +7566,11 @@
       "comment_plain": "A tourist attraction.", 
       "id": "TouristAttraction", 
       "label": "Tourist Attraction", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Place"
+      ], 
       "url": "http://schema.org/TouristAttraction"
     }, 
     "TouristInformationCenter": {
@@ -6512,8 +7583,11 @@
       "comment_plain": "A tourist information center.", 
       "id": "TouristInformationCenter", 
       "label": "Tourist Information Center", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/TouristInformationCenter"
     }, 
     "ToyStore": {
@@ -6527,8 +7601,11 @@
       "comment_plain": "A toystore.", 
       "id": "ToyStore", 
       "label": "Toy Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/ToyStore"
     }, 
     "TrainStation": {
@@ -6541,8 +7618,11 @@
       "comment_plain": "A train station.", 
       "id": "TrainStation", 
       "label": "Train Station", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/TrainStation"
     }, 
     "TravelAgency": {
@@ -6555,8 +7635,11 @@
       "comment_plain": "A travel agency.", 
       "id": "TravelAgency", 
       "label": "Travel Agency", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "LocalBusiness"
+      ], 
       "url": "http://schema.org/TravelAgency"
     }, 
     "URL": {
@@ -6568,8 +7651,11 @@
       "comment_plain": "Data type: URL.", 
       "id": "URL", 
       "label": "URL", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Text"
+      ], 
       "url": "http://schema.org/URL"
     }, 
     "UserBlocks": {
@@ -6582,8 +7668,11 @@
       "comment_plain": "User interaction: Block this content.", 
       "id": "UserBlocks", 
       "label": "User Blocks", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserBlocks"
     }, 
     "UserCheckins": {
@@ -6596,8 +7685,11 @@
       "comment_plain": "User interaction: Check-in at a place.", 
       "id": "UserCheckins", 
       "label": "User Checkins", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserCheckins"
     }, 
     "UserComments": {
@@ -6610,8 +7702,11 @@
       "comment_plain": "User interaction: A comment about an item.", 
       "id": "UserComments", 
       "label": "User Comments", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserComments"
     }, 
     "UserDownloads": {
@@ -6624,8 +7719,11 @@
       "comment_plain": "User interaction: Download of an item.", 
       "id": "UserDownloads", 
       "label": "User Downloads", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserDownloads"
     }, 
     "UserInteraction": {
@@ -6637,6 +7735,7 @@
       "comment_plain": "A user interacting with a page", 
       "id": "UserInteraction", 
       "label": "User Interaction", 
+      "properties": [], 
       "subtypes": [
         "UserBlocks", 
         "UserCheckins", 
@@ -6648,7 +7747,9 @@
         "UserPlusOnes", 
         "UserTweets"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/UserInteraction"
     }, 
     "UserLikes": {
@@ -6661,8 +7762,11 @@
       "comment_plain": "User interaction: Like an item.", 
       "id": "UserLikes", 
       "label": "User Likes", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserLikes"
     }, 
     "UserPageVisits": {
@@ -6675,8 +7779,11 @@
       "comment_plain": "User interaction: Visit to a web page.", 
       "id": "UserPageVisits", 
       "label": "User Page Visits", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserPageVisits"
     }, 
     "UserPlays": {
@@ -6689,8 +7796,11 @@
       "comment_plain": "User interaction: Play count of an item, for example a video or a song.", 
       "id": "UserPlays", 
       "label": "User Plays", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserPlays"
     }, 
     "UserPlusOnes": {
@@ -6703,8 +7813,11 @@
       "comment_plain": "User interaction: +1.", 
       "id": "UserPlusOnes", 
       "label": "User Plus Ones", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserPlusOnes"
     }, 
     "UserTweets": {
@@ -6717,8 +7830,11 @@
       "comment_plain": "User interaction: Tweets.", 
       "id": "UserTweets", 
       "label": "User Tweets", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "UserInteraction"
+      ], 
       "url": "http://schema.org/UserTweets"
     }, 
     "VeterinaryCare": {
@@ -6732,8 +7848,11 @@
       "comment_plain": "A vet's office.", 
       "id": "VeterinaryCare", 
       "label": "Veterinary Care", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MedicalOrganization"
+      ], 
       "url": "http://schema.org/VeterinaryCare"
     }, 
     "VideoGallery": {
@@ -6747,8 +7866,11 @@
       "comment_plain": "Web page type: Video gallery page.", 
       "id": "VideoGallery", 
       "label": "Video Gallery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CollectionPage"
+      ], 
       "url": "http://schema.org/VideoGallery"
     }, 
     "VideoObject": {
@@ -6761,8 +7883,14 @@
       "comment_plain": "A video file.", 
       "id": "VideoObject", 
       "label": "Video Object", 
+      "properties": [
+        "caption", 
+        "thumbnail"
+      ], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "MediaObject"
+      ], 
       "url": "http://schema.org/VideoObject"
     }, 
     "VisualArtsEvent": {
@@ -6774,8 +7902,11 @@
       "comment_plain": "Event type: Visual arts event.", 
       "id": "VisualArtsEvent", 
       "label": "Visual Arts Event", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Event"
+      ], 
       "url": "http://schema.org/VisualArtsEvent"
     }, 
     "Volcano": {
@@ -6788,8 +7919,11 @@
       "comment_plain": "A volcano, like Fuji san", 
       "id": "Volcano", 
       "label": "Volcano", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Landform"
+      ], 
       "url": "http://schema.org/Volcano"
     }, 
     "WPAdBlock": {
@@ -6801,9 +7935,12 @@
       "comment": "An advertising section of the page.", 
       "comment_plain": "An advertising section of the page.", 
       "id": "WPAdBlock", 
-      "label": "WP AdBlock", 
+      "label": "WP Ad Block", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPageElement"
+      ], 
       "url": "http://schema.org/WPAdBlock"
     }, 
     "WPFooter": {
@@ -6816,8 +7953,11 @@
       "comment_plain": "The footer section of the page.", 
       "id": "WPFooter", 
       "label": "WP Footer", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPageElement"
+      ], 
       "url": "http://schema.org/WPFooter"
     }, 
     "WPHeader": {
@@ -6830,8 +7970,11 @@
       "comment_plain": "The header section of the page.", 
       "id": "WPHeader", 
       "label": "WP Header", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPageElement"
+      ], 
       "url": "http://schema.org/WPHeader"
     }, 
     "WPSideBar": {
@@ -6844,8 +7987,11 @@
       "comment_plain": "A sidebar section of the page.", 
       "id": "WPSideBar", 
       "label": "WP Side Bar", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "WebPageElement"
+      ], 
       "url": "http://schema.org/WPSideBar"
     }, 
     "Waterfall": {
@@ -6859,8 +8005,11 @@
       "comment_plain": "A waterfall, like Niagara", 
       "id": "Waterfall", 
       "label": "Waterfall", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "BodyOfWater"
+      ], 
       "url": "http://schema.org/Waterfall"
     }, 
     "WebPage": {
@@ -6872,6 +8021,13 @@
       "comment_plain": "A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as breadcrumb may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page", 
       "id": "WebPage", 
       "label": "Web Page", 
+      "properties": [
+        "breadcrumb", 
+        "isPartOf", 
+        "mainContentOfPage", 
+        "primaryImageOfPage", 
+        "significantLinks"
+      ], 
       "subtypes": [
         "AboutPage", 
         "CheckoutPage", 
@@ -6881,7 +8037,9 @@
         "ProfilePage", 
         "SearchResultsPage"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/WebPage"
     }, 
     "WebPageElement": {
@@ -6893,6 +8051,7 @@
       "comment_plain": null, 
       "id": "WebPageElement", 
       "label": "Web Page Element", 
+      "properties": [], 
       "subtypes": [
         "SiteNavigationElement", 
         "Table", 
@@ -6901,7 +8060,9 @@
         "WPHeader", 
         "WPSideBar"
       ], 
-      "supertypes": [], 
+      "supertypes": [
+        "CreativeWork"
+      ], 
       "url": "http://schema.org/WebPageElement"
     }, 
     "WholesaleStore": {
@@ -6915,8 +8076,11 @@
       "comment_plain": "A wholesale store.", 
       "id": "WholesaleStore", 
       "label": "Wholesale Store", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "Store"
+      ], 
       "url": "http://schema.org/WholesaleStore"
     }, 
     "Winery": {
@@ -6930,8 +8094,11 @@
       "comment_plain": "A winery.", 
       "id": "Winery", 
       "label": "Winery", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "FoodEstablishment"
+      ], 
       "url": "http://schema.org/Winery"
     }, 
     "Zoo": {
@@ -6944,8 +8111,11 @@
       "comment_plain": "A zoo.", 
       "id": "Zoo", 
       "label": "Zoo", 
+      "properties": [], 
       "subtypes": [], 
-      "supertypes": [], 
+      "supertypes": [
+        "CivicStructure"
+      ], 
       "url": "http://schema.org/Zoo"
     }
   }

@@ -255,7 +255,7 @@ schema:Table a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Table>;
     .
 schema:WPAdBlock a rdfs:Class;
-    rdfs:label "WP AdBlock"@en;
+    rdfs:label "WP Ad Block"@en;
     rdfs:comment "An advertising section of the page."@en;
     rdfs:subClassOf schema:WebPageElement;
     rdfs:isDefinedBy <http://schema.org/WPAdBlock>;
@@ -561,7 +561,7 @@ schema:EducationalOrganization a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/EducationalOrganization>;
     .
 schema:CollegeOrUniversity a rdfs:Class;
-    rdfs:label "College OrUniversity"@en;
+    rdfs:label "College Or University"@en;
     rdfs:comment "A college, university, or other third-level educational institution."@en;
     rdfs:subClassOf schema:EducationalOrganization;
     rdfs:isDefinedBy <http://schema.org/CollegeOrUniversity>;
@@ -683,7 +683,7 @@ schema:ChildCare a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/ChildCare>;
     .
 schema:DryCleaningOrLaundry a rdfs:Class;
-    rdfs:label "Dry Cleaning OrLaundry"@en;
+    rdfs:label "Dry Cleaning Or Laundry"@en;
     rdfs:comment "A dry-cleaning business."@en;
     rdfs:subClassOf schema:LocalBusiness;
     rdfs:isDefinedBy <http://schema.org/DryCleaningOrLaundry>;
@@ -791,7 +791,7 @@ schema:AutomatedTeller a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/AutomatedTeller>;
     .
 schema:BankOrCreditUnion a rdfs:Class;
-    rdfs:label "Bank OrCredit Union"@en;
+    rdfs:label "Bank Or Credit Union"@en;
     rdfs:comment "Bank or credit union."@en;
     rdfs:subClassOf schema:FinancialService;
     rdfs:isDefinedBy <http://schema.org/BankOrCreditUnion>;
@@ -815,7 +815,7 @@ schema:Bakery a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Bakery>;
     .
 schema:BarOrPub a rdfs:Class;
-    rdfs:label "Bar OrPub"@en;
+    rdfs:label "Bar Or Pub"@en;
     rdfs:comment "A bar or pub."@en;
     rdfs:subClassOf schema:FoodEstablishment;
     rdfs:isDefinedBy <http://schema.org/BarOrPub>;
@@ -827,7 +827,7 @@ schema:Brewery a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Brewery>;
     .
 schema:CafeOrCoffeeShop a rdfs:Class;
-    rdfs:label "Cafe OrCoffee Shop"@en;
+    rdfs:label "Cafe Or Coffee Shop"@en;
     rdfs:comment "A cafe or coffee shop."@en;
     rdfs:subClassOf schema:FoodEstablishment;
     rdfs:isDefinedBy <http://schema.org/CafeOrCoffeeShop>;
@@ -1147,7 +1147,7 @@ schema:SportsClub a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/SportsClub>;
     .
 schema:StadiumOrArena a rdfs:Class;
-    rdfs:label "Stadium OrArena"@en;
+    rdfs:label "Stadium Or Arena"@en;
     rdfs:comment "A stadium."@en;
     rdfs:subClassOf schema:SportsActivityLocation;
     rdfs:subClassOf schema:CivicStructure;
@@ -1556,7 +1556,7 @@ schema:PerformingArtsTheater a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/PerformingArtsTheater>;
     .
 schema:PlaceOfWorship a rdfs:Class;
-    rdfs:label "Place OfWorship"@en;
+    rdfs:label "Place Of Worship"@en;
     rdfs:comment "Place of worship, such as a church, synagogue, or mosque."@en;
     rdfs:subClassOf schema:CivicStructure;
     rdfs:isDefinedBy <http://schema.org/PlaceOfWorship>;
@@ -1640,7 +1640,7 @@ schema:Landform a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Landform>;
     .
 schema:BodyOfWater a rdfs:Class;
-    rdfs:label "Body OfWater"@en;
+    rdfs:label "Body Of Water"@en;
     rdfs:comment "A body of water, such as a sea, ocean, or lake."@en;
     rdfs:subClassOf schema:Landform;
     rdfs:isDefinedBy <http://schema.org/BodyOfWater>;
@@ -1651,13 +1651,13 @@ schema:Canal a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Canal>;
     .
 schema:LakeBodyOfWater a rdfs:Class;
-    rdfs:label "Lake Body OfWater"@en;
+    rdfs:label "Lake Body Of Water"@en;
     rdfs:comment "A lake (for example, Lake Pontrachain)."@en;
     rdfs:subClassOf schema:BodyOfWater;
     rdfs:isDefinedBy <http://schema.org/LakeBodyOfWater>;
     .
 schema:OceanBodyOfWater a rdfs:Class;
-    rdfs:label "Ocean Body OfWater"@en;
+    rdfs:label "Ocean Body Of Water"@en;
     rdfs:comment "An ocean (for example, the Pacific)."@en;
     rdfs:subClassOf schema:BodyOfWater;
     rdfs:isDefinedBy <http://schema.org/OceanBodyOfWater>;
@@ -1673,13 +1673,13 @@ schema:Reservoir a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Reservoir>;
     .
 schema:RiverBodyOfWater a rdfs:Class;
-    rdfs:label "River Body OfWater"@en;
+    rdfs:label "River Body Of Water"@en;
     rdfs:comment "A river (for example, the broad majestic Shannon)."@en;
     rdfs:subClassOf schema:BodyOfWater;
     rdfs:isDefinedBy <http://schema.org/RiverBodyOfWater>;
     .
 schema:SeaBodyOfWater a rdfs:Class;
-    rdfs:label "Sea Body OfWater"@en;
+    rdfs:label "Sea Body Of Water"@en;
     rdfs:comment "A sea (for example, the Caspian sea)."@en;
     rdfs:subClassOf schema:BodyOfWater;
     rdfs:isDefinedBy <http://schema.org/SeaBodyOfWater>;
@@ -1709,7 +1709,7 @@ schema:Volcano a rdfs:Class;
     rdfs:isDefinedBy <http://schema.org/Volcano>;
     .
 schema:LandmarksOrHistoricalBuildings a rdfs:Class;
-    rdfs:label "Landmarks OrHistorical Buildings"@en;
+    rdfs:label "Landmarks Or Historical Buildings"@en;
     rdfs:comment "An historical landmark or building."@en;
     rdfs:subClassOf schema:Place;
     rdfs:isDefinedBy <http://schema.org/LandmarksOrHistoricalBuildings>;
@@ -2436,7 +2436,7 @@ schema:lowPrice a rdf:Property;
     rdfs:isDefinedBy <http://schema.org/lowPrice>;
     .
 schema:mainContentOfPage a rdf:Property;
-    rdfs:label "Main Content OfPage"@en;
+    rdfs:label "Main Content Of Page"@en;
     rdfs:comment "Indicates if this web page element is the main subject of the page."@en;
     rdfs:domain schema:WebPage;
     rdfs:range schema:WebPageElement;
@@ -2520,14 +2520,14 @@ schema:numTracks a rdf:Property;
     rdfs:isDefinedBy <http://schema.org/numTracks>;
     .
 schema:numberOfEpisodes a rdf:Property;
-    rdfs:label "Number OfEpisodes"@en;
+    rdfs:label "Number Of Episodes"@en;
     rdfs:comment "The number of episodes in this season or series."@en;
     rdfs:domain [ owl:unionOf (schema:TVSeason schema:TVSeries) ];
     rdfs:range xsd:decimal;
     rdfs:isDefinedBy <http://schema.org/numberOfEpisodes>;
     .
 schema:numberOfPages a rdf:Property;
-    rdfs:label "Number OfPages"@en;
+    rdfs:label "Number Of Pages"@en;
     rdfs:comment "The number of pages in the book."@en;
     rdfs:domain schema:Book;
     rdfs:range xsd:integer;
@@ -2569,7 +2569,7 @@ schema:parents a rdf:Property;
     rdfs:isDefinedBy <http://schema.org/parents>;
     .
 schema:partOfSeason a rdf:Property;
-    rdfs:label "Part OfSeason"@en;
+    rdfs:label "Part Of Season"@en;
     rdfs:comment "The season to which this episode belongs."@en;
     rdfs:domain schema:TVEpisode;
     rdfs:range schema:TVSeason;
@@ -2667,7 +2667,7 @@ schema:priceValidUntil a rdf:Property;
     rdfs:isDefinedBy <http://schema.org/priceValidUntil>;
     .
 schema:primaryImageOfPage a rdf:Property;
-    rdfs:label "Primary Image OfPage"@en;
+    rdfs:label "Primary Image Of Page"@en;
     rdfs:comment "Indicates the main image on the page"@en;
     rdfs:domain schema:WebPage;
     rdfs:range schema:ImageObject;
@@ -2765,7 +2765,7 @@ schema:relatedTo a rdf:Property;
     rdfs:isDefinedBy <http://schema.org/relatedTo>;
     .
 schema:representativeOfPage a rdf:Property;
-    rdfs:label "Representative OfPage"@en;
+    rdfs:label "Representative Of Page"@en;
     rdfs:comment "Indicates whether this image is representative of the content of the page."@en;
     rdfs:domain schema:ImageObject;
     rdfs:range xsd:boolean;

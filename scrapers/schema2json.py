@@ -21,7 +21,9 @@ types_by_url = {}
 properties = {}
 for url in type_urls:
     type = schemaparse.get_type_details(url)
+    propids = []
     for property in type['properties']:
+        propids.append(property['id'])
         for xrange in property['ranges']:
             if xrange in type_urls or not xrange.startswith(base_url): continue
             property['ranges'].remove(xrange)
@@ -33,7 +35,7 @@ for url in type_urls:
         else:
             properties[property['id']]['ranges'] = list(set(properties[property['id']]['ranges'] + property['ranges']))
             properties[property['id']]['domains'].append(type['url'])
-    del type['properties']
+    type['properties'] = propids
     # Skip datatypes
 #    if type['url'] == datatype_url or datatype_url in type['ancestors']:
 #        continue
@@ -42,12 +44,14 @@ for url in type_urls:
     type_ids.append(type['id'])
 
 for id in type_ids:
-    remove_base(types[id]['ancestors'])
-    remove_base(types[id]['subtypes'])
-    remove_base(types[id]['supertypes'])
     for t in types[id]['subtypes']:
         if t in types_by_url:
             types_by_url[t]['supertypes'].append(types[id]['url'])
+
+for id in type_ids:
+    remove_base(types[id]['ancestors'])
+    remove_base(types[id]['subtypes'])
+    remove_base(types[id]['supertypes'])
 
 for id in properties.keys():
     remove_base(properties[id]['domains'])
