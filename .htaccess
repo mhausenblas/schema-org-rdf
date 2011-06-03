@@ -1,3 +1,3 @@
-AddType text/turtle
-AddType application/json
+AddType text/turtle .ttl
+AddType application/json .json
 Options +MultiViews
