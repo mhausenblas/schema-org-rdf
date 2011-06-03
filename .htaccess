@@ -1,3 +1,5 @@
 AddType text/turtle .ttl
 AddType application/json .json
+AddType text/plain .nt
+
 Options +MultiViews
