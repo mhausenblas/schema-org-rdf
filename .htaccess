@@ -1,1 +1,3 @@
+AddType text/turtle
+AddType application/json
 Options +MultiViews
