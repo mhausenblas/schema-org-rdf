@@ -6,7 +6,7 @@
 			schema.rdfs.org - Home
 		</title>
 		<link rel="stylesheet" type="text/css" href="schemaorg.css" media="screen, projection">
-		<link rel="stylesheet" href="./search_files/default.css" type="text/css">
+		<link rel="stylesheet" type="text/css" href="default.css">
 	</head>
 	<body>
 		<div id="container">
@@ -35,7 +35,6 @@
 					</div>
 					-->
 				</div><!-- end intro -->
-				<div style="padding: 14px; float: right;" id="languagebox"></div>
 				<div id="mainContent">
 					<h1>
 						What is Schema.RDFS.org?
@@ -46,16 +45,15 @@
 					</p>
 					<p>
 						This site is a complementary effort from the <a href="http://linkeddata.org/" title="Linked Data | Linked Data - Connect Distributed Data across the Web">Linked Data community</a> to express the terms provided by the Schema.org consortium in RDF.
+						We currently provide static <a href="http://www.w3.org/TR/rdf-schema/" title="RDF Vocabulary Description Language 1.0: RDF Schema">RDFS</a> documents of the Schema.org terms in the following formats (we're heavily working on more).
 					</p>
 					<p>
-						We currently provide static <a href="http://www.w3.org/TR/rdf-schema/" title="RDF Vocabulary Description Language 1.0: RDF Schema">RDFS</a> documents of the Schema.org terms in the following formats (we're heavily working on more):
+						Schema.org types and properties in various formats:
 					</p>
-					<ul>
-						<li>Turtle</li>
-						<li>RDF/XML</li>
-						<li>NTriples</li>
-						<li>JSON</li>
-					</ul>
+					<div class="static-schema-dump"><a href="all.ttl"><img src="img/turtle.png" alt="RDF/Turtle" /> RDF/Turtle</a></div>
+					<div class="static-schema-dump"><a href="all.rdf"><img src="img/rdf-xml.png" alt="RDF/XML" /> RDF/XML</a></div>
+					<div class="static-schema-dump"><a href="all.nt"><img src="img/ntriples.png" alt="RDF/NTriples" /> RDF/NTriples</a></div>
+					<div class="static-schema-dump"><a href="all.json"><img src="img/json.png" alt="JSON"/> JSON</a></div>
 					<p class="date">
 						Last Updated: 3 June 2011
 					</p>

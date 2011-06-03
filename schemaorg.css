@@ -1,3 +1,4 @@
+
 /* -- page structure -- */
 #container
 {
@@ -31,7 +32,7 @@ font-size: x-small;
 body
 {
 color: #3A4956;
-font-size: 75%;
+font-size: 110%;
 font-family: "Lucida Grande" , "Lucida Sans Unicode" , Verdana, Tahoma, Arial, sans-serif;
 line-height: 160%;
 margin: 0;
@@ -44,7 +45,7 @@ font-family: Courier, monospace;
 }
 h1
 {
-font: bold 24px Helvetica, Arial, sans-serif;
+font: bold 40px Helvetica, Arial, sans-serif;
 color: #990000;
 letter-spacing: -1px;
 margin: 2em 0 0 0;
@@ -75,6 +76,7 @@ margin: 2em 0 4em 0;
 p
 {
 margin: 1em 0 0 0;
+text-align: justify;
 }
 pre
 {
@@ -202,21 +204,13 @@ margin: 0;
 {
 color: #660000;
 text-decoration: none;
-border-bottom: dotted 1px #660000;
 }
 #mainContent a:visited
 {
 color: #990000;
 text-decoration: none;
-border-bottom: dotted 1px #990000;
 }
-#mainContent a:hover
-{
-border-bottom: none;
-color: #fff;
-background-color: #660000;
-text-decoration: none;
-}
+
 #mainContent blockquote
 {
 padding: 0 0 0 15px;
@@ -311,4 +305,22 @@ gsc-input input.gsc-input { background: #FFF !important;}
     margin-left: 15px;
     margin-top: 20px;
   }
+}
+
+/* Schema.RDFs.org additions */
+
+#footer p {
+	text-align: right;
+}
+#mainContent h1 {
+	font-size: 30px;
+}
+
+.static-schema-dump {
+	margin: 1.2em;
+}
+
+.static-schema-dump img {
+	vertical-align: middle;
+	margin: .2em;
 }
