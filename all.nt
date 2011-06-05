@@ -1,7 +1,7 @@
 <http://schema.rdfs.org/all> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
 <http://schema.rdfs.org/all> <http://purl.org/dc/terms/title> "The schema.org terms in RDFS+OWL"@en .
 <http://schema.rdfs.org/all> <http://purl.org/dc/terms/description> "This is a conversion of the terms defined at schema.org to RDFS and OWL."@en .
-<http://schema.rdfs.org/all> <http://xmlns.com/foaf/0.1/page> <http://schema.rdf.sorg/> .
+<http://schema.rdfs.org/all> <http://xmlns.com/foaf/0.1/page> <http://schema.rdfs.org/> .
 <http://schema.rdfs.org/all> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://schema.org/> .
 <http://schema.rdfs.org/all> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://github.com/mhausenblas/schema-org-rdf> .
 <http://schema.rdfs.org/all> <http://purl.org/dc/terms/hasFormat> <http://schema.rdfs.org/all.ttl> .
