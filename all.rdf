@@ -12,7 +12,7 @@
 	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
 	<dct:title xml:lang="en">The schema.org terms in RDFS+OWL</dct:title>
 	<dct:description xml:lang="en">This is a conversion of the terms defined at schema.org to RDFS and OWL.</dct:description>
-	<foaf:page rdf:resource="http://schema.rdf.sorg/"/>
+	<foaf:page rdf:resource="http://schema.rdfs.org/"/>
 	<rdfs:seeAlso rdf:resource="http://schema.org/"/>
 	<rdfs:seeAlso rdf:resource="http://github.com/mhausenblas/schema-org-rdf"/>
 	<dct:hasFormat rdf:resource="http://schema.rdfs.org/all.ttl"/>
