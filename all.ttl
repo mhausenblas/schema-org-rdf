@@ -9,7 +9,7 @@
 <http://schema.rdfs.org/all> a owl:Ontology;
     dct:title "The schema.org terms in RDFS+OWL"@en;
     dct:description "This is a conversion of the terms defined at schema.org to RDFS and OWL."@en;
-    foaf:page <http://schema.rdf.sorg/>;
+    foaf:page <http://schema.rdfs.org/>;
     rdfs:seeAlso <http://schema.org/>;
     rdfs:seeAlso <http://github.com/mhausenblas/schema-org-rdf>;
     dct:hasFormat <http://schema.rdfs.org/all.ttl>;
