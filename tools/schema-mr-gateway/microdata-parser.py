@@ -1,206 +1,83 @@
-"""HTML5 microdata parser for python 2.x/3.x
+""" 
+  Microdata processor - parsing MD and emitting RDF, JSON, etc. 
 
-- it requires lxml
-- microdata specification: http://dev.w3.org/html5/md/
+  Using edsu's awesome MD parser https://github.com/edsu/microdata
 
-based on a Gist: https://gist.github.com/577116
+@author: Michael Hausenblas, http://sw-app.org/mic.xhtml#i
+@since: 2011-06-09
+@status: initial draft
 """
-try: from urllib.parse import urljoin
-except: from urlparse import urljoin
-import urllib
-import lxml.html as lhtml
+import urllib2
+import microdata
 
-class Microdata(object):
-	def __init__(self, doc, uri=""):
-		self.base = uri
-		self.doc = doc
-		self.find_base()
-		self.cache = {}
-		
-		# data factory
-		self.url = urljoin
-		self.datetime = lambda dt: dt
-		self.text = lambda t: t
-		pass
-	
-	def items(self, types=None):
-		ret = []
-		for elem in self.item_elems(self.doc, types):
-			item = self.parse_item_elem(elem, {})
-			ret.append(item)
-			pass
-		return ret
-	
-	def item_elems(self, elem, types=None):
-		"iterate top-level items of elements"
-		if (elem.get("itemscope") is not None and
-			elem.get("itemprop") is None):
-			if not types or elem.get("itemtype") in types: yield elem
-			pass
-		for child in elem.getchildren():
-			for _ in self.item_elems(child, types): yield _
-			pass
-		return
-	
-	def parse_item_elem(self, elem, item):
-		props = {}
-		
-		refs = elem.get("itemref")
-		if refs is not None:
-			for ref in refs.split():
-				self.parse_item_ref(props, ref)
-				pass
-			pass
-		
-		for child in elem.getchildren():
-			self.parse_item_props(child, props, None)
-			pass
-		
-		item["properties"] = props
-		attrs = elem.keys()
-		if "itemid" in attrs: item["id"] = elem.get("itemid")
-		if "itemtype" in attrs: item["type"] = elem.get("itemtype")
-		return item
-	
-	def parse_item_ref(self, props, ref):
-		if ref not in self.cache:
-			self.cache[ref] = {}
-			child = self.elem_by_id(self.doc, ref)
-			self.parse_item_props(child, {}, ref)
-			pass
-		
-		for name in self.cache[ref]:
-			if name not in props: props[name] = []
-			props[name].extend(self.cache[ref][name])
-			pass
-		return
-	
-	def parse_item_props(self, elem, props, ref):
-		if elem is None: return
-		propnames = elem.get("itemprop")
-		if propnames:
-			names = propnames.split()
-			value = self.parse_value(elem, ref, names)
-			for propname in names:
-				if propname not in props: props[propname] = []
-				props[propname].append(value)
-				pass
-			pass
-		
-		for child in elem.getchildren():
-			self.parse_item_props(child, props, ref)
-			pass
-		return
-	
-	def parse_value(self, elem, ref, names):
-		if elem.get("itemscope") is not None:
-			item = {}
-			self.store_cache(ref, names, item)
-			return self.parse_item_elem(elem, item)
-		
-		# from http://dev.w3.org/html5/md/#values
-		tag = elem.tag
-		if tag == "meta": value = self.text(elem.get("content"))
-		elif tag in self.src_tags:
-			value = self.url(self.base, elem.get("src"))
-			pass
-		elif tag in self.href_tags:
-			value = self.url(self.base, elem.get("href"))
-			pass
-		elif tag == "object":
-			value = self.url(self.base, elem.get("data"))
-			pass
-		elif tag == "time" and "datetime" in elem.keys():
-			value = self.datetime(elem.get("datetime"))
-			pass
-		else: value = self.text(self.to_text(elem))
-		self.store_cache(ref, names, value)
-		return value
-	
-	src_tags = ["audio", "embed", "iframe", "img", "source", "video"]
-	href_tags = ["a", "area", "link"]
-	
-	def store_cache(self, ref, names, value):
-		if ref and names:
-			for name in names:
-				if name not in self.cache[ref]: self.cache[ref][name] = []
-				self.cache[ref][name].append(value)
-				pass
-			pass
-		return value
-	
-	def to_text(self, elem):
-		ret = elem.text or ""
-		for child in elem.getchildren():
-			ret += to_text(child)
-			ret += child.tail or ""
-			pass
-		return ret
-	
-	def elem_by_id(self, elem, id):
-		if elem.get("id") == id: return elem
-		for child in elem.getchildren():
-			ret = self.elem_by_id(child, id)
-			if ret is not None: return ret
-			pass
-		return None
-	
-	def find_base(self):
-		if self.doc.tag != "html": return
-		for head in self.doc.getchildren():
-			if head.tag != "head": continue
-			for base in head.getchildren():
-				if base.tag != "base": continue
-				uri = base.get("href")
-				if uri is not None:
-					self.base = urljoin(self.base, uri)
-					return
-				pass
-			pass
-		pass
-	pass
+class MicrodataProcessor(object):
+	def __init__(self):
+		self.items = []
+		self.item_count = 0
 
-class MicrodataParser(object):
-	def __init__(self, doc_uri):
-		self.doc_uri = doc_uri
-		self.html = ""
-
-	def load(self):
-		response = urllib.urlopen(self.doc_uri)
-		self.html = response.read()
+	def from_URL(self, doc_url):
+		self.items = microdata.get_items(urllib2.urlopen(doc_url).read())
+		slef.inspect_items()
 		
-	def setHTML(self, html):
-		self.html = html
+	def from_str(self, html_str):
+		self.items = microdata.get_items(html_str)
+		self.inspect_items()
 
-	def dump_items(self):
-		"""list microdata as standard data types
-		returns [{"properties": {name: [val1, ...], ...}, "id": id, "type": type},
-				 ...]
-		"""
-		if(self.html):
-			doc = lhtml.fromstring(self.html)
-			return Microdata(doc).items()
-		else:
-			return None
+	def dump_items(self, format='plain'):
+		if format == 'plain': # pure text dump, for example in CLI usage
+			print('%s data items found in total:' %self.item_count)
+			for it in self.items:
+				self.dump_item(it)
+				print('\n')
+		elif format == 'json':
+			for it in self.items:
+				print(it.json())
+	
+	def dump_item(self, item):
+		ith = 'ITEM ('
+		print('-' * 80)
+		# the item header (identity and type, if given)
+		if item.itemid: ith = ''.join([ith, item.itemid])  
+		else: ith = ''.join([ith, 'anonymous'])
+		if item.itemtype: ith = ''.join([ith, ') of type (', item.itemtype, ')'])  
+		else: ith = ''.join([ith, ') without type'])
+		print(ith)
+		for prop, values in item.props.items():
+			for val in values:
+				if isinstance(val, microdata.Item): self.dump_item(val)
+				else:
+					print(' = '.join([prop, str(val)]))
+
+	def inspect_items(self):
+		for it in self.items:
+			self.inspect_item(it)
+
+	def inspect_item(self, item):
+		self.item_count = self.item_count + 1
+		for prop, values in item.props.items():
+			for val in values:
+				if isinstance(val, microdata.Item): self.inspect_item(val)
+				else: pass
+
+
 
 
 if __name__ == "__main__":
-	from pprint import pprint
-	md_doc_URI = "http://schema.org/docs/full_md.html"
-	mdp = MicrodataParser(md_doc_URI)
-	# mdp.load()
-	mdp.setHTML("""
-	<div itemscope itemtype="http://schema.org/Event">
+	md_doc_URI = "https://raw.github.com/edsu/microdata/master/test-data/example.html"
+	mdp = MicrodataProcessor()
+	# mdp.from_URL(md_doc_URI)
+	mdp.from_str("""
+	<div itemscope itemid="http://example.org/event123" itemtype="http://schema.org/Event">
 	  <a itemprop="url" href="nba-miami-philidelphia-game3.html">
 	  NBA Eastern Conference First Round Playoff Tickets:
 	  Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)
 	  </a>
-
+	
 	  <time itemprop="startDate" datetime="2011-04-21T20:00">
 	    Thu, 04/21/11
 	    8:00 p.m.
 	  </time>
-
+	
 	  <div itemprop="location" itemscope itemtype="http://schema.org/Place">
 	    <a itemprop="url" href="wells-fargo-center.html">
 	    Wells Fargo Center
@@ -210,12 +87,17 @@ if __name__ == "__main__":
 	      <span itemprop="addressRegion">PA</span>
 	    </div>
 	  </div>
-
+	
 	  <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
 	    Priced from: <span itemprop="lowPrice">$35</span>
 	    <span itemprop="offerCount">1,938</span> tickets left
 	  </div>
 	</div>
+	<div itemscope itemid="http://example.org/event456">
+	</div>
+	<div itemscope itemtype="http://schema.org/Event">
+	</div>
+	<div itemscope>
+	</div>	
 	""")
-	ls = mdp.dump_items()
-	pprint(ls)
+	mdp.dump_items()
