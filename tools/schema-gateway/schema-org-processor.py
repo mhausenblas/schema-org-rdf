@@ -7,6 +7,8 @@
 @since: 2011-06-09
 @status: integrating edsu's MD parser
 """
+import sys
+import getopt
 import StringIO
 import urllib2
 import uuid
@@ -120,42 +122,35 @@ class SchemaOrgProcessor(object):
 				if isinstance(val, microdata.Item): self.inspect_item(val)
 				else: pass
 
+def usage():
+	print("Usage: python schema-org-processor.py -d {document URL} ")
+	print("Example 1: python schema-org-processor.py -d https://raw.github.com/edsu/microdata/master/test-data/example.html")
+	print("Example 2: python schema-org-processor.py -i file:///Users/michau/Documents/dev/schema-org-rdf/tools/schema-mr-gateway/test/md-test-1.html")
+	
+
 if __name__ == "__main__":
 	md_doc_URI = "test/solar-system.csv"
 	mdp = SchemaOrgProcessor()
-	mdp.parse_URL(md_doc_URI)
-	# mdp.parse_microdata_str("""
-	# <div itemscope itemid="http://example.org/event123" itemtype="http://schema.org/Event">
-	#   <a itemprop="url" href="nba-miami-philidelphia-game3.html">
-	#   NBA Eastern Conference First Round Playoff Tickets:
-	#   Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)
-	#   </a>
-	# 
-	#   <time itemprop="startDate" datetime="2011-04-21T20:00">
-	#     Thu, 04/21/11
-	#     8:00 p.m.
-	#   </time>
-	# 
-	#   <div itemprop="location" itemscope itemtype="http://schema.org/Place">
-	#     <a itemprop="url" href="wells-fargo-center.html">
-	#     Wells Fargo Center
-	#     </a>
-	#     <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-	#       <span itemprop="addressLocality">Philadelphia</span>,
-	#       <span itemprop="addressRegion">PA</span>
-	#     </div>
-	#   </div>
-	# 
-	#   <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-	#     Priced from: <span itemprop="lowPrice">$35</span>
-	#     <span itemprop="offerCount">1,938</span> tickets left
-	#   </div>
-	# </div>
-	# <div itemscope itemid="http://example.org/event456">
-	# </div>
-	# <div itemscope itemtype="http://schema.org/Event">
-	# </div>
-	# <div itemscope>
-	# </div>	
-	# """)
-	mdp.dump_data()
+		
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "hd:i:", ["help", "data", "items"])
+		for opt, arg in opts:
+			if opt in ("-h", "--help"):
+				usage()
+				sys.exit()
+			elif opt in ("-d", "--data"):
+				print("PARSING [%s] for Schema.org data ..." %arg)
+				md_doc_URI = arg
+				mdp.parse_URL(md_doc_URI)
+				mdp.dump_data()
+				pass
+			elif opt in ("-i", "--items"):
+				print("PARSING [%s] for Schema.org items ..." %arg)
+				md_doc_URI = arg
+				mdp.items_from_URL(md_doc_URI)
+				mdp.dump_items()
+				pass
+	except getopt.GetoptError, err:
+		print str(err)
+		usage()
+		sys.exit(2)
