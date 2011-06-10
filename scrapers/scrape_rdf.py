@@ -51,6 +51,12 @@ print """@prefix schema: <http://schema.org/>.
     dct:hasFormat <http://schema.rdfs.org/all.rdf>;
     dct:hasFormat <http://schema.rdfs.org/all.nt>;
     dct:hasFormat <http://schema.rdfs.org/all.json>;
+    dct:hasFormat [
+        dct:hasPart <http://schema.rdfs.org/all-classes.csv>;
+        dct:hasPart <http://schema.rdfs.org/all-properties.csv>;
+    ];
+    dct:source <http://schema.org/>;
+    dct:license <http://schema.org/docs/terms.html>;
     .
 """
 
