@@ -8,6 +8,7 @@ def check_lines(file, expected)
 end
 
 abort "Usage: run.rb tmp_dir target_dir" if ARGV.length != 2
+puts Time.now
 tmp_dir = ARGV[0]
 target_dir = ARGV[1]
 files = ['all-classes.csv', 'all-properties.csv', 'all.json', 'all.ttl', 'all.nt', 'all.rdf']
