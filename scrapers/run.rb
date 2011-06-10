@@ -24,4 +24,4 @@ check_lines("#{tmp_dir}/all.json", 10000)
 check_lines("#{tmp_dir}/all.ttl", 2000)
 check_lines("#{tmp_dir}/all.nt", 2000)
 check_lines("#{tmp_dir}/all.rdf", 2000)
-files.each { |f| `mv #{tmp_dir}/#{f} #{target_dir}/#{f}` }
+files.each { |f| `cp #{tmp_dir}/#{f} #{target_dir}/#{f}` }
