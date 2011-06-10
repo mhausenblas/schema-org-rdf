@@ -51,6 +51,12 @@ print """@prefix schema: <http://schema.org/>.
     dct:hasFormat <http://schema.rdfs.org/all.rdf>;
     dct:hasFormat <http://schema.rdfs.org/all.nt>;
     dct:hasFormat <http://schema.rdfs.org/all.json>;
+    dct:hasFormat [
+        dct:hasPart <http://schema.rdfs.org/all-classes.csv>;
+        dct:hasPart <http://schema.rdfs.org/all-properties.csv>;
+    ];
+    dct:source <http://schema.org/>;
+    dct:license <http://schema.org/docs/terms.html>;
     .
 """
 
@@ -79,14 +85,14 @@ for id in prop_ids:
         l = []
         for d in p['domains']:
             l.append(get_prefixed(d))
-        print '    rdfs:domain [ owl:unionOf (' + ' '.join(l) + ') ];'
+        print '    rdfs:domain [ a owl:Class; owl:unionOf (' + ' '.join(l) + ') ];'
     if len(p['ranges']) == 1:
         print '    rdfs:range ' + get_prefixed(p['ranges'][0]) + ';'
     elif len(p['ranges']) > 1:
         l = []
         for d in p['ranges']:
             l.append(get_prefixed(d))
-        print '    rdfs:range [ owl:unionOf (' + ' '.join(l) + ') ];'
+        print '    rdfs:range [ a owl:Class; owl:unionOf (' + ' '.join(l) + ') ];'
     for d in p['domains']:
         print '    rdfs:isDefinedBy <' + types[d]['url'] + '>;'
     print '    .'
