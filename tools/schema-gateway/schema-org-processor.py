@@ -14,6 +14,7 @@ import urllib2
 import uuid
 import rdflib
 import rdflib_microdata
+import rdflib_schemaorg_csv
 import microdata
 
 class SchemaOrgProcessor(object):
@@ -31,8 +32,8 @@ class SchemaOrgProcessor(object):
 			print('DETECTED Schema.org terms encoded in microdata ...')
 			self.parse_microdata_URL(doc_url)
 		elif format == 'csv':
-			print('Schema.org in CSV not yet supported ...')
-			pass
+			print('DETECTED Schema.org terms encoded in CSV ...')
+			self.parse_csv_URL(doc_url)
 		else:
 			print('Unknown format')
 			pass
@@ -44,6 +45,10 @@ class SchemaOrgProcessor(object):
 		elif doc_url.endswith('csv'):
 			return 'csv'
 		else: return None
+	
+	def parse_csv_URL(self, doc_url):
+		self.g = rdflib.Graph()
+		self.g.parse(location=doc_url, format="schemaorg_csv")
 	
 	def parse_microdata_URL(self, doc_url):
 		self.g = rdflib.Graph()
@@ -125,7 +130,7 @@ class SchemaOrgProcessor(object):
 def usage():
 	print("Usage: python schema-org-processor.py -d {document URL} ")
 	print("Example 1: python schema-org-processor.py -d https://raw.github.com/edsu/microdata/master/test-data/example.html")
-	print("Example 2: python schema-org-processor.py -i file:///Users/michau/Documents/dev/schema-org-rdf/tools/schema-mr-gateway/test/md-test-1.html")
+	print("Example 2: python schema-org-processor.py -i file:///Users/michau/Documents/dev/schema-org-rdf/tools/schema-gateway/test/md-test-1.html")
 	
 
 if __name__ == "__main__":
