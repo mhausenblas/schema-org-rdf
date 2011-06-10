@@ -1,23 +1,24 @@
 """ 
-  Microdata processor - parsing MD and emitting RDF, JSON, etc. 
+  A processor for Schema.org terms - parsing MD, JSON, CSV, OData, etc. and emitting RDF, JSON, etc. 
 
-  Using edsu's awesome MD parser https://github.com/edsu/microdata
+  Parsers: for microdata, edsu's awesome MD parser https://github.com/edsu/microdata is used
 
 @author: Michael Hausenblas, http://sw-app.org/mic.xhtml#i
 @since: 2011-06-09
-@status: initial draft
+@status: integrating edsu's MD parser
 """
 import urllib2
 import microdata
+import uuid
 
-class MicrodataProcessor(object):
+class SchemaOrgProcessor(object):
 	def __init__(self):
 		self.items = []
 		self.item_count = 0
 
 	def from_URL(self, doc_url):
 		self.items = microdata.get_items(urllib2.urlopen(doc_url).read())
-		slef.inspect_items()
+		self.inspect_items()
 		
 	def from_str(self, html_str):
 		self.items = microdata.get_items(html_str)
@@ -25,28 +26,36 @@ class MicrodataProcessor(object):
 
 	def dump_items(self, format='plain'):
 		if format == 'plain': # pure text dump, for example in CLI usage
+			print('\n' + '*' * 80)
 			print('%s data items found in total:' %self.item_count)
 			for it in self.items:
 				self.dump_item(it)
-				print('\n')
 		elif format == 'json':
 			for it in self.items:
 				print(it.json())
 	
-	def dump_item(self, item):
-		ith = 'ITEM ('
-		print('-' * 80)
+	def dump_item(self, item, level='', parent=None, prop=None):
+		anonid = uuid.uuid1()
+		if parent:
+			ith = '%s%s ->\n%sITEM (' %(level, prop, level)
+		else:
+			ith = 'ITEM ('
+			print('-' * 80)
 		# the item header (identity and type, if given)
-		if item.itemid: ith = ''.join([ith, item.itemid])  
-		else: ith = ''.join([ith, 'anonymous'])
-		if item.itemtype: ith = ''.join([ith, ') of type (', item.itemtype, ')'])  
-		else: ith = ''.join([ith, ') without type'])
+		if item.itemid: ith = ''.join([ith, str(item.itemid)])  
+		else: ith = ''.join([ith, 'anonymous::', str(anonid)])
+		if item.itemtype: ith = ''.join([ith, ') OF TYPE (', str(item.itemtype), ') {'])  
+		else: ith = ''.join([ith, ') {'])
 		print(ith)
 		for prop, values in item.props.items():
 			for val in values:
-				if isinstance(val, microdata.Item): self.dump_item(val)
+				if isinstance(val, microdata.Item):
+					if item.itemid: parent = str(item.itemid)
+					else: parent = str(anonid)
+					self.dump_item(val, level=level+ '  ', parent=parent, prop=prop)
 				else:
-					print(' = '.join([prop, str(val)]))
+					print(''.join([level, '  ', prop,' = ', str(val)]))
+		print(level + '}')
 
 	def inspect_items(self):
 		for it in self.items:
@@ -64,7 +73,7 @@ class MicrodataProcessor(object):
 
 if __name__ == "__main__":
 	md_doc_URI = "https://raw.github.com/edsu/microdata/master/test-data/example.html"
-	mdp = MicrodataProcessor()
+	mdp = SchemaOrgProcessor()
 	# mdp.from_URL(md_doc_URI)
 	mdp.from_str("""
 	<div itemscope itemid="http://example.org/event123" itemtype="http://schema.org/Event">
