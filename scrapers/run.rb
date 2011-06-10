@@ -8,6 +8,7 @@ def check_lines(file, expected)
 end
 
 abort "Usage: run.rb tmp_dir target_dir" if ARGV.length != 2
+puts Time.now
 tmp_dir = ARGV[0]
 target_dir = ARGV[1]
 files = ['all-classes.csv', 'all-properties.csv', 'all.json', 'all.ttl', 'all.nt', 'all.rdf']
@@ -23,4 +24,4 @@ check_lines("#{tmp_dir}/all.json", 10000)
 check_lines("#{tmp_dir}/all.ttl", 2000)
 check_lines("#{tmp_dir}/all.nt", 2000)
 check_lines("#{tmp_dir}/all.rdf", 2000)
-files.each { |f| `mv #{tmp_dir}/#{f} #{target_dir}/#{f}` }
+files.each { |f| `cp #{tmp_dir}/#{f} #{target_dir}/#{f}` }
