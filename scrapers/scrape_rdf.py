@@ -79,14 +79,14 @@ for id in prop_ids:
         l = []
         for d in p['domains']:
             l.append(get_prefixed(d))
-        print '    rdfs:domain [ owl:unionOf (' + ' '.join(l) + ') ];'
+        print '    rdfs:domain [ a owl:Class; owl:unionOf (' + ' '.join(l) + ') ];'
     if len(p['ranges']) == 1:
         print '    rdfs:range ' + get_prefixed(p['ranges'][0]) + ';'
     elif len(p['ranges']) > 1:
         l = []
         for d in p['ranges']:
             l.append(get_prefixed(d))
-        print '    rdfs:range [ owl:unionOf (' + ' '.join(l) + ') ];'
+        print '    rdfs:range [ a owl:Class; owl:unionOf (' + ' '.join(l) + ') ];'
     for d in p['domains']:
         print '    rdfs:isDefinedBy <' + types[d]['url'] + '>;'
     print '    .'
