@@ -22,11 +22,13 @@ class SchemaOrgProcessor(object):
 		self.items = None
 		self.item_count = 0
 		self.g = None
+		self.doc_url = ""
 
 	###############################################################################
 	# primary data interface
 	
 	def parse_URL(self, doc_url):
+		self.doc_url = doc_url
 		format = self.sniff(doc_url)
 		if format == 'microdata':
 			print('DETECTED Schema.org terms encoded in microdata ...')
@@ -47,10 +49,12 @@ class SchemaOrgProcessor(object):
 		else: return None
 	
 	def parse_csv_URL(self, doc_url):
+		self.doc_url = doc_url
 		self.g = rdflib.Graph()
-		self.g.parse(location=doc_url, format="schemaorg_csv")
+		self.g.parse(location=doc_url, format="schemaorg_csv", csv_file_URI=self.doc_url)
 	
 	def parse_microdata_URL(self, doc_url):
+		self.doc_url = doc_url
 		self.g = rdflib.Graph()
 		self.g.parse(doc_url, format="microdata")
 
@@ -63,7 +67,9 @@ class SchemaOrgProcessor(object):
 	def dump_data(self):
 		print('DUMP Schema.org data ...')
 		if self.g:
-			self.g.bind('schema', 'http://schema.org/', True) # hmm ... has no effect
+			self.g.bind('schema', 'http://schema.org/', True)
+			self.g.bind('scsv', 'http://purl.org/NET/schema-org-csv#', True)
+			self.g.bind('dcterms', 'http://purl.org/dc/terms/', True)
 			print(self.g.serialize()) #format='n3')) ... doesn't work - TODO: ask Ed
 		else:
 			print('Sorry, nothing to show - use parse_str() or parse_URL() to parse data with Schema.org terms ...')
