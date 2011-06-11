@@ -28,3 +28,13 @@ There is also a script that generates all formats, does a bit of sanity checking
     ./run.rb temp-directory target-directory
 
 This requires the [any23](http://developers.any23.org/) command line tool on the path.
+
+
+## Roadmap/Ideas
+
+* multi-lang labels/comments
+* mappings to well-known legacy terms
+* get the community involved and give them a sense of ownership
+** feedback on a Wiki?
+** mappings/multi-lang suggestions into a Google spreadsheet?
+* Produce RDFa markup examples, similar to the microdata ones on schema.org
