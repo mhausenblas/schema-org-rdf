@@ -5,17 +5,19 @@
 
 @author: Michael Hausenblas, http://sw-app.org/mic.xhtml#i
 @since: 2011-06-09
-@status: integrating edsu's MD parser
+@status: integrating CSV parser
 """
 import sys
 import getopt
 import StringIO
+import urllib
 import urllib2
 import uuid
 import rdflib
 import rdflib_microdata
 import rdflib_schemaorg_csv
 import microdata
+
 
 class SchemaOrgProcessor(object):
 	def __init__(self):
@@ -27,19 +29,28 @@ class SchemaOrgProcessor(object):
 	###############################################################################
 	# primary data interface
 	
+	
+	def parse(self, doc_url):
+		self.doc_url = doc_url
+		format = self.sniff(doc_url)
+		if format == 'microdata':
+			self.parse_microdata_str(urllib.urlopen(doc_url).read())
+		elif format == 'csv':
+			self.parse_csv_str(urllib.urlopen(doc_url).read(), doc_url)
+		else:
+			pass
+	
+	
 	def parse_URL(self, doc_url):
 		self.doc_url = doc_url
 		format = self.sniff(doc_url)
 		if format == 'microdata':
-			print('DETECTED Schema.org terms encoded in microdata ...')
 			self.parse_microdata_URL(doc_url)
 		elif format == 'csv':
-			print('DETECTED Schema.org terms encoded in CSV ...')
 			self.parse_csv_URL(doc_url)
 		else:
-			print('Unknown format')
 			pass
-			
+	
 	def sniff(self, doc_url):
 		if doc_url.endswith('html'):
 			# TODO: need to inspect content, really, to determine if microdata or RDFa
@@ -52,6 +63,13 @@ class SchemaOrgProcessor(object):
 		self.doc_url = doc_url
 		self.g = rdflib.Graph()
 		self.g.parse(location=doc_url, format="schemaorg_csv", csv_file_URI=self.doc_url)
+
+	def parse_csv_str(self, csv_str, doc_url):
+		self.doc_url = doc_url
+		self.g = rdflib.Graph()
+		b = StringIO.StringIO()
+		b.write(csv_str)
+		self.g.parse(source=b, format="schemaorg_csv", csv_file_URI=self.doc_url)
 	
 	def parse_microdata_URL(self, doc_url):
 		self.doc_url = doc_url
@@ -65,14 +83,14 @@ class SchemaOrgProcessor(object):
 		self.g.parse(b, format="microdata")
 			
 	def dump_data(self):
-		print('DUMP Schema.org data ...')
 		if self.g:
 			self.g.bind('schema', 'http://schema.org/', True)
 			self.g.bind('scsv', 'http://purl.org/NET/schema-org-csv#', True)
 			self.g.bind('dcterms', 'http://purl.org/dc/terms/', True)
-			print(self.g.serialize()) #format='n3')) ... doesn't work 
+			result = self.g.serialize()
+			return result
 		else:
-			print('Sorry, nothing to show - use parse_str() or parse_URL() to parse data with Schema.org terms ...')
+			return None
 
 	###############################################################################	
 	# microdata low-level interface
@@ -96,8 +114,6 @@ class SchemaOrgProcessor(object):
 			elif format == 'json':
 				for it in self.items:
 					print(it.json())
-		else:
-			print('Sorry, nothing to show - use items_from_str() or items_from_URL() to parse microdata ...')
 	
 	def dump_item(self, item, level='', parent=None, prop=None):
 		anonid = uuid.uuid1()
