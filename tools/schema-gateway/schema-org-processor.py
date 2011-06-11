@@ -70,7 +70,7 @@ class SchemaOrgProcessor(object):
 			self.g.bind('schema', 'http://schema.org/', True)
 			self.g.bind('scsv', 'http://purl.org/NET/schema-org-csv#', True)
 			self.g.bind('dcterms', 'http://purl.org/dc/terms/', True)
-			print(self.g.serialize()) #format='n3')) ... doesn't work - TODO: ask Ed
+			print(self.g.serialize()) #format='n3')) ... doesn't work 
 		else:
 			print('Sorry, nothing to show - use parse_str() or parse_URL() to parse data with Schema.org terms ...')
 
