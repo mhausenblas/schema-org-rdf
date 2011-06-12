@@ -1,4 +1,3 @@
-PARSING [https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv] for Schema.org data ...
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix scsv: <http://purl.org/NET/schema-org-csv#> .

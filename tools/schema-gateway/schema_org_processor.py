@@ -25,18 +25,26 @@ class SchemaOrgProcessor(object):
 		self.g = None
 		self.doc_url = ""
 
-	def parse(self, doc_url):
+	def parse(self, doc_url, input_format=None):
 		self.doc_url = doc_url
-		format = self.sniff(doc_url)
+
+		if input_format: # we have a user-supplied input format
+			format = input_format
+		else: # ... we need to guess the format
+			format = self.sniff(doc_url)
+			
+		# based on the format information we parse the input:
 		if format == 'microdata':
 			self.parse_microdata(doc_url)
+			return format
 		elif format == 'csv':
 			self.parse_csv(doc_url)
+			return format
 		elif format == 'odata':
 			# http://code.google.com/p/odata-py/
-			pass
+			return None
 		else:
-			pass
+			return None
 
 	def sniff(self, doc_url):
 		if doc_url.endswith('html'):
@@ -62,6 +70,12 @@ class SchemaOrgProcessor(object):
 			self.g.bind('scsv', 'http://purl.org/NET/schema-org-csv#', True)
 			self.g.bind('dcterms', 'http://purl.org/dc/terms/', True)
 			return self.g.serialize(format=format)
+		else:
+			return None
+			
+	def get_data(self):
+		if self.g:
+			return self.g
 		else:
 			return None
 
