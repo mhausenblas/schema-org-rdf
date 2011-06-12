@@ -32,6 +32,9 @@ class SchemaOrgProcessor(object):
 			self.parse_microdata(doc_url)
 		elif format == 'csv':
 			self.parse_csv(doc_url)
+		elif format == 'odata':
+			# http://code.google.com/p/odata-py/
+			pass
 		else:
 			pass
 

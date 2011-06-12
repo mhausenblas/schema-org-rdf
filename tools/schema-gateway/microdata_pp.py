@@ -34,36 +34,39 @@ class MicrodataPrettyPrinter(object):
 	def dump_items(self, format='plain'):
 		if self.items:
 			if format == 'plain': # pure text dump, for example in CLI usage
-				print('\n' + '*' * 80)
-				print('%s data items found in total:' %self.item_count)
+				obuf = ''.join(['\n', '*' * 80, '\n'])
+				obuf = ''.join([obuf, '%s data items found in total:' %self.item_count, '\n'])
 				for it in self.items:
-					self.dump_item(it)
+					obuf = ''.join([obuf, self.dump_item(it), '\n'])
+				return obuf
 			elif format == 'json': # JSON dump
 				for it in self.items:
-					print(it.json())
+					return it.json()
 	
 	def dump_item(self, item, level='', parent=None, prop=None):
+		obuf = ''
 		anonid = uuid.uuid1()
 		if parent:
 			ith = '%s%s ->\n%sITEM (' %(level, prop, level)
 		else:
 			ith = 'ITEM ('
-			print('-' * 80)
+			obuf = ''.join([obuf, '-' * 80, '\n'])
 		# the item header (identity and type, if given)
 		if item.itemid: ith = ''.join([ith, str(item.itemid)])  
 		else: ith = ''.join([ith, 'anonymous::', str(anonid)])
 		if item.itemtype: ith = ''.join([ith, ') OF TYPE (', str(item.itemtype), ') {'])  
 		else: ith = ''.join([ith, ') {'])
-		print(ith)
+		obuf = ''.join([obuf, ith, '\n'])
 		for prop, values in item.props.items():
 			for val in values:
 				if isinstance(val, microdata.Item):
 					if item.itemid: parent = str(item.itemid)
 					else: parent = str(anonid)
-					self.dump_item(val, level=level+ '  ', parent=parent, prop=prop)
+					obuf = ''.join([obuf, self.dump_item(val, level=level+ '  ', parent=parent, prop=prop), '\n'])
 				else:
-					print(''.join([level, '  ', prop,' = ', str(val)]))
-		print(level + '}')
+					obuf = ''.join([obuf, ''.join([level, '  ', prop,' = ', str(val)]), '\n'])
+		obuf = ''.join([obuf, level, '}', '\n'])
+		return obuf
 
 	def inspect_items(self):
 		for it in self.items:
@@ -94,7 +97,7 @@ if __name__ == "__main__":
 				print("PARSING [%s] for Schema.org items ..." %arg)
 				md_doc_URI = arg
 				mdp.items_from_URL(md_doc_URI)
-				mdp.dump_items()
+				print(mdp.dump_items())
 				pass
 	except getopt.GetoptError, err:
 		print str(err)
