@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>
+			schema.rdfs.org - FAQ
+		</title>
+		<link rel="stylesheet" type="text/css" href="schemaorg.css" media="screen, projection">
+		<link rel="stylesheet" type="text/css" href="default.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="intro">
+				<div id="pageHeader">
+					<div class="wrapper">
+						<h1>
+							<a href="/">schema.rdfs.org</a>
+						</h1>
+					</div>
+				</div>
+				<div id="selectionbar">
+					<div class="wrapper">
+						<ul>
+							<li>
+								<a href="about.html">About</a>
+							</li>
+							<li class="activelink">
+								<a href="faq.html">FAQ</a>
+							</li>
+							<li>
+								<a href="tools.html">Tools</a>
+							</li>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+						</ul>
+					</div>
+				</div><!-- end intro -->
+				<div id="mainContent">
+					<h1>
+						Frequently Asked Questions
+					</h1>
+          <p>This page is an expanding set of FAQs about using schema.org
+            terms in RDF.</p>
+
+<ol class="toc">
+  <li><a href="#modeling">RDFS and OWL Modeling of schema.rdfs.org</a></li>
+  <li><a href="#uris">The choice of URIs for schema.rdfs.org</a></li>
+</ol>
+
+<h2 id="modeling">1. RDFS and OWL Modeling of schema.rdfs.org</h2>
+
+<p><strong>Q: Why do you limit the ranges of many properties to string? People might want to use URIs or blank nodes.</strong></p>
+
+<p>The RDFS translation only reflects what schema.org says. The expected type of many properties is “Text”, which we translate as string. We tried to formally describe schema.org in RDFS. We did not try to make a fork that improves upon their modelling. That might be a worthwhile project too, but a different project.</p>
+
+<p><strong>Q: Schema.org documentation explicitly say that you can use a text instead of a Thing/Person/other type, why is this not reflected in the RDFS?</strong></p>
+
+<p>That's ok—we didn't say that <code>schema:Thing</code> is disjoint from literals, so you can use a string when the declared range is <code>schema:Person</code>. (We were tempted to add “<code>xsd:string rdfs:subClassOf schema:Thing.</code>” to capture this bit of the schema.org documentation, but narrowly decided against it.)
+
+<p><strong>Q: Why don't you use <code>rdfs:Literal</code> instead of <code>xsd:string</code> to allow the strings to be language-tagged?</strong></p>
+
+<p>The problem is that <code>xsd:string</code> is too narrow and <code>rdfs:Literal</code> is too broad. We're waiting for RDF 1.1 to define a class of all string literals (tagged and untagged), and just leave the inaccurate <code>xsd:string</code> in place for now.</p>
+
+<p><strong>Q: Why don't you use <code>owl:allValuesFrom</code> instead of the ugly union domains/ranges?</strong></p>
+
+<p>This is a valid question in terms of good OWL modelling. But the current modelling is not wrong, and it's nicer to use the same construct for single- and multi-type domains and ranges.</p>
+
+<p><strong>Q: Nothing is gained from the range assertions. Why do you have them at all?</strong></p>
+
+<p>They capture a part of the schema.org documentation: the “expected type” of each property. That part of the documentation would be lost.</p>
+
+<p><strong>Q: Why don't you declare the single-valued properties as <code>owl:FunctionalProperty</code>?</strong></p>
+
+<p>The schema.org documentation unfortunately doesn't make it easy to determine which properties are single-valued. Using heuristics, such as looking for properties ending in “-s”, seems a bit risky.</p>
+
+
+<h2 id="uris">2. The choice of URIs for schema.rdfs.org</h2>
+
+<p><strong>Q: Why did you not mint new URIs, like <code>http://schema.rdfs.org/Thing</code> instead of <code>http://schema.org/Thing</code>?.</strong></p>
+
+<p>Schema.org defines URIs for a set of useful vocabulary terms. The nice thing about it is that the URIs have Google backing. The Google backing would be lost by forking with a different set of URIs.</p>
+
+
+<p><strong>Q: The schema.org URIs don't resolve to RDF. Wouldn't it be better to mint new ones and make them dereferenceable?</strong></p>
+
+<p>Dereferenceability is only a means to an end: establishing identifiers that are widely understood as denoting a particular thing. Let's acknowledge reality: Google-backed URIs with HTML-only documentation achieve this better than researcher-backed URIs which follow all best practices.</p>
+
+<p><strong>Q: You say that <code>http://schema.org/Thing</code> is a class, while it clearly is an information resource. Why are you violating httpRange-14?</strong></p>
+
+<p>Schema.org documentation uses these URIs as classes and properties in their RDFa example. They also return 200 from those URIs. So it's them who are violating httpRange-14, not us. We don't think they care much.</p>
+
+<p><strong>Q: Why don't you avoid the httpRange-14 violation by using URIs such as <code>http://schema.org/Thing#this</code>?</strong></p>
+
+<p>Schema.org is using <code>http://schema.org/Thing</code> as a class in their RDFa documentation. We don't want to mint different URIs in their namespace.</p>
+
+<p><strong>Q: Schema.org is about annotating web pages, so <code>http://schema.org/Person</code> is not the class of people, but the class of web pages that are about people.</strong></p>
+
+<p>We think that <code>http://schema.org/Person</code> is the class of people (and as such equivalent to <code>foaf:Person</code>). It's just that the schema.org designers don't care much about the distinction between a web page and the topic of a web page.</p>
+
+					<p class="date">
+						Last Updated: 12 June 2011
+					</p>
+				</div><!-- end maincontent -->
+			</div><!-- closes #container -->
+			<div id="footer">
+				<p>
+					The code of this site is available via <a href="https://github.com/mhausenblas/schema-org-rdf">github</a> - blame <a href="http://sw-app.org/mic.xhtml#i">Michael</a> and <a href="http://richard.cyganiak.de/#me">Richard</a> from the Linked Data Research Centre, <a href="http://www.deri.ie/">DERI</a>, NUI Galway.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
