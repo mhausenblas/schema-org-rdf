@@ -1,0 +1,19 @@
+@prefix ns1: <http://schema.org/Event#> .
+@prefix ns2: <http://schema.org/Place#> .
+@prefix ns3: <http://schema.org/AggregateOffer#> .
+@prefix ns4: <http://schema.org/PostalAddress#> .
+
+<http://example.org/event123> a <http://schema.org/Event>;
+    ns1:location [ a <http://schema.org/Place>;
+            ns2:address [ a <http://schema.org/PostalAddress>;
+                    ns4:addressLocality "Philadelphia";
+                    ns4:addressRegion "PA" ];
+            ns2:url <wells-fargo-center.html> ];
+    ns1:offers [ a <http://schema.org/AggregateOffer>;
+            ns3:lowPrice "$35";
+            ns3:offerCount "1,938" ];
+    ns1:startDate "2011-04-21T20:00";
+    ns1:url <nba-miami-philidelphia-game3.html> .
+
+[] a <http://schema.org/Event> .
+

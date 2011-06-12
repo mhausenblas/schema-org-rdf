@@ -1,0 +1,71 @@
+PARSING [https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv] for Schema.org data ...
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix scsv: <http://purl.org/NET/schema-org-csv#> .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#table> a <http://purl.org/NET/schema-org-csv#Table>;
+    scsv:row <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4>;
+    dcterms:source <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv>;
+    dcterms:title "solar-system.csv" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1> a <http://purl.org/NET/schema-org-csv#HeaderRow>;
+    scsv:cell <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1,col:1>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1,col:2>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1,col:3>;
+    dcterms:title "header" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1,col:1> dcterms:title "Thing" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1,col:2> dcterms:title "Mass" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:1,col:3> dcterms:title "URL" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2> a <http://purl.org/NET/schema-org-csv#Row>;
+    scsv:cell <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2,col:1>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2,col:2>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2,col:3>;
+    dcterms:title "row 2" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2,col:1> a <http://schema.org/Thing>;
+    rdf:value "Earth" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2,col:2> a <http://schema.org/Mass>;
+    rdf:value "5.9721986x10^24 kg" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:2,col:3> a <http://schema.org/URL>;
+    rdf:value <http://dbpedia.org/resource/Earth> .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3> a <http://purl.org/NET/schema-org-csv#Row>;
+    scsv:cell <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3,col:1>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3,col:2>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3,col:3>;
+    dcterms:title "row 3" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3,col:1> a <http://schema.org/Thing>;
+    rdf:value "Mars" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3,col:2> a <http://schema.org/Mass>;
+    rdf:value "6.4191x10^23 kg" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:3,col:3> a <http://schema.org/URL>;
+    rdf:value <http://dbpedia.org/resource/Mars> .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4> a <http://purl.org/NET/schema-org-csv#Row>;
+    scsv:cell <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4,col:1>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4,col:2>,
+        <https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4,col:3>;
+    dcterms:title "row 4" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4,col:1> a <http://schema.org/Thing>;
+    rdf:value "Sun" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4,col:2> a <http://schema.org/Mass>;
+    rdf:value "1.988435x10^30 kg" .
+
+<https://raw.github.com/mhausenblas/schema-org-rdf/master/tools/schema-gateway/test/solar-system.csv#row:4,col:3> a <http://schema.org/URL>;
+    rdf:value <http://dbpedia.org/resource/Sun> .
+
+

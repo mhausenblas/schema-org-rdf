@@ -56,12 +56,12 @@ class SchemaOrgProcessor(object):
 		self.g = rdflib.Graph()
 		self.g.parse(location=doc_url, format="microdata")
 			
-	def dump_data(self):
+	def dump_data(self, format='turtle'):
 		if self.g:
 			self.g.bind('schema', 'http://schema.org/', True)
 			self.g.bind('scsv', 'http://purl.org/NET/schema-org-csv#', True)
 			self.g.bind('dcterms', 'http://purl.org/dc/terms/', True)
-			return self.g.serialize()
+			return self.g.serialize(format=format)
 		else:
 			return None
 
