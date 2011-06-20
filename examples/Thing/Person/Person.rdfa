@@ -1,0 +1,26 @@
+<div vocab="http://schema.org/" about="#manu" typeof="Person">
+  <span property="name">Manu Sporny</span>
+  <div rel="image">
+    <img src="manu.jpg" />
+  </div>
+
+  <span property="jobTitle">Founder/CEO</span>
+  <div rel="address">
+    <div about="#manu-address" typeof="PostalAddress">
+      <span property="streetAddress">1700 Kraft Drive, Suite 2408</span>
+      <span property="addressLocality">Blacksburg</span>,
+      <span property="addressRegion">VA</span>
+      <span property="postalCode">24060</span>
+    </div>
+  </div>
+  <span property="telephone">(540) 961-4469</span>
+  <a rel="email" href="mailto:msporny@digitalbazaar.com">msporny@digitalbazaar.com</a>
+
+  Manu's home page:
+  <a rel="url" href="http://manu.sporny.org/">manu.sporny.org</a>
+
+  Colleagues:
+  <a rel="colleagues" href="http://example.com/alice">Alice Jones</a>
+  <a rel="colleagues" href="http://example.com/bob">Bob Smith</a>
+</div>
+

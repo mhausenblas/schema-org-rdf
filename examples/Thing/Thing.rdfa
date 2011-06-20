@@ -1,0 +1,6 @@
+<div vocab="http://schema.org/" about="#the-thing" typeof="Thing">
+   <p property="description">The Thing is a fictional character in the Fantastic Four.</p>
+   <a rel="image" href="http://upload.wikimedia.org/wikipedia/en/a/a3/Thing_v2_1_coverart.jpg" property="name">The Thing</a>
+   <a rel="url" href="http://en.wikipedia.org/wiki/Thing_(comics)">Description of The Thing</a>
+</div>
+
