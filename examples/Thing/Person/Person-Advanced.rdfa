@@ -4,6 +4,8 @@
     <img src="manu.jpg" />
   </div>
 
+  Gender: <span property="gender">Male</span>
+
   <span property="jobTitle">Founder/CEO</span>
   <div rel="address">
     <div about="#manu-address" typeof="PostalAddress">
@@ -22,5 +24,12 @@
   Colleagues:
   <a rel="colleagues" href="http://example.com/alice">Alice Jones</a>
   <a rel="colleagues" href="http://example.com/bob">Bob Smith</a>
+  
+  Acquaintences:
+  <div rel="knows">
+    <span typeof="Person" property"name">Michael Hausenblas</span>
+    <span typeof="Person" property"name">Richard Cyganiak</span>
+    <span typeof="Person" property"name">Stéphane Corlosquet</span>
+  </div>
 </div>
 
