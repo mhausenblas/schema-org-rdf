@@ -1,0 +1,26 @@
+{
+   "@context": "http://schema.org/jsonld-profile",
+   "@subject": "http://example.org/people#manu",
+   "@type": "Person", 
+   "name": "Manu Sporny",
+   "image": "http://example.org/manu.jpg",
+   "jobTitle": "Founder/CEO",
+   "address":
+   {
+      "@subject": "http://example.org/people#manu-address",
+      "@type": "PostalAddress",
+      "streetAddress": "1700 Kraft Drive, Suite 2408",
+      "addressLocality": "Blacksburg",
+      "addressRegion": "VA",
+      "postalCode": "24060"
+   }
+   "telephone": "(540) 961-4469",
+   "email": "mailto:msporny@digitalbazaar.com",
+   "url": "http://manu.sporny.org/",
+   "colleagues": 
+   [
+      "http://www.xyz.edu/students/alicejones.html",
+      "http://www.xyz.edu/students/bobsmith.html"
+   ]
+}
+
