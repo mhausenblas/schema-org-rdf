@@ -1,0 +1,7 @@
+<div vocab="http://schema.org/" typeof="CreativeWork">
+  <img rev="image" src="videogame.jpg" about=""/>
+  <span property="name">Resistance 3: Fall of Man</span>
+  by <span property="author">Sony</span>,
+  Platform: Playstation 3
+  Rated:<span property="contentRating">Mature</span>
+</div>
