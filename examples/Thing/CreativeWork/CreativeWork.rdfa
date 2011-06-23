@@ -1,5 +1,5 @@
 <div vocab="http://schema.org/" typeof="CreativeWork">
-  <img rev="image" src="videogame.jpg" about=""/>
+  <span rel="image"><img src="videogame.jpg"/></span>
   <span property="name">Resistance 3: Fall of Man</span>
   by <span property="author">Sony</span>,
   Platform: Playstation 3
