@@ -1,0 +1,13 @@
+241 Validation errors in: http://schema.org/docs/full_md.html
+  Fixed version is here : http://pastebin.com/1zDAeXZu
+  
+Errors in Person example: http://schema.org/Person
+  Should use TEL scheme: 
+    <span itemprop="telephone">(425) 123-4567</span>
+    should be:
+    <a rel="telephone" href="tel:14251234567">(425) 123-4567</a>
+  Bad URLs: <a href="www.janedoe.com" ...
+            <a href="www.xyz.edu/students/alicejones.html" ...
+            <a href="www.xyz.edu/students/bobsmith.html" ...
+
+
