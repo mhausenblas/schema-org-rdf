@@ -14,3 +14,6 @@ Errors in CreativeWork example: http://schema.org/CreativeWork
   <div itemprop="aggregateRating"  itemtype="http://schema.org/AggregateRating">
   should be
   <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+
+Errors in Movie example: http://schema.org/Movie
+  http://schema.org/People should be http://schema.org/Person
