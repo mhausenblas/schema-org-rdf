@@ -10,4 +10,7 @@ Errors in Person example: http://schema.org/Person
             <a href="www.xyz.edu/students/alicejones.html" ...
             <a href="www.xyz.edu/students/bobsmith.html" ...
 
-
+Errors in CreativeWork example: http://schema.org/CreativeWork
+  <div itemprop="aggregateRating"  itemtype="http://schema.org/AggregateRating">
+  should be
+  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">

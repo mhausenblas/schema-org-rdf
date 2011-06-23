@@ -1,0 +1,63 @@
+<body vocab="http://schema.org/" typeof="WebPage">
+  ...
+  <div property="breadcrumb">
+    <a href="category/books.html">Books</a> >
+    <a href="category/books-literature.html">Literature & Fiction</a> >
+    <a href="category/books-classics">Classics</a>
+  </div>
+
+  <div rel="foaf:primaryTopic">
+    <div about="#book" typeof="Book">
+
+      <img rev="image" src="catcher-in-the-rye-book-cover.jpg" about="#book" />
+      <span property="name">The Catcher in the Rye</span> -
+       <link rel="bookFormat" href="http://schema.org/Paperback">Mass Market Paperback</link>
+      by <a rel="author" href="/author/jd_salinger.html">J.D. Salinger</a>
+
+      <div rel="aggregateRating">
+        <div typeof="AggregateRating">
+          <span property="ratingValue">4</span> stars -
+          <span property="reviewCount">3077</span> reviews
+        </div>
+      </div>
+
+      <div rel="offers">
+        <div typeof="Offer">
+          Price: <span property="price">$6.99</span>
+          <meta property="priceCurrency" content="USD" />
+          <link rel="availability" href="http://schema.org/InStock">In Stock</link>
+        </div>
+      </div>
+
+      Product details
+      <span property="numPages">224</span> pages
+      Publisher: <span property="publisher">Little, Brown, and Company</span> -
+       <meta property="publishDate" content="1991-05-01">May 1, 1991</meta>
+      Language: <span property="inLanguage">English</span>
+      ISBN-10: <span property="isbn">0316769487</span>
+
+      <div rel="reviews">
+        Reviews:
+
+        <div typeof="Review">
+          <span property="reviewRating">5</span> stars -
+          <b>"<span property="name">A masterpiece of literature</span>" </b>
+          by <span property="author">John Doe</span>,
+          Written on <meta property="publishDate" content="2006-05-04">May 4, 2006</meta>
+          <span property="reviewBody">I really enjoyed this book. It captures the essential
+          challenge people face as they try make sense of their lives and grow to adulthood.</span>
+        </div>
+
+        <div typeof="Review">
+          <span property="reviewRating">4</span> stars -
+          <b>"<span property="name">A good read.</span>" </b>
+          by <span property="author">Bob Smith</span>,
+          Written on <meta property="publishDate" content="2006-06-15">June 15, 2006</meta>
+          <span property="reviewBody">Catcher in the Rye is a fun book. It's a good book to read.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  ...
+</body>
