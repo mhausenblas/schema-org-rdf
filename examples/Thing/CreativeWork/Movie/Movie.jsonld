@@ -1,0 +1,31 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Movie",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Penelope Cruz"
+    },
+    {
+      "@type": "Person",
+      "name": "Johnny Depp"
+    },
+    {
+      "@type": "Person"
+    },
+    {
+      "@type": "Person",
+      "name": "Ted Elliott"
+    },
+    {
+      "name": "Ian McShane"
+    }
+  ],
+  "description": "Jack Sparrow and Barbossa embark on a quest to\n   find the elusive fountain of youth, only to discover that Blackbeard and\n   his daughter are after it too.\n  ",
+  "director": {
+    "@type": "Person",
+    "name": "Rob Marshall"
+  },
+  "name": "Pirates of the Carribean: On Stranger Tides (2011)"
+}
