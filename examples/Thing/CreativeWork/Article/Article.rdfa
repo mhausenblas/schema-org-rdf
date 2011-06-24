@@ -1,0 +1,7 @@
+<div vocab="http://schema.org/" typeof="Article">
+  <span property="name">How to Tie a Reef Knot</span>
+  by <span property="author">John Doe</span>
+  This article has been tweeted 1203 times and contains 78 user comments.
+  <span property="interactionCount" content="UserTweets:1203"/>
+  <span property="interactionCount" content="UserComments:78"/>
+</div>

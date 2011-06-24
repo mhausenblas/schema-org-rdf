@@ -1,0 +1,69 @@
+<div vocab="http://schema.org/" typeof="MusicGroup">
+  <h1 property="name">Foo Fighters</h1>
+  <div rel="video">
+    <div typeof="VideoObject">
+      <h2>Video: <span property="name">Interview with the Foo Fighters</span></h2>
+      <span property="duration" content="T1M33S" />
+      <span rel="thumbnail" content="foo-fighters-interview-thumb.jpg" />
+      <object>
+        <param/>
+        <embed type="application/x-shockwave-flash"/>
+      </object>
+      <span property="description">Catch this exclusive interview with
+        Dave Grohl and the Food Fighters about their new album, Rope.</span>
+    </div>
+  </div>
+
+  <div rel="tracks">
+    <h2>Songs</h2>
+    <div typeof="MusicRecording">
+      <span property="name">Rope</span>
+      Length: <span property="duration" content="PT4M5S">4:05</span> -
+      14300 plays<span property="interactionCount" content="UserPlays:14300" />
+      <a href="foo-fighters-rope-play.html" rel="audio">Play</a>
+      <a href="foo-fighters-rope-buy.html" rel="offers">Buy</a>
+      From album: <a href="foo-fighters-wasting-light.html" rel="inAlbum">Wasting Light</a>
+    </div>
+
+    <div typeof="MusicRecording">
+      <span property="name">Everlong</span>
+      Length: <span property="duration" content="PT6M33S">6:33</span> -
+      <span property="playCount">11700</span> plays
+      <a href="foo-fighters-everlong-play.html" rel="audio">Play</a>
+      <a href="foo-fighters-everlong-buy.html" rel="offers">Buy</a>
+      From album: <a href="foo-fighters-color-and-shape.html"
+        rel="inAlbum">The Color And The Shape</a>
+    </div>
+  </div>
+
+  <div rel="events">
+    <h2>Upcoming shows</h2>
+
+    <div typeof="Event">
+      <a href="foo-fighters-may20-fedexforum" rel="url">FedExForum</a>
+      <span property="location">Memphis, TN, US</span>
+      <span property="startDate" content="2011-05-20">May 20</span>
+      <a href="ticketmaster.com/foofighters/may20-2011" rel="offers">Buy tickets</a>
+    </div>
+
+    <div typeof="Event">
+      <a href="foo-fighters-may23-midamericacenter" rel="url">Mid America Center</a>
+      <span property="location">Council Bluffs, IA, US</span>
+      <span property="startDate" content="2011-05-23">May 23</span>
+      <a href="ticketmaster.com/foofighters/may23-2011" rel="offers">Buy tickets</a>
+    </div>
+  </div>
+
+  <h2><a href="foo-fighters-photos">28 Photos</a></h2>
+  <a href="foofighters-1.jpg" itemprop="rel"><img src="foofighters-thumb1.jpg" /></a>
+  <a href="foofighters-2.jpg" itemprop="rel"><img src="foofighters-thumb2.jpg" /></a>
+  <a href="foofighters-3.jpg" itemprop="rel"><img src="foofighters-thumb3.jpg" /></a>
+
+
+  <h2>Comments:</h2>
+  Excited about seeing them in concert next week. -Lawrence , Jan 23
+  I dig their latest single. -Mary, Jan 19
+  <span property="interactionCount" content="UserComments:18" />
+  Showing 1-2 of 18 comments. <a href="foofighters-comments">More</a>
+
+</div>

@@ -1,0 +1,45 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Product",
+  "name": "Kenmore White 17\" Microwave",
+  "description": "0.7 cubic feet countertop microwave.\n  Has six preset cooking categories and convenience features like\n  Add-A-Minute and Child Lock.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "3.5",
+    "reviewCount": "11"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "InStock",
+    "price": "$55.00"
+  },
+  "reviews": [
+    {
+      "@type": "Review",
+      "name": "Value purchase",
+      "author": "Lucas",
+      "description": "Great microwave for the price. It is small and\n      fits in my apartment.",
+      "publishDate": "2011-03-25",
+      "reviewRating": {
+        "@type": "Rating",
+        "bestRating": "5",
+        "ratingValue": "4",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "Review",
+      "name": "Not a happy camper",
+      "description": "The lamp burned out and now I have to replace\n      it. ",
+      "author": "Ellie",
+      "publishDate": "2011-04-01",
+      "reviewRating": {
+        "@type": "Rating",
+        "bestRating": "5",
+        "ratingValue": "1",
+        "worstRating": "1"
+      }
+    }
+  ]
+}

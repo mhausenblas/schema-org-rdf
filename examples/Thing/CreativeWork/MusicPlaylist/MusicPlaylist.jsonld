@@ -1,0 +1,34 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "name": "Classic Rock Playlist",
+  "numTracks": "5",
+  "tracks": [
+    {
+      "@type": "MusicRecording",
+      "byArtist": "John Cougar",
+      "name": "Hurt So Good"
+    },
+    {
+      "@type": "MusicRecording",
+      "byArtist": "Bob Seger",
+      "name": "Old Time Rock and Roll"
+    },
+    {
+      "@type": "MusicRecording",
+      "byArtist": "ZZ Top",
+      "name": "Sharp Dressed Man"
+    },
+    {
+      "@type": "MusicRecording",
+      "byArtist": "AC/DC",
+      "name": "Shook you all Night Long"
+    },
+    {
+      "@type": "MusicRecording",
+      "byArtist": "Lynard Skynard",
+      "name": "Sweet Home Alabama"
+    }
+  ]
+}
+

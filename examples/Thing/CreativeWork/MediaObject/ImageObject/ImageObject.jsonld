@@ -1,0 +1,11 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "ImageObject",
+  "name": "Beach in Mexico",
+  "description": "I took this picture while on vacation last year.",
+  "author": "Jane Doe",
+  "contentLocation": "Puerto Vallarta, Mexico",
+  "contentURL": "mexico-beach.jpg",
+  "publishDate": "2008-01-25"
+}
