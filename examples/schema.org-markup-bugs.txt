@@ -14,6 +14,18 @@ Errors in CreativeWork example: http://schema.org/CreativeWork
   <div itemprop="aggregateRating"  itemtype="http://schema.org/AggregateRating">
   should be
   <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+  
+  WebPage doesn't have association to Book, added foaf:primaryTopic, but could be something
+  else, such as wrds:
 
 Errors in Movie example: http://schema.org/Movie
   http://schema.org/People should be http://schema.org/Person
+
+Errors on datamodel page: http://schema.org/docs/datamodel.html
+  @typeof properties don't need to be full URIs, they can use the vocab
+  
+  <img rel="image" src="dell-30in-lcd.jpg" />
+  won't produce the triple they expect, it should be
+  <span rel="image"><img src="dell-30in-lcd.jpg" /></span>
+  
+  What are RDFa "Turtles"?
