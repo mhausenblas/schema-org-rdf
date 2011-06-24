@@ -1,0 +1,31 @@
+241 Validation errors in: http://schema.org/docs/full_md.html
+  Fixed version is here : http://pastebin.com/1zDAeXZu
+  
+Errors in Person example: http://schema.org/Person
+  Should use TEL scheme: 
+    <span itemprop="telephone">(425) 123-4567</span>
+    should be:
+    <a rel="telephone" href="tel:14251234567">(425) 123-4567</a>
+  Bad URLs: <a href="www.janedoe.com" ...
+            <a href="www.xyz.edu/students/alicejones.html" ...
+            <a href="www.xyz.edu/students/bobsmith.html" ...
+
+Errors in CreativeWork example: http://schema.org/CreativeWork
+  <div itemprop="aggregateRating"  itemtype="http://schema.org/AggregateRating">
+  should be
+  <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+  
+  WebPage doesn't have association to Book, added foaf:primaryTopic, but could be something
+  else, such as wrds:
+
+Errors in Movie example: http://schema.org/Movie
+  http://schema.org/People should be http://schema.org/Person
+
+Errors on datamodel page: http://schema.org/docs/datamodel.html
+  @typeof properties don't need to be full URIs, they can use the vocab
+  
+  <img rel="image" src="dell-30in-lcd.jpg" />
+  won't produce the triple they expect, it should be
+  <span rel="image"><img src="dell-30in-lcd.jpg" /></span>
+  
+  What are RDFa "Turtles"?

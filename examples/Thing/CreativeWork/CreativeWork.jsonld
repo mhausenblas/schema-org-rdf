@@ -1,0 +1,9 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "CreativeWork",
+  "author": "Sony",
+  "contentRating": "Mature",
+  "image": "videogame.jpg",
+  "name": "Resistance 3: Fall of Man"
+}
