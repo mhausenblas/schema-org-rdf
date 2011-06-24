@@ -1,0 +1,12 @@
+<div vocab="http://schema.org/" typeof="Place">
+  <h1>What is the latitude and longitude of the <span property="name">Empire State Building</span>?<h1>
+  Answer:
+  <div rel="geo">
+    <div typeof="GeoCoordinates">
+      Latitude: 40 deg 44 min 54.36 sec N
+      Longitude: 73 deg 59 min 8.5 dec W
+      <span property="latitude" content="40.75" />
+      <span property="longitude" content="73.98" />
+    </div>
+  </div>
+</div>

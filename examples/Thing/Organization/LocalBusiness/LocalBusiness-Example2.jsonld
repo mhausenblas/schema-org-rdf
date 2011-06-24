@@ -1,0 +1,31 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Restaurant",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sunnyvale",
+    "addressRegion": "CA",
+    "postalCode": "94086",
+    "streetAddress": "1901 Lemur Ave"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4",
+    "reviewCount": "250"
+  },
+  "name": "GreatFood",
+  "openingHours": [
+    "Fr-Sa 17:00-22:00",
+    "Mo-Sa 11:00-14:30",
+    "Mo-Th 17:00-21:30"
+  ],
+  "priceRange": "$$",
+  "servesCuisine": [
+    "\n    Mediterranean\n  ",
+    "\n    Middle Eastern\n  "
+  ],
+  "telephone": "(408) 714-1489",
+  "url": "http://www.dishdash.com"
+}
+

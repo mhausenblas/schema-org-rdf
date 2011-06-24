@@ -1,0 +1,11 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Place",
+  "name": "Empire State Building",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.75",
+    "longitude": "73.98"
+  }
+}

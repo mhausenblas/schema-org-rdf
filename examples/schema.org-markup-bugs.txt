@@ -50,3 +50,14 @@ Errors in TVSeries example: http://schema.org/TVSeries
 Error in ImageObject: http://schema.org/ImageObject
   @itemtype is wrong, should be:
   <div itemscope itemtype="http://schema.org/ImageObject">
+
+Error in GeoCoordinates: http://schema.org/GeoCoordinates
+  "latitude" is duplicated, the second should be "longitude"
+
+Error in http://schema.org/EducationalOrganization
+  missing @itemscope
+
+Error in http://schema.org/CivicStructure
+  should be:
+  <meta itemprop="openingHours" content="Mo-Fr 09:00-17:30">Mon-Fri 9am - 5:30pm</meta>
+
