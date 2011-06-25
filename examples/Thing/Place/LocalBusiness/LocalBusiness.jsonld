@@ -1,0 +1,14 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "LocalBusiness",
+  "name": "Beachwalk Beachwear & Giftware",
+  "description": " A superb collection of fine gifts and clothing\n  to accent your stay in Mexico Beach.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mexico Beach",
+    "addressRegion": "FL",
+    "streetAddress": "3102 Highway 98"
+  },
+  "telephone": "850-648-4200"
+}

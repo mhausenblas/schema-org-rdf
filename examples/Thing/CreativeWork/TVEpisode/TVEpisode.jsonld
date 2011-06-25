@@ -1,0 +1,39 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "TVSeries",
+  "name": "Greys Anatomy",
+  "author": {
+    "@type": "Person",
+    "name": "Shonda Rimes"
+  },
+  "actors": [
+    {
+      "@type": "Person",
+      "name": "Jessica Capshaw"
+    },
+    {
+      "@type": "Person",
+      "name": "Justin Chambers"
+    }
+  ],
+  "seasons": [
+    {
+      "@type": "TVSeason",
+      "name": "Season 1",
+      "numberofEpisodes": "14",
+      "publishDate": "2005-05-22"
+    },
+    {
+      "@type": "TVSeason",
+      "name": "Season 2",
+      "numberofEpisodes": "27",
+      "publishDate": "2006-05-14",
+      "episodes": {
+        "@type": "TVEpisode",
+        "name": "Episode 1"
+        "episodeNumber": "1",
+      }
+    }
+  ]
+}

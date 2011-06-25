@@ -1,0 +1,12 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "ItemList",
+  "name": "Top 10 laptops",
+  "mainContentOfPage": "true",
+  "itemListElement": [
+    "Dell XPS 15 (Sandy Bridge)",
+    "HP Pavilion dv6-6013cl",
+    "Lenovo ThinkPad X220"
+  ]
+}

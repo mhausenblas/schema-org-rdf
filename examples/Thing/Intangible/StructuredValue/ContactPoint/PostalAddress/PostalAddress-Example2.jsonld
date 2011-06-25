@@ -1,0 +1,11 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "PostalAddress",
+  "name": "Google Inc.",
+  "postOfficeBoxNumber": "1234",
+  "addressLocality": "Mountain View",
+  "addressRegion": "CA",
+  "postalCode": "94043"
+  "addressCountry": "United States",
+}

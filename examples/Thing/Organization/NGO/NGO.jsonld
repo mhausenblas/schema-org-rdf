@@ -1,0 +1,26 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Organization",
+  "name": "Google.org (GOOG)",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris, France",
+    "postalCode": "F-75002",
+    "streetAddress": "38 avenue de l'Opera"
+  },
+  "email": "secretariat(at)google.org",
+  "faxNumber": "( 33 1) 42 68 53 01 ",
+  "members": [
+    {
+      "@type": "Organization",
+      "name": "Member2"
+    },
+    {
+      "@type": "Organization",
+      "name": "Member1"
+    }
+  ],
+  "telephone": "( 33 1) 42 68 53 00 "
+}
+

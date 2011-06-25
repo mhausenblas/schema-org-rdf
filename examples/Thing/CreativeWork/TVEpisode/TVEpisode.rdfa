@@ -1,0 +1,34 @@
+<div vocab="http://schema.org/" typeof="TVSeries">
+  <span property="name">Greys Anatomy</span> is a medical drama television series created by
+  <div rel="author">
+    <div typeof="Person">
+      <span property="name">Shonda Rimes</span>
+    </div>
+  </div>
+  <div rel="actors">
+   Starring:
+   <div typeof="Person">
+     <span property="name">Justin Chambers</span>
+   </div>
+   <div typeof="Person">
+     <span property="name">Jessica Capshaw</span>
+   </div>
+  </div>
+  <div rel="seasons">
+    <div typeof="TVSeason">
+      <span property="name">Season 1</span> -
+      <span property="numberofEpisodes" content="14"/>
+      <span property="publishDate" content="2005-05-22">May 22, 2005</span>
+    </div>
+    <div typeof="TVSeason">
+      <span property="name">Season 2</span> -
+      <span property="numberofEpisodes" content="27"/>
+      <span property="publishDate" content="2006-05-14">May 14, 2006</span>
+      <div rel="episodes">
+        <div typeof="TVEpisode">
+        <span property="name">Episode <span property="episodeNumber">1</span></span> -
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

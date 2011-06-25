@@ -1,0 +1,13 @@
+<div vocab="http://schema.org/" typeof="LocalBusiness">
+  <h1><span property="name">Beachwalk Beachwear & Giftware</span></h1>
+  <span property="description"> A superb collection of fine gifts and clothing
+  to accent your stay in Mexico Beach.</span>
+  <div rel="address">
+    <div typeof="PostalAddress">
+      <span property="streetAddress">3102 Highway 98</span>
+      <span property="addressLocality">Mexico Beach</span>,
+      <span property="addressRegion">FL</span>
+    </div>
+  </div>
+  Phone: <span property="telephone">850-648-4200</span>
+</div>

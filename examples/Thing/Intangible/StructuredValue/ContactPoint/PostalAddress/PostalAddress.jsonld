@@ -1,0 +1,23 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Person",
+  "email": "mailto:jane-doe@xyz.edu",
+  "image": "janedoe.jpg",
+  "jobTitle": "Professor",
+  "name": "Jane Doe",
+  "telephone": "(425) 123-4567",
+  "url": "www.janedoe.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Seattle",
+    "addressRegion": "WA",
+    "postalCode": "98052",
+    "streetAddress": "\n        20341 Whitworth Institute\n        405 N. Whitworth\n      "
+  },
+  "colleagues": [
+    "www.xyz.edu/students/alicejones.html",
+    "www.xyz.edu/students/bobsmith.html"
+  ]
+}
+
