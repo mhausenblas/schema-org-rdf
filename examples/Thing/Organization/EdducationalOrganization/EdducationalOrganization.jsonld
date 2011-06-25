@@ -1,0 +1,22 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "EducationalOrganization",
+  "name": "Palo Alto High School",
+  "address": {
+    "streetAddress": "50 Embarcadero Rd",
+    "addressLocality": "Palo Alto",
+    "postalCode": "94301",
+    "addressRegion": "CA"
+  },
+  "alumni": [
+    {
+      "@type": "Person",
+      "name": "Sarah Glames"
+    },
+    {
+      "@type": "Person",
+      "name": "John Doe"
+    }
+  ]
+}

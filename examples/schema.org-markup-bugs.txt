@@ -29,3 +29,35 @@ Errors on datamodel page: http://schema.org/docs/datamodel.html
   <span rel="image"><img src="dell-30in-lcd.jpg" /></span>
   
   What are RDFa "Turtles"?
+
+Errors in Recipe example: http://schema.org/Recipe
+  bananabread.jpg quote not closed:
+  <img itemprop="image" src="bananabread.jpg" />
+
+Errors in Review examples: http://schema.org/Review
+  In example 1 second @itemprop Should be @itemtype
+  <div itemprop="aggregateRating"
+      itemscope itemprop="http://schema.org/AggregateRating">
+  
+  In example 2 there's a missing @itemscope, Should be:
+  <div itemprop="aggregateRating"  itemscope itemtype="http://schema.org/AggregateRating">
+
+Errors in TVEpisode example: http://schema.org/TVEpisode
+Errors in TVSeason example: http://schema.org/TVSeason
+Errors in TVSeries example: http://schema.org/TVSeries
+  Numerous errors, reported to schema.org
+
+Error in ImageObject: http://schema.org/ImageObject
+  @itemtype is wrong, should be:
+  <div itemscope itemtype="http://schema.org/ImageObject">
+
+Error in GeoCoordinates: http://schema.org/GeoCoordinates
+  "latitude" is duplicated, the second should be "longitude"
+
+Error in http://schema.org/EducationalOrganization
+  missing @itemscope
+
+Error in http://schema.org/CivicStructure
+  should be:
+  <meta itemprop="openingHours" content="Mo-Fr 09:00-17:30">Mon-Fri 9am - 5:30pm</meta>
+

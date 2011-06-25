@@ -1,0 +1,57 @@
+<div vocab="http://schema.org/" typeof="Product">
+  <span property="name">Kenmore White 17" Microwave</span>
+  <img src="kenmore-microwave-17in.jpg" alt='Kenmore 17" Microwave' />
+  <div rel="aggregateRating">
+    <div typeof="AggregateRating">
+     Rated <span property="ratingValue">3.5</span>/5
+     based on <span property="reviewCount">11</span> customer reviews
+    </div>
+  </div>
+
+  <div rel="offers">
+    <div typeof="Offer">
+      <span property="price">$55.00</span>
+      <link rel="availability" href="InStock" />In stock
+    </div>
+  </div>
+
+  Product description:
+  <span property="description">0.7 cubic feet countertop microwave.
+  Has six preset cooking categories and convenience features like
+  Add-A-Minute and Child Lock.</span>
+
+  <div rel="reviews">
+    Customer reviews:
+
+    <div typeof="Review">
+      <span property="name">Not a happy camper</span> -
+      by <span property="author">Ellie</span>,
+      <span property="publishDate" content="2011-04-01">April 1, 2011</span>
+      <div rel="reviewRating">
+        <div typeof="Rating">
+          <span property="worstRating" content = "1"/>
+          <span property="ratingValue">1</span>/
+          <span property="bestRating">5</span>stars
+        </div>
+      </div>
+      <span property="description">The lamp burned out and now I have to replace
+      it. </span>
+    </div>
+
+    <div typeof="Review">
+      <span property="name">Value purchase</span> -
+      by <span property="author">Lucas</span>,
+      <span property="publishDate" content="2011-03-25">March 25, 2011</span>
+      <div rel="reviewRating">
+        <div typeof="Rating">
+          <span property="worstRating" content = "1"/>
+          <span property="ratingValue">4</span>/
+          <span property="bestRating">5</span>stars
+        </div>
+      </div>
+      <span property="description">Great microwave for the price. It is small and
+      fits in my apartment.</span>
+    </div>
+    ...
+  </div>
+</div>

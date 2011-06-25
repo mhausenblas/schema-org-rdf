@@ -1,0 +1,7 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Table",
+  "about": "list of presidents",
+  "mainContentOfPage": "true"
+}

@@ -1,0 +1,36 @@
+<div vocab="http://schema.org/" typeof="Restaurant">
+  <span property="name">GreatFood</span>
+
+  <div rel="aggregateRating">
+    <div typeof="AggregateRating">
+      <span property="ratingValue">4</span> stars -
+      based on <span property="reviewCount">250</span> reviews
+    </div>
+  </div>
+
+  <div rel="address">
+    <div typeof="PostalAddress">
+      <span property="streetAddress">1901 Lemur Ave</span>
+      <span property="addressLocality">Sunnyvale</span>,
+      <span property="addressRegion">CA</span> <span property="postalCode">94086</span>
+    </div>
+  </end>
+  <span property="telephone">(408) 714-1489</span>
+  <a rel="url" href="http://www.dishdash.com">www.greatfood.com</a>
+
+  Hours:
+  <span property="openingHours" content="Mo-Sa 11:00-14:30">Mon-Sat 11am - 2:30pm</span>
+  <span property="openingHours" content="Mo-Th 17:00-21:30">Mon-Thu 5pm - 9:30pm</span>
+  <span property="openingHours" content="Fr-Sa 17:00-22:00">Fri-Sat 5pm - 10:00pm</span>
+
+  Categories:
+  <span property="servesCuisine">
+    Middle Eastern
+  </span>,
+  <span property="servesCuisine">
+    Mediterranean
+  </span>
+
+  Price Range: <span property="priceRange">$$</span>
+  Takes Reservations: Yes
+</div>

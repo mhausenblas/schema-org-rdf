@@ -1,0 +1,21 @@
+{
+  "@context": "http://schema.org/jsonld-profile",
+  "@subject": "",
+  "@type": "Event",
+  "location": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Philadelphia",
+      "addressRegion": "PA"
+    },
+    "url": "wells-fargo-center.html"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "$35",
+    "offerCount": "1,938"
+  },
+  "startDate": "2011-04-21T20:00",
+  "url": "nba-miami-philidelphia-game3.html"
+}

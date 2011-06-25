@@ -1,0 +1,16 @@
+<div vocab="http://schema.org/" typeof="Table">
+  <span property="mainContentOfPage" content="true"/>
+  <h2 property="about">list of presidents</h2>
+  <table>
+    <tr><th>President</th><th>Party</th><tr>
+    <tr>
+      <td>George Washington (1789-1797)</td>
+      <td>no party</td>
+    </tr>
+    <tr>
+      <td>John Adams (1797-1801)</td>
+      <td>Federalist</td>
+    </tr>
+    ...
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<div vocab="http://schema.org/" typeof="Event">
+  <a rel="url" href="nba-miami-philidelphia-game3.html">
+  NBA Eastern Conference First Round Playoff Tickets:
+  Miami Heat at Philadelphia 76ers - Game 3 (Home Game 1)
+  </a>
+
+  <span property="startDate" content="2011-04-21T20:00">
+    Thu, 04/21/11
+    8:00 p.m.
+  </span>
+
+  <div rel="location">
+    <div typeof="Place">
+      <a rel="url" href="wells-fargo-center.html">
+      Wells Fargo Center
+      </a>
+      <div rel="address">
+        <div typeof="PostalAddress">
+          <span property="addressLocality">Philadelphia</span>,
+          <span property="addressRegion">PA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div rel="offers">
+    <div typeof="AggregateOffer">
+      Priced from: <span property="lowPrice">$35</span>
+      <span property="offerCount">1,938</span> tickets left
+    </div>
+  </div>
+</div>
