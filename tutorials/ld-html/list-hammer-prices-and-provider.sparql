@@ -1,0 +1,17 @@
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX tools: <http://www.example.com/tools#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?label ?curval ?cur ?provname
+WHERE { ?offering a gr:Offering ;
+                  gr:includesObject ?object ;
+                  gr:hasPriceSpecification ?pricespec .
+        ?object gr:typeOfGood ?item .
+        ?item a tools:Hammer ;
+             dcterms:title ?label .
+        ?pricespec gr:hasCurrency ?cur ;
+                  gr:hasCurrencyValue ?curval .
+        ?provider gr:offers ?offering ;
+                  gr:legalName ?provname .
+       
+}
