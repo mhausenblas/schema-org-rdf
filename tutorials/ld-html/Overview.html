@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN"
                       "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      prefix="dcterms: http://purl.org/dc/terms/
-              ov:      http://open.vocab.org/terms/
+      prefix="ov:      http://open.vocab.org/terms/
               geo:     http://www.w3.org/2003/01/geo/wgs84_pos#
               gr:      http://purl.org/goodrelations/v1#
               dbpedia: http://dbpedia.org/resource/
@@ -111,7 +110,7 @@ This is a practical guide to publish and consume Linked Data based on URIs, HTTP
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
-@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix dc: &lt;http://purl.org/dc/terms/&gt; .
 @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
 @prefix acme: &lt;http://www.example.com/acme#&gt; .
 @prefix dbpedia: &lt;http://dbpedia.org/resource/&gt; .
@@ -140,7 +139,7 @@ This document guides the interested reader to publishing and consuming Linked Da
 <tr><th>Human</th><th>RDFa</th><th>Microdata</th></tr>
 <tr>
 	<td>
-		<div about="" rel="dcterms:author">
+		<div about="" rel="dc:author">
 			<a href="http://richard.cyganiak.de/foaf.rdf#cygri">Richard</a>,
 			<a href="http://sw-app.org/mic.xhtml#i">Michael</a>, and
 			<a href="http://greggkellogg.net/foaf#me">Gregg</a>
@@ -186,7 +185,7 @@ The resulting RDF triples (throughout shown using RDF Turtle <a href="#ref-TURTL
 </pre>
 
 <p>
-The RDFa/microdata snippet above is actually a basic dataset; it interlinks data from this note with information about people with a so called <strong>interlinking property</strong>, namely <code>dcterms:author</code>. If one wants to, for example, find out who the <em>authors</em> of this note are, one can use the following SPARQL query:
+The RDFa/microdata snippet above is actually a basic dataset; it interlinks data from this note with information about people with a so called <strong>interlinking property</strong>, namely <code>dc:author</code>. If one wants to, for example, find out who the <em>authors</em> of this note are, one can use the following SPARQL query:
 </p>
 <pre class="turtlecode">
  PREFIX schema: &lt;http://schema.org/&gt;
@@ -389,7 +388,7 @@ In the second step we want to add some details about the <em>products</em> itsel
 We first have to introduce the new namespace <code>http://www.example.com/tools#</code> that contains domain-specific concepts for tools. For the purpose of demonstration this namespace declaration is here (line 7 in Table 3.) done on the <code>&lt;table&gt;</code> element, potentially restricting its scope to the HTML table at hand. Had we, in contrast, defined it in the HTML head, the <code>tools:</code> namespace would have been declared and usable for the entire document. There are certain situations in the wild (such as a Wiki or a CMS) where you don't have control over the head; under such circumstances it can be useful to 'locally' declare a namespace, and its prefix respectively.
 </p>
 <p>
-We add, on a per-product basis, some essential information, such as its type: this is done in lines 11-13 for the <em>Stanley Fubar</em> <em>product</em>, in lines 17-19 for <em>Binford 2000 hammer</em>, and in lines 23-25 for <em>The Screwer</em>. Note that for each entity a new URI has been minted in the <code>http://www.example.com/acme#</code> namespace, such as <code>http://www.example.com/acme#sf0815</code> for the <em>Stanley Fubar</em> product. Further, we have specified the type of the respective entity (lines 12, 18, 24) as required by the GoodRelations vocabulary and reused the human visible information for the <em>product</em> title via the <code>dcterms:title</code> property of the Dublin Core vocabulary (lines 13, 19, 25).
+We add, on a per-product basis, some essential information, such as its type: this is done in lines 11-13 for the <em>Stanley Fubar</em> <em>product</em>, in lines 17-19 for <em>Binford 2000 hammer</em>, and in lines 23-25 for <em>The Screwer</em>. Note that for each entity a new URI has been minted in the <code>http://www.example.com/acme#</code> namespace, such as <code>http://www.example.com/acme#sf0815</code> for the <em>Stanley Fubar</em> product. Further, we have specified the type of the respective entity (lines 12, 18, 24) as required by the GoodRelations vocabulary and reused the human visible information for the <em>product</em> title via the <code>dc:title</code> property of the Dublin Core vocabulary (lines 13, 19, 25).
 </p>
 <table class="example">
 <caption><span>Table 3.:</span> Basic <em>product</em> information on the <em>tools</em> that <em>ACME Corp.</em> offers.</caption>
@@ -405,13 +404,13 @@ We add, on a per-product basis, some essential information, such as its type: th
 		    <th>Name</th><th>Description</th><th>Price [in &#x20ac;]</th>
 		  </tr>
 		  <tr about="http://www.example.com/acme#sf0815" typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance">
-		    <td property="dcterms:title">Stanley Fubar</td><td>All-purpose destroy utility.</td><td>40</td>
+		    <td property="dc:title">Stanley Fubar</td><td>All-purpose destroy utility.</td><td>40</td>
 		  </tr>
 		  <tr about="http://www.example.com/acme#sh4711" typeof="tools:Hammer gr:ActualProductOrServiceInstance">
-		    <td property="dcterms:title">Binford 2000 hammer</td><td>Your best friend for nails and more, top US quality.</td><td>20</td>
+		    <td property="dc:title">Binford 2000 hammer</td><td>Your best friend for nails and more, top US quality.</td><td>20</td>
 		  </tr>
 		  <tr about="http://www.example.com/acme#ts0007" typeof="tools:ScrewDriver gr:ActualProductOrServiceInstance">
-		    <td property="dcterms:title">The Screwer</td><td>For any kind of screw-driving, produced in the UK.</td><td>10</td>
+		    <td property="dc:title">The Screwer</td><td>For any kind of screw-driving, produced in the UK.</td><td>10</td>
 		  </tr>	
 		</table>
 	</td>
@@ -429,19 +428,19 @@ We add, on a per-product basis, some essential information, such as its type: th
 10:   &lt;/tr&gt;
 11:   &lt;tr <strong>about="http://www.example.com/acme#sf0815"</strong> 
 12:       <strong>typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance"</strong>&gt;
-13:     &lt;td <strong>property="dcterms:title"</strong>&gt;Stanley Fubar&lt;/td&gt;
+13:     &lt;td <strong>property="dc:title"</strong>&gt;Stanley Fubar&lt;/td&gt;
 14:     &lt;td&gt;All-purpose destroy utility.&lt;/td&gt;
 15:     &lt;td&gt;40&lt;/td&gt;
 16:   &lt;/tr&gt;
 17:  &lt;tr <strong>about="http://www.example.com/acme#sh4711"</strong> 
 18:      <strong>typeof="tools:Hammer gr:ActualProductOrServiceInstance"</strong>&gt;
-19:    &lt;td <strong>property="dcterms:title"</strong>&gt;Binford 2000 hammer&lt;/td&gt;
+19:    &lt;td <strong>property="dc:title"</strong>&gt;Binford 2000 hammer&lt;/td&gt;
 20:    &lt;td&gt;Your best friend for nails and more, top US quality.&lt;/td&gt;
 21:    &lt;td&gt;20&lt;/td&gt;
 22:  &lt;/tr&gt;
 23:  &lt;tr <strong>about="http://www.example.com/acme#ts0007"</strong>
 24:      <strong>typeof="tools:ScrewDriver gr:ActualProductOrServiceInstance"</strong>&gt;
-25:    &lt;td <strong>property="dcterms:title"</strong>&gt;The Screwer&lt;/td&gt;
+25:    &lt;td <strong>property="dc:title"</strong>&gt;The Screwer&lt;/td&gt;
 26:    &lt;td&gt;For any kind of screw-driving, produced in the UK.&lt;/td&gt;
 27:    &lt;td&gt;10&lt;/td&gt;
 28:  &lt;/tr&gt;	
@@ -456,7 +455,7 @@ The resulting RDF triples from the RDFa snippet in Table 3. are essentially:
 </p>
 <pre class="turtlecode">
  @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
- @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+ @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
  @prefix gr: &lt;http://purl.org/goodrelations/v1#&gt; .
  @prefix tools: &lt;http://www.example.com/tools#&gt; .
  @prefix acme: &lt;http://www.example.com/acme#&gt; .
@@ -466,13 +465,13 @@ The resulting RDF triples from the RDFa snippet in Table 3. are essentially:
                   gr:legalName "ACME Corp." .
 
  acme:sf0815 a tools:AllPurposeUtility, gr:ActualProductOrServiceInstance ;
-             dcterms:title "Stanley Fubar" .
+             dc:title "Stanley Fubar" .
 
  acme:sh4711 a tools:Hammer, gr:ActualProductOrServiceInstance ;
-             dcterms:title "Binford 2000 hammer" .
+             dc:title "Binford 2000 hammer" .
 
  acme:ts0007 a tools:ScrewDriver, gr:ActualProductOrServiceInstance ;
-             dcterms:title "The Screwer" .
+             dc:title "The Screwer" .
 </pre>
 <p>
 We again give a visual account of the resulting RDF graph from the RDFa snippet in Table 3. (see Fig. 2, below). 
@@ -508,7 +507,7 @@ In line 6 of the RDFa snippet in Table 4 we state that <em>ACME Corp.</em> has s
 		    <th>Name</th><th>Description</th><th>Price [in &#x20ac;]</th>
 		  </tr>
 		  <tr about="http://www.example.com/acme#sf0815" typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance">
-			<td property="dcterms:title">Stanley Fubar</td>
+			<td property="dc:title">Stanley Fubar</td>
 			<td>All-purpose destroy utility.</td>
 			<td about="http://www.example.com/acme#sf0815-price" typeof="gr:UnitPriceSpecification">
 				<span property="gr:hasCurrency" content="EUR" datatype="xsd:string" />
@@ -544,7 +543,7 @@ In line 6 of the RDFa snippet in Table 4 we state that <em>ACME Corp.</em> has s
 11:   &lt;/tr&gt;
 12:   &lt;tr about="http://www.example.com/acme#sf0815"
 13:       typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance"&gt;
-14:     &lt;td property="dcterms:title"&gt;Stanley Fubar&lt;/td&gt;
+14:     &lt;td property="dc:title"&gt;Stanley Fubar&lt;/td&gt;
 15:     &lt;td&gt;All-purpose destroy utility.&lt;/td&gt;
 16:     &lt;td <strong>about="http://www.example.com/acme#sf0815-price" typeof="gr:UnitPriceSpecification"</strong>&gt;
 17:       <strong>&lt;span property="gr:hasCurrency" content="EUR" datatype="xsd:string" /&gt;</strong>
@@ -573,7 +572,7 @@ The resulting RDF triples from the RDFa snippet in Table 4. are essentially:
 </p>
 <pre class="turtlecode">
  @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
- @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+ @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
  @prefix gr: &lt;http://purl.org/goodrelations/v1#&gt; .
  @prefix tools: &lt;http://www.example.com/tools#&gt; .
  @prefix acme: &lt;http://www.example.com/acme#&gt; .
@@ -599,7 +598,7 @@ The resulting RDF triples from the RDFa snippet in Table 4. are essentially:
                   <strong>gr:typeOfGood acme:sf0815</strong> .
 
  <strong>acme:sf0815</strong> a tools:AllPurposeUtility, gr:ActualProductOrServiceInstance ;
-             dcterms:title "Stanley Fubar" .
+             dc:title "Stanley Fubar" .
 </pre>
 <p>
 A visual representation of the resulting RDF graph from the RDFa snippet in Table 4. is shown in Fig. 3, below. We note that the key path for the connection between the <em>company</em> and the <em>product</em>, that is <code>acme:corporation - gr:offers -&gt; acme:sf0815-offering</code>, 
@@ -616,7 +615,7 @@ With the data we have so far, we are now able to perform a query such as shown b
 <pre class="turtlecode">
  PREFIX gr: &lt;http://purl.org/goodrelations/v1#&gt;
  PREFIX tools: &lt;http://www.example.com/tools#&gt;
- PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+ PREFIX dc: &lt;http://purl.org/dc/terms/&gt;
 
  SELECT ?label ?curval ?cur ?provname
  WHERE { 
@@ -625,7 +624,7 @@ With the data we have so far, we are now able to perform a query such as shown b
               gr:hasPriceSpecification ?pricespec .
   ?object gr:typeOfGood ?item .
   ?item a tools:Hammer ; 
-        dcterms:title ?label .
+        dc:title ?label .
   ?pricespec gr:hasCurrency ?cur ;   
              gr:hasCurrencyValue ?curval .
   ?provider gr:offers ?offering ;
@@ -772,7 +771,7 @@ In the next step we will add some information about the people behind the compan
     <dd>the DBpedia resources namespace</dd>
 </dl>
 <p>
-A <em>person</em> is connected to the <em>company</em> using the interlinking property <code>foaf:member</code> (line 8). In the line 9 of Table 6 we define the person information reusing a person's URI (from his FOAF file). The lines 13 and 14 bear an additional interlinking: we overlay the primary textual description of a person's position (the 'Chief Executive Officer (CEO)' part) with an interlinking (the <code>dcterms:subject</code> property) to DBpedia, basically stating that the topic of the object at hand is something which's description is available at <code>dbpedia:Chief_executive_officer</code>. Note that one could either use this interlinking to DBpedia to (i) gather further information about what a <em>CEO</em> actually is, or (ii) use it in a query to find out who the CEO of a given company is. We will demo the latter usage in an exemplary query, below.
+A <em>person</em> is connected to the <em>company</em> using the interlinking property <code>foaf:member</code> (line 8). In the line 9 of Table 6 we define the person information reusing a person's URI (from his FOAF file). The lines 13 and 14 bear an additional interlinking: we overlay the primary textual description of a person's position (the 'Chief Executive Officer (CEO)' part) with an interlinking (the <code>dc:subject</code> property) to DBpedia, basically stating that the topic of the object at hand is something which's description is available at <code>dbpedia:Chief_executive_officer</code>. Note that one could either use this interlinking to DBpedia to (i) gather further information about what a <em>CEO</em> actually is, or (ii) use it in a query to find out who the CEO of a given company is. We will demo the latter usage in an exemplary query, below.
 </p>
 <table class="example">
 <caption><span>Table 6.:</span> Some details about the <em>team</em>.</caption>
@@ -792,7 +791,7 @@ A <em>person</em> is connected to the <em>company</em> using the interlinking pr
 							<a href="http://danbri.org/about.html">Dan Brickley</a>, 
 							<span rel="doac:experience">
 								<span property="doac:position"
-								      rel="dcterms:subject"
+								      rel="dc:subject"
 								      resource="http://dbpedia.org/resource/Chief_executive_officer"
 									>Chief Executive Officer (CEO)</span>
 							</span>
@@ -816,7 +815,7 @@ A <em>person</em> is connected to the <em>company</em> using the interlinking pr
 10:      &lt;a href="http://danbri.org/about.html"&gt;Dan Brickley&lt;/a&gt;, 
 11:      &lt;span rel="doac:experience"&gt;
 12:       &lt;span property="doac:position"
-13:             <strong>rel="dcterms:subject"</strong>
+13:             <strong>rel="dc:subject"</strong>
 14:             <strong>resource="http://dbpedia.org/resource/Chief_executive_officer"</strong>
 15:        &gt;Chief Executive Officer (CEO)&lt;/span&gt;
 16:      &lt;/span&gt;
@@ -837,14 +836,14 @@ The resulting RDF triples from the RDFa snippet in Table 6. are shown in the fol
  @prefix acme: &lt;http://www.example.com/acme#&gt; .
  @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
  @prefix doac: &lt;http://ramonantonio.net/doac/0.1/#&gt; .
- @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+ @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
  @prefix dbpedia: &lt;http://dbpedia.org/resource/&gt; .
 
  acme:corporation foaf:member &lt;http://danbri.org/foaf.rdf#danbri&gt; . 
 
  &lt;http://danbri.org/foaf.rdf#danbri&gt; a foaf:Person ;
                                            doac:experience [ 
-                                             dcterms:subject dbpedia:Chief_executive_officer ;
+                                             dc:subject dbpedia:Chief_executive_officer ;
                                              doac:position "Chief Executive Officer (CEO)"
                                            ] . 
 </pre>
@@ -861,7 +860,7 @@ As pointed out above we can use the data we have so far to perform a query such 
 <pre class="turtlecode">
  PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
  PREFIX doac: &lt;http://ramonantonio.net/doac/0.1/#&gt;
- PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+ PREFIX dc: &lt;http://purl.org/dc/terms/&gt;
 
  SELECT ?name ?position ?description
  WHERE { 
@@ -869,7 +868,7 @@ As pointed out above we can use the data we have so far to perform a query such 
   ?person foaf:name ?name ;
           doac:experience ?exp .
   ?exp doac:position ?position ;
-       dcterms:subject ?description .
+       dc:subject ?description .
  }
 </pre>
 <p>
@@ -922,9 +921,8 @@ In order to set up the Linked Data dataset in RDFa, only few steps are necessary
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml"
-      prefix="dcterms: http://purl.org/dc/terms/
-              geo:     http://www.w3.org/2003/01/geo/wgs84_pos#
-              ov:      http://open.vocab.org/terms/"&gt;
+      prefix="geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+              ov:  http://open.vocab.org/terms/"&gt;
 &lt;head&gt;
 &lt;title&gt;My First Linked Dataset in RDFa&lt;/title&gt;
 &lt;/head&gt;
@@ -937,7 +935,7 @@ In order to set up the Linked Data dataset in RDFa, only few steps are necessary
 We note that the @prefix declarations (<code>prefix</code>) in the header are essential, as most RDFa processors will ignore any terms of vocabularies with unknown prefixes. Typically this declaration is done in the <code>html</code> element, it can, however be done on any level, that is, on any HTML element that contains RDFa. We again highlight the prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a> to find most common prefixes, their namespace URIs and various serialization stubs (incl. RDFa).
 </p>
 <p>
-RDFa defines many standard prefixes and terms in <tdef>default profile</tdef>s [[RDFA-CORE-PROFILE]] and [[XHTML-RDFA-PROFILE]]. These include definitions for <em>foaf</em>, <em>gr</em>, <em>owl</em>, <em>rdf</em>, <em>rdfs</em>, and <em>vcard</em> namespaces, among many others.
+RDFa defines many standard prefixes and terms in <tdef>default profile</tdef>s [[RDFA-CORE-PROFILE]] and [[XHTML-RDFA-PROFILE]]. These include definitions for <em>dc</em>, <em>foaf</em>, <em>gr</em>, <em>owl</em>, <em>rdf</em>, <em>rdfs</em>, and <em>vcard</em> namespaces, among many others.
 </p>
 <p>
 Finally, one should serve the Linked Data dataset in RDFa with the media type <code>application/xhtml+xml</code> as of section <a href="http://www.w3.org/TR/rdfa-syntax/#docconf" title="RDFa in XHTML: Syntax and Processing">4.1. Document Conformance</a> of the <a href="#ref-RDFA-SYNTAX">[RDFA-SYNTAX]</a>). As a practical aside we note that following this rule may cause certain Web browser that choose to ignore XHTML and media type declarations to not render the document properly for humans. We will come back to this issue, below, in section <a href="#checklist-serving">6.3 Serving Content</a>.	
@@ -960,7 +958,7 @@ After having set up the skeleton and filling it with content (for both humans an
 	</td>
 	<td>
 <pre class="ldhcode">
-&lt;div about="" rel="dct:conformsTo" resource="http://www.w3.org/TR/rdfa-syntax"
+&lt;div about="" rel="dc:conformsTo" resource="http://www.w3.org/TR/rdfa-syntax"
      xmlns:dc="http://purl.org/dc/terms/"&gt;
   &lt;a href="http://validator.w3.org/check?uri=referer"&gt;
    &lt;img src="http://www.w3.org/Icons/valid-xhtml-rdfa-blue" alt="Valid XHTML + RDFa"/&gt;
