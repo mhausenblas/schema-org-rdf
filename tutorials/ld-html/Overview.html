@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN"
+                      "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsd ="http://www.w3.org/2001/XMLSchema#"
-  xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"  
-  xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-  xmlns:ov="http://open.vocab.org/terms/"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-  xmlns:gr="http://purl.org/goodrelations/v1#"
-  xmlns:doac="http://ramonantonio.net/doac/0.1/#">
+      prefix="dcterms: http://purl.org/dc/terms/
+              ov:      http://open.vocab.org/terms/
+              geo:     http://www.w3.org/2003/01/geo/wgs84_pos#
+              gr:      http://purl.org/goodrelations/v1#
+              dbpedia: http://dbpedia.org/resource/
+              acme:    http://www.example.com/acme#
+              doac:    http://ramonantonio.net/doac/0.1/#">
 <head>
 	<title>Linked Data Tutorial - NG</title>
 	<meta name="description" content="Linked Data Tutorial - NG" />
@@ -33,7 +30,8 @@
 	
 	<dt>Editors:</dt>
 	<dd class="eds"><a href="http://sw-app.org/mic.xhtml#i">Michael Hausenblas</a> (<a href="http://www.deri.ie">DERI</a>)</dd>
-	<dd class="esd"><a href="http://richard.cyganiak.de/">Richard Cyganiak</a> (<a href="http://www.deri.ie">DERI</a>)</dd>
+	<dd class="eds"><a href="http://richard.cyganiak.de/">Richard Cyganiak</a> (<a href="http://www.deri.ie">DERI</a>)</dd>
+	<dd class="eds"><a href="http://greggkellogg.net/foaf#me/">Gregg Kellogg</a> (<a href="http://kellogg-assoc.com">Kellogg Associates</a>)</dd>
 </dl>
 <hr />
 <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 2011 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>&reg;</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
@@ -115,6 +113,8 @@ This is a practical guide to publish and consume Linked Data based on URIs, HTTP
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
 @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix acme: &lt;http://www.example.com/acme#&gt; .
+@prefix dbpedia: &lt;http://dbpedia.org/resource/&gt; .
 </pre>
 
 <h3 id="intro-motivation">1.1 Motivation</h3>
@@ -141,16 +141,21 @@ This document guides the interested reader to publishing and consuming Linked Da
 <tr>
 	<td>
 		<div about="" rel="dcterms:author">
-			<a href="http://richard.cyganiak.de/foaf.rdf#cygri">Richard</a> and <a href="http://sw-app.org/mic.xhtml#i">Michael</a> have written this note.
+			<a href="http://richard.cyganiak.de/foaf.rdf#cygri">Richard</a>,
+			<a href="http://sw-app.org/mic.xhtml#i">Michael</a>, and
+			<a href="http://greggkellogg.net/foaf#me">Gregg</a>
+			have written this note.
 		</div>
 	</td>
 	<td>
 <pre class="ldhcode">&lt;div about=""&gt;
  &lt;a rel="schema:author"
-    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt; 
- and 
+    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt;, 
  &lt;a rel="schema:author"
       href="http://sw-app.org/mic.xhtml#i"&gt;Michael&lt;/a&gt; 
+ and 
+ &lt;a rel="schema:author"
+      href="http://greggkellogg.net/foaf#me"&gt;Gregg&lt;/a&gt; 
  have written this note.
 &lt;/div&gt;
 </pre>	
@@ -158,10 +163,12 @@ This document guides the interested reader to publishing and consuming Linked Da
 	<td>
 <pre class="ldhcode">&lt;div itemscope itemid="http://www.w3.org/2001/sw/interest/ldh/"&gt;
  &lt;a itemprop="author"
-    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt; 
- and 
+    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt;, 
  &lt;a itemprop="author"
     href="http://sw-app.org/mic.xhtml#i"&gt;Michael&lt;/a&gt; 
+ and 
+ &lt;a itemprop="author"
+    href="http://greggkellogg.net/foaf#me"&gt;Gregg&lt;/a&gt; 
  have written this note.
 &lt;/div&gt;
 </pre>	
@@ -174,7 +181,8 @@ The resulting RDF triples (throughout shown using RDF Turtle <a href="#ref-TURTL
 </p>
 <pre class="turtlecode">
  &lt;&gt; schema:author &lt;http://richard.cyganiak.de/foaf.rdf#cygri&gt;,
-                   &lt;http://sw-app.org/mic.xhtml#i&gt; .
+                   &lt;http://sw-app.org/mic.xhtml#i&gt;,
+                   &lt;http://greggkellogg.net/foaf#me&gt; .
 </pre>
 
 <p>
@@ -669,10 +677,9 @@ As already mentioned, with <code>ov:businessCard</code> the <code>acme:businessc
 				<div about="http://www.example.com/acme#businesscard" typeof="vcard:VCard">
 					<div rel="vcard:org">
 						<div about="http://www.example.com/acme#org" typeof="vcard:Organization">
-							<span property="vcard:organization-name">
-								Awesome Company that Makes Everything (ACME) Corporation
-							</span>
-							<span rel="owl:sameAs" resource="http://dbpedia.org/resource/Acme_Corporation"></span>
+							<span property="vcard:organization-name"
+								>Awesome Company that Makes Everything (ACME) Corporation</span>
+							<span rel="owl:sameAs" resource="dbpedia:Acme_Corporation"></span>
 						</div>
 					</div>		
 					<div rel="vcard:workAdr">
@@ -697,25 +704,24 @@ As already mentioned, with <code>ov:businessCard</code> the <code>acme:businessc
  6:     &lt;div rel="vcard:org"&gt;
  7:      &lt;div about="http://www.example.com/acme#org" 
  8:           typeof="vcard:Organization"&gt;
- 9:       &lt;span property="vcard:organization-name"&gt;
-10:        Awesome Company that Makes Everything (ACME) Corporation
-11:       &lt;/span&gt;
-12:       &lt;span rel="owl:sameAs" 
-13:             resource="http://dbpedia.org/resource/Acme_Corporation" /&gt;
-14:      &lt;/div&gt;
-15:     &lt;/div&gt;		
-16:     &lt;div rel="vcard:workAdr"&gt;
-17:      &lt;div about="http://www.example.com/acme#postaladdress" 
-18:           typeof="vcard:Address"&gt;
-19:       &lt;span property="vcard:street-address"&gt;ACME road 1&lt;/span&gt;,
-20:       &lt;span property="vcard:locality"&gt;Springfield&lt;/span&gt;,
-21:       &lt;span property="vcard:country-name"&gt;Linktopia&lt;/span&gt;
-22:      &lt;/div&gt;
-23:     &lt;/div&gt;	
-24:     Tel.: &lt;span property="vcard:workTel"&gt;+0000 123 456 789&lt;/span&gt;
-25:   &lt;/div&gt;
-26:  &lt;/div&gt;
-27: &lt;/div&gt;
+ 9:       &lt;span property="vcard:organization-name"
+10:        &gt;Awesome Company that Makes Everything (ACME) Corporation&lt;/span&gt;
+11:       &lt;span rel="owl:sameAs" 
+12:             resource="dbpedia:Acme_Corporation" /&gt;
+13:      &lt;/div&gt;
+14:     &lt;/div&gt;		
+15:     &lt;div rel="vcard:workAdr"&gt;
+16:      &lt;div about="http://www.example.com/acme#postaladdress" 
+17:           typeof="vcard:Address"&gt;
+18:       &lt;span property="vcard:street-address"&gt;ACME road 1&lt;/span&gt;,
+19:       &lt;span property="vcard:locality"&gt;Springfield&lt;/span&gt;,
+20:       &lt;span property="vcard:country-name"&gt;Linktopia&lt;/span&gt;
+21:      &lt;/div&gt;
+22:     &lt;/div&gt;	
+23:     Tel.: &lt;span property="vcard:workTel"&gt;+0000 123 456 789&lt;/span&gt;
+24:   &lt;/div&gt;
+25:  &lt;/div&gt;
+26: &lt;/div&gt;
 </pre>
 </td>
 </tr>
@@ -737,7 +743,7 @@ The resulting RDF triples from the RDFa snippet in Table 5. are essentially (wit
                    vcard:workTel "+0000 123 456 789" . 
 
  acme:org a vcard:Organization ;
-         <strong> owl:sameAs &lt;http://dbpedia.org/resource/Acme_Corporation&gt; ;</strong>
+         <strong> owl:sameAs dbpedia:Acme_Corporation ;</strong>
           vcard:organization-name "Awesome Company that Makes Everything (ACME) Corporation" . 
 
  acme:postaladress a vcard:Address ;
@@ -785,9 +791,10 @@ A <em>person</em> is connected to the <em>company</em> using the interlinking pr
 						<div about="http://danbri.org/foaf.rdf#danbri" typeof="foaf:Person">
 							<a href="http://danbri.org/about.html">Dan Brickley</a>, 
 							<span rel="doac:experience">
-								<span property="doac:position" rel="dcterms:subject" resource="http://dbpedia.org/resource/Chief_executive_officer">
-									Chief Executive Officer (CEO)
-								</span>
+								<span property="doac:position"
+								      rel="dcterms:subject"
+								      resource="http://dbpedia.org/resource/Chief_executive_officer"
+									>Chief Executive Officer (CEO)</span>
 							</span>
 						</div>
 					</li>
@@ -810,15 +817,14 @@ A <em>person</em> is connected to the <em>company</em> using the interlinking pr
 11:      &lt;span rel="doac:experience"&gt;
 12:       &lt;span property="doac:position"
 13:             <strong>rel="dcterms:subject"</strong>
-14:             <strong>resource="http://dbpedia.org/resource/Chief_executive_officer"&gt;</strong>
-15:        Chief Executive Officer (CEO)
-16:       &lt;/span&gt;
-17:      &lt;/span&gt;
-18:     &lt;/div&gt;
-19:    &lt;/li&gt;
-20:   &lt;/ul&gt;
-21:  &lt;/div&gt;
-22: &lt;/div&gt;
+14:             <strong>resource="http://dbpedia.org/resource/Chief_executive_officer"</strong>
+15:        &gt;Chief Executive Officer (CEO)&lt;/span&gt;
+16:      &lt;/span&gt;
+17:     &lt;/div&gt;
+18:    &lt;/li&gt;
+19:   &lt;/ul&gt;
+20:  &lt;/div&gt;
+21: &lt;/div&gt;
 </pre>
 </td>
 </tr>
@@ -916,16 +922,9 @@ In order to set up the Linked Data dataset in RDFa, only few steps are necessary
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-      xmlns:owl="http://www.w3.org/2002/07/owl#"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-      xmlns:dcterms="http://purl.org/dc/terms/"
-      xmlns:foaf="http://xmlns.com/foaf/0.1/"  
-      xmlns:sioc="http://rdfs.org/sioc/ns#"
-      xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-      xmlns:ov="http://open.vocab.org/terms/"&gt;
+      prefix="dcterms: http://purl.org/dc/terms/
+              geo:     http://www.w3.org/2003/01/geo/wgs84_pos#
+              ov:      http://open.vocab.org/terms/"&gt;
 &lt;head&gt;
 &lt;title&gt;My First Linked Dataset in RDFa&lt;/title&gt;
 &lt;/head&gt;
@@ -935,7 +934,10 @@ In order to set up the Linked Data dataset in RDFa, only few steps are necessary
 &lt;/html&gt;
 </pre>
 <p>
-We note that the XML Namespace <a href="#ref-XMLNS">[XMLNS]</a> declarations (<code>xmlns:</code>) in the header are essential, as most RDFa processors will ignore any terms of vocabularies from unknown namespaces. Typically this declaration is done in the head, it can, however be done on any level, that is, on any HTML element that contains RDFa. We again highlight the prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a> to find most common prefixes, their namespace URIs and various serialisation stubs (incl. RDFa).
+We note that the @prefix declarations (<code>prefix</code>) in the header are essential, as most RDFa processors will ignore any terms of vocabularies with unknown prefixes. Typically this declaration is done in the <code>html</code> element, it can, however be done on any level, that is, on any HTML element that contains RDFa. We again highlight the prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a> to find most common prefixes, their namespace URIs and various serialization stubs (incl. RDFa).
+</p>
+<p>
+RDFa defines many standard prefixes and terms in <tdef>default profile</tdef>s [[RDFA-CORE-PROFILE]] and [[XHTML-RDFA-PROFILE]]. These include definitions for <em>foaf</em>, <em>gr</em>, <em>owl</em>, <em>rdf</em>, <em>rdfs</em>, and <em>vcard</em> namespaces, among many others.
 </p>
 <p>
 Finally, one should serve the Linked Data dataset in RDFa with the media type <code>application/xhtml+xml</code> as of section <a href="http://www.w3.org/TR/rdfa-syntax/#docconf" title="RDFa in XHTML: Syntax and Processing">4.1. Document Conformance</a> of the <a href="#ref-RDFA-SYNTAX">[RDFA-SYNTAX]</a>). As a practical aside we note that following this rule may cause certain Web browser that choose to ignore XHTML and media type declarations to not render the document properly for humans. We will come back to this issue, below, in section <a href="#checklist-serving">6.3 Serving Content</a>.	
