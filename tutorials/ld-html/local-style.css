@@ -1,0 +1,193 @@
+.rdfaconform {
+text-align: right;
+}
+.ldhcode {
+margin: 0px;
+padding: 10px;
+background: #ffffee;
+border: 1px solid #ffff88;
+}
+.turtlecode {
+margin: 0px;
+padding: 10px;
+background: #eeffee;
+border: 1px solid #88dd88;
+}
+.fig {
+text-align: center;
+}
+.fig img {
+border-bottom: 1px solid #bebebe;
+padding: 20px;
+margin-top: 20px;
+}
+.fig div {
+padding: 5px;
+}
+.fig div span {
+font-weight: bold;
+}
+.xsec h3 {
+font-size: 16px;
+text-align: left;
+margin-bottom: 5px;
+font-weight: bold;
+color: black;
+}
+.bc {
+text-align: left;
+border: 1px solid #e0e0e0;
+background: #ffffff url("http://upload.wikimedia.org/wikipedia/commons/d/db/Crystal_Clear_mimetype_vcard.png") no-repeat right -16px;
+padding: 20px 50px 20px 10px;
+margin: 0px;
+margin-top: 0px;
+}
+.y2006 {
+background: #6cf;
+color: #036;
+}
+.y2007 {
+background: #09C;
+color: #e0e0e0;
+}
+.y2008 {
+background: #069;
+color: #f0f0f0;
+}
+.y2009 {
+background: #036;
+color: #fffafa;
+}
+.todo {
+border: 4px solid #ff0;
+margin: 0 0 0 20px;
+padding: 10px;
+}
+ol.prereq li {
+padding-bottom: 10px;
+}
+ul.checklist-toc {
+margin-left: 20px;
+width: 650px;
+}
+ul.checklist-toc li {
+margin: 5px;
+padding: 10px;
+border: 1px solid #8f8f8f;
+list-style: none;
+}
+ul.inline-opt {
+margin-left: 20px;
+}
+ul.inline-opt li {
+margin: 5px;
+padding: 10px;
+}
+dl dd {
+padding-bottom: 1em;	
+}
+dl dd.eds {
+padding-bottom: 0px;	
+}
+
+dl.refs {
+margin: 10px;
+padding: 10px;
+}
+dl.refs dt {
+padding-bottom: 5px;
+}
+dl.refs dd {
+padding-bottom: 10px;
+margin-left: 15px;
+}
+dl.decl {
+border: 1px dashed black;
+padding: 10px;
+margin-left: 100px;
+margin-right: 100px;
+}
+dl.decl dt {
+padding-bottom: 5px;
+}
+dl.decl dd {
+padding-bottom: 10px;
+}
+dl tt {
+font-size: 110%;
+}
+table.example {
+border: 0px solid #9e9e9e;
+border-bottom: 0px;
+width: 100%;
+padding: 0px;
+margin-top: 20px;
+}
+table.example th {
+border-bottom: 1px solid #bebebe;
+border-top: 0px solid #bebebe;
+}
+table.example td {
+vertical-align: top;
+padding: 10px;
+padding-top: 10px;
+}
+table.example caption {
+border-top: 1px solid #bebebe;
+padding: 5px;
+caption-side: bottom;
+margin-bottom: 30px;
+}
+table.example caption span {
+font-weight: bold;
+}
+table.xtab {
+width: 100%;
+padding: 2px;
+background: #d0d0d0;
+}
+table.xtab th {
+border: 0px;
+border-bottom: 1px solid #fefefe;
+text-align: left;
+padding: 2px;
+padding-bottom: 1px;
+}
+table.queryresult {
+border: 1px solid black;
+width: 80%;
+padding: 5px;
+border-collapse: collapse;
+margin: 20px 5px 20px 5px;
+}
+table.queryresult th {
+border-bottom: 1px solid black;
+border-right: 1px solid black;
+padding: 5px;
+}
+table.queryresult td {
+border-right: 1px solid black;
+padding: 5px;
+}
+table.timeline {
+width: 80%;
+text-align: left;
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+border: 1px solid black;
+border-collapse: collapse;
+}
+table.timeline th {
+background: #f9f9f9;
+border-bottom: 3px double black;
+padding: 10px;
+margin: 10px;
+}
+table.timeline td {
+vertical-align: top;
+border-right: 1px solid black;
+padding: 10px;
+padding-right: 50px;
+border-bottom: 1px dotted #606060;
+}

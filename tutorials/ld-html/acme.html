@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+		xmlns:owl="http://www.w3.org/2002/07/owl#"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+		xmlns:dcterms="http://purl.org/dc/terms/"
+		xmlns:foaf="http://xmlns.com/foaf/0.1/"  
+		xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+		xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+		xmlns:gr="http://purl.org/goodrelations/v1#"
+		xmlns:tools="http://www.example.com/tools#"
+		xmlns:ov="http://open.vocab.org/terms/"
+		xmlns:doac="http://ramonantonio.net/doac/0.1/#">
+<head>
+<title>ACME Corp.'s Tool Selection</title>
+<style type="text/css">
+	body { font-family: Verdana; text-align:center; padding: 0px; margin: 0px; margin-left: 200px; margin-right: 200px;  background: snow;}
+	h1 { width: 100%; background: #306630; color: #ffffff; margin-top: 0px; margin-bottom: 10px; font-size: 20px;}
+	h2 { width: 100%; border-bottom: 1px dotted #202020; color: #306630; margin-top: 30px; margin-bottom: 5px; font-size: 18px;}
+	h3 { font-size: 16px; text-align: left; margin-bottom: 5px;}
+	p { text-align:left; }
+	table.prodtab  { margin-left: auto; margin-right: auto; margin-top: 10px;  margin-bottom: 20px;
+		 background: #ffffff; border: 0px; border-bottom: 1px solid #202020; padding: 5px;
+		 text-align:left; border-collapse:collapse;}
+	table.prodtab th { border-bottom: 1px solid #202020; border-top: 1px solid #202020;}
+	table.prodtab td { vertical-align:top; padding: 5px; border-top: 1px solid #bebebe;}
+	.bc { text-align:left; border: 1px solid #e0e0e0;
+		background: #ffffff url("http://upload.wikimedia.org/wikipedia/commons/d/db/Crystal_Clear_mimetype_vcard.png") no-repeat right -16px;
+		padding: 20px 30px 20px 30px; margin: 0px; }
+	.team { border: 0px solid #e0e0e0;}
+	.team p { margin: 5px; text-align:left; padding: 5px;}
+	.team ul { margin-left: 50px; text-align: left; padding: 10px;}
+	.team ul li { list-style: url("img/foaf.png"); font-size: 95%; margin-left: 20px; padding-top: 15px;}
+</style>
+</head>
+<body>
+<h1>ACME Corp.'s Tool Selection</h1>
+
+<h2>Products</h2>
+
+<!--                     -->
+<!-- product information -->
+<!--                     -->
+
+<p about="http://www.example.com/acme#corporation" typeof="gr:BusinessEntity">
+	The <a rel="rdfs:seeAlso" href="http://www.example.com/acme/" property="gr:legalName">ACME Corp.</a> offers following tools for purchase:
+	<span rel="gr:offers" resource="http://www.example.com/acme#sf0815-offering"></span>
+	<span rel="gr:offers" resource="http://www.example.com/acme#sh4711-offering"></span>
+	<span rel="gr:offers" resource="http://www.example.com/acme#ts0007-offering"></span>
+</p>	
+
+<table class="prodtab">
+  <tr>
+    <th>Name</th><th>Description</th><th>Price [in &#x20ac;]</th>
+  </tr>
+  <tr about="http://www.example.com/acme#sf0815" typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance">
+	<td property="dcterms:title">Stanley Fubar</td>
+	<td>All-purpose destroy utility.</td>
+	<td about="http://www.example.com/acme#sf0815-price" typeof="gr:UnitPriceSpecification">
+		<span property="gr:hasCurrency" content="EUR" datatype="xsd:string"></span>
+		<span property="gr:hasCurrencyValue" datatype="xsd:float">40</span>
+		<span property="gr:hasUnitOfMeasurement" content="C62"></span>
+	</td>
+  </tr>
+  <tr about="http://www.example.com/acme#sh4711" typeof="tools:Hammer gr:ActualProductOrServiceInstance">
+    <td property="dcterms:title">Binford 2000 hammer</td>
+	<td>Your best friend for nails and more, top US quality.</td>
+	<td about="http://www.example.com/acme#sh4711-price" typeof="gr:UnitPriceSpecification">
+		<span property="gr:hasCurrency" content="EUR" datatype="xsd:string"></span>
+		<span property="gr:hasCurrencyValue" datatype="xsd:float">20</span>
+		<span property="gr:hasUnitOfMeasurement" content="C62"></span>
+	</td>
+  </tr>
+  <tr about="http://www.example.com/acme#ts0007" typeof="tools:ScrewDriver gr:ActualProductOrServiceInstance">
+    <td property="dcterms:title">The Screwer</td>
+	<td>For any kind of screw-driving, produced in the UK.</td>
+	<td about="http://www.example.com/acme#ts0007-price" typeof="gr:UnitPriceSpecification">
+		<span property="gr:hasCurrency" content="EUR" datatype="xsd:string"></span>
+		<span property="gr:hasCurrencyValue" datatype="xsd:float">10</span>
+		<span property="gr:hasUnitOfMeasurement" content="C62"></span>
+	</td>
+  </tr>	
+</table>
+
+<!--                                                  -->
+<!-- connecting products to the company via offerings -->
+<!--                                                  -->
+
+<!-- offering for 'Stanley Fubar' -->
+<div about="http://www.example.com/acme#sf0815-taqn" typeof="gr:TypeAndQuantityNode">
+	<span property="gr:amountOfThisGood" content="1.0" datatype="xsd:float"></span>
+	<span property="gr:hasUnitOfMeasurement" content="C62"></span>
+	<span rel="gr:typeOfGood" resource="http://www.example.com/acme#sf0815"></span>    
+</div>
+<div about="http://www.example.com/acme#sf0815-offering" typeof="gr:Offering">
+	<span rel="gr:hasBusinessFunction" resource="http://purl.org/goodrelations/v1#Sell"></span>
+	<span rel="gr:hasPriceSpecification" resource="http://www.example.com/acme#sf0815-price"></span> 
+	<span rel="gr:includesObject" resource="http://www.example.com/acme#sf0815-taqn"></span> 
+</div>
+
+<!-- offering for 'Binford 2000 hammer' -->
+<div about="http://www.example.com/acme#sh4711-taqn" typeof="gr:TypeAndQuantityNode">
+	<span property="gr:amountOfThisGood" content="1.0" datatype="xsd:float"></span>
+	<span property="gr:hasUnitOfMeasurement" content="C62"></span>
+	<span rel="gr:typeOfGood" resource="http://www.example.com/acme#sh4711"></span>    
+</div>
+<div about="http://www.example.com/acme#sh4711-offering" typeof="gr:Offering">
+	<span rel="gr:hasBusinessFunction" resource="http://purl.org/goodrelations/v1#Sell"></span>
+	<span rel="gr:hasPriceSpecification" resource="http://www.example.com/acme#sh4711-price"></span> 
+	<span rel="gr:includesObject" resource="http://www.example.com/acme#sh4711-taqn"></span> 
+</div>
+
+<!-- offering for 'The Screwer' -->
+<div about="http://www.example.com/acme#ts0007-taqn" typeof="gr:TypeAndQuantityNode">
+	<span property="gr:amountOfThisGood" content="1.0" datatype="xsd:float"></span>
+	<span property="gr:hasUnitOfMeasurement" content="C62"></span>
+	<span rel="gr:typeOfGood" resource="http://www.example.com/acme#ts0007"></span>    
+</div>
+<div about="http://www.example.com/acme#ts0007-offering" typeof="gr:Offering">
+	<span rel="gr:hasBusinessFunction" resource="http://purl.org/goodrelations/v1#Sell"></span>
+	<span rel="gr:hasPriceSpecification" resource="http://www.example.com/acme#ts0007-price"></span> 
+	<span rel="gr:includesObject" resource="http://www.example.com/acme#ts0007-taqn"></span> 
+</div>
+
+<h2>About</h2>
+<!--                              -->
+<!-- detailed company information -->
+<!--                              -->
+
+<div about="http://www.example.com/acme#corporation">
+<h3>Contact</h3>
+	<div class="bc" rel="ov:businessCard">
+		<div about="http://www.example.com/acme#businesscard" typeof="vcard:VCard">
+			<div rel="vcard:org">
+				<div about="http://www.example.com/acme#org" typeof="vcard:Organization">
+					<span property="vcard:organization-name">Awesome Company that Makes Everything (ACME) Corporation</span>
+					<span rel="owl:sameAs" resource="http://dbpedia.org/resource/Acme_Corporation"></span>
+				</div>
+			</div>		
+			<div rel="vcard:workAdr">
+				<div about="http://www.example.com/acme#postaladdress" typeof="vcard:Address">
+					<span property="vcard:street-address">ACME road 1</span>,<br />
+					<span property="vcard:locality">Springfield</span>,
+					<span property="vcard:country-name">Linktopia</span>
+				</div>
+			</div>	
+			Tel.: <span property="vcard:workTel">+0000 123 456 789</span>
+		</div>
+	</div>
+<h3>Team</h3>
+	<div class="team">
+		<p>
+			We are available for answering your questions on the <a href="irc://irc.freenode.net:6667/swig">first-level support</a> channel;
+			our dedicated team consists of:
+		</p>
+		<ul>
+			<li rel="foaf:member">
+				<div about="http://danbri.org/foaf.rdf#danbri" typeof="foaf:Person">
+					<a href="http://danbri.org/about.html" about="http://danbri.org/foaf.rdf#danbri" property="foaf:name">Dan Brickley</a>, 
+					<span rel="doac:experience">
+						<span property="doac:position" rel="dcterms:subject" resource="http://dbpedia.org/resource/Chief_executive_officer">Chief Executive Officer (CEO)</span>
+					</span>
+				</div>
+			</li>
+			<li rel="foaf:member">
+				<div about="http://richard.cyganiak.de/foaf.rdf#cygri" typeof="foaf:Person">
+					<a href="http://richard.cyganiak.de/" about="http://richard.cyganiak.de/foaf.rdf#cygri" property="foaf:name">Richard Cyganiak</a>, 
+					<span rel="doac:experience">
+						<span property="doac:position" rel="dcterms:subject" resource="http://dbpedia.org/resource/Chief_technical_officer">Chief Technical Officer (CTO)</span>
+					</span>
+				</div>
+			</li>
+			<li rel="foaf:member">
+				<div about="http://sw-app.org/mic.xhtml#i" typeof="foaf:Person">
+					<a href="http://sw-app.org/about.html" about="http://sw-app.org/mic.xhtml#i" property="foaf:name">Michael Hausenblas</a>, 
+					<span rel="doac:experience">
+						<span property="doac:position" rel="dcterms:subject" resource="http://dbpedia.org/resource/Chief_marketing_officer">Chief Marketing Officer (CMO)</span>
+					</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

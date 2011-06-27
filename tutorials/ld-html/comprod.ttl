@@ -1,0 +1,28 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix tools: <http://www.example.com/tools#> .
+@prefix : <http://www.example.com/acme#> .
+
+:corporation a gr:BusinessEntity ;
+             rdfs:seeAlso <http://www.example.com/acme/> ;
+             gr:legalName "ACME Corp." ;
+             gr:offers :sf0815-offering .
+
+:sf0815 a tools:AllPurposeUtility, gr:ActualProductOrServiceInstance ;
+        dcterms:title "Stanley Fubar" .
+
+:sf0815-offering a gr:Offering ;
+                 gr:hasBusinessFunction gr:Sell ;
+                 gr:hasPriceSpecification :sf0815-price ;
+                 gr:includesObject :sf0815-taqn .
+
+:sf0815-price a gr:UnitPriceSpecification ;
+              gr:hasCurrency "EUR"^^xsd:string ;
+              gr:hasCurrencyValue "40"^^xsd:float ;
+              gr:hasUnitOfMeasurement "C62"^^xsd:string .
+
+:sf0815-taqn a gr:TypeAndQuantityNode ;
+             gr:amountOfThisGood "1.0"^^xsd:float ;
+             gr:hasUnitOfMeasurement "C62" ;
+             gr:typeOfGood :sf0815 .
