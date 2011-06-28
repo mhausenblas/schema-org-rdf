@@ -1,111 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN"
+                      "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xsd ="http://www.w3.org/2001/XMLSchema#"
-  xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"  
-  xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-  xmlns:ov="http://open.vocab.org/terms/"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-  xmlns:gr="http://purl.org/goodrelations/v1#"
-  xmlns:doac="http://ramonantonio.net/doac/0.1/#">
+      prefix="ov:      http://open.vocab.org/terms/
+              geo:     http://www.w3.org/2003/01/geo/wgs84_pos#
+              gr:      http://purl.org/goodrelations/v1#
+              dbpedia: http://dbpedia.org/resource/
+              acme:    http://www.example.com/acme#
+              doac:    http://ramonantonio.net/doac/0.1/#">
 <head>
-	<title>Linked Data Tutorial - NG</title>
+	<title>Publishing and consuming Linked Data embedded in HTML</title>
 	<meta name="description" content="Linked Data Tutorial - NG" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/W3C-ED" />
-	<link rel="stylesheet" type="text/css" href="local-style.css" />
+  <!-- 
+  === NOTA BENE ===
+  For the three scripts below, if your spec resides on dev.w3 you can check them
+  out in the same tree and use relative links so that they'll work offline,
+  -->
+  <script type="text/javascript"src="http://dev.w3.org/2009/dap/ReSpec.js/js/respec.js" class="remove"></script>
+  <script type="text/javascript" class="remove">
+
+      var preProc = {
+            apply:  function(c) {
+                      // extend the bibliography entries
+                      berjon.biblio["MICRODATA"] = "<cite><a href=\"http://www.w3.org/TR/microdata/\">Microdata</a></cite> Ian Hickson; et al. 04 March 2010. W3C Working Draft. URL: http://www.w3.org/TR/microdata/ ";
+                      berjon.biblio["XHTML-RDFA"] = "<cite><a href=\"http://www.w3.org/TR/xhtml-rdfa/\">XHTML+RDFa</a></cite> Manu Sporny; et al. 31 March 2011. W3C Working Draft. URL: http://www.w3.org/TR/xhtml-rdfa/ ";
+                      berjon.biblio["HTML-RDFA"] = "<cite><a href=\"http://dev.w3.org/html5/rdfa/\">HTML+RDFa</a></cite> Manu Sporny; et al. 24 May 2011. W3C Working Draft. URL: http://dev.w3.org/html5/rdfa/ ";
+                      berjon.biblio["HOWTO-LODP"] = "<cite><a href=\"http://linkeddata.org/docs/how-to-publish\">How to Publish Linked Data on the Web</a></cite>, C. Bizer, R. Cyganiak, and Tom Heath, Community Tutorial 17 July 2008. URL: http://linkeddata.org/docs/how-to-publish";
+                      berjon.biblio["COOL-SWURIS"] = "<cite><a href=\"http://www.w3.org/TR/cooluris/\">Cool URIs for the Semantic Web</a></cite>, L. Sauermann and R. Cyganiak, W3C Interest Group Note 03 December 2008. URL: http://www.w3.org/TR/cooluris/";
+                      berjon.biblio["VOID-GUIDE"] = "<cite><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></cite>, K. Alexander, R. Cyganiak, M. Hausenblas, and J. Zhao, W3C Interest Group Note 03 March 2011. URL: http://www.w3.org/TR/void/";
+                      berjon.biblio["RDFA-CORE-PROFILE"] = "<cite><a href=\"http://www.w3.org/profile/rdfa-1.1\">RDFa Core Default Profile</a></cite>, I. Herman, W3C RDF Web Applicaetions Working Group 02 June 2011. URL: http://www.w3.org/profile/rdfa-1.1";
+                      berjon.biblio["XHTML-RDFA-PROFILE"] = "<cite><a href=\"http://www.w3.org/profile/html-rdfa-1.1\">HTML+RDFa Core Default Profile</a></cite>, I. Herman, W3C RDF Web Applicaetions Working Group 24 May 2011. URL: http://www.w3.org/profile/html-rdfa-1.1";
+                      berjon.biblio["RFC2616"] = "<cite><a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616.html\">Hypertext Transfer Protocol -- HTTP/1.1</a></cite>, R. Fielding; et al. June 1999. Internet RFC 2616. URL: http://www.w3.org/Protocols/rfc2616/rfc2616.html."
+
+                      // process the document before anything else is done
+                      var refs = document.querySelectorAll('adef') ;
+                      for (var i = 0; i < refs.length; i++) {
+                          var item = refs[i];
+                          var p = item.parentNode ;
+                          var con = item.innerHTML ;
+                          var sp = document.createElement( 'dfn' ) ;
+                          var tit = item.getAttribute('title') ;
+                          if (!tit) {
+                              tit = con;
+                          }
+                          sp.className = 'adef' ;
+                          sp.title=tit ;
+                          sp.innerHTML = con ;
+                          p.replaceChild(sp, item) ;
+                      }
+                      refs = document.querySelectorAll('aref') ;
+                      for (var i = 0; i < refs.length; i++) {
+                          var item = refs[i];
+                          var p = item.parentNode ;
+                          var con = item.innerHTML ;
+                          var sp = document.createElement( 'a' ) ;
+                          sp.className = 'aref' ;
+                          sp.setAttribute('title', con);
+                          sp.innerHTML = '@'+con ;
+                          p.replaceChild(sp, item) ;
+                      }
+                      // local datatype references
+                      refs = document.querySelectorAll('ldtref') ;
+                      for (var i = 0; i < refs.length; i++) {
+                          var item = refs[i];
+                          if (!item) continue ;
+                          var p = item.parentNode ;
+                          var con = item.innerHTML ;
+                          var ref = item.getAttribute('title') ;
+                          if (!ref) {
+                              ref = item.textContent ;
+                          }
+                          if (ref) {
+                              ref = ref.replace(/\n/g, '_') ;
+                              ref = ref.replace(/\s+/g, '_') ;
+                          }
+                          var sp = document.createElement( 'a' ) ;
+                          sp.className = 'datatype';
+                          sp.title = ref ;
+                          sp.innerHTML = con ;
+                          p.replaceChild(sp, item) ;
+                      }
+                      // external datatype references
+                      refs = document.querySelectorAll('dtref') ;
+                      for (var i = 0; i < refs.length; i++) {
+                          var item = refs[i];
+                          if (!item) continue ;
+                          var p = item.parentNode ;
+                          var con = item.innerHTML ;
+                          var ref = item.getAttribute('title') ;
+                          if (!ref) {
+                              ref = item.textContent ;
+                          }
+                          if (ref) {
+                              ref = ref.replace(/\n/g, '_') ;
+                              ref = ref.replace(/\s+/g, '_') ;
+                          }
+                          var sp = document.createElement( 'a' ) ;
+                          sp.className = 'externalDFN';
+                          sp.title = ref ;
+                          sp.innerHTML = con ;
+                          p.replaceChild(sp, item) ;
+                      }
+                      // now do terms
+                      refs = document.querySelectorAll('tdef') ;
+                      for (var i = 0; i < refs.length; i++) {
+                          var item = refs[i];
+                          if (!item) continue ;
+                          var p = item.parentNode ;
+                          var con = item.innerHTML ;
+                          var ref = item.getAttribute('title') ;
+                          if (!ref) {
+                              ref = item.textContent ;
+                          }
+                          if (ref) {
+                              ref = ref.replace(/\n/g, '_') ;
+                              ref = ref.replace(/\s+/g, '_') ;
+                          }
+                          var sp = document.createElement( 'dfn' ) ;
+                          sp.title = ref ;
+                          sp.innerHTML = con ;
+                          p.replaceChild(sp, item) ;
+                      }
+                      // now term references
+                      refs = document.querySelectorAll('tref') ;
+                      for (var i = 0; i < refs.length; i++) {
+                          var item = refs[i];
+                          if (!item) continue ;
+                          var p = item.parentNode ;
+                          var con = item.innerHTML ;
+                          var ref = item.getAttribute('title') ;
+                          if (!ref) {
+                              ref = item.textContent ;
+                          }
+                          if (ref) {
+                              ref = ref.replace(/\n/g, '_') ;
+                              ref = ref.replace(/\s+/g, '_') ;
+                          }
+
+                          var sp = document.createElement( 'a' ) ;
+                          var id = item.textContent ;
+                          sp.className = 'tref' ;
+                          sp.title = ref ;
+                          sp.innerHTML = con ;
+                          p.replaceChild(sp, item) ;
+                      }
+                  }
+          } ;
+
+
+        var respecConfig = {
+            // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+            specStatus:           "ED",
+            //publishDate:          "2010-04-29",
+            //copyrightStart:       "2010",
+
+            // the specification's short name, as in http://www.w3.org/TR/short-name/
+            shortName:            "ldh",
+            //subtitle:             "",
+            // if you wish the publication date to be other than today, set this
+            // publishDate:  "2009-08-06",
+
+            // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+            // and its maturity status
+            //previousPublishDate:  "2011-06-26",
+            //previousMaturity:     "ED",
+            //previousDiffURI:      "http://www.w3.org/2001/sw/interest/ED-ldh-20110626",
+            diffTool:             "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
+
+            // if there a publicly available Editor's Draft, this is the link
+            edDraftURI:           "http://www.w3.org/2001/sw/interest/ldh",
+
+            // if this is a LCWD, uncomment and set the end of its review period
+            // lcEnd: "2009-08-05",
+
+            // if you want to have extra CSS, append them to this list
+            // it is recommended that the respec.css stylesheet be kept
+            extraCSS:             [
+                "http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"
+            ],
+
+            // editors, add as many as you like
+            // only "name" is required
+            editors:  [
+                { name: "Michael Hausenblas", url: "http://sw-app.org/mic.xhtml#i",
+                  company: "DERI", companyURL: "http://www.deri.ie" },
+                { name: "Richard Cyganiak", url: "http://richard.cyganiak.de/",
+                  company: "DERI", companyURL: "http://www.deri.ie" },
+                { name: "Gregg Kellogg", url: "http://greggkellogg.net/foaf#me",
+                  company: "Kellogg Associates", companyURL: "http://kellogg-assoc.com" },
+            ],
+
+            // authors, add as many as you like. 
+            // This is optional, uncomment if you have authors as well as editors.
+            // only "name" is required. Same format as editors.
+
+            //authors:  [],
+
+            // name of the WG
+            wg:           "Semantic Web Interest Group",
+
+            // URI of the public WG page
+            wgURI:        "http://www.w3.org/2001/sw/interest/",
+
+            // name (with the @w3c.org) of the public mailing to which comments are due
+            wgPublicList: "semantic-web@w3.org",
+
+            // URI of the patent status for this WG, for Rec-track documents
+            // !!!! IMPORTANT !!!!
+            // This is important for Rec-track documents, do not copy a patent URI from a random
+            // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+            // Team Contact.
+            wgPatentURI:  "",
+            maxTocLevel: 3,
+            preProcess: [ preProc ]
+            //alternateFormats: [ {uri: "diff-20110507.html", label: "diff to previous version"} ],
+        };
+
+        function updateExample(doc, content) {
+          // perform transformations to make it render and prettier
+          content = content.replace(/<!--/, '');
+          content = content.replace(/-->/, '');
+          content = doc._esc(content);
+          content = content.replace(/\*\*\*\*([^*]*)\*\*\*\*/g, '<span class="diff">$1</span>') ;
+          return content ;
+        }
+
+        function updateDTD(doc, content) {
+          // perform transformations to
+          // make it render and prettier
+          content = '<pre class="dtd">' + doc._esc(content) + '</pre>';
+          content = content.replace(/!ENTITY % ([^ \t\r\n]*)/g, '!ENTITY <span class="entity">% $1</span>');
+          content = content.replace(/!ELEMENT ([^ \t$]*)/mg, '!ELEMENT <span class="element">$1</span>');
+          return content;
+        }
+
+        function updateSchema(doc, content) {
+          // perform transformations to
+          // make it render and prettier
+          content = '<pre class="dtd">' + doc._esc(content) + '</pre>';
+          content = content.replace(/&lt;xs:element\s+name=&quot;([^&]*)&quot;/g, '&lt;xs:element name="<span class="element" id="schema_element_$1">$1</span>"') ;
+          return content;
+        }
+
+        function updateTTL(doc, content) {
+          // perform transformations to
+          // make it render and prettier
+          content = '<pre class="sh_sourceCode">' + doc._esc(content) + '</pre>';
+          content = content.replace(/@prefix/g, '<span class="sh_keyword">@prefix</span>');
+          return content;
+        }
+    </script>
+  	<link rel="stylesheet" type="text/css" href="local-style.css" />
+  <style>
+  .diff { font-weight:bold; color:#0a3; }
+  </style>
 </head>
 <body>
-<div class="head">
-<a href="http://www.w3.org/"><img alt="W3C" src="http://www.w3.org/Icons/w3c_home" width="72px"/></a>
-<h1 style="clear:both" id="title">Publishing and consuming Linked Data embedded in HTML</h1>
-<h2 id="doctype"><em>Editor's Draft</em></h2>
-<dl>
-	<dt>This version:</dt>
-	<dd><a href="http://www.w3.org/2001/sw/interest/ED-ldh-20110626/">http://www.w3.org/2001/sw/interest/ED-ldh-20110626/</a></dd>
-	
-	<dt>Latest version:</dt>
-	<dd><a href="http://www.w3.org/2001/sw/interest/ldh/">http://www.w3.org/2001/sw/interest/ldh/</a></dd>
-	
-	<dt>Editors:</dt>
-	<dd class="eds"><a href="http://sw-app.org/mic.xhtml#i">Michael Hausenblas</a> (<a href="http://www.deri.ie">DERI</a>)</dd>
-	<dd class="esd"><a href="http://richard.cyganiak.de/">Richard Cyganiak</a> (<a href="http://www.deri.ie">DERI</a>)</dd>
-</dl>
-<hr />
-<p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 2011 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>&reg;</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
-</div>
-<hr/>
 
-<h2 id="abstract">Abstract</h2>
+<section id="abstract">
 <p>
-This document provides guidelines for how to create and consume Linked Data embedded in HTML. It extends and updates <a href="#ref-HOWTO-LODP">[HOWTO-LODP]</a> and the <a href="#ref-COOL-SWURIS">[COOL-SWURIS]</a> Note. The examples in this document use <a href="http://www.w3.org/TR/rdfa-core/" title="RDFa Core 1.1">RDFa 1.1</a> and <a href="http://www.w3.org/TR/microdata/" title="HTML Microdata">microdata</a> with a special focus on <a href="http://schema.org/" title="schema.org - Home">Schema.org</a> vocabulary terms.
+This document provides guidelines for how to create and consume Linked Data embedded in HTML. It extends and updates [[HOWTO-LODP]] and the [[COOL-SWURIS]]] Note. The examples in this document use [[!XHTML-RDFA]] and [[!MICRODATA]] with a special focus on <a href="http://schema.org/" title="schema.org - Home">Schema.org</a> vocabulary terms.
 </p>
+</section>
 
-<h2 id="status">Status of this document</h2>
+<section id='sotd'>
+  <p>This document is an experimental work in progress.</p>
+</section>
 
-<p><em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="http://www.w3.org/TR/">W3C technical reports index</a> at http://www.w3.org/TR/.</em></p>
-
-<p>The document is submitted for consideration to the W3C's <a href="http://www.w3.org/2001/sw/interest/">Semantic Web Interest Group</a> (SWIG) to publish it as a W3C Interest Group Note. The SWIG does not expect this document to become a W3C Recommendation.</p>
-
-<p>Publication as an Interest Group Note does not imply endorsement by the W3C Membership. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.</p>
-
-<p>Feedback on this document is welcome - please send comments to <a href="mailto:semantic-web@w3.org">semantic-web@w3.org</a>  (with <a href="http://lists.w3.org/Archives/Public/semantic-web/">public archive</a>). Additionally, we encourage to use the <a href="http://code.google.com/p/void-impl/issues/list?q=product=vocab">VoID issue tracker</a> to record and track comments.</p>
-
-<p>The IPR status of information provided in this document is in accordance with <a href="http://www.w3.org/Consortium/Patent-Policy-20030520.html#sec-Disclosure">Section 6</a> of the W3C Patent Policy.</p>
-
-<p>The disclosure obligations of the Participants of this group are described in the <a href="http://www.w3.org/2006/07/swig-charter.html">charter</a>.</p>
-
-<p>A first version of this document was developed and published by the authors, starting in 2009. This is an extended and improved version, based on community feedback received since the original publication.</p>
-
-<h2 id="scope">Scope</h2>
+<section class="introductory">
+<h2>Scope</h2>
 
 <p>
 This is a practical guide to publish and consume Linked Data based on URIs, HTTP and data embedded in HTML (RDFa and microdata). It is in a sense an advanced tutorial as it requires some basic understanding regarding the <a href="http://www.w3.org/DesignIssues/LinkedData.html" title="Linked Data - Design Issues">Linked Data principles</a>.
 </p>
-
-<h2 id="toc">Table of Contents</h2>
-<ul class="toc">
-	<li>
-		<a href="#intro">1. Introduction</a>
-		<ul class="toc">
-			<li><a href="#intro-motivation">1.1 Motivation</a></li>
-			<li><a href="#intro-setup">1.2 Setting the Scene</a></li>
-		</ul>
-	</li>
-	<li><a href="#baseline">2. Company Information</a></li>
-	<li><a href="#products">3. Product Information</a></li>
-	<li><a href="#comprod">4. Connecting Products with the Company</a></li>
-	<li>
-		<a href="#morecompany">5. More Company Information</a>
-		<ul class="toc">
-			<li><a href="#morecompany-contact">5.1 Contact Information</a></li>
-			<li><a href="#morecompany-team">5.2 Team Information</a></li>
-		</ul>
-	</li>
-	<li>
-		<a href="#checklist">6. Real-World Checklist</a>
-		<ul class="toc">
-			<li><a href="#checklist-preparation">6.1 Preparation</a></li>	
-			<li><a href="#checklist-validation">6.2 Validation</a></li>	
-			<li><a href="#checklist-serving">6.3 Serving Content</a></li>	
-			<li><a href="#checklist-triples">6.4 Resulting Triples Check</a></li>	
-			<li><a href="#checklist-dyna">6.5 Dynamic Content </a></li>	
-			<li><a href="#checklist-usability">6.6 Usability Issues</a></li>
-			<li><a href="#checklist-fragid">6.7 HTML Fragments</a></li>
-		</ul>
-	</li>	
-	<li><a href="#references">References</a></li>
-	<li><a href="#history">Historical Synopsis</a></li>
-	<li><a href="#acknowledgments">Acknowledgments</a></li> 
-</ul>
-
+</section>
 
 <!--    INTRODUCTION    -->
-<h2 id="intro">1. Introduction</h2>
+<section>
+<h2>Introduction</h2>
 
 <p>Throughout the document, the following namespaces are used:</p>
 <pre class="turtlecode">@prefix schema: &lt;http://schema.org/&gt; .
@@ -113,16 +286,19 @@ This is a practical guide to publish and consume Linked Data based on URIs, HTTP
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
-@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix dc: &lt;http://purl.org/dc/terms/&gt; .
 @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix acme: &lt;http://www.example.com/acme#&gt; .
+@prefix dbpedia: &lt;http://dbpedia.org/resource/&gt; .
 </pre>
 
-<h3 id="intro-motivation">1.1 Motivation</h3>
+<section>
+<h3>Motivation</h3>
 <p>
 Linked Data refers to a set of best practices for publishing and interlinking structured data on the Web. Essentially, the idea of Linked Data is to apply the <a href="http://www.w3.org/TR/webarch/" title="Architecture of the World Wide Web, Volume One">general architecture of the WWW</a> to the task of sharing structured data on a global scale. Technically, Linked Data is about employing Uniform Resource Identifiers (URIs), the Resource Description Framework (RDF) and the Hypertext Transfer Protocol (HTTP) to publish structured data on the Web and to connect related data that is distributed across multiple data sources.
 </p>
 <p>
-The Linked Data community has established a number of good practices around publishing and consuming. From publishing Linked Data <a href="#ref-HOWTO-LODP">[HOWTO-LODP]</a> and URI management <a href="#ref-COOL-SWURIS">[COOL-SWURIS]</a> over describing Linked Data datasets <a href="#ref-VOID-GUIDE">[VOID-GUIDE]</a> to <a href="http://esw.w3.org/topic/SweoIG/TaskForces/CommunityProjects/LinkingOpenData/Applications" title="LOD Applications - ESW Wiki">Linked Data applications</a>. There are <a href="http://linkeddata.org/guides-and-tutorials" title="Guides and Tutorials at linkeddata.org">tutorials and guides</a> available, maintained by the community and the number of triples in the <a href="http://lod-cloud.net/" title="The Linking Open Data cloud diagram">Linked Data cloud</a> doubled in size every 10 months since 2007.
+The Linked Data community has established a number of good practices around publishing and consuming. From publishing Linked Data [[HOWTO-LODP]] and URI management [[COOL-SWURIS]] over describing Linked Data datasets [[VOID-GUIDE]] to <a href="http://esw.w3.org/topic/SweoIG/TaskForces/CommunityProjects/LinkingOpenData/Applications" title="LOD Applications - ESW Wiki">Linked Data applications</a>. There are <a href="http://linkeddata.org/guides-and-tutorials" title="Guides and Tutorials at linkeddata.org">tutorials and guides</a> available, maintained by the community and the number of triples in the <a href="http://lod-cloud.net/" title="The Linking Open Data cloud diagram">Linked Data cloud</a> doubled in size every 10 months since 2007.
 </p>
 <p>
 Whilst the majority of the efforts regarding publishing Linked Data has focused so far on exposing the data via RDF/XML or NTriples, data embedded in HTML (RDFa and microdata) has gathered momentum and offers a valuable and easy to use alternative route to Linked Data publishing.
@@ -140,17 +316,22 @@ This document guides the interested reader to publishing and consuming Linked Da
 <tr><th>Human</th><th>RDFa</th><th>Microdata</th></tr>
 <tr>
 	<td>
-		<div about="" rel="dcterms:author">
-			<a href="http://richard.cyganiak.de/foaf.rdf#cygri">Richard</a> and <a href="http://sw-app.org/mic.xhtml#i">Michael</a> have written this note.
+		<div about="" rel="dc:author">
+			<a href="http://richard.cyganiak.de/foaf.rdf#cygri">Richard</a>,
+			<a href="http://sw-app.org/mic.xhtml#i">Michael</a>, and
+			<a href="http://greggkellogg.net/foaf#me">Gregg</a>
+			have written this note.
 		</div>
 	</td>
 	<td>
 <pre class="ldhcode">&lt;div about=""&gt;
  &lt;a rel="schema:author"
-    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt; 
- and 
+    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt;, 
  &lt;a rel="schema:author"
       href="http://sw-app.org/mic.xhtml#i"&gt;Michael&lt;/a&gt; 
+ and 
+ &lt;a rel="schema:author"
+      href="http://greggkellogg.net/foaf#me"&gt;Gregg&lt;/a&gt; 
  have written this note.
 &lt;/div&gt;
 </pre>	
@@ -158,10 +339,12 @@ This document guides the interested reader to publishing and consuming Linked Da
 	<td>
 <pre class="ldhcode">&lt;div itemscope itemid="http://www.w3.org/2001/sw/interest/ldh/"&gt;
  &lt;a itemprop="author"
-    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt; 
- and 
+    href="http://richard.cyganiak.de/foaf.rdf#cygri"&gt;Richard&lt;/a&gt;, 
  &lt;a itemprop="author"
     href="http://sw-app.org/mic.xhtml#i"&gt;Michael&lt;/a&gt; 
+ and 
+ &lt;a itemprop="author"
+    href="http://greggkellogg.net/foaf#me"&gt;Gregg&lt;/a&gt; 
  have written this note.
 &lt;/div&gt;
 </pre>	
@@ -170,15 +353,16 @@ This document guides the interested reader to publishing and consuming Linked Da
 </tbody>
 </table>
 <p>
-The resulting RDF triples (throughout shown using RDF Turtle <a href="#ref-TURTLE">[TURTLE]</a> serialisation) from the above RDFa snippet are essentially:
+The resulting RDF triples (throughout shown using RDF Turtle [[!TURTLE]] serialization) from the above RDFa snippet are essentially:
 </p>
 <pre class="turtlecode">
  &lt;&gt; schema:author &lt;http://richard.cyganiak.de/foaf.rdf#cygri&gt;,
-                   &lt;http://sw-app.org/mic.xhtml#i&gt; .
+                   &lt;http://sw-app.org/mic.xhtml#i&gt;,
+                   &lt;http://greggkellogg.net/foaf#me&gt; .
 </pre>
 
 <p>
-The RDFa/microdata snippet above is actually a basic dataset; it interlinks data from this note with information about people with a so called <strong>interlinking property</strong>, namely <code>dcterms:author</code>. If one wants to, for example, find out who the <em>authors</em> of this note are, one can use the following SPARQL query:
+The RDFa/microdata snippet above is actually a basic dataset; it interlinks data from this note with information about people with a so called <strong>interlinking property</strong>, namely <code>dc:author</code>. If one wants to, for example, find out who the <em>authors</em> of this note are, one can use the following SPARQL query:
 </p>
 <pre class="turtlecode">
  PREFIX schema: &lt;http://schema.org/&gt;
@@ -198,24 +382,26 @@ The above shown query can be executed in a SPARQL engine such as <a href="http:/
 Interestingly, the capabilities of this piece of data are not yet exhausted. Rather than having a sheer list of strings, one is eventually provided with two URIs. These URIs (which happen to identify two people) can be looked up, or <strong>dereferenced</strong>, in Linked Data speak. When dereferencing one of the person URIs, one gets more data.	
 </p>	
 <p>
-Note that entities (real world things or concepts such as a product) throughout the document are highlighted as so: <em>entity</em>, whereas URIs (identifiers of entities) will be rendered as so: <code>http://yadayadayada.da#Entity</code> - unless otherwise stated, the well-known namespaces, such as for RDF, RDF-S, FOAF, etc. are assumed to be declared up-front (in the head of the HTML document), see also the very useful prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a>. Further, note that the example used throughout this note is as well available as a stand-alone document, <a href="acme.html">acme.html</a>, ready to be used as a boiler-plate.
+Note that entities (real world things or concepts such as a product) throughout the document are highlighted as so: <em>entity</em>, whereas URIs (identifiers of entities) will be rendered as so: <code>http://yadayadayada.da#Entity</code> - unless otherwise stated, the well-known namespaces, such as for RDF, RDF-S, FOAF, etc. are assumed to be declared up-front (in the head of the HTML document), see also the very useful prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a>
+and the default prefixes defined for RDFa ([[RDFA-CORE-PROFILE]] and [[XHTML-RDFA-PROFILE]]). Further, note that the example used throughout this note is as well available as a stand-alone document, <a href="acme.html">acme.html</a>, ready to be used as a boiler-plate.
 </p>
 <p>
 Before continuing with this note, one should contemplate if the <strong>prerequisites</strong> for understanding and applying the following are available. As we not intent to repeat stuff that has been written elsewhere (or at least avoid too much redundancy), one may consider:
 </p>
 <ol class="prereq">
 	<li>
-	Reading a basic introduction into <strong>URIs</strong>, such as <a href="http://www.ltg.ed.ac.uk/~ht/WhatAreURIs/" title="What's a URI and why does it matter?">What's a URI and why does it matter?</a> or even consult the URI specification <a href="#ref-RFC3986">[RFC3986]</a>;
+	Reading a basic introduction into <strong>URIs</strong>, such as <a href="http://www.ltg.ed.ac.uk/~ht/WhatAreURIs/" title="What's a URI and why does it matter?">What's a URI and why does it matter?</a> or even consult the URI specification [[!RFC3986]];
 	</li>
 	<li>
-	A second step worth performing is to read the first few sections of the <strong>How to Publish Linked Data on the Web</strong> tutorial <a href="#ref-HOWTO-LODP">[HOWTO-LODP]</a>;
+	A second step worth performing is to read the first few sections of the <strong>How to Publish Linked Data on the Web</strong> tutorial [[HOWTO-LODP]];
 	</li>	
 	<li>
 		Last but not least one should be familiar with the syntaxes used in here for the data embedded in HTML (RDFa and microdata). 
 	</li>
 </ol>	
-	
-<h3 id="intro-setup">1.2 Setting the Scene</h3>
+</section>
+<section>
+<h3>Setting the Scene</h3>
 <p>	
 For the purpose of demonstration, let us assume that we deal with a company called <em>ACME Corp.</em>, which is offering <em>product</em> information about tools they want to sell, such as shown in the Table 1, below. There are numerical and textual values, prices, column heads and cells conveying the actual information about the <em>tools</em> <em>ACME Corp.</em> is selling.
 </p>
@@ -275,10 +461,12 @@ For the purpose of demonstration, let us assume that we deal with a company call
 <p>
 The product information in Table 1. is perfectly accessible to humans. Once the table gets longer and/or certain filter or search operations are desired, an application consuming this table will have hard times, as it is not aware  of the semantics of the cells and the data contained in it. Further, reuse of information, such as country, tax or shipping information (for example found in Wikipedia) can not easily be implemented. Using URIs and RDFa, we will show, step-by-step, how to turn the product information table above into a small-sized Linked Data dataset, offering information reuse, data integration, structured queries and building the base for semantic indexing.
 </p>
-
+</section>
+</section>
 
 <!--    BASELINE    -->
-<h2 id="baseline">2. Company Information</h2>
+<section>
+<h2>Company Information</h2>
 <p>
 We first mint a URI space for the <em>ACME Corp.</em> itself and for their products. Further, we are using the GoodRelations vocabulary (see [GR Primer] for details how to use it) to represent products and company-related information. 
 </p>
@@ -367,9 +555,11 @@ This resulting RDF graph from the RDFa snippet in Table 2. can also be represent
 	<img src="img/baseline.png" alt="Basic information on the ACME Corp. company in RDF" width="600px" />
 	<div><span>Fig. 1.:</span> Basic information on the <em>ACME Corp.</em> company in RDF.</div>
 </div>
+</section>
 
 <!--    PRODUCTS    -->
-<h2 id="products">3. Product Information</h2>
+<section>
+<h2>Product Information</h2>
 <p>
 In the second step we want to add some details about the <em>products</em> itself. We are using again the GoodRelations vocabulary and a self-defined domain vocabulary for <em>tools</em>:
 </p>
@@ -381,7 +571,7 @@ In the second step we want to add some details about the <em>products</em> itsel
 We first have to introduce the new namespace <code>http://www.example.com/tools#</code> that contains domain-specific concepts for tools. For the purpose of demonstration this namespace declaration is here (line 7 in Table 3.) done on the <code>&lt;table&gt;</code> element, potentially restricting its scope to the HTML table at hand. Had we, in contrast, defined it in the HTML head, the <code>tools:</code> namespace would have been declared and usable for the entire document. There are certain situations in the wild (such as a Wiki or a CMS) where you don't have control over the head; under such circumstances it can be useful to 'locally' declare a namespace, and its prefix respectively.
 </p>
 <p>
-We add, on a per-product basis, some essential information, such as its type: this is done in lines 11-13 for the <em>Stanley Fubar</em> <em>product</em>, in lines 17-19 for <em>Binford 2000 hammer</em>, and in lines 23-25 for <em>The Screwer</em>. Note that for each entity a new URI has been minted in the <code>http://www.example.com/acme#</code> namespace, such as <code>http://www.example.com/acme#sf0815</code> for the <em>Stanley Fubar</em> product. Further, we have specified the type of the respective entity (lines 12, 18, 24) as required by the GoodRelations vocabulary and reused the human visible information for the <em>product</em> title via the <code>dcterms:title</code> property of the Dublin Core vocabulary (lines 13, 19, 25).
+We add, on a per-product basis, some essential information, such as its type: this is done in lines 11-13 for the <em>Stanley Fubar</em> <em>product</em>, in lines 17-19 for <em>Binford 2000 hammer</em>, and in lines 23-25 for <em>The Screwer</em>. Note that for each entity a new URI has been minted in the <code>http://www.example.com/acme#</code> namespace, such as <code>http://www.example.com/acme#sf0815</code> for the <em>Stanley Fubar</em> product. Further, we have specified the type of the respective entity (lines 12, 18, 24) as required by the GoodRelations vocabulary and reused the human visible information for the <em>product</em> title via the <code>dc:title</code> property of the Dublin Core vocabulary (lines 13, 19, 25).
 </p>
 <table class="example">
 <caption><span>Table 3.:</span> Basic <em>product</em> information on the <em>tools</em> that <em>ACME Corp.</em> offers.</caption>
@@ -397,13 +587,13 @@ We add, on a per-product basis, some essential information, such as its type: th
 		    <th>Name</th><th>Description</th><th>Price [in &#x20ac;]</th>
 		  </tr>
 		  <tr about="http://www.example.com/acme#sf0815" typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance">
-		    <td property="dcterms:title">Stanley Fubar</td><td>All-purpose destroy utility.</td><td>40</td>
+		    <td property="dc:title">Stanley Fubar</td><td>All-purpose destroy utility.</td><td>40</td>
 		  </tr>
 		  <tr about="http://www.example.com/acme#sh4711" typeof="tools:Hammer gr:ActualProductOrServiceInstance">
-		    <td property="dcterms:title">Binford 2000 hammer</td><td>Your best friend for nails and more, top US quality.</td><td>20</td>
+		    <td property="dc:title">Binford 2000 hammer</td><td>Your best friend for nails and more, top US quality.</td><td>20</td>
 		  </tr>
 		  <tr about="http://www.example.com/acme#ts0007" typeof="tools:ScrewDriver gr:ActualProductOrServiceInstance">
-		    <td property="dcterms:title">The Screwer</td><td>For any kind of screw-driving, produced in the UK.</td><td>10</td>
+		    <td property="dc:title">The Screwer</td><td>For any kind of screw-driving, produced in the UK.</td><td>10</td>
 		  </tr>	
 		</table>
 	</td>
@@ -421,19 +611,19 @@ We add, on a per-product basis, some essential information, such as its type: th
 10:   &lt;/tr&gt;
 11:   &lt;tr <strong>about="http://www.example.com/acme#sf0815"</strong> 
 12:       <strong>typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance"</strong>&gt;
-13:     &lt;td <strong>property="dcterms:title"</strong>&gt;Stanley Fubar&lt;/td&gt;
+13:     &lt;td <strong>property="dc:title"</strong>&gt;Stanley Fubar&lt;/td&gt;
 14:     &lt;td&gt;All-purpose destroy utility.&lt;/td&gt;
 15:     &lt;td&gt;40&lt;/td&gt;
 16:   &lt;/tr&gt;
 17:  &lt;tr <strong>about="http://www.example.com/acme#sh4711"</strong> 
 18:      <strong>typeof="tools:Hammer gr:ActualProductOrServiceInstance"</strong>&gt;
-19:    &lt;td <strong>property="dcterms:title"</strong>&gt;Binford 2000 hammer&lt;/td&gt;
+19:    &lt;td <strong>property="dc:title"</strong>&gt;Binford 2000 hammer&lt;/td&gt;
 20:    &lt;td&gt;Your best friend for nails and more, top US quality.&lt;/td&gt;
 21:    &lt;td&gt;20&lt;/td&gt;
 22:  &lt;/tr&gt;
 23:  &lt;tr <strong>about="http://www.example.com/acme#ts0007"</strong>
 24:      <strong>typeof="tools:ScrewDriver gr:ActualProductOrServiceInstance"</strong>&gt;
-25:    &lt;td <strong>property="dcterms:title"</strong>&gt;The Screwer&lt;/td&gt;
+25:    &lt;td <strong>property="dc:title"</strong>&gt;The Screwer&lt;/td&gt;
 26:    &lt;td&gt;For any kind of screw-driving, produced in the UK.&lt;/td&gt;
 27:    &lt;td&gt;10&lt;/td&gt;
 28:  &lt;/tr&gt;	
@@ -448,7 +638,7 @@ The resulting RDF triples from the RDFa snippet in Table 3. are essentially:
 </p>
 <pre class="turtlecode">
  @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
- @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+ @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
  @prefix gr: &lt;http://purl.org/goodrelations/v1#&gt; .
  @prefix tools: &lt;http://www.example.com/tools#&gt; .
  @prefix acme: &lt;http://www.example.com/acme#&gt; .
@@ -458,13 +648,13 @@ The resulting RDF triples from the RDFa snippet in Table 3. are essentially:
                   gr:legalName "ACME Corp." .
 
  acme:sf0815 a tools:AllPurposeUtility, gr:ActualProductOrServiceInstance ;
-             dcterms:title "Stanley Fubar" .
+             dc:title "Stanley Fubar" .
 
  acme:sh4711 a tools:Hammer, gr:ActualProductOrServiceInstance ;
-             dcterms:title "Binford 2000 hammer" .
+             dc:title "Binford 2000 hammer" .
 
  acme:ts0007 a tools:ScrewDriver, gr:ActualProductOrServiceInstance ;
-             dcterms:title "The Screwer" .
+             dc:title "The Screwer" .
 </pre>
 <p>
 We again give a visual account of the resulting RDF graph from the RDFa snippet in Table 3. (see Fig. 2, below). 
@@ -476,9 +666,11 @@ We again give a visual account of the resulting RDF graph from the RDFa snippet 
 <p>
 Note that the RDF graph in Fig. 2, above, actually consists of two unconnected sub-graphs. The upper half representing the basic <em>company</em> information, the lower half the three <em>product</em> information. This setup factually cries out for being changed, so that the <em>products</em> are connected to the <em>company</em> that is <em>offering</em> them. We will do so in the next step.
 </p>
+</section>
 
 <!--    CONNECT PRODUCTS TO COMPANY    -->
-<h2 id="comprod">4. Connecting Products with the Company</h2>
+<section>
+<h2>Connecting Products with the Company</h2>
 <p>
 As stated above, we are now going to connect the <em>products</em> to the <em>company</em> that is <em>offering</em> them. In order to keep the example simple and legible we will only show the modelling and mark-up for one offering. The full example source code can be found in the accompanying document <a href="acme.html">acme.html</a>.
 </p>
@@ -500,7 +692,7 @@ In line 6 of the RDFa snippet in Table 4 we state that <em>ACME Corp.</em> has s
 		    <th>Name</th><th>Description</th><th>Price [in &#x20ac;]</th>
 		  </tr>
 		  <tr about="http://www.example.com/acme#sf0815" typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance">
-			<td property="dcterms:title">Stanley Fubar</td>
+			<td property="dc:title">Stanley Fubar</td>
 			<td>All-purpose destroy utility.</td>
 			<td about="http://www.example.com/acme#sf0815-price" typeof="gr:UnitPriceSpecification">
 				<span property="gr:hasCurrency" content="EUR" datatype="xsd:string" />
@@ -536,7 +728,7 @@ In line 6 of the RDFa snippet in Table 4 we state that <em>ACME Corp.</em> has s
 11:   &lt;/tr&gt;
 12:   &lt;tr about="http://www.example.com/acme#sf0815"
 13:       typeof="tools:AllPurposeUtility gr:ActualProductOrServiceInstance"&gt;
-14:     &lt;td property="dcterms:title"&gt;Stanley Fubar&lt;/td&gt;
+14:     &lt;td property="dc:title"&gt;Stanley Fubar&lt;/td&gt;
 15:     &lt;td&gt;All-purpose destroy utility.&lt;/td&gt;
 16:     &lt;td <strong>about="http://www.example.com/acme#sf0815-price" typeof="gr:UnitPriceSpecification"</strong>&gt;
 17:       <strong>&lt;span property="gr:hasCurrency" content="EUR" datatype="xsd:string" /&gt;</strong>
@@ -565,7 +757,7 @@ The resulting RDF triples from the RDFa snippet in Table 4. are essentially:
 </p>
 <pre class="turtlecode">
  @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
- @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+ @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
  @prefix gr: &lt;http://purl.org/goodrelations/v1#&gt; .
  @prefix tools: &lt;http://www.example.com/tools#&gt; .
  @prefix acme: &lt;http://www.example.com/acme#&gt; .
@@ -591,7 +783,7 @@ The resulting RDF triples from the RDFa snippet in Table 4. are essentially:
                   <strong>gr:typeOfGood acme:sf0815</strong> .
 
  <strong>acme:sf0815</strong> a tools:AllPurposeUtility, gr:ActualProductOrServiceInstance ;
-             dcterms:title "Stanley Fubar" .
+             dc:title "Stanley Fubar" .
 </pre>
 <p>
 A visual representation of the resulting RDF graph from the RDFa snippet in Table 4. is shown in Fig. 3, below. We note that the key path for the connection between the <em>company</em> and the <em>product</em>, that is <code>acme:corporation - gr:offers -&gt; acme:sf0815-offering</code>, 
@@ -608,7 +800,7 @@ With the data we have so far, we are now able to perform a query such as shown b
 <pre class="turtlecode">
  PREFIX gr: &lt;http://purl.org/goodrelations/v1#&gt;
  PREFIX tools: &lt;http://www.example.com/tools#&gt;
- PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+ PREFIX dc: &lt;http://purl.org/dc/terms/&gt;
 
  SELECT ?label ?curval ?cur ?provname
  WHERE { 
@@ -617,7 +809,7 @@ With the data we have so far, we are now able to perform a query such as shown b
               gr:hasPriceSpecification ?pricespec .
   ?object gr:typeOfGood ?item .
   ?item a tools:Hammer ; 
-        dcterms:title ?label .
+        dc:title ?label .
   ?pricespec gr:hasCurrency ?cur ;   
              gr:hasCurrencyValue ?curval .
   ?provider gr:offers ?offering ;
@@ -635,15 +827,17 @@ When the above shown query is <a href="http://tr.im/iBRX">executed</a> in a SPAR
 		<td> "Binford 2000 hammer" </td><td> "20"^^&lt;http://www.w3.org/2001/XMLSchema#float&gt; </td><td> "EUR"^^&lt;http://www.w3.org/2001/XMLSchema#string&gt; </td><td>"ACME Corp." </td>
 	</tr>
 </table>
-
+</section>
 
 <!--    MORE COMPANY DETAILS    -->
-<h2 id="morecompany">5. More Company Information</h2>
+<section>
+<h2>More Company Information</h2>
 <p>
 Let us now step back a bit and return to something simple though very useful in everyday commercial but also private life. We assume one wants to express some more detailed information about how to contact a company (section 5.1) or who the people behind the company are (section 5.2). As usual we suggest to consult the stand-alone example <a href="acme.html">acme.html</a> to see the entire code in action.
 </p>
 
-<h3 id="morecompany-contact">5.1 Contact Information</h3>
+<section>
+<h3>Contact Information</h3>
 <p class='todo'>TODO: change vCard modelling; actually the acme:coporation itself is a vCard:Organization</p>
 <p>
 In order to express what we desire to express we introduce two new namespaces:
@@ -669,10 +863,9 @@ As already mentioned, with <code>ov:businessCard</code> the <code>acme:businessc
 				<div about="http://www.example.com/acme#businesscard" typeof="vcard:VCard">
 					<div rel="vcard:org">
 						<div about="http://www.example.com/acme#org" typeof="vcard:Organization">
-							<span property="vcard:organization-name">
-								Awesome Company that Makes Everything (ACME) Corporation
-							</span>
-							<span rel="owl:sameAs" resource="http://dbpedia.org/resource/Acme_Corporation"></span>
+							<span property="vcard:organization-name"
+								>Awesome Company that Makes Everything (ACME) Corporation</span>
+							<span rel="owl:sameAs" resource="dbpedia:Acme_Corporation"></span>
 						</div>
 					</div>		
 					<div rel="vcard:workAdr">
@@ -697,25 +890,24 @@ As already mentioned, with <code>ov:businessCard</code> the <code>acme:businessc
  6:     &lt;div rel="vcard:org"&gt;
  7:      &lt;div about="http://www.example.com/acme#org" 
  8:           typeof="vcard:Organization"&gt;
- 9:       &lt;span property="vcard:organization-name"&gt;
-10:        Awesome Company that Makes Everything (ACME) Corporation
-11:       &lt;/span&gt;
-12:       &lt;span rel="owl:sameAs" 
-13:             resource="http://dbpedia.org/resource/Acme_Corporation" /&gt;
-14:      &lt;/div&gt;
-15:     &lt;/div&gt;		
-16:     &lt;div rel="vcard:workAdr"&gt;
-17:      &lt;div about="http://www.example.com/acme#postaladdress" 
-18:           typeof="vcard:Address"&gt;
-19:       &lt;span property="vcard:street-address"&gt;ACME road 1&lt;/span&gt;,
-20:       &lt;span property="vcard:locality"&gt;Springfield&lt;/span&gt;,
-21:       &lt;span property="vcard:country-name"&gt;Linktopia&lt;/span&gt;
-22:      &lt;/div&gt;
-23:     &lt;/div&gt;	
-24:     Tel.: &lt;span property="vcard:workTel"&gt;+0000 123 456 789&lt;/span&gt;
-25:   &lt;/div&gt;
-26:  &lt;/div&gt;
-27: &lt;/div&gt;
+ 9:       &lt;span property="vcard:organization-name"
+10:        &gt;Awesome Company that Makes Everything (ACME) Corporation&lt;/span&gt;
+11:       &lt;span rel="owl:sameAs" 
+12:             resource="dbpedia:Acme_Corporation" /&gt;
+13:      &lt;/div&gt;
+14:     &lt;/div&gt;		
+15:     &lt;div rel="vcard:workAdr"&gt;
+16:      &lt;div about="http://www.example.com/acme#postaladdress" 
+17:           typeof="vcard:Address"&gt;
+18:       &lt;span property="vcard:street-address"&gt;ACME road 1&lt;/span&gt;,
+19:       &lt;span property="vcard:locality"&gt;Springfield&lt;/span&gt;,
+20:       &lt;span property="vcard:country-name"&gt;Linktopia&lt;/span&gt;
+21:      &lt;/div&gt;
+22:     &lt;/div&gt;	
+23:     Tel.: &lt;span property="vcard:workTel"&gt;+0000 123 456 789&lt;/span&gt;
+24:   &lt;/div&gt;
+25:  &lt;/div&gt;
+26: &lt;/div&gt;
 </pre>
 </td>
 </tr>
@@ -737,7 +929,7 @@ The resulting RDF triples from the RDFa snippet in Table 5. are essentially (wit
                    vcard:workTel "+0000 123 456 789" . 
 
  acme:org a vcard:Organization ;
-         <strong> owl:sameAs &lt;http://dbpedia.org/resource/Acme_Corporation&gt; ;</strong>
+         <strong> owl:sameAs dbpedia:Acme_Corporation ;</strong>
           vcard:organization-name "Awesome Company that Makes Everything (ACME) Corporation" . 
 
  acme:postaladress a vcard:Address ;
@@ -752,8 +944,9 @@ The visual representation of the RDF graph from the RDFa snippet in Table 5. is 
 	<img src="img/morecompany.png" width="600px" alt="Some company contact details in RDF" />
 	<div><span>Fig. 4.:</span> Some <em>company</em> contact details in RDF.</div>
 </div>
-
-<h3 id="morecompany-team">5.2 Team Information</h3>
+</section>
+<section>
+<h3>Team Information</h3>
 <p>
 In the next step we will add some information about the people behind the company, using FOAF and DOAC vocabularies. Note that <a href="acme.html">acme.html</a> contains the entire mark-up; we will show here only the code for one person. The following namespaces are from now on used:
 </p>
@@ -766,7 +959,7 @@ In the next step we will add some information about the people behind the compan
     <dd>the DBpedia resources namespace</dd>
 </dl>
 <p>
-A <em>person</em> is connected to the <em>company</em> using the interlinking property <code>foaf:member</code> (line 8). In the line 9 of Table 6 we define the person information reusing a person's URI (from his FOAF file). The lines 13 and 14 bear an additional interlinking: we overlay the primary textual description of a person's position (the 'Chief Executive Officer (CEO)' part) with an interlinking (the <code>dcterms:subject</code> property) to DBpedia, basically stating that the topic of the object at hand is something which's description is available at <code>dbpedia:Chief_executive_officer</code>. Note that one could either use this interlinking to DBpedia to (i) gather further information about what a <em>CEO</em> actually is, or (ii) use it in a query to find out who the CEO of a given company is. We will demo the latter usage in an exemplary query, below.
+A <em>person</em> is connected to the <em>company</em> using the interlinking property <code>foaf:member</code> (line 8). In the line 9 of Table 6 we define the person information reusing a person's URI (from his FOAF file). The lines 13 and 14 bear an additional interlinking: we overlay the primary textual description of a person's position (the 'Chief Executive Officer (CEO)' part) with an interlinking (the <code>dc:subject</code> property) to DBpedia, basically stating that the topic of the object at hand is something which's description is available at <code>dbpedia:Chief_executive_officer</code>. Note that one could either use this interlinking to DBpedia to (i) gather further information about what a <em>CEO</em> actually is, or (ii) use it in a query to find out who the CEO of a given company is. We will demo the latter usage in an exemplary query, below.
 </p>
 <table class="example">
 <caption><span>Table 6.:</span> Some details about the <em>team</em>.</caption>
@@ -785,9 +978,10 @@ A <em>person</em> is connected to the <em>company</em> using the interlinking pr
 						<div about="http://danbri.org/foaf.rdf#danbri" typeof="foaf:Person">
 							<a href="http://danbri.org/about.html">Dan Brickley</a>, 
 							<span rel="doac:experience">
-								<span property="doac:position" rel="dcterms:subject" resource="http://dbpedia.org/resource/Chief_executive_officer">
-									Chief Executive Officer (CEO)
-								</span>
+								<span property="doac:position"
+								      rel="dc:subject"
+								      resource="http://dbpedia.org/resource/Chief_executive_officer"
+									>Chief Executive Officer (CEO)</span>
 							</span>
 						</div>
 					</li>
@@ -809,16 +1003,15 @@ A <em>person</em> is connected to the <em>company</em> using the interlinking pr
 10:      &lt;a href="http://danbri.org/about.html"&gt;Dan Brickley&lt;/a&gt;, 
 11:      &lt;span rel="doac:experience"&gt;
 12:       &lt;span property="doac:position"
-13:             <strong>rel="dcterms:subject"</strong>
-14:             <strong>resource="http://dbpedia.org/resource/Chief_executive_officer"&gt;</strong>
-15:        Chief Executive Officer (CEO)
-16:       &lt;/span&gt;
-17:      &lt;/span&gt;
-18:     &lt;/div&gt;
-19:    &lt;/li&gt;
-20:   &lt;/ul&gt;
-21:  &lt;/div&gt;
-22: &lt;/div&gt;
+13:             <strong>rel="dc:subject"</strong>
+14:             <strong>resource="http://dbpedia.org/resource/Chief_executive_officer"</strong>
+15:        &gt;Chief Executive Officer (CEO)&lt;/span&gt;
+16:      &lt;/span&gt;
+17:     &lt;/div&gt;
+18:    &lt;/li&gt;
+19:   &lt;/ul&gt;
+20:  &lt;/div&gt;
+21: &lt;/div&gt;
 </pre>
 </td>
 </tr>
@@ -831,14 +1024,14 @@ The resulting RDF triples from the RDFa snippet in Table 6. are shown in the fol
  @prefix acme: &lt;http://www.example.com/acme#&gt; .
  @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
  @prefix doac: &lt;http://ramonantonio.net/doac/0.1/#&gt; .
- @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+ @prefix dc: &lt;http://purl.org/dc/terms/&gt; .
  @prefix dbpedia: &lt;http://dbpedia.org/resource/&gt; .
 
  acme:corporation foaf:member &lt;http://danbri.org/foaf.rdf#danbri&gt; . 
 
  &lt;http://danbri.org/foaf.rdf#danbri&gt; a foaf:Person ;
                                            doac:experience [ 
-                                             dcterms:subject dbpedia:Chief_executive_officer ;
+                                             dc:subject dbpedia:Chief_executive_officer ;
                                              doac:position "Chief Executive Officer (CEO)"
                                            ] . 
 </pre>
@@ -855,7 +1048,7 @@ As pointed out above we can use the data we have so far to perform a query such 
 <pre class="turtlecode">
  PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
  PREFIX doac: &lt;http://ramonantonio.net/doac/0.1/#&gt;
- PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+ PREFIX dc: &lt;http://purl.org/dc/terms/&gt;
 
  SELECT ?name ?position ?description
  WHERE { 
@@ -863,7 +1056,7 @@ As pointed out above we can use the data we have so far to perform a query such 
   ?person foaf:name ?name ;
           doac:experience ?exp .
   ?exp doac:position ?position ;
-       dcterms:subject ?description .
+       dc:subject ?description .
  }
 </pre>
 <p>
@@ -890,10 +1083,12 @@ When the above shown query is <a href="http://tr.im/iFdc">executed</a> in a SPAR
 		<td> &lt;http://dbpedia.org/resource/Chief_technical_officer&gt; </td>
 	</tr>
 </table>
-
+</section>
+</section>
 
 <!--    CHECKLIST   -->
-<h2 id="checklist">6. Real-World Checklist</h2>	
+<section id="checklist">
+<h2>Real-World Checklist</h2>	
 <p>
 After having understood the basics of publishing Linked Data with data embedded in HTML (RDFa and microdata), we are now going to discuss issues in a typical real-world setup by providing a sort of checklist. You may want to follow this step-by-step, as the items on the list build on each other, or directly jump to the relevant part, in case you are familiar with the basic handling of data embedded in HTML (RDFa and microdata). We summarise the checklist for your convenience in the following:
 </p>
@@ -907,25 +1102,19 @@ After having understood the basics of publishing Linked Data with data embedded 
 	<li><a href="#checklist-fragid">6.7 HTML Fragments</a>: don't use HTML fragment IDs in resource URIs</li>
 </ul>
 
-<h3 id="checklist-preparation">6.1 Preparation</h3>
-<h4 id="checklist-preparation-rdfa">6.1.1 RDFa</h4>
+<section id="checklist-preparation">
+<h3>Preparation</h3>
+<section id="checklist-preparation-rdfa">
+<h4>RDFa</h4>
 <p>
-In order to set up the Linked Data dataset in RDFa, only few steps are necessary (see also section <a href="http://www.w3.org/TR/rdfa-syntax/#s_conformance" title="RDFa in XHTML: Syntax and Processing">4. Conformance Requirements</a> of the <a href="#ref-RDFA-SYNTAX">[RDFA-SYNTAX]</a>). One usually would start with a template, such as shown below.
+In order to set up the Linked Data dataset in RDFa, only few steps are necessary (see also section <a href="http://www.w3.org/TR/xhtml-rdfa/#conformance" title="XHTML+RDFa 1.1">2. Conformance</a> of the [[!XHTML-RDFA]]). One usually would start with a template, such as shown below.
 </p>
 <pre class="ldhcode">
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-      xmlns:owl="http://www.w3.org/2002/07/owl#"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-      xmlns:dcterms="http://purl.org/dc/terms/"
-      xmlns:foaf="http://xmlns.com/foaf/0.1/"  
-      xmlns:sioc="http://rdfs.org/sioc/ns#"
-      xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-      xmlns:ov="http://open.vocab.org/terms/"&gt;
+      prefix="geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+              ov:  http://open.vocab.org/terms/"&gt;
 &lt;head&gt;
 &lt;title&gt;My First Linked Dataset in RDFa&lt;/title&gt;
 &lt;/head&gt;
@@ -935,15 +1124,28 @@ In order to set up the Linked Data dataset in RDFa, only few steps are necessary
 &lt;/html&gt;
 </pre>
 <p>
-We note that the XML Namespace <a href="#ref-XMLNS">[XMLNS]</a> declarations (<code>xmlns:</code>) in the header are essential, as most RDFa processors will ignore any terms of vocabularies from unknown namespaces. Typically this declaration is done in the head, it can, however be done on any level, that is, on any HTML element that contains RDFa. We again highlight the prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a> to find most common prefixes, their namespace URIs and various serialisation stubs (incl. RDFa).
+We note that the @prefix declarations (<code>prefix</code>) in the header are essential, as most RDFa processors will ignore any terms of vocabularies with unknown prefixes. Typically this declaration is done in the <code>html</code> element, it can, however be done on any level, that is, on any HTML element that contains RDFa. We again highlight the prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a> to find most common prefixes, their namespace URIs and various serialization stubs (incl. RDFa).
 </p>
 <p>
-Finally, one should serve the Linked Data dataset in RDFa with the media type <code>application/xhtml+xml</code> as of section <a href="http://www.w3.org/TR/rdfa-syntax/#docconf" title="RDFa in XHTML: Syntax and Processing">4.1. Document Conformance</a> of the <a href="#ref-RDFA-SYNTAX">[RDFA-SYNTAX]</a>). As a practical aside we note that following this rule may cause certain Web browser that choose to ignore XHTML and media type declarations to not render the document properly for humans. We will come back to this issue, below, in section <a href="#checklist-serving">6.3 Serving Content</a>.	
+RDFa defines many standard prefixes and terms in <tdef>default profile</tdef>s [[RDFA-CORE-PROFILE]] and [[XHTML-RDFA-PROFILE]]. These include definitions for <em>dc</em>, <em>foaf</em>, <em>gr</em>, <em>owl</em>, <em>rdf</em>, <em>rdfs</em>, and <em>vcard</em> namespaces, among many others.
 </p>
-<h4 id="checklist-preparation-md">6.1.2 Microdata</h4>
+<p>
+Finally, one should serve the Linked Data dataset in RDFa with the media type <code>application/xhtml+xml</code> as of section <a href="http://www.w3.org/TR/xhtml-rdfa/#document-conformance" title="XHTML+RDFa 1.1">2.1. Document Conformance</a> of the [[!XHTML-RDFA]]). As a practical aside we note that following this rule may cause certain Web browser that choose to ignore XHTML and media type declarations to not render the document properly for humans. We will come back to this issue, below, in section <a href="#checklist-serving">6.3 Serving Content</a>.
+</p>
+<p>
+  It is also possible to serve RDFa content as non-XML HTML5 content with the media type <code>text/html</code> as of section <a href="http://dev.w3.org/html5/rdfa/#document-conformance" title="HTML+RDFa 1.1">2.1. Document Conformance</a> of the [[!HTML-RDFA]]).
+</p>
+</section>
+<section id="checklist-preparation-md">
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md setup</p>
-<h3 id="checklist-validation">6.2 Validation</h3>
-<h4 id="checklist-validation-rdfa">6.2.1 RDFa</h4>
+</section>
+</section>
+
+<section id="checklist-validation">
+<h3>Validation</h3>
+<section id="checklist-validation-rdfa">
+<h4>RDFa</h4>
 <p>
 After having set up the skeleton and filling it with content (for both humans and machines), there are three golden rules: validate, validate,  and validate. See also <a href="http://rdfa.info/wiki/How-to-validate" title="How-to-validate - RDFaWiki">Why and How to validate RDFa</a> and, finally, don't forget to add the RDFa conformance statement (as a result of the W3C <a href="http://validator.w3.org/" title="The W3C Markup Validation Service">validator</a>) to your page, such as shown below.
 </p>
@@ -958,7 +1160,7 @@ After having set up the skeleton and filling it with content (for both humans an
 	</td>
 	<td>
 <pre class="ldhcode">
-&lt;div about="" rel="dct:conformsTo" resource="http://www.w3.org/TR/rdfa-syntax"
+&lt;div about="" rel="dc:conformsTo" resource="http://www.w3.org/TR/rdfa-syntax"
      xmlns:dc="http://purl.org/dc/terms/"&gt;
   &lt;a href="http://validator.w3.org/check?uri=referer"&gt;
    &lt;img src="http://www.w3.org/Icons/valid-xhtml-rdfa-blue" alt="Valid XHTML + RDFa"/&gt;
@@ -969,12 +1171,18 @@ After having set up the skeleton and filling it with content (for both humans an
 </tr>
 </tbody>
 </table>
-<h4 id="checklist-validation-md">6.2.2 Microdata</h4>
+</section>
+<section>
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md validation</p>
-<h3 id="checklist-serving">6.3 Serving Content</h3>
-<h4 id="checklist-serving-rdfa">6.3.1 RDFa</h4>
+</section>
+</section>
+<section>
+<h3 id="checklist-serving">Serving Content</h3>
+<section>
+<h4 id="checklist-serving-rdfa">RDFa</h4>
 <p>
-When publishing Linked Data in RDFa it is essential to note that indeed one publishes for both humans and machines in one document. Both parties deserve an appropriate view on the content. Humans usually prefer HTML and the nicely rendered output in their User Agent, a Web browser, whilst machines such as Web of Data browser, data integrator or crawler prefer an RDF representation. Obviously, RDFa can deliver both from one resource. Whilst RDFa is technically just another RDF graph  <a href="#ref-RDF-CONCEPTS">[RDF-CONCEPTS]</a> serialisation syntax, there may be cases (what we call 'legacy systems', from the RDFa point-of-view, in the following) that accept RDF/XML as the only RDF serialisation syntax. One example of such class of systems are SPARQL engines or SPARQL endpoints. We hence should support legacy systems and serve RDF/XML, additionally, if requested via content negotiation (cf. also section 12 of the HTTP specification <a href="#ref-RFC2616">[RFC2616]</a>). This issue is relevant for both the server side and the client side: 
+When publishing Linked Data in RDFa it is essential to note that indeed one publishes for both humans and machines in one document. Both parties deserve an appropriate view on the content. Humans usually prefer HTML and the nicely rendered output in their User Agent, a Web browser, whilst machines such as Web of Data browser, data integrator or crawler prefer an RDF representation. Obviously, RDFa can deliver both from one resource. Whilst RDFa is technically just another RDF graph  [[RDF-CONCEPTS]] serialisation syntax, there may be cases (what we call 'legacy systems', from the RDFa point-of-view, in the following) that accept RDF/XML as the only RDF serialisation syntax. One example of such class of systems are SPARQL engines or SPARQL endpoints. We hence should support legacy systems and serve RDF/XML, additionally, if requested via content negotiation (cf. also section 12 of the HTTP specification [[!RFC2616]]). This issue is relevant for both the server side and the client side: 
 </p>
 <p>
 <strong>Server</strong>. One good practice how to serve RDF/XML from RDFa  with a popular Web server is described in Ivan Herman's recipe <a href="http://ivan-herman.name/2008/02/22/setting-up-an-rdfa-with-apache/" title="Setting up an RDFa file with apache - Ivan's private site">Setting up an RDFa file with Apache</a>.
@@ -982,10 +1190,16 @@ When publishing Linked Data in RDFa it is essential to note that indeed one publ
 <p>
 <strong>Client</strong>. A valuable introduction into client-side investigations regarding content preferences can be found in the <a href="http://dowhatimean.net/2008/03/what-is-your-rdf-browsers-accept-header" title="dowhatimean.net - What is your RDF browser's Accept header?">What is your RDF browser's Accept header?</a> blog post by Richard Cyganiak.
 </p>
-<h4 id="checklist-serving-md">6.3.2 Microdata</h4>
+</section>
+<section id="checklist-serving-md">
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md serving</p>
-<h3 id="checklist-triples">6.4 Resulting Triples Check</h3>
-<h4 id="checklist-triples-rdfa">6.4.1 RDFa</h4>
+</section>
+</section>
+<section id="checklist-triples">
+<h3>Resulting Triples Check</h3>
+<section id="checklist-triples-rdfa">
+<h4>RDFa</h4>
 <p>
 One thing people sometimes forget to check is if the RDF triples are correctly generated or, better say, if at least the triple they'd expect are generated. Depending on your RDFa processor of your <a href="http://www.w3.org/2006/07/SWD/RDFa/implementation-report/" title="RDFa Implementation Report">choice</a> additional triples may be generated.
 </p>
@@ -1001,20 +1215,32 @@ Let us take <a href="acme.html">acme.html</a> as an example. When running this d
 <p>
 One should indeed go even a step further and <strong>validate</strong> the resulting RDF graph using, for example, W3C's <a href="http://www.w3.org/RDF/Validator/" title="W3C RDF Validation Service">RDF Validation Service</a> to ensure that the so generated RDF is valid. We note that this does not mean that the RDF graph makes sense, that is you <strong>can not check</strong> its <strong>semantic validity automatically</strong>, currently. The good news is that a human usually can, just by simple inspection of the RDF graph as described above, rather quickly tell if the RDF graph is shaped as expected.
 </p>
-<h4 id="checklist-triples-md">6.4.2 Microdata</h4>
+</section>
+<section id="checklist-triples-md">
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md triples</p>
-<h3 id="checklist-dyna">6.5 Dynamic Content </h3>
-<h4 id="checklist-dyna-rdfa">6.5.1 RDFa</h4>
+</section>
+</section>
+<section id="checklist-dyna">
+<h3>Dynamic Content </h3>
+<section id="checklist-dyna-rdfa">
+<h4>RDFa</h4>
 <p>
 When using RDFa for Linked Data, one issue may eventually arise with client-side, DOM-based implementations. We point the interested reader to the discussion on <a href="http://rdfa.info/wiki/Dynamic-content-parsing" title="Dynamic-content-parsing - RDFaWiki">dynamic content</a> (Ajax issues) on the RDFa Wiki for further details. There are certain <a href="http://www.w3.org/2006/07/SWD/RDFa/implementation-report/#Client-Processors" title="RDFa Implementation Report">client-side RDFa processors</a> (mostly based on JavaScript) available, for example <a href="http://code.google.com/p/rdfquery/" title="rdfquery - Google Code">rdfquery</a>, allowing to extract, manipulate or query RDFa in a Web browser. 
 </p>
 <p>
 While client-side handling of RDFa is understood to cause no worrying issues, the consumption of it can lead to problems. An external service consuming a document that has DOM-based enhanced RDFa in it can obviously not directly access the RDF graph. Currently no widely accepted work-arounds are known, however, one may wish to provide the so generated RDF graph at a public accessible URI, that is, provide a sort of export functionality for it.
 </p>
-<h4 id="checklist-dyna-md">6.5.2 Microdata</h4>
+</section>
+<section id="checklist-dyna-md">
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md dyna</p>
-<h3 id="checklist-usability">6.6 Usability Issues</h3>
-<h4 id="checklist-usability-rdfa">6.6.1 RDFa</h4>
+</section>
+</section>
+<section id="checklist-usability">
+<h3>Usability Issues</h3>
+<section id="checklist-usability-rdfa">
+<h4>RDFa</h4>
 <p>
 One practical issue you may want to check against sometimes occurs with fine-grained, high-volume datasets. Imagine a detailed description of audio-visual content (say, a one hour video incl. audio track) in RDF, or, equally, a detailed RDF representation of a multi-dimensional table of statistics, with dozens of columns and potentially thousands of rows. In both cases, one ends up with potentially <strong>many triples</strong>, which might mean some 100k triple or more. As both humans and machines are expected to consume the RDFa document, one certainly has to find a trade-off between using RDFa for the entire description (meaning to embed all triples in the HTML document) and an entirely externalised solution, for example using RDF/XML:
 </p>
@@ -1029,70 +1255,30 @@ One practical issue you may want to check against sometimes occurs with fine-gra
 <p>
 We are aware that no one-size-fits-it-all solution to this issue exists, however want to raise awareness and provide some basic guidelines. Additional methods and measures are welcome.	
 </p>
-<h4 id="checklist-usability-md">6.6.2 Microdata</h4>
+</section>
+<section id="checklist-usability-md">
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md usability</p>
-<h3 id="checklist-fragid">6.7 HTML Fragments</h3>
-<h4 id="checklist-fragid-rdfa">6.7.1 RDFa</h4>
+</section>
+</section>
+<section id="checklist-fragid">
+<h3>HTML Fragments</h3>
+<section id="checklist-fragid-rdfa">
+<h4>RDFa</h4>
 <p>
 Beside some exceptions one should avoid (re)using the fragment IDs defined in an HTML document in URIs denoting domain entities. One such an exception is for example an <a href="http://esw.w3.org/topic/PushBackDataToLegacySourcesRDForms" title="PushBackDataToLegacySourcesRDForms - ESW Wiki">RDForm</a>, where one talks actually about HTML forms themselves. For more details on this issue, we refer the reader to Benjamin Nowack's discussion on <a href="http://bnode.org/blog/2007/11/21/moving-out-of-the-shadow-with-rdfa" title="Moving out of the shadow with RDFa - benjamin nowack's blog">using fragment identifiers in resource URIs</a> and the respective section 3.2. URI design and more of the <a href="http://esw.w3.org/topic/RDFa_vs_RDFXML" title="RDFa vs RDFXML - ESW Wiki">RDFa vs. RDF/XML</a> page at the ESW Wiki.
 </p>
-<h4 id="checklist-fragid-md">6.7.2 Microdata</h4>
+</section>
+<section id="checklist-fragid-md">
+<h4>Microdata</h4>
 <p class='todo'>TODO: add md fragments</p>
-	
-<!--    REFERENCES   -->
-<h2 id="references">References</h2>
-<dl class="refs">
-	<dt><a id="ref-COOL-SWURIS">[COOL-SWURIS]</a></dt>
-	<dd><cite><a href="http://www.w3.org/TR/cooluris/">Cool URIs for the Semantic Web</a></cite>,
-		L. Sauermann and R. Cyganiak, W3C Interest Group Note 03 December 2008.
-	</dd>
-	<dt><a id="ref-HOWTO-LODP">[HOWTO-LODP]</a></dt>
-	<dd><cite><a href="http://linkeddata.org/docs/how-to-publish">How to Publish Linked Data on the Web</a></cite>,
-		C. Bizer, R. Cyganiak, and Tom Heath, Community Tutorial 17 July 2008.
-	</dd>
-	<dt><a id="ref-TURTLE">[TURTLE]</a></dt>
-	<dd><cite><a href="http://www.w3.org/TeamSubmission/turtle/">Turtle</a>
-		- Terse RDF Triple Language</cite>,
-		D. Beckett and T. Berners-Lee, W3C Team Submission 14 January 2008.
-	</dd>
-	<dt><a id="ref-RDF-CONCEPTS">[RDF-CONCEPTS]</a></dt>
-	<dd><cite><a href="http://www.w3.org/TR/rdf-concepts/">Resource Description Framework (RDF): Concepts and Abstract Syntax</a></cite>,
-		G. Klyne and J.J. Carroll, W3C Recommendation 10 February 2004.
-	</dd>
-	<dt><a id="ref-RDFA-PRIMER">[RDFA-PRIMER]</a></dt>
-	<dd>
-		<cite><a href="http://www.w3.org/TR/xhtml-rdfa-primer/">RDFa Primer</a>
-		- Bridging the Human and Data Webs</cite>,
-		B. Adida and M. Birbeck, W3C Working Group Note 14 October 2008.
-	</dd>
-	<dt><a id="ref-RDFA-SYNTAX">[RDFA-SYNTAX]</a></dt>
-	<dd>
-		<cite><a href="http://www.w3.org/TR/rdfa-syntax/">RDFa in XHTML: Syntax and Processing</a>
-		- A collection of attributes and processing rules for extending XHTML to support RDF</cite>,
-		B. Adida, M. Birbeck, S. McCarron, and S. Pemberton, W3C Recommendation 14 October 2008.
-	</dd>
-	<dt><a id="ref-RFC2616">[RFC2616]</a></dt>
-	<dd><cite><a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a>
-		- Hypertext Transfer Protocol - HTTP/1.1</cite>,
-		J. Gettys, J. Mogul, H. Frystyk, L. Masinter, P. Leach and T. Berners-Lee, IETF Network Working Group RFC June 1999.
-	</dd>
-	<dt><a id="ref-RFC3986">[RFC3986]</a></dt>
-	<dd><cite><a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a>
-		- Uniform Resource Identifier (URI): Generic Syntax</cite>,
-		T. Berners-Lee, R. Fielding, and L. Masinter, IETF Network Working Group RFC January 2005.
-	</dd>
-	<dt><a id="ref-VOID-GUIDE">[VOID-GUIDE]</a></dt>
-	<dd><cite><a href="http://www.w3.org/TR/void/">Describing Linked Datasets with the VoID Vocabulary</a></cite>,
-		K. Alexander, R. Cyganiak, M. Hausenblas, and J. Zhao, W3C Interest Group Note 03 March 2011.
-	</dd>
-	<dt><a id="ref-XMLNS">[XMLNS]</a></dt>
-	<dd><cite><a href="http://www.w3.org/TR/REC-xml-names/">Namespaces in XML 1.0 (Second Edition)</a></cite>,
-		T. Bray, D. Hollander, A. Layman, and R. Tobin, W3C Recommendation 16 August 2006.
-	</dd>
-</dl>
+</section>
+</section>
+</section>
 
 <!--    HISTORY    -->
-<h2 id="history">Historical Synopsis</h2>
+<section class="appendix" id="history">
+<h2>Historical Synopsis</h2>
 <p>
 We give a brief historical synopsis of the vivid relation between Linked Data and RDFa in the following.
 For a general review of the beginning we refer the reader to other sources, such as Mike Bergman's <a href="http://www.mkbergman.com/?p=416">Linked Data Comes of Age</a> or Tom Heath's <a href="http://www.talis.com/newsletters/platform/0208/#opendata">No more toy examples - the Linking Open Data project, one year on</a> and his follow-up blog post on <a href="http://my.opera.com/tomheath/blog/the-linked-data-landscape-in-2008">The Linked Data Landscape in 2008</a>.
@@ -1180,10 +1366,11 @@ While first ideas can be traced back to mid 2007, the first Linked Data dataset 
 		<td class="y2009">time of writing</td>
 	</tr>	
 </table>
-
+</section>
 
 <!--    ACK   -->
-<h2 id="acknowledgments">Acknowledgments</h2>
+<section class="appendix">
+<h2>Acknowledgments</h2>
 <p>
 The editors are very thankful for comments and suggestions on earlier drafts, especially from: Dan Brickley, Sarven Capadisli, Simon Reinhardt, Rapha&euml;l Troncy.
 </p>
@@ -1192,5 +1379,6 @@ The editors are very thankful for comments and suggestions on earlier drafts, es
 	<li>The EC FP7 project LOD-Around-The-Clock Support Action (<a href="http://latc-project.eu/">LATC</a>)</li>
 	<li>Science Foundation Ireland project SFI/08/CE/I1380 Lion2</li>
 </ul>
+</section>
 </body>
 </html>
