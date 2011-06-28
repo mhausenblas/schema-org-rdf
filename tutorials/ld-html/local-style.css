@@ -83,13 +83,9 @@ ul.inline-opt li {
 margin: 5px;
 padding: 10px;
 }
-dl dd {
+dl.decl dd {
 padding-bottom: 1em;	
 }
-dl dd.eds {
-padding-bottom: 0px;	
-}
-
 dl.refs {
 margin: 10px;
 padding: 10px;

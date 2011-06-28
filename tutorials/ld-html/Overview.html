@@ -9,7 +9,7 @@
               acme:    http://www.example.com/acme#
               doac:    http://ramonantonio.net/doac/0.1/#">
 <head>
-	<title>Linked Data Tutorial - NG</title>
+	<title>Publishing and consuming Linked Data embedded in HTML</title>
 	<meta name="description" content="Linked Data Tutorial - NG" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <!-- 
@@ -382,7 +382,8 @@ The above shown query can be executed in a SPARQL engine such as <a href="http:/
 Interestingly, the capabilities of this piece of data are not yet exhausted. Rather than having a sheer list of strings, one is eventually provided with two URIs. These URIs (which happen to identify two people) can be looked up, or <strong>dereferenced</strong>, in Linked Data speak. When dereferencing one of the person URIs, one gets more data.	
 </p>	
 <p>
-Note that entities (real world things or concepts such as a product) throughout the document are highlighted as so: <em>entity</em>, whereas URIs (identifiers of entities) will be rendered as so: <code>http://yadayadayada.da#Entity</code> - unless otherwise stated, the well-known namespaces, such as for RDF, RDF-S, FOAF, etc. are assumed to be declared up-front (in the head of the HTML document), see also the very useful prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a>. Further, note that the example used throughout this note is as well available as a stand-alone document, <a href="acme.html">acme.html</a>, ready to be used as a boiler-plate.
+Note that entities (real world things or concepts such as a product) throughout the document are highlighted as so: <em>entity</em>, whereas URIs (identifiers of entities) will be rendered as so: <code>http://yadayadayada.da#Entity</code> - unless otherwise stated, the well-known namespaces, such as for RDF, RDF-S, FOAF, etc. are assumed to be declared up-front (in the head of the HTML document), see also the very useful prefix look-up service <a href="http://prefix.cc">http://prefix.cc</a>
+and the default prefixes defined for RDFa ([[RDFA-CORE-PROFILE]] and [[XHTML-RDFA-PROFILE]]). Further, note that the example used throughout this note is as well available as a stand-alone document, <a href="acme.html">acme.html</a>, ready to be used as a boiler-plate.
 </p>
 <p>
 Before continuing with this note, one should contemplate if the <strong>prerequisites</strong> for understanding and applying the following are available. As we not intent to repeat stuff that has been written elsewhere (or at least avoid too much redundancy), one may consider:
