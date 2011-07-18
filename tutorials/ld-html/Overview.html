@@ -29,8 +29,8 @@
                       berjon.biblio["HOWTO-LODP"] = "<cite><a href=\"http://linkeddata.org/docs/how-to-publish\">How to Publish Linked Data on the Web</a></cite>, C. Bizer, R. Cyganiak, and Tom Heath, Community Tutorial 17 July 2008. URL: http://linkeddata.org/docs/how-to-publish";
                       berjon.biblio["COOL-SWURIS"] = "<cite><a href=\"http://www.w3.org/TR/cooluris/\">Cool URIs for the Semantic Web</a></cite>, L. Sauermann and R. Cyganiak, W3C Interest Group Note 03 December 2008. URL: http://www.w3.org/TR/cooluris/";
                       berjon.biblio["VOID-GUIDE"] = "<cite><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></cite>, K. Alexander, R. Cyganiak, M. Hausenblas, and J. Zhao, W3C Interest Group Note 03 March 2011. URL: http://www.w3.org/TR/void/";
-                      berjon.biblio["RDFA-CORE-PROFILE"] = "<cite><a href=\"http://www.w3.org/profile/rdfa-1.1\">RDFa Core Default Profile</a></cite>, I. Herman, W3C RDF Web Applicaetions Working Group 02 June 2011. URL: http://www.w3.org/profile/rdfa-1.1";
-                      berjon.biblio["XHTML-RDFA-PROFILE"] = "<cite><a href=\"http://www.w3.org/profile/html-rdfa-1.1\">HTML+RDFa Core Default Profile</a></cite>, I. Herman, W3C RDF Web Applicaetions Working Group 24 May 2011. URL: http://www.w3.org/profile/html-rdfa-1.1";
+                      berjon.biblio["RDFA-CORE-PROFILE"] = "<cite><a href=\"http://www.w3.org/profile/rdfa-1.1\">RDFa Core Default Profile</a></cite>, I. Herman, W3C RDF Web Applications Working Group 02 June 2011. URL: http://www.w3.org/profile/rdfa-1.1";
+                      berjon.biblio["XHTML-RDFA-PROFILE"] = "<cite><a href=\"http://www.w3.org/profile/html-rdfa-1.1\">HTML+RDFa Core Default Profile</a></cite>, I. Herman, W3C RDF Web Applications Working Group 24 May 2011. URL: http://www.w3.org/profile/html-rdfa-1.1";
                       berjon.biblio["RFC2616"] = "<cite><a href=\"http://www.w3.org/Protocols/rfc2616/rfc2616.html\">Hypertext Transfer Protocol -- HTTP/1.1</a></cite>, R. Fielding; et al. June 1999. Internet RFC 2616. URL: http://www.w3.org/Protocols/rfc2616/rfc2616.html."
 
                       // process the document before anything else is done
@@ -838,7 +838,7 @@ Let us now step back a bit and return to something simple though very useful in 
 
 <section>
 <h3>Contact Information</h3>
-<p class='todo'>TODO: change vCard modelling; actually the acme:coporation itself is a vCard:Organization</p>
+<p class='todo'>TODO: change vCard modelling; actually the acme:corporation itself is a vCard:Organization</p>
 <p>
 In order to express what we desire to express we introduce two new namespaces:
 </p>
@@ -959,7 +959,7 @@ In the next step we will add some information about the people behind the compan
     <dd>the DBpedia resources namespace</dd>
 </dl>
 <p>
-A <em>person</em> is connected to the <em>company</em> using the interlinking property <code>foaf:member</code> (line 8). In the line 9 of Table 6 we define the person information reusing a person's URI (from his FOAF file). The lines 13 and 14 bear an additional interlinking: we overlay the primary textual description of a person's position (the 'Chief Executive Officer (CEO)' part) with an interlinking (the <code>dc:subject</code> property) to DBpedia, basically stating that the topic of the object at hand is something which's description is available at <code>dbpedia:Chief_executive_officer</code>. Note that one could either use this interlinking to DBpedia to (i) gather further information about what a <em>CEO</em> actually is, or (ii) use it in a query to find out who the CEO of a given company is. We will demo the latter usage in an exemplary query, below.
+A <em>person</em> is connected to the <em>company</em> using the interlinking property <code>foaf:member</code> (line 8). In the line 9 of Table 6 we define the person information reusing a person's URI (from his FOAF file). The lines 13 and 14 bear an additional interlinking: we overlay the primary textual description of a person's position (the 'Chief Executive Officer (CEO)' part) with an interlinking (the <code>dc:subject</code> property) to DBpedia, basically stating that the topic of the object at hand is something whose description is available at <code>dbpedia:Chief_executive_officer</code>. Note that one could either use this interlinking to DBpedia to (i) gather further information about what a <em>CEO</em> actually is, or (ii) use it in a query to find out who the CEO of a given company is. We will demo the latter usage in an exemplary query, below.
 </p>
 <table class="example">
 <caption><span>Table 6.:</span> Some details about the <em>team</em>.</caption>

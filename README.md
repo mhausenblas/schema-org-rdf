@@ -50,6 +50,6 @@ The software and artefacts (such as examples, mappings, etc.) provided through t
 	* collect
 	* create based on existing examples
 * Mappings
-	** multi-lang suggestions into a Google spreadsheet?
+	* multi-lang suggestions into a Google spreadsheet?
 	* Alexandre will provide SIOC mapping, hosted directly here
 	* ask vocab stake-holders to provide pointers to their mapping (Michael: DBpedia, FOAF, DC, GR, Richard: the rest ;)

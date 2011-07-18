@@ -31,6 +31,9 @@
 								<a href="tools.html">Tools</a>
 							</li>
 							<li>
+								<a href="learn.html">Learn</a>
+							</li>
+							<li>
 								<a href="index.html">Home</a>
 							</li>
 						</ul>
@@ -38,22 +41,33 @@
 				</div><!-- end intro -->
 				<div id="mainContent">
 					<h1>
-						How did this happen and how can I contribute?
+						Behind the scene ...
 					</h1>
-					<p> <strong>NEWS:</strong>
-						As per today, the LOD-Around-The-Clock Support Action (<a href="http://latc-project.eu/">LATC</a>) has officially endorsed the activity and supports the further development.
-					</p>
-					
+					<h2>Why are you doing this and how did this happen?</h2>
 					<p>
-						When we first <a href="http://googleblog.blogspot.com/2011/06/introducing-schemaorg-search-engines.html" title="Official Google Blog: Introducing schema.org: Search engines come together for a richer web">heard</a> about Schema.org, we had a DERI-internal discussion on how to deal with this new development. Just an hour after <a href="http://sw-app.org/mic.xhtml#i">Michael</a> sent out the announcement, <a href="http://g1o.net/foaf.rdf#me">Giovanni</a> was the first to suggest creating a mapping. In the morning of the next day we started to develop a <a href="http://scraperwiki.com/scrapers/schemaorg2rdf/" title="Michael Hausenblas / schema.org2rdf | ScraperWiki">scraper</a> with great support from the <a href="http://twitter.com/#!/scraperwiki">ScraperWiki</a> team. <a href="http://richard.cyganiak.de/#me">Richard</a> then took this work further and finalised the scraper. Then, we set up this site with the support of <a href="http://www.johnbreslin.com/foaf/foaf.rdf#me">John</a>, who donated the sub-domain on rdfs.org. After less than 24h we provided an initial mapping of the Schema.org terms to RDF and <a href="http://lists.w3.org/Archives/Public/public-lod/2011Jun/0031.html">announced</a> it to the public.
+						When we first <a href="http://googleblog.blogspot.com/2011/06/introducing-schemaorg-search-engines.html" title="Official Google Blog: Introducing schema.org: Search engines come together for a richer web">heard</a> about Schema.org, we had a DERI-internal discussion on how to deal with this new development. Just an hour after <a href="http://sw-app.org/mic.xhtml#i">Michael</a> sent out the announcement, <a href="http://g1o.net/foaf.rdf#me">Giovanni</a> was the first to suggest creating a mapping. In the morning of the next day we started to develop a <a href="http://scraperwiki.com/scrapers/schemaorg2rdf/" title="Michael Hausenblas / schema.org2rdf | ScraperWiki">scraper</a> with great support from the <a href="http://twitter.com/#!/scraperwiki">ScraperWiki</a> team. <a href="http://richard.cyganiak.de/#me">Richard</a> then took this work further and finalised the scraper. Then, we set up this site with the support of <a href="http://www.johnbreslin.com/foaf/foaf.rdf#me">John</a>, who donated the sub-domain on rdfs.org. In less than 24h we provided an initial mapping of the Schema.org terms to RDF and <a href="http://lists.w3.org/Archives/Public/public-lod/2011Jun/0031.html">announced</a> it to the public.
 					</p>
+					<p>
+						End of June 2011, the Schema.org sponsor <a href="https://groups.google.com/d/topic/schemaorg-discussion/0JVQO6-ajBk/discussion">announced</a> an official OWL version of the terms, directly served from their site, which renders the original function of our site obsolete and caused us to re-think the purpose of our site. We decided that the best way to contribute to the community is to turn Schema.RDFS.org into a Schema.org support activity with a special focus on <a href="http://linkeddatabook.com/">Linked Data</a>. This means we are:
+					</p>
+					<ul>
+						<li> ... maintaining <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/examples">examples</a> in a variety of serializations incl. RDFa, JSON, microdata, etc. as well as writing and collecting <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/tutorials">tutorials</a> how to publish and consume data with Schema.org terms.</li>
+					<li> ... maintaining a collection of <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/mappings">mappings</a> from widely used Web of Data vocabularies such as <a href="http://dublincore.org/">Dublin Core</a>, <a href="http://purl.org/goodrelations/">GoodRelations</a>, <a href="http://xmlns.com/foaf/spec/" title="FOAF Vocabulary Specification">FOAF</a>, <a href="http://sioc-project.org/">SIOC</a>, the <a href="http://wiki.dbpedia.org/Ontology">DBpedia Ontology</a> and so forth to Schema.org terms.</li>
+					<li> ... listing and developing <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/tools">tools</a> to process Schema.org-based data.</li>
+					</ul>
+					
+					<h2>How can I contribute?</h2>
+					
 					<p>Now, this has turned into a community project and you can contribute: let us know about which features you want to see here or if you have comments about the mapping. To keep this process manageable, please file an <a href="https://github.com/mhausenblas/schema-org-rdf/issues">issue</a> on Github or clone the <a href="https://github.com/mhausenblas/schema-org-rdf">git repository</a> and send in a pull request.
 					</p>
+					<p> 
+						As per 8 June 2011, the LOD-Around-The-Clock Support Action (<a href="http://latc-project.eu/">LATC</a>) has officially endorsed the activity and supports the further development.
+					</p>
 					<p>
-						Our thanks for support, suggestions and feedback on the mapping go out to the following people: <em>Thomas Bandholtz, John Breslin, Lin Clark, Stéphane Corlosquet, Hugh Glaser, Bernard Vatant, Pat Hayes, Sebastian Heath, Aidan Hogan, Holger Knublauch, Kingsley Idehen, Giovanni Tummarello</em>. 
+						Our thanks for support, suggestions and feedback on the mapping go out to the following people: <em>Thomas Bandholtz, John Breslin, Lin Clark, Stéphane Corlosquet, Hugh Glaser, Bernard Vatant, Pat Hayes, Sebastian Heath, Aidan Hogan, Gregg Kellogg, Holger Knublauch, Kingsley Idehen, Giovanni Tummarello</em>. 
 					</p>
 					<p class="date">
-						Last Updated: 8 June 2011
+						Last Updated: 30 June 2011
 					</p>
 				</div><!-- end maincontent -->
 			</div><!-- closes #container -->
