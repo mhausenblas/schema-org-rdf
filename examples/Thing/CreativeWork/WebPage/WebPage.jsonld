@@ -3,7 +3,7 @@
   "@subject": "",
   "@type": "WebPage",
   "breadcrumb": "\n    Books >\n    Literature  Fiction >\n    Classics\n  ",
-  "foaf:primaryTopic": {
+  "mainContentOfPage": {
     "@subject": "#book",
     "@type": "Book",
     "aggregateRating": {

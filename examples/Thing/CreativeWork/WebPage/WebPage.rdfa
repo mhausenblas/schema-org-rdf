@@ -6,7 +6,7 @@
     <a href="category/books-classics">Classics</a>
   </div>
 
-  <div rel="foaf:primaryTopic">
+  <div rel="mainContentOfPage">
     <div about="#book" typeof="Book">
 
       <span rel="image"><img src="catcher-in-the-rye-book-cover.jpg" /></span>
