@@ -15,7 +15,7 @@ Errors in CreativeWork example: http://schema.org/CreativeWork
   should be
   <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
   
-  WebPage doesn't have association to Book, added foaf:primaryTopic, but could be something
+  WebPage doesn't have association to Book, added mainContentOfPage, but could be something
   else, such as wrds:
 
 Errors in Movie example: http://schema.org/Movie

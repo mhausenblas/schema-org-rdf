@@ -13,12 +13,12 @@
  <div itemprop="seasons" itemscope itemtype="http://schema.org/TVSeason">
    <span itemprop="name">Season 1</span> -
    <meta itemprop="numberofEpisodes" content="14"/>
-   <meta itemprop="publishDate" content="2005-05-22">May 22, 2005</meta>
+   <meta itemprop="publishDate" content="2005-05-22"/>May 22, 2005
  </div>
  <div itemprop="seasons" itemscope itemtype="http://schema.org/TVSeason">
    <span itemprop="name">Season 2</span> -
    <meta itemprop="numberofEpisodes" content="27"/>
-   <meta itemprop="publishDate" content="2006-05-14">May 14, 2006
+   <meta itemprop="publishDate" content="2006-05-14"/>May 14, 2006
    <div itemprop="episodes" itemscope itemtype="http://schema.org/TVEpisode">
      <span itemprop="name">Episode 1</span> -
      <meta itemprop="episodeNumber" content="1"/>
