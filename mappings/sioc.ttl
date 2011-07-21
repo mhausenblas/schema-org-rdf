@@ -1,0 +1,37 @@
+@prefix schema: <http://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix sioc: <http://rdfs.org/sioc/ns/>.
+@prefix sioct: <http://rdfs.org/sioc/types/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+
+<http://schema.rdfs.org/all> a owl:Ontology;
+    dct:title "Mappings between SIOC and schema.rdfs.org terms"@en;
+    dct:description "This is a set of mappings betweens the terms defined in the SIOC Ontology (http://sioc-project.org) and the ones defined at schema.rdfs.org."@en;
+    foaf:page <http://schema.rdfs.org/mappings/sioc>;
+    rdfs:seeAlso <http://sioc-project.org/>;
+    rdfs:seeAlso <http://schema.rdfs.org/>;
+    rdfs:seeAlso <http://schema.org/>;
+    rdfs:seeAlso <http://github.com/mhausenblas/schema-org-rdf>;
+    dct:hasFormat <http://schema.rdfs.org/mappings.sioc.ttl>;
+    .
+
+## Classes
+
+schema:BlogPosting owl:sameAs sioct:BlogPost .
+schema:Blog owl:sameAs sioct:Blog .
+schema:UserComments owl:sameAs sioct:Comment . ## Checking with Alex and Michael if we should remove (actions, not things)
+schema:UserTweets rdfs:subClassOf sioct:MicroblogPost .  ## Checking with Alex and Michael if we should remove (actions, not things)
+schema:Article rdfs:subClassOf sioc:Item .
+schema:WebPage rdfs:subClassOf sioc:Item .
+   
+## Properties (some are not from SIOC, but used simultaneously with SIOC data)
+
+schema:author owl:sameAs foaf:maker .
+schema:about owl:sameAs sioc:topic .
+schema:datePublished owl:sameAs dct:created .
+schema:articleBody owl:sameAs sioc:content .
+schema:blogPosts rdfs:subPropertyOf sioc:container_of .
