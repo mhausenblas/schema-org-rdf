@@ -10,7 +10,7 @@
 
 <http://schema.rdfs.org/all> a owl:Ontology;
     dct:title "Mappings between SIOC and schema.rdfs.org terms"@en;
-    dct:description "This is a set of mappings betweens the terms defined in the SIOC Ontology (http://sioc-project.org) and the ones defined at schema.rdfs.org and SIOC ones."@en;
+    dct:description "This is a set of mappings betweens the terms defined in the SIOC Ontology (http://sioc-project.org) and the ones defined at schema.rdfs.org."@en;
     foaf:page <http://schema.rdfs.org/mappings/sioc>;
     rdfs:seeAlso <http://sioc-project.org/>;
     rdfs:seeAlso <http://schema.rdfs.org/>;
@@ -22,9 +22,10 @@
 ## Classes
 
 schema:BlogPosting owl:sameAs sioct:BlogPost .
-schema:Blogs owl:sameAs sioct:Blog .
-schema:UserComments owl:sameAs sioct:Comment .
-schema:UserTweets rdfs:subClassOf sioct:MicroblogPost .
+schema:Blog owl:sameAs sioct:Blog .
+schema:UserComments owl:sameAs sioct:Comment . ## Checking with Alex and Michael if we should remove (actions, not things)
+schema:UserTweets rdfs:subClassOf sioct:MicroblogPost .  ## Checking with Alex and Michael if we should remove (actions, not things)
+schema:Article rdfs:subClassOf sioc:Item .
 schema:WebPage rdfs:subClassOf sioc:Item .
    
 ## Properties (some are not from SIOC, but used simultaneously with SIOC data)
