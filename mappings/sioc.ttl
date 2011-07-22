@@ -23,15 +23,15 @@
 
 schema:BlogPosting owl:sameAs sioct:BlogPost .
 schema:Blog owl:sameAs sioct:Blog .
-schema:UserComments owl:sameAs sioct:Comment . ## Checking with Alex and Michael if we should remove (actions, not things)
-schema:UserTweets rdfs:subClassOf sioct:MicroblogPost .  ## Checking with Alex and Michael if we should remove (actions, not things)
 schema:Article rdfs:subClassOf sioc:Item .
 schema:WebPage rdfs:subClassOf sioc:Item .
    
 ## Properties (some are not from SIOC, but used simultaneously with SIOC data)
 
 schema:author owl:sameAs foaf:maker .
-schema:about owl:sameAs sioc:topic .
+schema:about owl:sameAs sioc:about .
 schema:datePublished owl:sameAs dct:created .
 schema:articleBody owl:sameAs sioc:content .
+schema:articleSection rdfs:subPropertyOf sioc:topic .
 schema:blogPosts rdfs:subPropertyOf sioc:container_of .
+sioc:num_replies rdfs:subPropertyOf schema:interactionCount .
