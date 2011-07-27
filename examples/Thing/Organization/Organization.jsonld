@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@base": "",
+    "schema": "http://schema.org/",
+    "@coerce": {
+      "xsd:anyURI": [
+        "schema:address",
+        "schema:members"
+      ]
+    }
+  },
+  "@subject": "",
+  "@type": "schema:Organization",
+  "schema:address": {
+    "@type": "schema:PostalAddress",
+    "schema:addressLocality": "Paris, France",
+    "schema:postalCode": "F-75002",
+    "schema:streetAddress": "38 avenue de l'Opera"
+  },
+  "schema:email": "secretariat(at)google.org",
+  "schema:faxNumber": "( 33 1) 42 68 53 01 ",
+  "schema:members": [
+    {
+      "@type": "schema:Organization"
+    },
+    {
+      "@type": "schema:Organization"
+    }
+  ],
+  "schema:name": "Google.org (GOOG)",
+  "schema:telephone": "( 33 1) 42 68 53 00 "
+}
