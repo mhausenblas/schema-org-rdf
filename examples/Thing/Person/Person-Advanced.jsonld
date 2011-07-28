@@ -14,7 +14,7 @@
       "addressLocality": "Blacksburg",
       "addressRegion": "VA",
       "postalCode": "24060"
-   }
+   },
    "telephone": "(540) 961-4469",
    "email": "mailto:msporny@digitalbazaar.com",
    "url": "http://manu.sporny.org/",
@@ -22,7 +22,7 @@
    [
       "http://www.xyz.edu/students/alicejones.html",
       "http://www.xyz.edu/students/bobsmith.html"
-   ]
+   ],
    "knows":
    [
       {
@@ -36,7 +36,7 @@
       {
          "@type": "Person",
          "name": "Stéphane Corlosquet"
-      },
+      }
    ]
 }
 
