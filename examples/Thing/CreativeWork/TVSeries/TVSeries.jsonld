@@ -31,8 +31,8 @@
       "publishDate": "2006-05-14",
       "episodes": {
         "@type": "TVEpisode",
-        "name": "Episode 1"
-        "episodeNumber": "1",
+        "name": "Episode 1",
+        "episodeNumber": "1"
       }
     }
   ]

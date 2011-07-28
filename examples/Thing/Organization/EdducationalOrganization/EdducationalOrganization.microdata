@@ -1,0 +1,15 @@
+<div itemscope itemtype="http://schema.org/EducationalOrganization">
+ <span itemprop="name">Palo Alto High School</span>
+ <div itemprop="address" itemscope itemtype="schema.org/PostalAddress">
+    <span itemprop="streetAddress">50 Embarcadero Rd</span>
+    <span itemprop="addressLocality">Palo Alto</span>,
+    <span itemprop="addressRegion">CA</span> <span itemprop="postalCode">94301</span>
+  </div>
+ List of Alumni
+ <span itemprop="alumni" itemscope itemtype="http://schema.org/Person">
+   <span itemprop="name">John Doe</span>
+ </span>
+ <span itemprop="alumni" itemscope itemtype="http://schema.org/Person">
+   <span itemprop="name">Sarah Glames</span>
+ </span>
+</div>
