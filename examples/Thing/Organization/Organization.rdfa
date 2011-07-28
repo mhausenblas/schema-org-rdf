@@ -1,0 +1,31 @@
+<div vocab="http://schema.org/" typeof="Organization">
+  <span property="name">Google.org (GOOG)</span>
+
+Contact Details:
+  <div rel="address">
+  <div typeof="PostalAddress">
+    Main address:
+      <span property="streetAddress">38 avenue de l'Opera</span>
+      <span property="postalCode">F-75002</span>
+      <span property="addressLocality">Paris, France</span>
+    ,
+  </div>
+  </div>
+    Tel:<span property="telephone">( 33 1) 42 68 53 00 </span>,
+    Fax:<span property="faxNumber">( 33 1) 42 68 53 01 </span>,
+    E-mail: <span property="email">secretariat(at)google.org</span>
+
+Members:
+- National Scientific Members in 100 countries and territories: Country1, Country2, ...
+- Scientific Union Members, 30 organizations listed in this Yearbook:
+  <div rel="members">
+    <span typeof="Organization">
+      Member1
+    </span>,
+    <span typeof="Organization">
+      Member2
+    </span>,
+  </div>
+
+History:
+</div>

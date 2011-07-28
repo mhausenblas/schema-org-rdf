@@ -1,0 +1,8 @@
+<div itemscope itemtype="schema.org/PostalAddress">
+ <span itemprop="name">Google Inc.</span>
+ P.O. Box<span itemprop="postOfficeBoxNumber">1234</span>
+ <span itemprop="addressLocality">Mountain View</span>,
+ <span itemprop="addressRegion">CA</span>
+ <span itemprop="postalCode">94043</span>
+ <span itemprop="addressCountry">United States</span>
+</div>

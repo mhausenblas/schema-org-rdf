@@ -1,0 +1,27 @@
+<div itemscope itemtype="http://schema.org/Person">
+  <span itemprop="name">Jane Doe</span>
+  <img src="janedoe.jpg" itemprop="image" />
+
+  <span itemprop="jobTitle">Professor</span>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span itemprop="streetAddress">
+      20341 Whitworth Institute
+      405 N. Whitworth
+    </span>
+    <span itemprop="addressLocality">Seattle</span>,
+    <span itemprop="addressRegion">WA</span>
+    <span itemprop="postalCode">98052</span>
+  </div>
+  <span itemprop="telephone">(425) 123-4567</span>
+  <a href="mailto:jane-doe@xyz.edu" itemprop="email">
+    jane-doe@xyz.edu</a>
+
+  Jane's home page:
+  <a href="www.janedoe.com" itemprop="url">janedoe.com</a>
+
+  Graduate students:
+  <a href="www.xyz.edu/students/alicejones.html" itemprop="colleagues">
+    Alice Jones</a>
+  <a href="www.xyz.edu/students/bobsmith.html" itemprop="colleagues">
+    Bob Smith</a>
+</div>

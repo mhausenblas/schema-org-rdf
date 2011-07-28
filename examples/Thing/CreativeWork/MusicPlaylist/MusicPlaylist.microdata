@@ -1,0 +1,29 @@
+<div itemscope itemtype="http://schema.org/MusicPlaylist">
+  <span itemprop="name">Classic Rock Playlist</span>
+  <meta itemprop="numTracks" content="5"/>
+
+  <div itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
+    1.<span itemprop="name">Sweet Home Alabama</span> -
+    <span itemprop="byArtist">Lynard Skynard</span>
+   </div>
+
+  <div itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
+    2.<span itemprop="name">Shook you all Night Long</span> -
+    <span itemprop="byArtist">AC/DC</span>
+  </div>
+
+  <div itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
+    3.<span itemprop="name">Sharp Dressed Man</span> -
+    <span itemprop="byArtist">ZZ Top</span>
+  </div>
+
+  <div itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
+    4.<span itemprop="name">Old Time Rock and Roll</span> -
+    <span itemprop="byArtist">Bob Seger</span>
+  </div>
+
+  <div itemprop="tracks" itemscope itemtype="http://schema.org/MusicRecording">
+    5.<span itemprop="name">Hurt So Good</span> -
+    <span itemprop="byArtist">John Cougar</span>
+  </div>
+</div>

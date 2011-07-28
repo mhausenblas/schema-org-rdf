@@ -1,0 +1,16 @@
+<div itemscope itemtype="http://schema.org/AudioObject">
+  <span itemprop="name"><b>12oclock_girona.mp3</b></span>
+
+<script type="text/javascript">
+  var fo = new FlashObject("http://google.com/flash/preview-player.swf",
+  "flashPlayer_719", "358", "16", "6", "#FFFFFF");fo.addVariable("url","http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3");fo.addVariable("autostart", "0");fo.write("flashcontent_719");
+</script>
+
+<meta itemprop="encodingFormat" content="mp3" />
+ <meta itemprop="contentURL" content="http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3" />
+
+<span class="description">
+                <meta itemprop="duration" content="T0M15S" />
+                <span itemprop="description">Recorded on a terrace of Girona a sunday morning</span>
+</span>
+</div>
