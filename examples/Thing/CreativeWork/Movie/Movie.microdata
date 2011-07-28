@@ -1,0 +1,30 @@
+<div itemscope itemtype="http://schema.org/Movie">
+
+<h1 itemprop="name">Pirates of the Carribean: On Stranger Tides (2011)</h1>
+<span itemprop="description">Jack Sparrow and Barbossa embark on a quest to
+ find the elusive fountain of youth, only to discover that Blackbeard and
+ his daughter are after it too.</span>
+Director:
+ <div itemprop="director" itemscope itemtype="http://schema.org/People">
+<span itemprop="name">Rob Marshall</span>
+</div>
+Writers:
+ <div itemprop="author" itemscope itemtype="http://schema.org/People">
+<span itemprop="name">Ted Elliott</span>
+</div>
+<div itemprop="author" itemscope itemtype="http://schema.org/People">
+Terry Rossio
+</div>
+, and 7 more credits
+Stars:
+ <div itemprop="actors" itemscope itemtype="http://schema.org/People">
+<span itemprop="name">Johnny Depp</span>,
+ </div>
+<div itemprop="actors" itemscope itemtype="http://schema.org/People">
+<span itemprop="name">Penelope Cruz</span>,
+</div>
+<div itemprop="actors" itemscope itemtype="http://schema.org/People">
+<span itemprop="name">Ian McShane</span>
+</div>
+
+</div>

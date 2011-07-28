@@ -1,0 +1,9 @@
+<div itemscope itemtype="http://schema.org/ItemList">
+  <meta itemprop="mainContentOfPage" content="true"/>
+  <h2 itemprop="name">Top 10 laptops</h2><br>
+  <meta itemprop="itemListOrder" content="Descending" />
+  <p>1. <span itemprop="itemListElement">HP Pavilion dv6-6013cl</span></p>
+  <p>2. <span itemprop="itemListElement">Dell XPS 15 (Sandy Bridge)</span></p>
+  <p>3. <span itemprop="itemListElement">Lenovo ThinkPad X220</span></p>
+  ...
+</div>
