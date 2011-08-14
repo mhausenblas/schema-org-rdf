@@ -220,6 +220,12 @@ float: right;
 border-left: thin dotted #000;
 }
 
+#mainContent h3
+{
+border: none;
+font-size: 12pt;
+}
+
 
 /* -- faq -- */
 .faq p, .faq pre, .faq ul, .faq table
@@ -312,15 +318,25 @@ gsc-input input.gsc-input { background: #FFF !important;}
 #footer p {
 	text-align: right;
 }
+
 #mainContent h1 {
-	font-size: 30px;
+	font-size: 28px;
 }
 
-.static-schema-dump {
+.schema-dump {
 	margin: 1.2em;
+	float: left;
 }
 
-.static-schema-dump img {
+.schema-dump img {
 	vertical-align: middle;
 	margin: .2em;
+}
+
+.end-float {
+	clear: left;
+}
+
+#mainContent .sro-services li {
+	margin: .5em 0 0 0;
 }

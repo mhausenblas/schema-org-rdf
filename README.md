@@ -43,13 +43,11 @@ The software and artefacts (such as examples, mappings, etc.) provided through t
 	* feedback on a Wiki, issue tracker, etc. (?)
 * Generating variants
 	* multi-lang labels/comments
-	* mappings to well-known legacy terms
 * Schema.org gateway
 	* http://bibutils.refbase.org/ extensions and collaboration
 * Examples
-	* collect
+	* collect from snippets in the wild
 	* create based on existing examples
 * Mappings
 	* multi-lang suggestions into a Google spreadsheet?
-	* Alexandre will provide SIOC mapping, hosted directly here
-	* ask vocab stake-holders to provide pointers to their mapping (Michael: DBpedia, FOAF, DC, GR, Richard: the rest ;)
+	* ask vocab stake-holders to provide pointers to their mapping (Michael: FOAF, DC, GR)
