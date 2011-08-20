@@ -1,4 +1,4 @@
-<div vocab="http://schema.org/" itemtype="MusicPlaylist">
+<div vocab="http://schema.org/" typeof="MusicPlaylist">
   <span property="name">Classic Rock Playlist</span>
   <meta property="numTracks" content="5"/>
 

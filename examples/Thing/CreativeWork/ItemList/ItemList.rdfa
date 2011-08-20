@@ -1,7 +1,7 @@
 <div vocab="http://schema.org/" typeof="ItemList">
   <span property="mainContentOfPage" content="true"/>
   <h2 property="name">Top 10 laptops</h2><br>
-  <span itemprop="itemListOrder" content="Descending" />
+  <span property="itemListOrder" content="Descending" />
   <p>1. <span property="itemListElement">HP Pavilion dv6-6013cl</span></p>
   <p>2. <span property="itemListElement">Dell XPS 15 (Sandy Bridge)</span></p>
   <p>3. <span property="itemListElement">Lenovo ThinkPad X220</span></p>
