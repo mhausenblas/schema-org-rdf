@@ -28,6 +28,9 @@
 								<a href="faq.html">FAQ</a>
 							</li>
 							<li>
+								<a href="mappings.html">Mappings</a>
+							</li>
+							<li>
 								<a href="tools.html">Tools</a>
 							</li>
 							<li>
@@ -44,28 +47,33 @@
 						What is Schema.RDFS.org?
 					</h1>
 					<p>
-						In early June 2011, the three big search engines Bing, Google and Yahoo! introduced <a href="http://schema.org/" title="schema.org - Home">Schema.org</a>, a collection of schemas that webmasters can use to markup their pages. The search engines
-						 rely on this markup to improve the display of search results, making it easier for people to find the right web pages.
+						In early June 2011, the three big search engines Bing, Google and Yahoo! introduced <a href="http://schema.org/">Schema.org</a>, a collection of terms that webmasters can use to markup their pages to improve the display of search results. This site is a complementary effort by people from the Linked Data community  to support Schema.org deployment and usage with a special focus on <a href="http://linkeddatabook.com/">Linked Data</a>:
 					</p>
-					<p>
-						This site is a complementary effort by people from the <a href="http://linkeddata.org/" title="Linked Data | Linked Data - Connect Distributed Data across the Web">Linked Data community</a> to express the terms provided by the Schema.org consortium in RDF.
-						We currently provide static <a href="http://www.w3.org/TR/rdf-schema/" title="RDF Vocabulary Description Language 1.0: RDF Schema">RDFS</a> documents of the Schema.org terms in the formats listed below - and yes, we're heavily working on more ;)
-					</p>
-					<p>
-						Schema.org types and properties in various formats (auto-updated daily):
-					</p>
-					<div class="static-schema-dump"><a href="all.ttl"><img src="img/turtle.png" alt="RDF/Turtle" /> RDF/Turtle</a></div>
-					<div class="static-schema-dump"><a href="all.rdf"><img src="img/rdf-xml.png" alt="RDF/XML" /> RDF/XML</a></div>
-					<div class="static-schema-dump"><a href="all.nt"><img src="img/ntriples.png" alt="RDF/NTriples" /> RDF/NTriples</a></div>
-					<div class="static-schema-dump"><a href="all.json"><img src="img/json.png" alt="JSON"/> JSON</a></div>
-					<div class="static-schema-dump"><img src="img/csv.png" alt="CSV"/> CSV:
-            <a href="all-classes.csv">all classes</a>, <a href="all-properties.csv">all properties</a></div>
-					
-					<p>
-						Various <a href="tools.html">tools</a> are in preparation that utilise the above mapping. Stay tuned!
+					<ul class="sro-services">
+						<li>
+							We provide markup <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/examples">examples</a> and <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/tutorials">tutorials</a> about publishing &amp; consuming data with Schema.org terms.
+						</li>
+						<li>
+							We maintain <a href="mappings.html">mappings</a> from Web Data vocabularies such as the <a href="http://wiki.dbpedia.org/Ontology">DBpedia ontology</a> to Schema.org terms.
+						</li>
+						<li>
+							We list <a href="tools.html">tools</a> and libraries that are able to consume or produce Schema.org-based data.
+						</li>
+						<li>
+							We automatically <a href="https://github.com/mhausenblas/schema-org-rdf/tree/master/scrapers">scrape</a> the Schema.org terms on a daily basis and generate the following formats:
+							<div class="schema-dump"><a href="all.ttl"><img src="img/turtle.png" alt="RDF/Turtle" /> RDF/Turtle</a></div>
+							<div class="schema-dump"><a href="all.rdf"><img src="img/rdf-xml.png" alt="RDF/XML" /> RDF/XML</a></div>
+							<div class="schema-dump"><a href="all.nt"><img src="img/ntriples.png" alt="RDF/NTriples" /> RDF/NTriples</a></div>
+							<div class="schema-dump end-float"><a href="all.json"><img src="img/json.png" alt="JSON"/> JSON</a></div>
+							<div class="schema-dump"><img src="img/csv.png" alt="CSV"/> CSV: <a href="all-classes.csv">all classes</a>, <a href="all-properties.csv">all properties</a></div>
+							
+						</li>
+					</ul>
+					<p class="end-float">
+						Note that the official <a href="http://schema.org/docs/schemaorg.owl">OWL</a> version of the terms is directly maintained at Schema.org and independent from the above presented formats. Various <a href="tools.html">tools</a> that use or produce Schema.org terms are already available or in preparation. Stay tuned!
 					</p>
 					<p class="date">
-						Last Updated: 12 June 2011
+						Last Updated: 14 August 2011
 					</p>
 				</div><!-- end maincontent -->
 			</div><!-- closes #container -->
