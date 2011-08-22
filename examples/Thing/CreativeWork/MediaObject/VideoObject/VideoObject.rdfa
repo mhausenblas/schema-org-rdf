@@ -55,9 +55,9 @@
   </div>
 
   <h2><a href="foo-fighters-photos">28 Photos</a></h2>
-  <a href="foofighters-1.jpg" itemprop="rel"><img src="foofighters-thumb1.jpg" /></a>
-  <a href="foofighters-2.jpg" itemprop="rel"><img src="foofighters-thumb2.jpg" /></a>
-  <a href="foofighters-3.jpg" itemprop="rel"><img src="foofighters-thumb3.jpg" /></a>
+  <a href="foofighters-1.jpg" rel="image"><img src="foofighters-thumb1.jpg" /></a>
+  <a href="foofighters-2.jpg" rel="image"><img src="foofighters-thumb2.jpg" /></a>
+  <a href="foofighters-3.jpg" rel="image"><img src="foofighters-thumb3.jpg" /></a>
 
 
   <h2>Comments:</h2>
