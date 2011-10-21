@@ -24,7 +24,7 @@
   Colleagues:
   <a rel="colleagues" href="http://example.com/alice">Alice Jones</a>
   <a rel="colleagues" href="http://example.com/bob">Bob Smith</a>
-  
+
   Acquaintences:
   <div rel="knows">
     <span typeof="Person" property"name">Michael Hausenblas</span>

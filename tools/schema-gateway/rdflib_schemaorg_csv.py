@@ -20,12 +20,12 @@ from rdflib.parser import Parser
 register("schemaorg_csv", Parser, "rdflib_schemaorg_csv", "SchemaOrgCSVParser")
 
 class SchemaOrgCSVParser(Parser):
-	NAMESPACES = {	
+	NAMESPACES = {
 		'schema' : Namespace('http://schema.org/'),
 		'scsv' : Namespace('http://purl.org/NET/schema-org-csv#'),
 		'dcterms' : Namespace('http://purl.org/dc/terms/')
 	}
-	
+
 	def parse(self, source, sink, **kwargs):
 		"""
 		Pass in a file or file-like object containing CSV with Schema.org
@@ -67,7 +67,7 @@ class SchemaOrgCSVParser(Parser):
 			c = URIRef(fURI + '#row:' + str(row_num) + ',' + 'col:' + str(col_num))
 			sink.add((r, URIRef(SchemaOrgCSVParser.NAMESPACES['scsv']['cell']), c))
 			sink.add((c, SchemaOrgCSVParser.NAMESPACES['dcterms']['title'], Literal(cell)))
-			columns.append(self._lookup_schemaorg_term(cell)) 
+			columns.append(self._lookup_schemaorg_term(cell))
 			col_num = col_num + 1
 		return columns
 
@@ -90,6 +90,6 @@ class SchemaOrgCSVParser(Parser):
 				sink.add((c, RDF.value, Literal(cell)))
 			col_num = col_num + 1
 		return r
-		
+
 	def _lookup_schemaorg_term(self, cell):
 			return 'http://schema.org/' + cell # TODO: look up cell value in http://schema.rdfs.org/all-classes.csv

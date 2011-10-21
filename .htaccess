@@ -6,6 +6,6 @@ Header set Access-Control-Allow-Origin "*"
 
 AddDefaultCharset utf-8
 
-AddCharset utf-8 .json 
+AddCharset utf-8 .json
 
 Options +MultiViews

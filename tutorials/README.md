@@ -1,5 +1,5 @@
 # What is this space for?
-This space is for tutorials. 
+This space is for tutorials.
 
 # Are there IPR and license issues?
 You agree that all contributions made under the `tutorials/*` folder are released into the Public Domain (Creative Commons Zero - CC0).

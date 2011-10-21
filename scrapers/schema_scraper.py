@@ -36,7 +36,7 @@ def get_inner_html(el):
     for c in el.getchildren():
         result += lxml.etree.tostring(c)
     return result
-    
+
 def get_type_details(url):
     root = parse(url)
     type = {}
