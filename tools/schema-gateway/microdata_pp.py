@@ -1,4 +1,4 @@
-""" 
+"""
   A pretty printer for microdata content.
 
   Parsers: for microdata, edsu's awesome MD parser https://github.com/edsu/microdata is used
@@ -42,7 +42,7 @@ class MicrodataPrettyPrinter(object):
 			elif format == 'json': # JSON dump
 				for it in self.items:
 					return it.json()
-	
+
 	def dump_item(self, item, level='', parent=None, prop=None):
 		obuf = ''
 		anonid = uuid.uuid1()
@@ -52,9 +52,9 @@ class MicrodataPrettyPrinter(object):
 			ith = 'ITEM ('
 			obuf = ''.join([obuf, '-' * 80, '\n'])
 		# the item header (identity and type, if given)
-		if item.itemid: ith = ''.join([ith, str(item.itemid)])  
+		if item.itemid: ith = ''.join([ith, str(item.itemid)])
 		else: ith = ''.join([ith, 'anonymous::', str(anonid)])
-		if item.itemtype: ith = ''.join([ith, ') OF TYPE (', str(item.itemtype), ') {'])  
+		if item.itemtype: ith = ''.join([ith, ') OF TYPE (', str(item.itemtype), ') {'])
 		else: ith = ''.join([ith, ') {'])
 		obuf = ''.join([obuf, ith, '\n'])
 		for prop, values in item.props.items():
@@ -82,11 +82,11 @@ class MicrodataPrettyPrinter(object):
 def usage():
 	print("Usage: python microdata_pp.py -i {HTML document URL} ")
 	print("Example: python microdata_pp.py -i https://raw.github.com/edsu/microdata/master/test-data/example.html")
-	
+
 
 if __name__ == "__main__":
 	mdp = MicrodataPrettyPrinter()
-		
+
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "hi:", ["help", "items"])
 		for opt, arg in opts:

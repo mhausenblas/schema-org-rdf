@@ -1,7 +1,7 @@
 {
    "@context": "http://schema.org/jsonld-profile",
    "@subject": "http://example.org/people#manu",
-   "@type": "Person", 
+   "@type": "Person",
    "name": "Manu Sporny",
    "image": "http://example.org/manu.jpg",
    "jobTitle": "Founder/CEO",
@@ -17,7 +17,7 @@
    "telephone": "(540) 961-4469",
    "email": "mailto:msporny@digitalbazaar.com",
    "url": "http://manu.sporny.org/",
-   "colleagues": 
+   "colleagues":
    [
       "http://www.xyz.edu/students/alicejones.html",
       "http://www.xyz.edu/students/bobsmith.html"

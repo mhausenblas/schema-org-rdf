@@ -1,8 +1,8 @@
 241 Validation errors in: http://schema.org/docs/full_md.html
   Fixed version is here : http://pastebin.com/1zDAeXZu
-  
+
 Errors in Person example: http://schema.org/Person
-  Should use TEL scheme: 
+  Should use TEL scheme:
     <span itemprop="telephone">(425) 123-4567</span>
     should be:
     <a rel="telephone" href="tel:14251234567">(425) 123-4567</a>
@@ -14,7 +14,7 @@ Errors in CreativeWork example: http://schema.org/CreativeWork
   <div itemprop="aggregateRating"  itemtype="http://schema.org/AggregateRating">
   should be
   <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-  
+
   WebPage doesn't have association to Book, added mainContentOfPage, but could be something
   else, such as wrds:
 
@@ -23,11 +23,11 @@ Errors in Movie example: http://schema.org/Movie
 
 Errors on datamodel page: http://schema.org/docs/datamodel.html
   @typeof properties don't need to be full URIs, they can use the vocab
-  
+
   <img rel="image" src="dell-30in-lcd.jpg" />
   won't produce the triple they expect, it should be
   <span rel="image"><img src="dell-30in-lcd.jpg" /></span>
-  
+
   What are RDFa "Turtles"?
 
 Errors in Recipe example: http://schema.org/Recipe
@@ -38,7 +38,7 @@ Errors in Review examples: http://schema.org/Review
   In example 1 second @itemprop Should be @itemtype
   <div itemprop="aggregateRating"
       itemscope itemprop="http://schema.org/AggregateRating">
-  
+
   In example 2 there's a missing @itemscope, Should be:
   <div itemprop="aggregateRating"  itemscope itemtype="http://schema.org/AggregateRating">
 

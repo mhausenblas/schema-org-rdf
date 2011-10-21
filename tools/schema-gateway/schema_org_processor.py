@@ -1,5 +1,5 @@
-""" 
-  A processor for Schema.org terms - parsing MD, JSON, CSV, OData, etc. and emitting RDF, JSON, etc. 
+"""
+  A processor for Schema.org terms - parsing MD, JSON, CSV, OData, etc. and emitting RDF, JSON, etc.
 
   Parsers: for microdata, edsu's awesome MD parser https://github.com/edsu/microdata is used
 
@@ -32,7 +32,7 @@ class SchemaOrgProcessor(object):
 			format = input_format
 		else: # ... we need to guess the format
 			format = self.sniff(doc_url)
-			
+
 		# based on the format information we parse the input:
 		if format == 'microdata':
 			self.parse_microdata(doc_url)
@@ -58,12 +58,12 @@ class SchemaOrgProcessor(object):
 		self.doc_url = doc_url
 		self.g = rdflib.Graph()
 		self.g.parse(location=doc_url, format="schemaorg_csv", csv_file_URI=self.doc_url)
-	
+
 	def parse_microdata(self, doc_url):
 		self.doc_url = doc_url
 		self.g = rdflib.Graph()
 		self.g.parse(location=doc_url, format="microdata")
-			
+
 	def dump_data(self, format='turtle'):
 		if self.g:
 			self.g.bind('schema', 'http://schema.org/', True)
@@ -72,7 +72,7 @@ class SchemaOrgProcessor(object):
 			return self.g.serialize(format=format)
 		else:
 			return None
-			
+
 	def get_data(self):
 		if self.g:
 			return self.g
@@ -86,7 +86,7 @@ def usage():
 
 if __name__ == "__main__":
 	sop = SchemaOrgProcessor()
-		
+
 	try:
 		opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "data"])
 		for opt, arg in opts:
