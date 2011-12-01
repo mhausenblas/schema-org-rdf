@@ -1,0 +1,62 @@
+@prefix schema: <http://schema.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dct: <http://purl.org/dc/terms/>.
+
+<http://schema.rdfs.org/mappings#bibo2schemaorg> a owl:Ontology;
+    dct:title "Mappings between BIBO and Schema.org terms";
+    dct:description "This is a set of mappings between the terms defined in the Bibliographic Ontology (http://bibliontology.com/) and the ones defined in Schema.org.";
+    foaf:page <http://schema.rdfs.org/mappings/bibo>;
+    rdfs:seeAlso <http://schema.org/docs/schemaorg.owl>;
+    rdfs:seeAlso <http://bibliontology.com/>;
+    rdfs:seeAlso <http://schema.org/>;
+    rdfs:seeAlso <http://schema.rdfs.org/>;
+    rdfs:seeAlso <http://github.com/mhausenblas/schema-org-rdf>;
+    dct:hasFormat <http://schema.rdfs.org/mappings.bibo.ttl>;
+    .
+
+## Classes (schema.org to BIBO mappings)
+schema:Article owl:equivalentClass bibo:Article .
+  schema:BlogPosting rdfs:subClassOf bibo:Article .
+  schema:NewsArticle rdfs:subClassOf bibo:Article .
+  schema:ScholarlyArticle rdfs:subClassOf bibo:Article .
+schema:Blog rdfs:subClassOf bibo:Periodical , bibo:Website .
+schema:Book owl:equivalentClass bibo:Book .
+# schema:ItemList owl:equivalentClass bibo:??? .
+schema:Map owl:equivalentClass bibo:Map .
+schema:MediaObject owl:equivalentClass bibo:AudioVisualDocument .
+schema:Movie owl:equivalentClass bibo:Film .
+# schema:MusicPlaylist owl:equivalentClass bibo:??? .
+   schema:MusicAlbum rdfs:subClassOf bibo:AudioDocument .
+schema:MusicRecording rdfs:subClassOf bibo:AudioDocument .
+schema:Painting rdfs:subClassOf bibo:Image .
+schema:Photograph rdfs:subClassOf bibo:Image .
+# schema:Recipe owl:equivalentClass bibo:??? .
+# schema:Review owl:equivalentClass bibo:??? .
+# schema:Sculpture owl:equivalentClass bibo:??? .
+schema:TVEpisode rdfs:subClassOf bibo:Film .
+schema:TVSeason rdfs:subClassOf bibo:Film, bibo:Series .
+schema:TVSeries rdfs:subClassOf bibo:Film, bibo:Series .
+schema:WebPage owl:equivalentClass bibo:Webpage .
+  schema:AboutPage rdfs:subClassOf bibo:Webpage .
+  schema:CheckoutPage rdfs:subClassOf bibo:Webpage .
+  schema:CollectionPage rdfs:subClassOf bibo:Webpage .
+  schema:ContactPage rdfs:subClassOf bibo:Webpage .
+  schema:ItemPage rdfs:subClassOf bibo:Webpage .
+  schema:ProfilePage rdfs:subClassOf bibo:Webpage .
+  schema:SearchResultsPage rdfs:subClassOf bibo:Webpage .
+schema:WebPageElement rdfs:subClassOf bibo:Excerpt .
+  schema:SiteNavigationElement rdfs:subClassOf bibo:Excerpt .
+  schema:Table rdfs:subClassOf bibo:Excerpt .
+  schema:WPAdBlock rdfs:subClassOf bibo:Excerpt .
+  schema:WPFooter rdfs:subClassOf bibo:Excerpt .
+  schema:WPHeader rdfs:subClassOf bibo:Excerpt .
+  schema:WPSideBar rdfs:subClassOf bibo:Excerpt .
+
+## Properties
+# TODO
+
