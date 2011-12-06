@@ -9,7 +9,7 @@ base_url = 'http://schema.org/'
 full_docs_url = 'http://schema.org/docs/full.html'
 
 class AppURLopener(urllib.URLopener):
-    version = "SchemaScraper/1.0 (http://schema.rdfs.org/)"
+    version = "SchemaScraper/1.1 (http://schema.rdfs.org/)"
 urllib._urlopener = AppURLopener()
 
 def get_all_types():
