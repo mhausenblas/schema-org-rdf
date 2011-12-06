@@ -1,6 +1,7 @@
 import schema_scraper
 import string
 import sys
+import datetime
 
 def get_prefixed(id):
     if id == 'Text':
@@ -56,9 +57,9 @@ print """@prefix schema: <http://schema.org/>.
         dct:hasPart <http://schema.rdfs.org/all-properties.csv>;
     ];
     dct:source <http://schema.org/>;
-    dct:license <http://schema.org/docs/terms.html>;
-    .
-"""
+    dct:license <http://schema.org/docs/terms.html>;"""
+print '    dct:valid "' + datetime.date.today().isoformat() + '"^^xsd:date;'
+print '    .\n'
 
 for id in types_list:
     if id not in types: continue        # skip datatypes
