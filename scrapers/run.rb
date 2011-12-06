@@ -4,7 +4,7 @@ def check_lines(file, expected)
     output = `wc -l #{file}`
     abort "#{file} was not created. Aborting!" if !output
     abort "wc -l failed on #{file}. Aborting!" unless m = /\d+/.match(output)
-    abort "#{file} has less than #{expected} lines (#{m[0]}. Aborting!" if m[0].to_i < expected
+    abort "#{file} has less than #{expected} lines (#{m[0]}). Aborting!" if m[0].to_i < expected
 end
 
 abort "Usage: run.rb tmp_dir target_dir" if ARGV.length != 2

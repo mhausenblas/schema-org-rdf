@@ -27,8 +27,10 @@ def parse(url):
 def get_all_type_ids():
     root = parse(full_docs_url)
     types = []
-    for a in root.cssselect("a[name]"):
-        types.append(a.getnext().text_content())
+    for a in root.cssselect("table.h a[href]"):
+        id = a.text_content()
+        if id[-1] == '*': continue
+        types.append(id)
     return types
 
 def get_inner_html(el):
@@ -58,6 +60,8 @@ def get_type_details(url):
         el = el.getnext()
     if type['comment'] == None:
         print >> sys.stderr, 'WARNING: No comment in type ' + id
+    type['comment'] = type['comment'].strip()
+    type['comment_plain'] = type['comment_plain'].strip()
     type['instances'] = []
     type['subtypes'] = []
     for section in root.cssselect("h3"):
@@ -89,7 +93,7 @@ def get_type_details(url):
                 'id': name,
                 'label': get_label(name),
                 'domains': [id],
-                'ranges': row.cssselect("td.prop-ect")[0].text_content().split(' or '),
+                'ranges': re.sub('\s+', ' ', row.cssselect("td.prop-ect")[0].text_content()).strip().split(' or '),
                 'comment': get_inner_html(comment),
                 'comment_plain': comment.text_content()
         })
