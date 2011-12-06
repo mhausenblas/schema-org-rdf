@@ -3,6 +3,7 @@ import lxml.html
 import lxml.etree
 import re
 import sys
+import time
 
 base_url = 'http://schema.org/'
 full_docs_url = 'http://schema.org/docs/full.html'
@@ -17,6 +18,7 @@ def get_all_types():
     for id in ids:
 #        print >> sys.stderr, 'Parsing page for ' + id
         types[id] = get_type_details(base_url + id)
+        time.sleep(1)
     return types
 
 def parse(url):
