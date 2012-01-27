@@ -1,0 +1,26 @@
+<div itemscope="itemscope" itemtype="http://schema.org/DataCatalog">
+  <span itemprop="name"><b>TWC Data.gov Catalog</b></span>
+
+  <meta itemprop="url" content="http://iw.rpi.edu/wiki/Data.gov_Catalog_-_Complete" />
+
+  Publisher: <span itemprop="publisher">
+      <div itemscope="itemscope" itemtype="http://schema.org/Organization">
+
+        <span itemprop="name">Tetherless World Constellation</span>
+
+      Contact Details:
+        <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+          Address:
+            <span itemprop="streetAddress">110 8th Street</span>
+            <span itemprop="postalCode">12180</span>
+
+            <span itemprop="addressLocality">Troy, NY USA</span>
+          ,
+        </div>
+          Tel:<span itemprop="telephone">(518)276-4384</span>,
+          Fax:<span itemprop="faxNumber">(518)276-4464</span>,
+          E-mail: <span itemprop="email">westp(at)rpi.edu</span>
+      </div>
+  </span>
+</div>
+
