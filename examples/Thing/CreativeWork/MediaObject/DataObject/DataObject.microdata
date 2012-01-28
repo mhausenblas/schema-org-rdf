@@ -1,0 +1,13 @@
+<div itemscope="itemscope" itemtype="http://schema.org/DataObject">
+  <span itemprop="name"><b>Africa: Conflicts Without Borders 2009 (N-Triples)</b></span>
+
+  <meta itemprop="encodingFormat" content="text/plain" />
+  <meta itemprop="contentURL" content="http://data-gov.tw.rpi.edu/raw/1200/data-1200.nt.gz" />
+
+  <span class="description">
+      <meta itemprop="inLanguage" content="en" />
+      <meta itemprop="datePublished" content="2011-08-12">August 12, 2011</meta>
+      <span itemprop="description">compressed N-Triples dump</span>
+      <span itemprop="contentSize" content="13.9">13.97MB</span>
+  </span>
+</div>
