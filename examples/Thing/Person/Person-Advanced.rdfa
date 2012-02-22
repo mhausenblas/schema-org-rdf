@@ -24,12 +24,12 @@
   Colleagues:
   <a rel="colleagues" href="http://example.com/alice">Alice Jones</a>
   <a rel="colleagues" href="http://example.com/bob">Bob Smith</a>
-  
-  Acquaintences:
+
+  Acquaintances:
   <div rel="knows">
-    <span typeof="Person" property"name">Michael Hausenblas</span>
-    <span typeof="Person" property"name">Richard Cyganiak</span>
-    <span typeof="Person" property"name">Stéphane Corlosquet</span>
+    <span typeof="Person" property="name">Michael Hausenblas</span>
+    <span typeof="Person" property="name">Richard Cyganiak</span>
+    <span typeof="Person" property="name">Stéphane Corlosquet</span>
   </div>
 </div>
 
