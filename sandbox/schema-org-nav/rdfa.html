@@ -12,54 +12,13 @@
   xmlns:schema="http://schema.org/"
   xmlns:doap="http://usefulinc.com/ns/doap#">
   <head>
-    <title>RDFa Lite Reflection</title>
- 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
- 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
- 	<script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.rdfa.min-1.0.js"></script>
- 	<script src="https://raw.github.com/balupton/jquery-scrollto/master/scripts/jquery.scrollto.js"></script>
-    <script src="schema-org-nav.js"></script>
-    <style type="text/css">
-      span.h {
-        padding-left: 0px;
-        font-weight: bold;
-      }
-      span {
-        display: block;
-        padding-left: 10px;
-      }
-      #nav {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-      }
-      #nav-output {
-        position: absolute;
-        right: 10px;
-        top: 40px;
-        font-size: 90%;
-        border: 1px solid #e0e0e0;
-        display: none;
-        padding: 10px;
-        width: 200px;
-        background: #f0f0f0;
-      }
-      #explore {
-        color: #00e;
-        cursor: pointer;
-        font-size: 90%;
-        border: 1px solid #e0e0e0;
-        text-align: center; 
-        padding: 2px 5px 2px 5px;
-      }
-     .hidden-anchor{
-        display: none;
-     }
-    </style>
+	<title>RDFa Lite Reflection</title>
+	<link rel="stylesheet" href="rdfa.css">
   </head>
 
   <body>
 	<div id="nav"><span id="explore">explore ...</span></div>
-	<div id="nav-output"></div>
+	<div id="nav-output"><img src="load.gif" alt="busy" /></div>
     <h1>Schema.org core schema</h1>
 
     <p>This is an <b>experimental</b> RDFa 1.1 Lite representation of the schema.org schema, copied here for collaboration and <a href="mailto:public-vocabs@w3.org">feedback</a>.</p>
@@ -75,285 +34,285 @@
     <div typeof="rdfs:Class" about="http://schema.org/CreativeWork">
       <span class="h" property="rdfs:label">CreativeWork</span>
       <span property="rdfs:comment">The most generic kind of creative work, including books, movies, photographs, software programs, etc.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WebPage">
       <span class="h" property="rdfs:label">WebPage</span>
       <span property="rdfs:comment">A web page. Every web page is implicitly assumed to be declared to be of type WebPage, so the various properties about that webpage, such as <code>breadcrumb</code> may be used. We recommend explicit declaration if these properties are specified, but if they are found outside of an itemscope, they will be assumed to be about the page</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AboutPage">
       <span class="h" property="rdfs:label">AboutPage</span>
       <span property="rdfs:comment">Web page type: About page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Organization">
       <span class="h" property="rdfs:label">Organization</span>
       <span property="rdfs:comment">An organization such as a school, NGO, corporation, club, etc.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Place">
       <span class="h" property="rdfs:label">Place</span>
       <span property="rdfs:comment">Entities that have a somewhat fixed, physical extension.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LocalBusiness">
       <span class="h" property="rdfs:label">LocalBusiness</span>
       <span property="rdfs:comment">A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/FinancialService">
       <span class="h" property="rdfs:label">FinancialService</span>
       <span property="rdfs:comment">Financial services business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ProfessionalService">
       <span class="h" property="rdfs:label">ProfessionalService</span>
       <span property="rdfs:comment">Provider of professional services.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AccountingService">
       <span class="h" property="rdfs:label">AccountingService</span>
       <span property="rdfs:comment">Accountancy business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AdministrativeArea">
       <span class="h" property="rdfs:label">AdministrativeArea</span>
       <span property="rdfs:comment">A geographical region under the jurisdiction of a particular government.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/EntertainmentBusiness">
       <span class="h" property="rdfs:label">EntertainmentBusiness</span>
       <span property="rdfs:comment">A business providing entertainment.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AdultEntertainment">
       <span class="h" property="rdfs:label">AdultEntertainment</span>
       <span property="rdfs:comment">An adult entertainment establishment.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Intangible">
       <span class="h" property="rdfs:label">Intangible</span>
       <span property="rdfs:comment">A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Offer">
       <span class="h" property="rdfs:label">Offer</span>
       <span property="rdfs:comment">An offer to sell an item&#8212;for example, an offer to sell a product, the DVD of a movie, or tickets to an event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AggregateOffer">
       <span class="h" property="rdfs:label">AggregateOffer</span>
       <span property="rdfs:comment">When a single product that has different offers (for example, the same pair of shoes is offered by different merchants), then AggregateOffer can be used.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Offer">Offer</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Offer">Offer</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Rating">
       <span class="h" property="rdfs:label">Rating</span>
       <span property="rdfs:comment">The rating of the video.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AggregateRating">
       <span class="h" property="rdfs:label">AggregateRating</span>
       <span property="rdfs:comment">The average rating based on multiple ratings or reviews.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Rating">Rating</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Rating">Rating</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CivicStructure">
       <span class="h" property="rdfs:label">CivicStructure</span>
       <span property="rdfs:comment">A public structure, such as a town hall or concert hall.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Airport">
       <span class="h" property="rdfs:label">Airport</span>
       <span property="rdfs:comment">An airport.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AmusementPark">
       <span class="h" property="rdfs:label">AmusementPark</span>
       <span property="rdfs:comment">An amusement park.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AnimalShelter">
       <span class="h" property="rdfs:label">AnimalShelter</span>
       <span property="rdfs:comment">Animal shelter.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Residence">
       <span class="h" property="rdfs:label">Residence</span>
       <span property="rdfs:comment">The place where a person lives.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ApartmentComplex">
       <span class="h" property="rdfs:label">ApartmentComplex</span>
       <span property="rdfs:comment">Residence type: Apartment complex.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Residence">Residence</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Residence">Residence</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Aquarium">
       <span class="h" property="rdfs:label">Aquarium</span>
       <span property="rdfs:comment">Aquarium.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ArtGallery">
       <span class="h" property="rdfs:label">ArtGallery</span>
       <span property="rdfs:comment">An art gallery.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Article">
       <span class="h" property="rdfs:label">Article</span>
       <span property="rdfs:comment">An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Attorney">
       <span class="h" property="rdfs:label">Attorney</span>
       <span property="rdfs:comment">Professional service: Attorney.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MediaObject">
       <span class="h" property="rdfs:label">MediaObject</span>
       <span property="rdfs:comment">An image, video, or audio object embedded in a web page. Note that a creative work may have many media objects associated with it on the same web page. For example, a page about a single song (MusicRecording) may have a music video (VideoObject), and a high and low bandwidth audio stream (2 AudioObject's).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AudioObject">
       <span class="h" property="rdfs:label">AudioObject</span>
       <span property="rdfs:comment">An audio file.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutomotiveBusiness">
       <span class="h" property="rdfs:label">AutomotiveBusiness</span>
       <span property="rdfs:comment">Car repair, sales, or parts.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutoBodyShop">
       <span class="h" property="rdfs:label">AutoBodyShop</span>
       <span property="rdfs:comment">Auto body shop.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutoDealer">
       <span class="h" property="rdfs:label">AutoDealer</span>
       <span property="rdfs:comment">An car dealership.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Store">
       <span class="h" property="rdfs:label">Store</span>
       <span property="rdfs:comment">A retail good store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutoPartsStore">
       <span class="h" property="rdfs:label">AutoPartsStore</span>
       <span property="rdfs:comment">An auto parts store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutoRental">
       <span class="h" property="rdfs:label">AutoRental</span>
       <span property="rdfs:comment">A car rental business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutoRepair">
       <span class="h" property="rdfs:label">AutoRepair</span>
       <span property="rdfs:comment">Car repair business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutoWash">
       <span class="h" property="rdfs:label">AutoWash</span>
       <span property="rdfs:comment">A car wash business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/AutomatedTeller">
       <span class="h" property="rdfs:label">AutomatedTeller</span>
       <span property="rdfs:comment">ATM/cash machine.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/FoodEstablishment">
       <span class="h" property="rdfs:label">FoodEstablishment</span>
       <span property="rdfs:comment">A food-related business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Bakery">
       <span class="h" property="rdfs:label">Bakery</span>
       <span property="rdfs:comment">A bakery.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BankOrCreditUnion">
       <span class="h" property="rdfs:label">BankOrCreditUnion</span>
       <span property="rdfs:comment">Bank or credit union.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BarOrPub">
       <span class="h" property="rdfs:label">BarOrPub</span>
       <span property="rdfs:comment">A bar or pub.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Beach">
       <span class="h" property="rdfs:label">Beach</span>
       <span property="rdfs:comment">Beach.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HealthAndBeautyBusiness">
       <span class="h" property="rdfs:label">HealthAndBeautyBusiness</span>
       <span property="rdfs:comment">Health and beauty.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BeautySalon">
       <span class="h" property="rdfs:label">BeautySalon</span>
       <span property="rdfs:comment">Beauty salon.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LodgingBusiness">
       <span class="h" property="rdfs:label">LodgingBusiness</span>
       <span property="rdfs:comment">A lodging business, such as a motel, hotel, or inn.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BedAndBreakfast">
       <span class="h" property="rdfs:label">BedAndBreakfast</span>
       <span property="rdfs:comment">Bed and breakfast.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BikeStore">
       <span class="h" property="rdfs:label">BikeStore</span>
       <span property="rdfs:comment">A bike store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Blog">
       <span class="h" property="rdfs:label">Blog</span>
       <span property="rdfs:comment">A blog</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BlogPosting">
       <span class="h" property="rdfs:label">BlogPosting</span>
       <span property="rdfs:comment">A blog post.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Article">Article</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Article">Article</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Landform">
       <span class="h" property="rdfs:label">Landform</span>
       <span property="rdfs:comment">A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BodyOfWater">
       <span class="h" property="rdfs:label">BodyOfWater</span>
       <span property="rdfs:comment">A body of water, such as a sea, ocean, or lake.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Book">
       <span class="h" property="rdfs:label">Book</span>
       <span property="rdfs:comment">A book.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Enumeration">
       <span class="h" property="rdfs:label">Enumeration</span>
       <span property="rdfs:comment">Lists or enumerations&#8212;for example, a list of cuisines or music genres, etc.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BookFormatType">
       <span class="h" property="rdfs:label">BookFormatType</span>
       <span property="rdfs:comment">The publication format of the book.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BookStore">
       <span class="h" property="rdfs:label">BookStore</span>
       <span property="rdfs:comment">A bookstore.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DataType">
       <span class="h" property="rdfs:label">DataType</span>
@@ -362,1236 +321,1236 @@
     <div typeof="rdfs:Class" about="http://schema.org/Boolean">
       <span class="h" property="rdfs:label">Boolean</span>
       <span property="rdfs:comment">Boolean: True or False.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SportsActivityLocation">
       <span class="h" property="rdfs:label">SportsActivityLocation</span>
       <span property="rdfs:comment">A sports location, such as a playing field.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BowlingAlley">
       <span class="h" property="rdfs:label">BowlingAlley</span>
       <span property="rdfs:comment">A bowling alley.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Brewery">
       <span class="h" property="rdfs:label">Brewery</span>
       <span property="rdfs:comment">Brewery.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PlaceOfWorship">
       <span class="h" property="rdfs:label">PlaceOfWorship</span>
       <span property="rdfs:comment">Place of worship, such as a church, synagogue, or mosque.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BuddhistTemple">
       <span class="h" property="rdfs:label">BuddhistTemple</span>
       <span property="rdfs:comment">A Buddhist temple.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BusStation">
       <span class="h" property="rdfs:label">BusStation</span>
       <span property="rdfs:comment">A bus station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BusStop">
       <span class="h" property="rdfs:label">BusStop</span>
       <span property="rdfs:comment">A bus stop.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Event">
       <span class="h" property="rdfs:label">Event</span>
       <span property="rdfs:comment">An event happening at a certain time at a certain location.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/BusinessEvent">
       <span class="h" property="rdfs:label">BusinessEvent</span>
       <span property="rdfs:comment">Event type: Business event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CafeOrCoffeeShop">
       <span class="h" property="rdfs:label">CafeOrCoffeeShop</span>
       <span property="rdfs:comment">A cafe or coffee shop.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Campground">
       <span class="h" property="rdfs:label">Campground</span>
       <span property="rdfs:comment">A campground.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Canal">
       <span class="h" property="rdfs:label">Canal</span>
       <span property="rdfs:comment">A canal, like the Panama Canal</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Casino">
       <span class="h" property="rdfs:label">Casino</span>
       <span property="rdfs:comment">A casino.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CatholicChurch">
       <span class="h" property="rdfs:label">CatholicChurch</span>
       <span property="rdfs:comment">A Catholic church.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Cemetery">
       <span class="h" property="rdfs:label">Cemetery</span>
       <span property="rdfs:comment">A graveyard.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CheckoutPage">
       <span class="h" property="rdfs:label">CheckoutPage</span>
       <span property="rdfs:comment">Web page type: Checkout page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ChildCare">
       <span class="h" property="rdfs:label">ChildCare</span>
       <span property="rdfs:comment">A Childcare center.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ChildrensEvent">
       <span class="h" property="rdfs:label">ChildrensEvent</span>
       <span property="rdfs:comment">Event type: Children's event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Church">
       <span class="h" property="rdfs:label">Church</span>
       <span property="rdfs:comment">A church.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/City">
       <span class="h" property="rdfs:label">City</span>
       <span property="rdfs:comment">A city or town.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AdministrativeArea">AdministrativeArea</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AdministrativeArea">AdministrativeArea</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GovernmentBuilding">
       <span class="h" property="rdfs:label">GovernmentBuilding</span>
       <span property="rdfs:comment">A government building.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CityHall">
       <span class="h" property="rdfs:label">CityHall</span>
       <span property="rdfs:comment">A city hall.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ClothingStore">
       <span class="h" property="rdfs:label">ClothingStore</span>
       <span property="rdfs:comment">A clothing store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CollectionPage">
       <span class="h" property="rdfs:label">CollectionPage</span>
       <span property="rdfs:comment">Web page type: Collection page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/EducationalOrganization">
       <span class="h" property="rdfs:label">EducationalOrganization</span>
       <span property="rdfs:comment">An educational organization.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/CollegeOrUniversity">
       <span class="h" property="rdfs:label">CollegeOrUniversity</span>
       <span property="rdfs:comment">A college, university, or other third-level educational institution.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ComedyClub">
       <span class="h" property="rdfs:label">ComedyClub</span>
       <span property="rdfs:comment">A comedy club.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ComedyEvent">
       <span class="h" property="rdfs:label">ComedyEvent</span>
       <span property="rdfs:comment">Event type: Comedy event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ComputerStore">
       <span class="h" property="rdfs:label">ComputerStore</span>
       <span property="rdfs:comment">A computer store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ContactPage">
       <span class="h" property="rdfs:label">ContactPage</span>
       <span property="rdfs:comment">Web page type: Contact page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/StructuredValue">
       <span class="h" property="rdfs:label">StructuredValue</span>
       <span property="rdfs:comment">Structured values are strings&#8212;for example, addresses&#8212;that have certain constraints on their structure.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ContactPoint">
       <span class="h" property="rdfs:label">ContactPoint</span>
       <span property="rdfs:comment">A contact point&#8212;for example, a Customer Complaints department.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Continent">
       <span class="h" property="rdfs:label">Continent</span>
       <span property="rdfs:comment">One of the continents (for example, Europe or Africa).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ConvenienceStore">
       <span class="h" property="rdfs:label">ConvenienceStore</span>
       <span property="rdfs:comment">A convenience store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Corporation">
       <span class="h" property="rdfs:label">Corporation</span>
       <span property="rdfs:comment">Organization: A business corporation.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Country">
       <span class="h" property="rdfs:label">Country</span>
       <span property="rdfs:comment">A country.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AdministrativeArea">AdministrativeArea</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AdministrativeArea">AdministrativeArea</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Courthouse">
       <span class="h" property="rdfs:label">Courthouse</span>
       <span property="rdfs:comment">A courthouse.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Crematorium">
       <span class="h" property="rdfs:label">Crematorium</span>
       <span property="rdfs:comment">A crematorium.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DanceEvent">
       <span class="h" property="rdfs:label">DanceEvent</span>
       <span property="rdfs:comment">Event type: A social dance.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PerformingGroup">
       <span class="h" property="rdfs:label">PerformingGroup</span>
       <span property="rdfs:comment">A performance group, such as a band, an orchestra, or a circus.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DanceGroup">
       <span class="h" property="rdfs:label">DanceGroup</span>
       <span property="rdfs:comment">A dance group&#8212;for example, the Alvin Ailey Dance Theater or Riverdance.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PerformingGroup">PerformingGroup</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PerformingGroup">PerformingGroup</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Date">
       <span class="h" property="rdfs:label">Date</span>
       <span property="rdfs:comment">A date value in <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601 date format</a>.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DaySpa">
       <span class="h" property="rdfs:label">DaySpa</span>
       <span property="rdfs:comment">A day spa.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DefenceEstablishment">
       <span class="h" property="rdfs:label">DefenceEstablishment</span>
       <span property="rdfs:comment">A defence establishment, such as an army or navy base.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MedicalOrganization">
       <span class="h" property="rdfs:label">MedicalOrganization</span>
       <span property="rdfs:comment">A medical organization, such as a doctor's office or clinic.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Dentist">
       <span class="h" property="rdfs:label">Dentist</span>
       <span property="rdfs:comment">A dentist.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DepartmentStore">
       <span class="h" property="rdfs:label">DepartmentStore</span>
       <span property="rdfs:comment">A department store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Quantity">
       <span class="h" property="rdfs:label">Quantity</span>
       <span property="rdfs:comment">Quantities such as distance, time, mass, weight, etc. Particular instances of say Mass are entities like '3 Kg' or '4 milligrams'.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Distance">
       <span class="h" property="rdfs:label">Distance</span>
       <span property="rdfs:comment">Properties that take Distances as values are of the form '&lt;Number&gt; &lt;Length unit of measure&gt;'. E.g., '7 ft'</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/DryCleaningOrLaundry">
       <span class="h" property="rdfs:label">DryCleaningOrLaundry</span>
       <span property="rdfs:comment">A dry-cleaning business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Duration">
       <span class="h" property="rdfs:label">Duration</span>
       <span property="rdfs:comment">Quantity: Duration (use  <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601 duration format</a>).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/EducationEvent">
       <span class="h" property="rdfs:label">EducationEvent</span>
       <span property="rdfs:comment">Event type: Education event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HomeAndConstructionBusiness">
       <span class="h" property="rdfs:label">HomeAndConstructionBusiness</span>
       <span property="rdfs:comment">A construction business.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Electrician">
       <span class="h" property="rdfs:label">Electrician</span>
       <span property="rdfs:comment">An electrician.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ElectronicsStore">
       <span class="h" property="rdfs:label">ElectronicsStore</span>
       <span property="rdfs:comment">An electronics store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ElementarySchool">
       <span class="h" property="rdfs:label">ElementarySchool</span>
       <span property="rdfs:comment">An elementary school.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Embassy">
       <span class="h" property="rdfs:label">Embassy</span>
       <span property="rdfs:comment">An embassy.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/EmergencyService">
       <span class="h" property="rdfs:label">EmergencyService</span>
       <span property="rdfs:comment">An emergency service, such as a fire station or ER.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/EmploymentAgency">
       <span class="h" property="rdfs:label">EmploymentAgency</span>
       <span property="rdfs:comment">An employment agency.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Energy">
       <span class="h" property="rdfs:label">Energy</span>
       <span property="rdfs:comment">Properties that take Enerygy as values are of the form '&lt;Number&gt; &lt;Energy unit of measure&gt;'</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/EventVenue">
       <span class="h" property="rdfs:label">EventVenue</span>
       <span property="rdfs:comment">An event venue.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ExerciseGym">
       <span class="h" property="rdfs:label">ExerciseGym</span>
       <span property="rdfs:comment">A gym.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/FastFoodRestaurant">
       <span class="h" property="rdfs:label">FastFoodRestaurant</span>
       <span property="rdfs:comment">A fast-food restaurant.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Festival">
       <span class="h" property="rdfs:label">Festival</span>
       <span property="rdfs:comment">Event type: Festival.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/FireStation">
       <span class="h" property="rdfs:label">FireStation</span>
       <span property="rdfs:comment">A fire station. With firemen.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EmergencyService">EmergencyService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EmergencyService">EmergencyService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Number">
       <span class="h" property="rdfs:label">Number</span>
       <span property="rdfs:comment">Data type: Number.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Float">
       <span class="h" property="rdfs:label">Float</span>
       <span property="rdfs:comment">Data type: Floating number.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Number">Number</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Number">Number</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Florist">
       <span class="h" property="rdfs:label">Florist</span>
       <span property="rdfs:comment">A florist.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/FoodEvent">
       <span class="h" property="rdfs:label">FoodEvent</span>
       <span property="rdfs:comment">Event type: Food event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/FurnitureStore">
       <span class="h" property="rdfs:label">FurnitureStore</span>
       <span property="rdfs:comment">A furniture store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GardenStore">
       <span class="h" property="rdfs:label">GardenStore</span>
       <span property="rdfs:comment">A garden store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GasStation">
       <span class="h" property="rdfs:label">GasStation</span>
       <span property="rdfs:comment">A gas station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GatedResidenceCommunity">
       <span class="h" property="rdfs:label">GatedResidenceCommunity</span>
       <span property="rdfs:comment">Residence type: Gated community.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Residence">Residence</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Residence">Residence</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GeneralContractor">
       <span class="h" property="rdfs:label">GeneralContractor</span>
       <span property="rdfs:comment">A general contractor.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GeoCoordinates">
       <span class="h" property="rdfs:label">GeoCoordinates</span>
       <span property="rdfs:comment">The geographic coordinates of a place or event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GeoShape">
       <span class="h" property="rdfs:label">GeoShape</span>
       <span property="rdfs:comment">The geographic shape of a place.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GolfCourse">
       <span class="h" property="rdfs:label">GolfCourse</span>
       <span property="rdfs:comment">A golf course.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GovernmentOffice">
       <span class="h" property="rdfs:label">GovernmentOffice</span>
       <span property="rdfs:comment">A government office&#8212;for example, an IRS or DMV office.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GovernmentOrganization">
       <span class="h" property="rdfs:label">GovernmentOrganization</span>
       <span property="rdfs:comment">A governmental organization or agency.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/GroceryStore">
       <span class="h" property="rdfs:label">GroceryStore</span>
       <span property="rdfs:comment">A grocery store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HVACBusiness">
       <span class="h" property="rdfs:label">HVACBusiness</span>
       <span property="rdfs:comment">An HVAC service.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HairSalon">
       <span class="h" property="rdfs:label">HairSalon</span>
       <span property="rdfs:comment">A hair salon.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HardwareStore">
       <span class="h" property="rdfs:label">HardwareStore</span>
       <span property="rdfs:comment">A hardware store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HealthClub">
       <span class="h" property="rdfs:label">HealthClub</span>
       <span property="rdfs:comment">A health club.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HighSchool">
       <span class="h" property="rdfs:label">HighSchool</span>
       <span property="rdfs:comment">A high school.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HinduTemple">
       <span class="h" property="rdfs:label">HinduTemple</span>
       <span property="rdfs:comment">A Hindu temple.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HobbyShop">
       <span class="h" property="rdfs:label">HobbyShop</span>
       <span property="rdfs:comment">A hobby store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HomeGoodsStore">
       <span class="h" property="rdfs:label">HomeGoodsStore</span>
       <span property="rdfs:comment">A home goods store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Hospital">
       <span class="h" property="rdfs:label">Hospital</span>
       <span property="rdfs:comment">A hospital.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EmergencyService">EmergencyService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EmergencyService">EmergencyService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Hostel">
       <span class="h" property="rdfs:label">Hostel</span>
       <span property="rdfs:comment">A hostel.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Hotel">
       <span class="h" property="rdfs:label">Hotel</span>
       <span property="rdfs:comment">A hotel.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/HousePainter">
       <span class="h" property="rdfs:label">HousePainter</span>
       <span property="rdfs:comment">A house painting service.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/IceCreamShop">
       <span class="h" property="rdfs:label">IceCreamShop</span>
       <span property="rdfs:comment">An ice cream shop</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ImageGallery">
       <span class="h" property="rdfs:label">ImageGallery</span>
       <span property="rdfs:comment">Web page type: Image gallery page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CollectionPage">CollectionPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CollectionPage">CollectionPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ImageObject">
       <span class="h" property="rdfs:label">ImageObject</span>
       <span property="rdfs:comment">An image file.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/InsuranceAgency">
       <span class="h" property="rdfs:label">InsuranceAgency</span>
       <span property="rdfs:comment">Insurance agency.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FinancialService">FinancialService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Integer">
       <span class="h" property="rdfs:label">Integer</span>
       <span property="rdfs:comment">Data type: Integer.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Number">Number</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Number">Number</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/InternetCafe">
       <span class="h" property="rdfs:label">InternetCafe</span>
       <span property="rdfs:comment">An internet cafe.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ItemAvailability">
       <span class="h" property="rdfs:label">ItemAvailability</span>
       <span property="rdfs:comment">A list of possible product availablity options.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ItemList">
       <span class="h" property="rdfs:label">ItemList</span>
       <span property="rdfs:comment">A list of items of any sort&#8212;for example, Top 10 Movies About Weathermen, or Top 100 Party Songs. Not to be confused with HTML lists, which are often used only for formatting.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ItemPage">
       <span class="h" property="rdfs:label">ItemPage</span>
       <span property="rdfs:comment">A page devoted to a single item, such as a particular product or hotel.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/JewelryStore">
       <span class="h" property="rdfs:label">JewelryStore</span>
       <span property="rdfs:comment">A jewelry store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/JobPosting">
       <span class="h" property="rdfs:label">JobPosting</span>
       <span property="rdfs:comment">A listing that describes a job opening in a certain organization.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LakeBodyOfWater">
       <span class="h" property="rdfs:label">LakeBodyOfWater</span>
       <span property="rdfs:comment">A lake (for example, Lake Pontrachain).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LandmarksOrHistoricalBuildings">
       <span class="h" property="rdfs:label">LandmarksOrHistoricalBuildings</span>
       <span property="rdfs:comment">An historical landmark or building.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Language">
       <span class="h" property="rdfs:label">Language</span>
       <span property="rdfs:comment">Natural languages such as Spanish, Tamil, Hindi, English, etc. and programming languages such as Scheme and Lisp.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LegislativeBuilding">
       <span class="h" property="rdfs:label">LegislativeBuilding</span>
       <span property="rdfs:comment">A legislative building&#8212;for example, the state capitol.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/GovernmentBuilding">GovernmentBuilding</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Library">
       <span class="h" property="rdfs:label">Library</span>
       <span property="rdfs:comment">A library.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LiquorStore">
       <span class="h" property="rdfs:label">LiquorStore</span>
       <span property="rdfs:comment">A liquor store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/LiteraryEvent">
       <span class="h" property="rdfs:label">LiteraryEvent</span>
       <span property="rdfs:comment">Event type: Literary event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Locksmith">
       <span class="h" property="rdfs:label">Locksmith</span>
       <span property="rdfs:comment">A locksmith.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Map">
       <span class="h" property="rdfs:label">Map</span>
       <span property="rdfs:comment">A map.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Mass">
       <span class="h" property="rdfs:label">Mass</span>
       <span property="rdfs:comment">Properties that take Mass as values are of the form '&lt;Number&gt; &lt;Mass unit of measure&gt;'. E.g., '7 kg'</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Quantity">Quantity</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MedicalClinic">
       <span class="h" property="rdfs:label">MedicalClinic</span>
       <span property="rdfs:comment">A medical clinic.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MensClothingStore">
       <span class="h" property="rdfs:label">MensClothingStore</span>
       <span property="rdfs:comment">A men's clothing store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MiddleSchool">
       <span class="h" property="rdfs:label">MiddleSchool</span>
       <span property="rdfs:comment">A middle school.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MobilePhoneStore">
       <span class="h" property="rdfs:label">MobilePhoneStore</span>
       <span property="rdfs:comment">A mobile-phone store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SoftwareApplication">
       <span class="h" property="rdfs:label">SoftwareApplication</span>
       <span property="rdfs:comment">A software application.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MobileSoftwareApplication">
       <span class="h" property="rdfs:label">MobileSoftwareApplication</span>
       <span property="rdfs:comment">A mobile software application.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SoftwareApplication">SoftwareApplication</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SoftwareApplication">SoftwareApplication</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Mosque">
       <span class="h" property="rdfs:label">Mosque</span>
       <span property="rdfs:comment">A mosque.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Motel">
       <span class="h" property="rdfs:label">Motel</span>
       <span property="rdfs:comment">A motel.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LodgingBusiness">LodgingBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MotorcycleDealer">
       <span class="h" property="rdfs:label">MotorcycleDealer</span>
       <span property="rdfs:comment">A motorcycle dealer.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MotorcycleRepair">
       <span class="h" property="rdfs:label">MotorcycleRepair</span>
       <span property="rdfs:comment">A motorcycle repair shop.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AutomotiveBusiness">AutomotiveBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Mountain">
       <span class="h" property="rdfs:label">Mountain</span>
       <span property="rdfs:comment">A mountain, like Mount Whitney or Mount Everest</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Movie">
       <span class="h" property="rdfs:label">Movie</span>
       <span property="rdfs:comment">A movie.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MovieRentalStore">
       <span class="h" property="rdfs:label">MovieRentalStore</span>
       <span property="rdfs:comment">A movie rental store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MovieTheater">
       <span class="h" property="rdfs:label">MovieTheater</span>
       <span property="rdfs:comment">A movie theater.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MovingCompany">
       <span class="h" property="rdfs:label">MovingCompany</span>
       <span property="rdfs:comment">A moving company.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Museum">
       <span class="h" property="rdfs:label">Museum</span>
       <span property="rdfs:comment">A museum.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicPlaylist">
       <span class="h" property="rdfs:label">MusicPlaylist</span>
       <span property="rdfs:comment">A collection of music tracks in playlist form.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicAlbum">
       <span class="h" property="rdfs:label">MusicAlbum</span>
       <span property="rdfs:comment">A collection of music tracks.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MusicPlaylist">MusicPlaylist</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MusicPlaylist">MusicPlaylist</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicEvent">
       <span class="h" property="rdfs:label">MusicEvent</span>
       <span property="rdfs:comment">Event type: Music event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicGroup">
       <span class="h" property="rdfs:label">MusicGroup</span>
       <span property="rdfs:comment">A musical group, such as a band, an orchestra, or a choir. Can also be a solo musician.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PerformingGroup">PerformingGroup</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PerformingGroup">PerformingGroup</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicRecording">
       <span class="h" property="rdfs:label">MusicRecording</span>
       <span property="rdfs:comment">A music recording (track), usually a single song.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicStore">
       <span class="h" property="rdfs:label">MusicStore</span>
       <span property="rdfs:comment">A music store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicVenue">
       <span class="h" property="rdfs:label">MusicVenue</span>
       <span property="rdfs:comment">A music venue.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/MusicVideoObject">
       <span class="h" property="rdfs:label">MusicVideoObject</span>
       <span property="rdfs:comment">A music video file.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/NGO">
       <span class="h" property="rdfs:label">NGO</span>
       <span property="rdfs:comment">Organization: Non-governmental Organization.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/NailSalon">
       <span class="h" property="rdfs:label">NailSalon</span>
       <span property="rdfs:comment">A nail salon.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/NewsArticle">
       <span class="h" property="rdfs:label">NewsArticle</span>
       <span property="rdfs:comment">A news article</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Article">Article</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Article">Article</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/NightClub">
       <span class="h" property="rdfs:label">NightClub</span>
       <span property="rdfs:comment">A nightclub or discotheque.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EntertainmentBusiness">EntertainmentBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Notary">
       <span class="h" property="rdfs:label">Notary</span>
       <span property="rdfs:comment">A notary.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/NutritionInformation">
       <span class="h" property="rdfs:label">NutritionInformation</span>
       <span property="rdfs:comment">Nutritional information about the recipe.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/StructuredValue">StructuredValue</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/OceanBodyOfWater">
       <span class="h" property="rdfs:label">OceanBodyOfWater</span>
       <span property="rdfs:comment">An ocean (for example, the Pacific).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/OfferItemCondition">
       <span class="h" property="rdfs:label">OfferItemCondition</span>
       <span property="rdfs:comment">A list of possible conditions for the item for sale.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/OfficeEquipmentStore">
       <span class="h" property="rdfs:label">OfficeEquipmentStore</span>
       <span property="rdfs:comment">An office equipment store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Optician">
       <span class="h" property="rdfs:label">Optician</span>
       <span property="rdfs:comment">An optician's store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/OutletStore">
       <span class="h" property="rdfs:label">OutletStore</span>
       <span property="rdfs:comment">An outlet store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Painting">
       <span class="h" property="rdfs:label">Painting</span>
       <span property="rdfs:comment">A painting.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Park">
       <span class="h" property="rdfs:label">Park</span>
       <span property="rdfs:comment">A park.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ParkingFacility">
       <span class="h" property="rdfs:label">ParkingFacility</span>
       <span property="rdfs:comment">A parking lot or other parking facility.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PawnShop">
       <span class="h" property="rdfs:label">PawnShop</span>
       <span property="rdfs:comment">A pawnstore.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PerformingArtsTheater">
       <span class="h" property="rdfs:label">PerformingArtsTheater</span>
       <span property="rdfs:comment">A theatre or other performing art center.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Person">
       <span class="h" property="rdfs:label">Person</span>
       <span property="rdfs:comment">A person (alive, dead, undead, or fictional).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PetStore">
       <span class="h" property="rdfs:label">PetStore</span>
       <span property="rdfs:comment">A pet store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Pharmacy">
       <span class="h" property="rdfs:label">Pharmacy</span>
       <span property="rdfs:comment">A pharmacy or drugstore.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Photograph">
       <span class="h" property="rdfs:label">Photograph</span>
       <span property="rdfs:comment">A photograph.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Physician">
       <span class="h" property="rdfs:label">Physician</span>
       <span property="rdfs:comment">A doctor's office.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Playground">
       <span class="h" property="rdfs:label">Playground</span>
       <span property="rdfs:comment">A playground.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Plumber">
       <span class="h" property="rdfs:label">Plumber</span>
       <span property="rdfs:comment">A plumbing service.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PoliceStation">
       <span class="h" property="rdfs:label">PoliceStation</span>
       <span property="rdfs:comment">A police station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EmergencyService">EmergencyService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EmergencyService">EmergencyService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Pond">
       <span class="h" property="rdfs:label">Pond</span>
       <span property="rdfs:comment">A pond</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PostOffice">
       <span class="h" property="rdfs:label">PostOffice</span>
       <span property="rdfs:comment">A post office.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/GovernmentOffice">GovernmentOffice</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/GovernmentOffice">GovernmentOffice</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PostalAddress">
       <span class="h" property="rdfs:label">PostalAddress</span>
       <span property="rdfs:comment">The mailing address.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ContactPoint">ContactPoint</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ContactPoint">ContactPoint</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Preschool">
       <span class="h" property="rdfs:label">Preschool</span>
       <span property="rdfs:comment">A preschool.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Product">
       <span class="h" property="rdfs:label">Product</span>
       <span property="rdfs:comment">A product is anything that is made available for sale&#8212;for example, a pair of shoes, a concert ticket, or a car.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Thing">Thing</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ProfilePage">
       <span class="h" property="rdfs:label">ProfilePage</span>
       <span property="rdfs:comment">Web page type: Profile page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/PublicSwimmingPool">
       <span class="h" property="rdfs:label">PublicSwimmingPool</span>
       <span property="rdfs:comment">A public swimming pool.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/RVPark">
       <span class="h" property="rdfs:label">RVPark</span>
       <span property="rdfs:comment">An RV park.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/RadioStation">
       <span class="h" property="rdfs:label">RadioStation</span>
       <span property="rdfs:comment">A radio station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/RealEstateAgent">
       <span class="h" property="rdfs:label">RealEstateAgent</span>
       <span property="rdfs:comment">A real-estate agent.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Recipe">
       <span class="h" property="rdfs:label">Recipe</span>
       <span property="rdfs:comment">A recipe.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/RecyclingCenter">
       <span class="h" property="rdfs:label">RecyclingCenter</span>
       <span property="rdfs:comment">A recycling center.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Reservoir">
       <span class="h" property="rdfs:label">Reservoir</span>
       <span property="rdfs:comment">A reservoir, like the Lake Kariba reservoir.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Restaurant">
       <span class="h" property="rdfs:label">Restaurant</span>
       <span property="rdfs:comment">A restaurant.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Review">
       <span class="h" property="rdfs:label">Review</span>
       <span property="rdfs:comment">A review of an item - for example, a restaurant, movie, or store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/RiverBodyOfWater">
       <span class="h" property="rdfs:label">RiverBodyOfWater</span>
       <span property="rdfs:comment">A river (for example, the broad majestic Shannon).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/RoofingContractor">
       <span class="h" property="rdfs:label">RoofingContractor</span>
       <span property="rdfs:comment">A roofing contractor.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HomeAndConstructionBusiness">HomeAndConstructionBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/ProfessionalService">ProfessionalService</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SaleEvent">
       <span class="h" property="rdfs:label">SaleEvent</span>
       <span property="rdfs:comment">Event type: Sales event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ScholarlyArticle">
       <span class="h" property="rdfs:label">ScholarlyArticle</span>
       <span property="rdfs:comment">A scholarly article.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Article">Article</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Article">Article</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/School">
       <span class="h" property="rdfs:label">School</span>
       <span property="rdfs:comment">A school.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/EducationalOrganization">EducationalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Sculpture">
       <span class="h" property="rdfs:label">Sculpture</span>
       <span property="rdfs:comment">A piece of sculpture.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SeaBodyOfWater">
       <span class="h" property="rdfs:label">SeaBodyOfWater</span>
       <span property="rdfs:comment">A sea (for example, the Caspian sea).</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SearchResultsPage">
       <span class="h" property="rdfs:label">SearchResultsPage</span>
       <span property="rdfs:comment">Web page type: Search results page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPage">WebPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SelfStorage">
       <span class="h" property="rdfs:label">SelfStorage</span>
       <span property="rdfs:comment">Self-storage facility.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ShoeStore">
       <span class="h" property="rdfs:label">ShoeStore</span>
       <span property="rdfs:comment">A shoe store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ShoppingCenter">
       <span class="h" property="rdfs:label">ShoppingCenter</span>
       <span property="rdfs:comment">A shopping center or mall.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SingleFamilyResidence">
       <span class="h" property="rdfs:label">SingleFamilyResidence</span>
       <span property="rdfs:comment">Residence type: Single-family home.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Residence">Residence</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Residence">Residence</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WebPageElement">
       <span class="h" property="rdfs:label">WebPageElement</span>
       <span property="rdfs:comment">A web page element, like a table or an image</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SiteNavigationElement">
       <span class="h" property="rdfs:label">SiteNavigationElement</span>
       <span property="rdfs:comment">A navigation element of the page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SkiResort">
       <span class="h" property="rdfs:label">SkiResort</span>
       <span property="rdfs:comment">A ski resort.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SocialEvent">
       <span class="h" property="rdfs:label">SocialEvent</span>
       <span property="rdfs:comment">Event type: Social event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SoftwareApplicationType">
       <span class="h" property="rdfs:label">SoftwareApplicationType</span>
       <span property="rdfs:comment">Type of software application.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SportingGoodsStore">
       <span class="h" property="rdfs:label">SportingGoodsStore</span>
       <span property="rdfs:comment">A sporting goods store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SportsClub">
       <span class="h" property="rdfs:label">SportsClub</span>
       <span property="rdfs:comment">A sports club.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SportsEvent">
       <span class="h" property="rdfs:label">SportsEvent</span>
       <span property="rdfs:comment">Event type: Sports event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SportsTeam">
       <span class="h" property="rdfs:label">SportsTeam</span>
       <span property="rdfs:comment">Organization: Sports team.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Organization">Organization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/StadiumOrArena">
       <span class="h" property="rdfs:label">StadiumOrArena</span>
       <span property="rdfs:comment">A stadium.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/State">
       <span class="h" property="rdfs:label">State</span>
       <span property="rdfs:comment">A state or province.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/AdministrativeArea">AdministrativeArea</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/AdministrativeArea">AdministrativeArea</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/SubwayStation">
       <span class="h" property="rdfs:label">SubwayStation</span>
       <span property="rdfs:comment">A subway station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Synagogue">
       <span class="h" property="rdfs:label">Synagogue</span>
       <span property="rdfs:comment">A synagogue.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PlaceOfWorship">PlaceOfWorship</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TVEpisode">
       <span class="h" property="rdfs:label">TVEpisode</span>
       <span property="rdfs:comment">An episode of a TV series or season.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TVSeason">
       <span class="h" property="rdfs:label">TVSeason</span>
       <span property="rdfs:comment">A TV season.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TVSeries">
       <span class="h" property="rdfs:label">TVSeries</span>
       <span property="rdfs:comment">A television series.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CreativeWork">CreativeWork</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Table">
       <span class="h" property="rdfs:label">Table</span>
       <span property="rdfs:comment">A table on the page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TattooParlor">
       <span class="h" property="rdfs:label">TattooParlor</span>
       <span property="rdfs:comment">A tattoo parlor.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/HealthAndBeautyBusiness">HealthAndBeautyBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TaxiStand">
       <span class="h" property="rdfs:label">TaxiStand</span>
       <span property="rdfs:comment">A taxi stand.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TelevisionStation">
       <span class="h" property="rdfs:label">TelevisionStation</span>
       <span property="rdfs:comment">A television station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TennisComplex">
       <span class="h" property="rdfs:label">TennisComplex</span>
       <span property="rdfs:comment">A tennis complex.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SportsActivityLocation">SportsActivityLocation</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Text">
       <span class="h" property="rdfs:label">Text</span>
       <span property="rdfs:comment">Data type: Text.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TheaterEvent">
       <span class="h" property="rdfs:label">TheaterEvent</span>
       <span property="rdfs:comment">Event type: Theater performance.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TheaterGroup">
       <span class="h" property="rdfs:label">TheaterGroup</span>
       <span property="rdfs:comment">A theater group or company&#8212;for example, the Royal Shakespeare Company or Druid Theatre.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/PerformingGroup">PerformingGroup</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/PerformingGroup">PerformingGroup</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TireShop">
       <span class="h" property="rdfs:label">TireShop</span>
       <span property="rdfs:comment">A tire shop.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TouristAttraction">
       <span class="h" property="rdfs:label">TouristAttraction</span>
       <span property="rdfs:comment">A tourist attraction.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Place">Place</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TouristInformationCenter">
       <span class="h" property="rdfs:label">TouristInformationCenter</span>
       <span property="rdfs:comment">A tourist information center.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/ToyStore">
       <span class="h" property="rdfs:label">ToyStore</span>
       <span property="rdfs:comment">A toystore.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TrainStation">
       <span class="h" property="rdfs:label">TrainStation</span>
       <span property="rdfs:comment">A train station.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/TravelAgency">
       <span class="h" property="rdfs:label">TravelAgency</span>
       <span property="rdfs:comment">A travel agency.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/LocalBusiness">LocalBusiness</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/URL">
       <span class="h" property="rdfs:label">URL</span>
       <span property="rdfs:comment">Data type: URL.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Text">Text</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Text">Text</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserInteraction">
       <span class="h" property="rdfs:label">UserInteraction</span>
       <span property="rdfs:comment">A user interacting with a page</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserBlocks">
       <span class="h" property="rdfs:label">UserBlocks</span>
       <span property="rdfs:comment">User interaction: Block this content.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserCheckins">
       <span class="h" property="rdfs:label">UserCheckins</span>
       <span property="rdfs:comment">User interaction: Check-in at a place.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserComments">
       <span class="h" property="rdfs:label">UserComments</span>
       <span property="rdfs:comment">User interaction: A comment about an item.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserDownloads">
       <span class="h" property="rdfs:label">UserDownloads</span>
       <span property="rdfs:comment">User interaction: Download of an item.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserLikes">
       <span class="h" property="rdfs:label">UserLikes</span>
       <span property="rdfs:comment">User interaction: Like an item.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserPageVisits">
       <span class="h" property="rdfs:label">UserPageVisits</span>
       <span property="rdfs:comment">User interaction: Visit to a web page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserPlays">
       <span class="h" property="rdfs:label">UserPlays</span>
       <span property="rdfs:comment">User interaction: Play count of an item, for example a video or a song.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserPlusOnes">
       <span class="h" property="rdfs:label">UserPlusOnes</span>
       <span property="rdfs:comment">User interaction: +1.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/UserTweets">
       <span class="h" property="rdfs:label">UserTweets</span>
       <span property="rdfs:comment">User interaction: Tweets.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/UserInteraction">UserInteraction</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/VeterinaryCare">
       <span class="h" property="rdfs:label">VeterinaryCare</span>
       <span property="rdfs:comment">A vet's office.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MedicalOrganization">MedicalOrganization</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/VideoGallery">
       <span class="h" property="rdfs:label">VideoGallery</span>
       <span property="rdfs:comment">Web page type: Video gallery page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CollectionPage">CollectionPage</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CollectionPage">CollectionPage</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/VideoObject">
       <span class="h" property="rdfs:label">VideoObject</span>
       <span property="rdfs:comment">A video file.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/MediaObject">MediaObject</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/VisualArtsEvent">
       <span class="h" property="rdfs:label">VisualArtsEvent</span>
       <span property="rdfs:comment">Event type: Visual arts event.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Event">Event</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Volcano">
       <span class="h" property="rdfs:label">Volcano</span>
       <span property="rdfs:comment">A volcano, like Fuji san</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Landform">Landform</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WPAdBlock">
       <span class="h" property="rdfs:label">WPAdBlock</span>
       <span property="rdfs:comment">An advertising section of the page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WPFooter">
       <span class="h" property="rdfs:label">WPFooter</span>
       <span property="rdfs:comment">The footer section of the page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WPHeader">
       <span class="h" property="rdfs:label">WPHeader</span>
       <span property="rdfs:comment">The header section of the page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WPSideBar">
       <span class="h" property="rdfs:label">WPSideBar</span>
       <span property="rdfs:comment">A sidebar section of the page.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/WebPageElement">WebPageElement</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Waterfall">
       <span class="h" property="rdfs:label">Waterfall</span>
       <span property="rdfs:comment">A waterfall, like Niagara</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/BodyOfWater">BodyOfWater</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WebApplication">
       <span class="h" property="rdfs:label">WebApplication</span>
       <span property="rdfs:comment">Web applications.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/SoftwareApplication">SoftwareApplication</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/SoftwareApplication">SoftwareApplication</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/WholesaleStore">
       <span class="h" property="rdfs:label">WholesaleStore</span>
       <span property="rdfs:comment">A wholesale store.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/Store">Store</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Winery">
       <span class="h" property="rdfs:label">Winery</span>
       <span property="rdfs:comment">A winery.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/FoodEstablishment">FoodEstablishment</a></span>
     </div>
     <div typeof="rdfs:Class" about="http://schema.org/Zoo">
       <span class="h" property="rdfs:label">Zoo</span>
       <span property="rdfs:comment">A zoo.</span>
-       <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
+       <span>Subclass of: <a rel="rdfs:subClassOf" href="http://schema.org/CivicStructure">CivicStructure</a></span>
     </div>
     <div typeof="rdf:Property" about="http://schema.org/highPrice">
       <span class="h" property="rdfs:label">highPrice</span>
@@ -3247,5 +3206,18 @@
       <span>Domain: <a property="http://schema.org/domain" href="http://schema.org/WebPage">WebPage</a></span>
       <span>Range: <a property="http://schema.org/range" href="http://schema.org/URL">URL</a></span>
     </div>
+
+	<!-- original, remote location of libs: -->
+	<!-- 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	<script src="http://rdfquery.googlecode.com/files/jquery.rdfquery.rdfa.min-1.0.js"></script> 
+	-->
+
+	<!-- local libs to boost performance: -->
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/jquery-ui.min.js"></script>
+	<script src="lib/jquery.rdfquery.rdfa.min-1.0.js"></script>
+	<script src="schema-org-nav.js"></script>
   </body>
 </html>

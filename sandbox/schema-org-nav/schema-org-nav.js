@@ -1,40 +1,57 @@
-// using https://github.com/linkeddata/rdflib.js seems not to work:
-//var kb = new $rdf.Formula();
-//var doc;
-//var t = $rdf.rdfa.parse('div[typeof|="rdfs:Class"]', kb, "http://schema.org", doc);
-// for (i=0; i < kb.statements.length; i++) {
-// 	var s = kb.statements[i].subject;
-// 	var p = kb.statements[i].predicate;
-// 	var o = kb.statements[i].object;
-// 	$('#nav-output').append('Triple:' + s + ' ' + p + ' ' + o);
-// }
-
 var SCHEMA_ORG_BASE = 'http://schema.org/';
+var rdf;
+var num_triples = 0;
 
+$(function() {
+	// init - see http://code.google.com/p/rdfquery/wiki/RdfPlugin for documentation
+	rdf = $('div').rdf(); // extract all RDFa markup from any div
+	all_triples(rdf, false); // generic processing of all triples; currently just counts it
+	$('#nav').slideDown('slow');
 
-$(function() {	
 	$('#explore').click(function() {
-		var rdf = $('div').rdf(); // extract all RDFa markup from any div
-		var things = []; // remember the things that we already have in the result
-		rdf
-		.where('?s ?p ?o')
-		.each(function () {
-			if($.inArray(this.s.value, things) == -1){ // not already in the list of things we've outputted ...
-				var t = this.s.value.toString().substring(SCHEMA_ORG_BASE.length);
-				var t_id = '__'+ t;
-				$("<div id='" + t_id + "' class='hidden-anchor' />").insertBefore('div[about|="'+ this.s.value  + '"]'); // find the div and add an @id before
-				$('#nav-output').append('<div class="lnk" id="lnk_' + t_id +'">' + t + '</div>'); // build result
-				things.push(this.s.value);
-			}
-			
-		});
-		$('#nav-output').slideDown('slow');
+ 		render_toplevel_things(rdf);
+		hide_nav();
 	});
 
-	$('.lnk').live('click', function() {
-		var target = $(this).attr('id');
-		target = target.toString().substring('lnk_'.length);
-		console.log('prepare to jump to ' + target);
-		$('#'+target).ScrollTo();
+	$(".lnk a").live("click", function(){
+		var targetID = $(this).attr('href');
+		$('#'+targetID).css('border', '1px solid #ff3333');
+//		return true;
 	});
 });
+
+function render_toplevel_things(rdf, do_log){
+	var toplevel_things = []; // the top level things (direct sub-classes of schema:Thing)
+	$('#nav-output').html('<h3>Top-level concepts</h3>');
+	$('#nav-output').slideDown('slow');
+	rdf
+	.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
+	.where('?s rdfs:subClassOf <http://schema.org/Thing>')
+	.each(function () {
+		if($.inArray(this.s.value, toplevel_things) == -1){ // not already in the seen list, remember each subject only once
+			toplevel_things.push(this.s.value);
+		}
+	});
+	// present the top-level things in alphabetical order
+	toplevel_things.sort(); 
+	for(i=0; i < toplevel_things.length; i++){
+		var t = toplevel_things[i].toString().substring(SCHEMA_ORG_BASE.length);
+		var t_id = '__'+ t;
+		$('<div class="dynanchor" id="' + t_id + '" >&middot;</div>').insertBefore('div[about|="'+ toplevel_things[i]  + '"]'); // find the div and add an @id before
+		$('#nav-output').append('<div class="lnk"><a href="#' + t_id +'">' + t + '</a></div>'); // build result
+	}
+}
+
+function hide_nav(){
+	$('#nav').slideUp('fast');
+}
+
+function all_triples(rdf, do_log){
+	rdf
+	.where('?s ?p ?o')
+	.each(function () {
+		if(do_log) console.log(this.s + ' ' + this.p + ' ' + this.o);
+		num_triples = num_triples + 1;
+	});
+	console.log('Parsed ' + num_triples + ' triples');
+}
