@@ -1,3 +1,7 @@
+body {
+	padding: 5px;
+}
+
 span.h {
 	padding-left: 0px;
 	font-weight: bold;
@@ -9,23 +13,38 @@ span {
 }
 
 #nav {
-	position: absolute;
+	font-family: Helvetica;
+	position: fixed;
 	right: 10px;
 	top: 10px;
+	border: 1px solid #e0e0e0;
+	background: #f0f0f0;
 	display: none;
 }
 
 #nav-output {
-	position: absolute;
+	font-family: Helvetica;
+	position: fixed;
 	right: 10px;
 	top: 10px;
-	font-size: 90%;
 	border: 1px solid #e0e0e0;
-	padding: 10px;
-	width: 200px;
 	background: #f0f0f0;
+	padding: 10px;
+	width: 300px;
 	display: none;
 }
+
+#nav-output h3 {
+	font-size: 90%;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 5px;
+}
+
+#nav-output div {
+	font-size: 80%;
+	padding: 2px;
+}
+
 
 #explore {
 	color: #00e;
@@ -41,4 +60,19 @@ span {
 }
 
 .lnk {
+	margin: 10px;
+}
+
+.lnk span {
+	width: 200px;
+}
+
+.lnk span.expand {
+	font-size: 100%;
+	border: 1px solid #e0e0e0;
+	width: 10px;
+	float: left;
+	margin-right: 5px;
+	cursor: pointer;
+	padding: 0 0 0 2px;
 }
