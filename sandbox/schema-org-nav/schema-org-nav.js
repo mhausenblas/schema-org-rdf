@@ -1,6 +1,24 @@
 var SCHEMA_ORG_BASE = 'http://schema.org/';
 var rdf; // see http://code.google.com/p/rdfquery/wiki/RdfPlugin for documentation
 var num_triples = 0;
+var current_concept;
+var parent_concept = 'Thing';
+var extensions = [ // based on http://www.w3.org/wiki/WebSchemas/SchemaDotOrgProposals
+{
+	'id' : 'http://schema.org/extensions/jobpostings',
+	'state' : 'http://schema.org/extensions/meta#published',
+	'topic' : 'Job Postings',
+	'spec' : 'http://www.w3.org/wiki/JobPostingSchema'
+},
+{
+	'id' : 'http://schema.org/extensions/tv-radio',
+	'state' : 'http://schema.org/extensions/meta#candidate',
+	'topic' : 'TV and Radio',
+	'spec' : 'http://www.w3.org/wiki/TVRadioSchema'
+}
+];
+
+//TODO: test http://viejs.org/
 
 $(function() {
 	rdf = $('div').rdf(); // extract all RDFa markup from any div
@@ -13,23 +31,20 @@ $(function() {
 	});
 
 	$(".lnk a").live("click", function(){
-		var targetID = $(this).attr('href');
-		$('#'+targetID).css('border', '1px solid #ff3333');
-//		return true;
+		var conceptID = $(this).attr('href').toString().substring('#__'.length);
+		render_concept(rdf, conceptID);
 	});
 	
 	$(".lnk .expand").live("click", function(){
 		var conceptID = $(this).attr('id').toString().substring('expand___'.length);
-		render_concept(rdf, conceptID, 'Thing');
+		render_concept(rdf, conceptID);
 	});
 	
 });
 
 
-function render_concept(rdf, conceptID, parentID){
+function render_concept(rdf, conceptID){
 	var things = []; // the things (direct sub-classes of concept)
-	
-	$('#subconcepts').html('<h3>' + parentID + ' : ' + conceptID + "</h3>");
 	
 	rdf
 	.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
@@ -39,6 +54,11 @@ function render_concept(rdf, conceptID, parentID){
 			things.push(this.s.value);
 		}
 	});
+	
+	$('#subconcepts').html('<h3>' + conceptID + '</h3><p class="concept-stats">This concept has ' + things.length +' sub-concepts and Y extensions.</p>');
+	//parent_concept = conceptID;
+	// TODO: add two tabs: one for core and one for extensions
+	
 	// present things in alphabetical order
 	things.sort(); 
 	for(i=0; i < things.length; i++){
@@ -51,7 +71,7 @@ function render_concept(rdf, conceptID, parentID){
 
 function render_toplevel_things(rdf){
 	var toplevel_things = []; // the top level things (direct sub-classes of schema:Thing)
-	$('#nav-output').html('<h3>Top-level concepts</h3>');
+	$('#nav-output').html('<h3>Top-level concepts</h3><p class="concept-stats">A top-level concept is one that is directly derived from schema:Thing</p>');
 	$('#nav-output').slideDown('slow');
 	rdf
 	.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
@@ -68,6 +88,10 @@ function render_toplevel_things(rdf){
 		var t_id = '__'+ t;
 		$('<div class="dynanchor" id="' + t_id + '" >&middot;</div>').insertBefore('div[about|="'+ toplevel_things[i]  + '"]'); // find the div and add an @id before
 		$('#nav-output').append('<div class="lnk"><span class="expand" id="expand_' +  t_id + '" title="expand this concept">&laquo;</span><span><a href="#' + t_id +'">' + t + '</a></span></div>'); // build result
+	}
+	$('#nav-output').append('<h3>Extensions</h3><p class="concept-stats">Suggested and upcoming extensions to Schema.org</p>');
+	for(i=0; i < extensions.length; i++){
+		$('#nav-output').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].topic + '</span>: <a href="' + extensions[i].spec +'">schema</a> | ' + extensions[i].state.substring('http://schema.org/extensions/meta#'.length) + '</div>');
 	}
 	$('#nav-output').append('<div id="subconcepts" />');
 }

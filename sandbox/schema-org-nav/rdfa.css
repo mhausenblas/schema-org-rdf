@@ -1,5 +1,5 @@
 body {
-	padding: 5px;
+	padding: 5em 1em 1em 1em;
 }
 
 span.h {
@@ -64,7 +64,6 @@ span {
 }
 
 .lnk span {
-	width: 200px;
 }
 
 .lnk span.expand {
@@ -75,4 +74,18 @@ span {
 	margin-right: 5px;
 	cursor: pointer;
 	padding: 0 0 0 2px;
+}
+
+.concept-stats {
+	color: #909090;
+	font-size: 70%;
+	padding: 0 0 0 12px;
+}
+
+.extension {
+	margin: 10px;
+}
+
+.extension span {
+	float: left;
 }
