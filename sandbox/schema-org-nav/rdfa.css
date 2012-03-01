@@ -20,6 +20,21 @@ span {
 	display: none;
 }
 
+#close-explore, #close-ext {
+	position: fixed;
+	right: 15px;
+	top: 15px;
+	font-size: 90%;
+	font-weight: bold;
+	border: 1px solid #e0e0e0;
+	width: 10px;
+	float: left;
+	margin-right: 5px;
+	cursor: pointer;
+	padding: 0px 3px 1px 4px;
+	color: #6f6f6f;
+}
+
 #nav-output {
 	font-family: Helvetica;
 	position: fixed;
@@ -27,7 +42,7 @@ span {
 	top: 10px;
 	border: 1px solid #e0e0e0;
 	background: #f0f0f0;
-	padding: 10px;
+	padding: 30px 10px 10px 10px;
 	width: 300px;
 	display: none;
 }
@@ -39,7 +54,7 @@ span {
 	top: 10px;
 	border: 1px solid #e0e0e0;
 	background: #f0f0f0;
-	padding: 10px;
+	padding: 30px 10px 10px 10px;
 	width: 500px;
 	display: none;
 }
@@ -56,9 +71,14 @@ span {
 	padding: 0px;
 }
 
-#nav-output div, #ext-output div {
+#nav-output div {
 	font-size: 80%;
 	padding: 2px;
+}
+
+#ext-output div {
+	padding: 2px;
+	font-size: 90%;
 }
 
 #explore, #extensions {
@@ -94,16 +114,35 @@ span {
 	padding: 0 0 0 2px;
 }
 
-.concept-stats, .ext-state {
+.concept-stats {
 	color: #909090;
 	font-size: 70%;
 	padding: 0 0 0 12px;
 }
 
-.extension {
-	margin: 10px;
+.ext-overview {
+	color: #909090;
+	font-size: 90%;
+	padding: 0 0 0 5px;
 }
 
-.extension span {
-	float: left;
+.ext-state {
+	color: #909090;
+	font-size: 95%;
+	padding: 0 0 0 13px;
+}
+
+.extension {
+	margin: 10px 0 5px 0;
+}
+
+.extension a.expand {
+	padding: 0 0 0 10px;
+}
+
+
+/* overwrite the jQuery UI stuff */
+
+.ui-widget-header {
+	font-size: 85%;
 }
