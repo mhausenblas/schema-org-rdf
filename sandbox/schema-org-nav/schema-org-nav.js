@@ -177,25 +177,25 @@ function render_extensions(){
 	$('#tabs-published').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.published + '</p>');
 	for(i=0; i < extensions.length; i++){ // published extensions
 		if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':published')) {
-			$('#tabs-published').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> ' + extensions[i].title + ': <a href="' + extensions[i].spec +'">schema</a></div>');
+			$('#tabs-published').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> ' + extensions[i].title + ': <a href="' + extensions[i].spec +'">schema</a><p>' + extensions[i].description + '</p></div>');
 		}
 	}
 	$('#tabs-candidate').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.candidate + '</p>');
 	for(i=0; i < extensions.length; i++){ // candidate extensions
 		if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':candidate')) {
-			$('#tabs-candidate').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> ' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
+			$('#tabs-candidate').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> ' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a><p>' + extensions[i].description + '</p></div>');
 		}
 	}
 	$('#tabs-proposal').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.proposal + '</p>');
 	for(i=0; i < extensions.length; i++){ // // proposal extensions
 		if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':proposal')) {
-			$('#tabs-proposal').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> ' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">proposal</a></div>');
+			$('#tabs-proposal').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> ' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">proposal</a><p>' + extensions[i].description + '</p></div>');
 		}
 	}
 	$('#tabs-discussion').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.discussion + '</p>');
 	for(i=0; i < extensions.length; i++){ // extensions under discussion
 		if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':discussion')) {
-			$('#tabs-discussion').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> 	' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">discussion</a></div>');
+			$('#tabs-discussion').append('<div class="extension"><a class="expand" href="' + extensions[i].id + '">&laquo;</a> 	' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">discussion</a><p>' + extensions[i].description + '</p></div>');
 		}
 	}
 }
