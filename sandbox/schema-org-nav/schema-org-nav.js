@@ -10,7 +10,7 @@ var parent_concept = 'Thing';
 var EXTENSIONS_SCHEMA = {
 	'base' : 'http://schema.org/extensions/meta#',
 	'prefix' : 'schema-e',
-	'states' : {
+	'state' : {
 		'published' : 'Has been integrated into Schema.org and is hence available under http://schema.org/extensions now.', 
 		'candidate' : 'Requires a Last Call, had some good review, and is now considered to be published soon-ish.', 
 		'proposal' : 'Requires at least some sort of proposal of the terms, on the Wiki or via the mailing list, etc.', 
@@ -73,9 +73,11 @@ $(function() {
 	rdf = $('div').rdf(); // extract all RDFa markup from any div
 	all_triples(rdf, false); // generic processing of all triples; currently just counts it
 	show_nav();
+	$('#ext-output').tabs(); // create the extension tabs
 	
+	// explore mode:
 	$('#explore').click(function() {
- 		render_toplevel_things(rdf);
+		render_toplevel_things(rdf);
 		hide_nav();
 	});
 
@@ -88,6 +90,42 @@ $(function() {
 		var conceptID = $(this).attr('id').toString().substring('expand___'.length);
 		render_concept(rdf, conceptID);
 	});
+	
+
+	// extensions mode:
+	$('#extensions').click(function() {
+		// handling of extensions:
+		$('#ext-output').append('<h3>Extensions</h3><p class="concept-stats">Suggested and upcoming extensions to Schema.org</p>');	
+		$('#ext-tabs-published').append('<p>' +  EXTENSIONS_SCHEMA.state.published + '</p>');
+		for(i=0; i < extensions.length; i++){ // published extensions
+			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':published')) {
+				$('#ext-tabs-published').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
+			}
+		}
+		$('#ext-tabs-candidate').append('<p>' +  EXTENSIONS_SCHEMA.state.candidate + '</p>');
+		for(i=0; i < extensions.length; i++){ // candidate extensions
+			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':candidate')) {
+				$('#ext-tabs-candidate').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
+			}
+		}
+		$('#ext-tabs-proposal').append('<p>' +  EXTENSIONS_SCHEMA.state.proposal + '</p>');
+		for(i=0; i < extensions.length; i++){ // // proposal extensions
+			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':proposal')) {
+				$('#ext-tabs-proposal').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">proposal</a></div>');
+			}
+		}
+		$('#ext-tabs-discussion').append('<p>' +  EXTENSIONS_SCHEMA.state.discussion + '</p>');
+		for(i=0; i < extensions.length; i++){ // extensions under discussion
+			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':discussion')) {
+				$('#ext-tabs-discussion').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">discussion</a></div>');
+			}
+		}
+		
+		$('#ext-output').slideDown('slow');
+		hide_nav();
+	});
+	
+	
 	
 });
 
@@ -138,12 +176,6 @@ function render_toplevel_things(rdf){
 		var t_id = '__'+ t;
 		$('<div class="dynanchor" id="' + t_id + '" >&middot;</div>').insertBefore('div[about|="'+ toplevel_things[i]  + '"]'); // find the div and add an @id before
 		$('#nav-output').append('<div class="lnk"><span class="expand" id="expand_' +  t_id + '" title="expand this concept">&laquo;</span><span><a href="#' + t_id +'">' + t + '</a></span></div>'); // build result
-	}
-	
-	// handling of extensions:
-	$('#nav-output').append('<h3>Extensions</h3><p class="concept-stats">Suggested and upcoming extensions to Schema.org</p>');
-	for(i=0; i < extensions.length; i++){
-		$('#nav-output').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a> | ' + extensions[i].state.substring(EXTENSIONS_SCHEMA.prefix.length + 1) + '</div>');
 	}
 	$('#nav-output').append('<div id="subconcepts" />');
 }

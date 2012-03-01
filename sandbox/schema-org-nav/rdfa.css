@@ -17,12 +17,10 @@ span {
 	position: fixed;
 	right: 10px;
 	top: 10px;
-	border: 1px solid #e0e0e0;
-	background: #f0f0f0;
 	display: none;
 }
 
-#nav-output {
+#nav-output, #ext-output {
 	font-family: Helvetica;
 	position: fixed;
 	right: 10px;
@@ -34,25 +32,32 @@ span {
 	display: none;
 }
 
-#nav-output h3 {
+#nav-output h3, #ext-output h3 {
 	font-size: 90%;
 	border-bottom: 1px solid #e0e0e0;
 	padding: 5px;
 }
 
-#nav-output div {
+#nav-output h4, #ext-output h4 {
+	font-size: 80%;
+	padding: 0px;
+}
+
+#nav-output div, #ext-output div {
 	font-size: 80%;
 	padding: 2px;
 }
 
-
-#explore {
+#explore, #extensions {
 	color: #00e;
 	cursor: pointer;
 	font-size: 90%;
 	border: 1px solid #e0e0e0;
+	background: #f0f0f0;
 	text-align: center; 
 	padding: 2px 5px 2px 5px;
+	margin: 0 3px 0 3px;
+	float: left;
 }
 
 .dynanchor{

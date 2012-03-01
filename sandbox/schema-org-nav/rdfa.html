@@ -18,8 +18,20 @@
 
   <body>
 	<a href="https://github.com/mhausenblas/schema-org-rdf"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/edc6dae7a1079163caf7f17c60495bbb6d027c93/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
-	<div id="nav"><span id="explore">explore ...</span></div>
+	<div id="nav"><span id="explore">explore ...</span><span id="extensions">extensions ...</span></div>
 	<div id="nav-output"><img src="load.gif" alt="busy" /></div>
+	<div id="ext-output">
+		<ul>
+			<li><a href="#tab-published">Published</a></li>
+			<li><a href="#tabs-candidate">Candidates</a></li>
+			<li><a href="#tabs-proposal">Proposed</a></li>
+			<li><a href="#tabs-discussion">Discussed</a></li>
+		</ul>
+		<div id="tabs-published"></div>
+		<div id="tabs-candidate"></div>
+		<div id="tabs-proposal"></div>
+		<div id="tabs-discussion"></div>
+	</div>
     <h1>Schema.org core schema</h1>
 
     <p>This is an <b>experimental</b> RDFa 1.1 Lite representation of the schema.org schema, copied here for collaboration and <a href="mailto:public-vocabs@w3.org">feedback</a>.</p>
@@ -3217,7 +3229,7 @@
 
 	<!-- local libs to boost performance: -->
 	<script src="lib/jquery.min.js"></script>
-	<!-- <script src="lib/jquery-ui.min.js"></script> -->
+	<script src="lib/jquery-ui.min.js"></script>
 	<script src="lib/jquery.rdfquery.rdfa.min-1.0.js"></script>
 	<script src="schema-org-nav.js"></script>
   </body>
