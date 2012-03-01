@@ -3,18 +3,67 @@ var rdf; // see http://code.google.com/p/rdfquery/wiki/RdfPlugin for documentati
 var num_triples = 0;
 var current_concept;
 var parent_concept = 'Thing';
-var extensions = [ // based on http://www.w3.org/wiki/WebSchemas/SchemaDotOrgProposals
+
+////////////////////////////////////////////////////
+// Schema.org extensions metadata
+//
+var EXTENSIONS_SCHEMA = {
+	'base' : 'http://schema.org/extensions/meta#',
+	'prefix' : 'schema-e',
+	'states' : {
+		'published' : 'Has been integrated into Schema.org and is hence available under http://schema.org/extensions now.', 
+		'candidate' : 'Requires a Last Call, had some good review, and is now considered to be published soon-ish.', 
+		'proposal' : 'Requires at least some sort of proposal of the terms, on the Wiki or via the mailing list, etc.', 
+		'discussion' : 'No proposal yet, but some expression of interest and typically a discussion (on IRC, Wiki, mailing list, etc.) around it.'
+	}
+};
+
+// The description of the extensions - should be pulled in live from a Web service that extract the 
+// information from http://www.w3.org/wiki/WebSchemas/SchemaDotOrgProposals and/or another data source TBD.
+var extensions = [
 {
-	'id' : 'http://schema.org/extensions/jobpostings',
-	'state' : 'http://schema.org/extensions/meta#published',
-	'topic' : 'Job Postings',
-	'spec' : 'http://www.w3.org/wiki/JobPostingSchema'
+	'id' : 'http://schema.org/extensions/jobpostings', // the globally unique extension identifier
+	'state' : 'schema-e:published', // state of the extension, see extensions_schema, above
+	'title' : 'Job Postings', // short title, what is called 'Topic' in http://www.w3.org/wiki/WebSchemas/SchemaDotOrgProposals
+	'description' : 'A type for job adverts.', //summary of the extension's purpose and/or terms, what is called Summary in http://www.w3.org/wiki/WebSchemas/SchemaDotOrgProposals
+	'spec' : 'http://www.w3.org/wiki/JobPostingSchema'	// for all above schema-e:discussion, this provides a pointer to the 
+														// full specification of the terms on the Wiki or externally which must resolve (!)
+														// however, for extensions in their early days this might well be only an URL to a tweet or the like.
+},
+{
+	'id' : 'http://schema.org/extensions/iptc-rnews',
+	'state' : 'schema-e:published',
+	'title' : 'IPTC/rNews integration',
+	'description' : 'Integration of the rNews vocabulary produced by the IPTC.',
+	'spec' : 'http://dev.iptc.org/rNews-10-Implementation-Guide-HTML-5-Microdata'
 },
 {
 	'id' : 'http://schema.org/extensions/tv-radio',
-	'state' : 'http://schema.org/extensions/meta#candidate',
-	'topic' : 'TV and Radio',
+	'state' : 'schema-e:candidate',
+	'title' : 'TV and Radio',
+	'description' : 'Proposes modest changes and additions to support TV and radio (from EBU and BBC).',
 	'spec' : 'http://www.w3.org/wiki/TVRadioSchema'
+},
+{
+	'id' : 'http://schema.org/extensions/comics',
+	'state' : 'schema-e:candidate',
+	'title' : 'Comics and Serials',
+	'description' : 'Proposal from Marvel.',
+	'spec' : 'http://www.w3.org/wiki/PeriodicalsComics'
+},
+{
+	'id' : 'http://schema.org/extensions/web-apps',
+	'state' : 'schema-e:proposal',
+	'title' : 'Software Application',
+	'description' : 'A class for Software Applications - webapps, both installable and Web-based.',
+	'spec' : 'http://www.w3.org/wiki/SoftwareApplicationSchema'
+},
+{
+	'id' : 'http://schema.org/extensions/real-estate',
+	'state' : 'schema-e:discussion',
+	'title' : 'Real Estate',
+	'description' : 'Enthusiastic discussion in favour of adding RealEstate support. Tracked as ISSUE-13.',
+	'spec' : 'http://www.w3.org/wiki/RealEstate'
 }
 ];
 
@@ -81,7 +130,8 @@ function render_toplevel_things(rdf){
 			toplevel_things.push(this.s.value);
 		}
 	});
-	// present the top-level things in alphabetical order
+	
+	// present the top-level things in alphabetical order:
 	toplevel_things.sort(); 
 	for(i=0; i < toplevel_things.length; i++){
 		var t = toplevel_things[i].toString().substring(SCHEMA_ORG_BASE.length);
@@ -89,9 +139,11 @@ function render_toplevel_things(rdf){
 		$('<div class="dynanchor" id="' + t_id + '" >&middot;</div>').insertBefore('div[about|="'+ toplevel_things[i]  + '"]'); // find the div and add an @id before
 		$('#nav-output').append('<div class="lnk"><span class="expand" id="expand_' +  t_id + '" title="expand this concept">&laquo;</span><span><a href="#' + t_id +'">' + t + '</a></span></div>'); // build result
 	}
+	
+	// handling of extensions:
 	$('#nav-output').append('<h3>Extensions</h3><p class="concept-stats">Suggested and upcoming extensions to Schema.org</p>');
 	for(i=0; i < extensions.length; i++){
-		$('#nav-output').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].topic + '</span>: <a href="' + extensions[i].spec +'">schema</a> | ' + extensions[i].state.substring('http://schema.org/extensions/meta#'.length) + '</div>');
+		$('#nav-output').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a> | ' + extensions[i].state.substring(EXTENSIONS_SCHEMA.prefix.length + 1) + '</div>');
 	}
 	$('#nav-output').append('<div id="subconcepts" />');
 }
