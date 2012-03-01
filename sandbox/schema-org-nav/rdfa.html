@@ -13,6 +13,7 @@
   xmlns:doap="http://usefulinc.com/ns/doap#">
   <head>
 	<title>RDFa Lite Reflection</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="rdfa.css" />
   </head>
 
@@ -21,16 +22,20 @@
 	<div id="nav"><span id="explore">explore ...</span><span id="extensions">extensions ...</span></div>
 	<div id="nav-output"><img src="load.gif" alt="busy" /></div>
 	<div id="ext-output">
-		<ul>
-			<li><a href="#tab-published">Published</a></li>
-			<li><a href="#tabs-candidate">Candidates</a></li>
-			<li><a href="#tabs-proposal">Proposed</a></li>
-			<li><a href="#tabs-discussion">Discussed</a></li>
-		</ul>
-		<div id="tabs-published"></div>
-		<div id="tabs-candidate"></div>
-		<div id="tabs-proposal"></div>
-		<div id="tabs-discussion"></div>
+		<div id="ext-states">
+			<h3>Extensions</h3>
+			<p class="concept-stats">Suggested and upcoming extensions to Schema.org</p>
+			<ul>
+				<li><a href="#tabs-published">Published</a></li>
+				<li><a href="#tabs-candidate">Candidates</a></li>
+				<li><a href="#tabs-proposal">Proposed</a></li>
+				<li><a href="#tabs-discussion">Discussed</a></li>
+			</ul>
+			<div id="tabs-published"></div>
+			<div id="tabs-candidate"></div>
+			<div id="tabs-proposal"></div>
+			<div id="tabs-discussion"></div>
+		</div>
 	</div>
     <h1>Schema.org core schema</h1>
 

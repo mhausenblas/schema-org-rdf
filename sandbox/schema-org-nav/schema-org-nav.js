@@ -70,15 +70,14 @@ var extensions = [
 //TODO: test http://viejs.org/
 
 $(function() {
-	rdf = $('div').rdf(); // extract all RDFa markup from any div
-	all_triples(rdf, false); // generic processing of all triples; currently just counts it
 	show_nav();
-	$('#ext-output').tabs(); // create the extension tabs
+	$('#ext-states').tabs(); // create the extension tabs
 	
 	// explore mode:
 	$('#explore').click(function() {
-		render_toplevel_things(rdf);
-		hide_nav();
+		$('#nav-output').show('slow', function() {
+			explore(rdf);
+		});
 	});
 
 	$(".lnk a").live("click", function(){
@@ -95,29 +94,28 @@ $(function() {
 	// extensions mode:
 	$('#extensions').click(function() {
 		// handling of extensions:
-		$('#ext-output').append('<h3>Extensions</h3><p class="concept-stats">Suggested and upcoming extensions to Schema.org</p>');	
-		$('#ext-tabs-published').append('<p>' +  EXTENSIONS_SCHEMA.state.published + '</p>');
+		$('#tabs-published').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.published + '</p>');
 		for(i=0; i < extensions.length; i++){ // published extensions
 			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':published')) {
-				$('#ext-tabs-published').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
+				$('#tabs-published').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
 			}
 		}
-		$('#ext-tabs-candidate').append('<p>' +  EXTENSIONS_SCHEMA.state.candidate + '</p>');
+		$('#tabs-candidate').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.candidate + '</p>');
 		for(i=0; i < extensions.length; i++){ // candidate extensions
 			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':candidate')) {
-				$('#ext-tabs-candidate').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
+				$('#tabs-candidate').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">schema</a></div>');
 			}
 		}
-		$('#ext-tabs-proposal').append('<p>' +  EXTENSIONS_SCHEMA.state.proposal + '</p>');
+		$('#tabs-proposal').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.proposal + '</p>');
 		for(i=0; i < extensions.length; i++){ // // proposal extensions
 			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':proposal')) {
-				$('#ext-tabs-proposal').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">proposal</a></div>');
+				$('#tabs-proposal').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">proposal</a></div>');
 			}
 		}
-		$('#ext-tabs-discussion').append('<p>' +  EXTENSIONS_SCHEMA.state.discussion + '</p>');
+		$('#tabs-discussion').html('<p class="ext-state">' +  EXTENSIONS_SCHEMA.state.discussion + '</p>');
 		for(i=0; i < extensions.length; i++){ // extensions under discussion
 			if(extensions[i].state == (EXTENSIONS_SCHEMA.prefix + ':discussion')) {
-				$('#ext-tabs-discussion').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">discussion</a></div>');
+				$('#tabs-discussion').append('<div class="extension"><span title="' + extensions[i].id + '">' + extensions[i].title + '</span>: <a href="' + extensions[i].spec +'">discussion</a></div>');
 			}
 		}
 		
@@ -129,6 +127,13 @@ $(function() {
 	
 });
 
+
+function explore(rdf){
+	rdf = $('div').rdf(); // extract all RDFa markup from any div
+	all_triples(rdf, false); // generic processing of all triples; currently just counts it
+	render_toplevel_things(rdf);
+	hide_nav();
+}
 
 function render_concept(rdf, conceptID){
 	var things = []; // the things (direct sub-classes of concept)
@@ -159,7 +164,6 @@ function render_concept(rdf, conceptID){
 function render_toplevel_things(rdf){
 	var toplevel_things = []; // the top level things (direct sub-classes of schema:Thing)
 	$('#nav-output').html('<h3>Top-level concepts</h3><p class="concept-stats">A top-level concept is one that is directly derived from schema:Thing</p>');
-	$('#nav-output').slideDown('slow');
 	rdf
 	.prefix('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 	.where('?s rdfs:subClassOf <http://schema.org/Thing>')
