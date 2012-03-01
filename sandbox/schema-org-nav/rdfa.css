@@ -43,8 +43,12 @@ span {
 	border: 1px solid #e0e0e0;
 	background: #f0f0f0;
 	padding: 30px 10px 10px 10px;
-	width: 300px;
 	display: none;
+}
+
+#top-level-concepts {
+	width: 200px;
+	float: left;
 }
 
 #ext-output {
@@ -74,6 +78,10 @@ span {
 #nav-output div {
 	font-size: 80%;
 	padding: 2px;
+}
+
+#subconcepts {
+	float: left;
 }
 
 #ext-output div {
