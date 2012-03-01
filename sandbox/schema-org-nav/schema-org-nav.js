@@ -76,14 +76,17 @@ $(function() {
 	// explore mode:
 	$('#explore').click(function() {
 		$('#nav-output').show('slow', function() {
-			rdf = $('div').rdf(); // extract all RDFa markup from any div
-			all_triples(rdf, false); // generic processing of all triples; currently just counts it
+			if(num_triples == 0){ // init, count triples
+				rdf = $('div').rdf(); // extract all RDFa markup from any div
+				all_triples(rdf, false); // generic processing of all triples; currently just counts it
+			}
 			render_toplevel_things(rdf);
 			hide_nav();
 		});
 	});
 
 	$('#close-explore').live("click", function() {
+		$('#subconcepts').hide();
 		$('#nav-output').slideUp('slow');
 		show_nav();
 	});
@@ -96,6 +99,7 @@ $(function() {
 	$(".lnk .expand").live("click", function(){
 		var conceptID = $(this).attr('id').toString().substring('expand___'.length);
 		render_concept(rdf, conceptID);
+		// $('#__'+conceptID).focus();
 	});
 	
 
@@ -135,7 +139,7 @@ function render_concept(rdf, conceptID){
 	for(i=0; i < things.length; i++){
 		var t = things[i].toString().substring(SCHEMA_ORG_BASE.length);
 		var t_id = '__'+ t;
-		if($("#" + t_id).length == 0) {
+		if($('#'+t_id).length == 0) { // add an anchor if not yet exists
 			$('<div class="dynanchor" id="' + t_id + '" >&middot;</div>').insertBefore('div[about|="'+ things[i]  + '"]'); // find the div and add an @id before
 		}
 		$('#subconcepts').append('<div class="lnk"><span class="expand" id="expand_' +  t_id + '" title="expand this concept">&laquo;</span><span><a href="#' + t_id +'">' + t + '</a></span></div>'); // build result
