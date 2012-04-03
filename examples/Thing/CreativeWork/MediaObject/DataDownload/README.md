@@ -1,4 +1,4 @@
-This directory contains example microdata for the [DataObject](http://logd.tw.rpi.edu/dataobject) type.
+This directory contains example microdata for the [DataDownload](http://logd.tw.rpi.edu/datadownload) type.
 
 This type is part of a schema.org extension for describing data sets, data catalogs, and downloadable data dumps.
 

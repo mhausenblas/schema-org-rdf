@@ -7,7 +7,7 @@
     <span itemprop="description">The dataset represents the Liquefaction and Landslide Zones as determined bt the California Dept. of Conservation Division of Mines and Geology. Liquefaction is the transformation of a confined layer of sandy or silty water-satuated material into a liquid -like state because of earthquake shaking. San Francisco Building Code Section1804.5 requires a geotechnical investigation in seismic hazard zones.</span></div>
 
     <div><i>Country:</i>
-    <a href="http://dbpedia.org/resource/United_States"><span itemprop="spatialScope" itemscope="itemscope" itemtype="http://schema.org/Country">
+    <a href="http://dbpedia.org/resource/United_States"><span itemprop="spatial" itemscope="itemscope" itemtype="http://schema.org/Country">
             <span itemprop="name">United States</span>
         </span>
     </a></div>
@@ -19,8 +19,8 @@
     </div>
 
     <i>Categories:</i>
-    <span itemprop="category"><span itemscope="itemscope" itemtype="http://schema.org/Text">layers </span></span>,
-    <span itemprop="category"><span itemscope="itemscope" itemtype="http://schema.org/Text">geography</span></span>,
-    <span itemprop="category"><span itemscope="itemscope" itemtype="http://schema.org/Text">maps </span></span>,
-    <span itemprop="category"><span itemscope="itemscope" itemtype="http://schema.org/Text">gis </span></span>
+    <span itemprop="keyword"><span itemscope="itemscope" itemtype="http://schema.org/Text">layers </span></span>,
+    <span itemprop="keyword"><span itemscope="itemscope" itemtype="http://schema.org/Text">geography</span></span>,
+    <span itemprop="keyword"><span itemscope="itemscope" itemtype="http://schema.org/Text">maps </span></span>,
+    <span itemprop="keyword"><span itemscope="itemscope" itemtype="http://schema.org/Text">gis </span></span>
 </div>
