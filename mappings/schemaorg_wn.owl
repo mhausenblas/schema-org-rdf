@@ -13,7 +13,6 @@
     <!ENTITY wn30 "http://purl.org/vocabularies/princeton/wn30/" >
     <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
     <!ENTITY xsp "http://www.owl-ontologies.com/2005/08/07/xsp.owl#" >
-    <!ENTITY synset-pawnbroker "http://purl.org/vocabularies/princeton/wn30/synset-pawnbroker&#39;" >
 ]>
 
 
@@ -21,7 +20,6 @@
      xml:base="http://schema.org/"
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:synset-pawnbroker="&wn30;synset-pawnbroker&#39;"
      xmlns:schema="http://schema.org/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
@@ -3722,9 +3720,9 @@
     
 
 
-    <!-- http://purl.org/vocabularies/princeton/wn30/synset-pawnbroker&#39;s_shop-noun-1 -->
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-pawnshop-noun-1 -->
 
-    <owl:Class rdf:about="&wn30;synset-pawnbroker&#39;s_shop-noun-1">
+    <owl:Class rdf:about="&wn30;synset-pawnshop-noun-1">
         <owl:equivalentClass rdf:resource="PawnShop"/>
         <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
     </owl:Class>
