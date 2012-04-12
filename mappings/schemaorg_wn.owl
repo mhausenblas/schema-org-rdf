@@ -2643,6 +2643,15 @@
     
 
 
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-abstraction-noun-6 -->
+
+    <owl:Class rdf:about="&wn30;synset-abstraction-noun-6">
+        <owl:equivalentClass rdf:resource="Intangible"/>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/vocabularies/princeton/wn30/synset-accounting_firm-noun-1 -->
 
     <owl:Class rdf:about="&wn30;synset-accounting_firm-noun-1">
