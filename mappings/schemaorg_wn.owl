@@ -3722,6 +3722,15 @@
     
 
 
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-person-noun-1 -->
+
+    <owl:Class rdf:about="&wn30;synset-person-noun-1">
+        <owl:equivalentClass rdf:resource="Person"/>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/vocabularies/princeton/wn30/synset-pet_shop-noun-1 -->
 
     <owl:Class rdf:about="&wn30;synset-pet_shop-noun-1">
