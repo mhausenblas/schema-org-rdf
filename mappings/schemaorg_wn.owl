@@ -18,12 +18,12 @@
 
 <rdf:RDF xmlns="http://schema.org/"
      xml:base="http://schema.org/"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:schema="http://schema.org/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
@@ -866,14 +866,6 @@
         <rdfs:label xml:lang="en">location</rdfs:label>
         <rdfs:comment xml:lang="en"
             >The location of the event or organization.</rdfs:comment>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="Place"/>
-                    <rdf:Description rdf:about="PostalAddress"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -882,6 +874,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="Place"/>
+                    <rdf:Description rdf:about="PostalAddress"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -986,14 +986,6 @@
         <rdfs:label xml:lang="en">musicBy</rdfs:label>
         <rdfs:comment xml:lang="en"
             >The composer of the movie or TV soundtrack.</rdfs:comment>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="MusicGroup"/>
-                    <rdf:Description rdf:about="Person"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1003,6 +995,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="MusicGroup"/>
+                    <rdf:Description rdf:about="Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -3011,6 +3011,15 @@
     
 
 
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-commodity-noun-1 -->
+
+    <owl:Class rdf:about="&wn30;synset-commodity-noun-1">
+        <owl:equivalentClass rdf:resource="Product"/>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/vocabularies/princeton/wn30/synset-computer_store-noun-1 -->
 
     <owl:Class rdf:about="&wn30;synset-computer_store-noun-1">
@@ -3254,14 +3263,6 @@
     
 
 
-    <!-- http://purl.org/vocabularies/princeton/wn30/synset-facility-noun-1 -->
-
-    <owl:Class rdf:about="&wn30;synset-facility-noun-1">
-        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/vocabularies/princeton/wn30/synset-financial_institution-noun-1 -->
 
     <owl:Class rdf:about="&wn30;synset-financial_institution-noun-1">
@@ -3448,6 +3449,14 @@
     
 
 
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-landmark-noun-1 -->
+
+    <owl:Class rdf:about="&wn30;synset-landmark-noun-1">
+        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/vocabularies/princeton/wn30/synset-language-noun-1 -->
 
     <owl:Class rdf:about="&wn30;synset-language-noun-1">
@@ -3544,20 +3553,19 @@
     
 
 
-    <!-- http://purl.org/vocabularies/princeton/wn30/synset-merchandise-noun-1 -->
-
-    <owl:Class rdf:about="&wn30;synset-merchandise-noun-1">
-        <owl:equivalentClass rdf:resource="Product"/>
-        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
-    </owl:Class>
-    
-
-
     <!-- http://purl.org/vocabularies/princeton/wn30/synset-military_installation-noun-1 -->
 
     <owl:Class rdf:about="&wn30;synset-military_installation-noun-1">
         <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
         <rdfs:subClassOf rdf:resource="DefenceEstablishment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-monument-noun-2 -->
+
+    <owl:Class rdf:about="&wn30;synset-monument-noun-2">
+        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
     </owl:Class>
     
 
@@ -3792,9 +3800,9 @@
     
 
 
-    <!-- http://purl.org/vocabularies/princeton/wn30/synset-playground-noun-2 -->
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-playground-noun-1 -->
 
-    <owl:Class rdf:about="&wn30;synset-playground-noun-2">
+    <owl:Class rdf:about="&wn30;synset-playground-noun-1">
         <owl:equivalentClass rdf:resource="Playground"/>
         <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
     </owl:Class>
@@ -4003,9 +4011,9 @@
     
 
 
-    <!-- http://purl.org/vocabularies/princeton/wn30/synset-sculpture-noun-1 -->
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-sculpture-noun-2 -->
 
-    <owl:Class rdf:about="&wn30;synset-sculpture-noun-1">
+    <owl:Class rdf:about="&wn30;synset-sculpture-noun-2">
         <owl:equivalentClass rdf:resource="Sculpture"/>
         <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
     </owl:Class>
@@ -4131,6 +4139,14 @@
 
     <owl:Class rdf:about="&wn30;synset-state-noun-4">
         <owl:equivalentClass rdf:resource="Country"/>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocabularies/princeton/wn30/synset-structure-noun-1 -->
+
+    <owl:Class rdf:about="&wn30;synset-structure-noun-1">
         <rdfs:subClassOf rdf:resource="&wn30;synset-entity-noun-1"/>
     </owl:Class>
     
@@ -4925,7 +4941,7 @@
 
     <owl:Class rdf:about="CivicStructure">
         <rdfs:label xml:lang="en">CivicStructure</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&wn30;synset-facility-noun-1"/>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-structure-noun-1"/>
         <rdfs:subClassOf rdf:resource="Place"/>
         <rdfs:comment xml:lang="en"
             >A public structure, such as a town hall or concert hall.</rdfs:comment>
@@ -5905,6 +5921,8 @@
     <owl:Class rdf:about="LandmarksOrHistoricalBuildings">
         <rdfs:label xml:lang="en"
             >LandmarksOrHistoricalBuildings</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-landmark-noun-1"/>
+        <rdfs:subClassOf rdf:resource="&wn30;synset-monument-noun-2"/>
         <rdfs:subClassOf rdf:resource="Place"/>
         <rdfs:comment xml:lang="en"
             >An historical landmark or building.</rdfs:comment>
