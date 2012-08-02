@@ -58,7 +58,9 @@ def get_type_details(url):
     type['comment_plain'] = el.tail
     while el.getnext().tag not in ['div', 'h3', 'table']:
         type['comment'] += lxml.etree.tostring(el.getnext())
-        type['comment_plain'] += el.getnext().text_content() + el.getnext().tail
+        type['comment_plain'] += el.getnext().text_content();
+        if el.getnext().tail != None:
+            type['comment_plain'] += el.getnext().tail
         el = el.getnext()
     if type['comment'] == None:
         print >> sys.stderr, 'WARNING: No comment in type ' + id
