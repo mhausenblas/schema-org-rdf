@@ -53,19 +53,9 @@ def get_type_details(url):
     type['ancestors'] = []
     for a in ancestor_links:
         type['ancestors'].append(a.text_content())
-    el = root.cssselect("h1.page-title")[0]
-    type['comment'] = el.tail
-    type['comment_plain'] = el.tail
-    while el.getnext().tag not in ['div', 'h3', 'table']:
-        type['comment'] += lxml.etree.tostring(el.getnext())
-        type['comment_plain'] += el.getnext().text_content();
-        if el.getnext().tail != None:
-            type['comment_plain'] += el.getnext().tail
-        el = el.getnext()
-    if type['comment'] == None:
-        print >> sys.stderr, 'WARNING: No comment in type ' + id
-    type['comment'] = type['comment'].strip()
-    type['comment_plain'] = type['comment_plain'].strip()
+    el = root.cssselect("div[property='rdfs:comment']")[0]
+    type['comment'] = get_inner_html(el)
+    type['comment_plain'] = el.text_content().strip()
     type['instances'] = []
     type['subtypes'] = []
     for section in root.cssselect("h3"):
