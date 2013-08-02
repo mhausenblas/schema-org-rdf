@@ -89,7 +89,8 @@ def get_type_details(url):
                 'domains': [id],
                 'ranges': re.sub('\s+', ' ', row.cssselect("td.prop-ect")[0].text_content()).strip().split(' or '),
                 'comment': get_inner_html(comment),
-                'comment_plain': comment.text_content()
+                'comment_plain': comment.text_content(),
+                'url': base_url + id
         })
     return type
 
