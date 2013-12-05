@@ -1,3 +1,6 @@
+from rdflib import Literal
+
+
 def get_prefixed(id):
     if id == 'Text':
         return 'xsd:string'
@@ -15,8 +18,10 @@ def get_prefixed(id):
         return 'xsd:integer'
     return 'schema:' + id
 
-def turtle_escape(s):
-    return s.replace('"', '\\"').encode('utf-8')
+
+def turtle_literal(string):
+    return Literal(string, lang='en').n3().encode('utf-8')
+
 
 def dump_rdf(types_list, types, properties, date, out):
 
@@ -51,9 +56,9 @@ def dump_rdf(types_list, types, properties, date, out):
         if id not in types: continue        # skip datatypes
         t = types[id]
         print >> out, get_prefixed(id) + ' a rdfs:Class;'
-        print >> out, '    rdfs:label "' + turtle_escape(t['label']) + '"@en;'
-        if t['comment_plain'] != None:
-            print >> out, '    rdfs:comment "' + turtle_escape(t['comment_plain']) + '"@en;'
+        print >> out, '    rdfs:label %s;' % turtle_literal(t['label'])
+        if t['comment_plain'] is not None:
+            print >> out, '    rdfs:comment %s;' % turtle_literal(t['comment_plain'])
         for supertype in t['supertypes']:
             print >> out, '    rdfs:subClassOf ' + get_prefixed(supertype) + ';'
         print >> out, '    rdfs:isDefinedBy <' + t['url'] + '>;'
@@ -64,8 +69,8 @@ def dump_rdf(types_list, types, properties, date, out):
     for id in prop_ids:
         p = properties[id]
         print >> out, get_prefixed(p['id']) + ' a rdf:Property;'
-        print >> out, '    rdfs:label "' + turtle_escape(p['label']) + '"@en;'
-        print >> out, '    rdfs:comment "' + turtle_escape(p['comment_plain']) + '"@en;'
+        print >> out, '    rdfs:label %s;' % turtle_literal(p['label'])
+        print >> out, '    rdfs:comment %s;' % turtle_literal(p['comment_plain'])
         if len(p['domains']) == 1:
             print >> out, '    rdfs:domain ' + get_prefixed(p['domains'][0]) + ';'
         elif len(p['domains']) > 1:
