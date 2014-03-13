@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@id": "",
   "@type": "AudioObject",
   "contentURL": "http://media.freesound.org/data/0/previews/719__elmomo__12oclock_girona_preview.mp3",
   "description": "Recorded on a terrace of Girona a sunday morning",

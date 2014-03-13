@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@id": "",
   "@type": "ItemList",
   "name": "Top 10 laptops",
   "mainContentOfPage": "true",

@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@id": "",
   "@type": "EducationalOrganization",
   "name": "Palo Alto High School",
   "address": {

@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@id": "",
   "@type": "Organization",
   "name": "Google.org (GOOG)",
   "address": {

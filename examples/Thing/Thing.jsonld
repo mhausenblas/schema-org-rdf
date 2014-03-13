@@ -1,7 +1,7 @@
 {
    "@context": "http://schema.org/jsonld-profile",
    "@type": "Thing", 
-   "@subject": "http://example.org/things#the-thing",
+   "@id": "http://example.org/things#the-thing",
    "description": "The Thing is a fictional character in the Fantastic Four.",
    "image": "http://upload.wikimedia.org/wikipedia/en/a/a3/Thing_v2_1_coverart.jpg", 
    "name": "The Thing",

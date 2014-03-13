@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@id": "",
   "@type": "CivicStructure",
   "name": "Springfield Town Hall",
   "openingHours": [

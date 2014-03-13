@@ -1,6 +1,6 @@
 {
   "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@id": "",
   "@type": "Article",
   "name": "How to Tie a Reef Knot",
   "author": "John Doe",
