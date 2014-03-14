@@ -9,7 +9,7 @@
       ]
     }
   },
-  "@subject": "",
+  "@id": "",
   "@type": "schema:Organization",
   "schema:address": {
     "@type": "schema:PostalAddress",

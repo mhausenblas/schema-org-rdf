@@ -1,10 +1,10 @@
 {
-  "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@context": "http://schema.org/",
+  "@id": "",
   "@type": "WebPage",
   "breadcrumb": "\n    Books >\n    Literature  Fiction >\n    Classics\n  ",
   "mainContentOfPage": {
-    "@subject": "#book",
+    "@id": "#book",
     "@type": "Book",
     "aggregateRating": {
       "@type": "AggregateRating",

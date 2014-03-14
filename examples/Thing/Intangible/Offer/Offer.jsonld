@@ -1,6 +1,6 @@
 {
-  "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@context": "http://schema.org/",
+  "@id": "",
   "@type": "Product",
   "name": "Kenmore White 17\" Microwave",
   "description": "0.7 cubic feet countertop microwave.\n  Has six preset cooking categories and convenience features like\n  Add-A-Minute and Child Lock.",

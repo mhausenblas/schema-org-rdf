@@ -1,6 +1,6 @@
 {
-  "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@context": "http://schema.org/",
+  "@id": "",
   "@type": "Recipe",
   "author": "John Smith",
   "cookTime": "PT1H",

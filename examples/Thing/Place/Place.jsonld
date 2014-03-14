@@ -1,6 +1,6 @@
 {
-  "@context": "http://schema.org/jsonld-profile",
-  "@subject": "",
+  "@context": "http://schema.org/",
+  "@id": "",
   "@type": "LocalBusiness",
   "name": "Beachwalk Beachwear & Giftware",
   "description": " A superb collection of fine gifts and clothing\n  to accent your stay in Mexico Beach.",
