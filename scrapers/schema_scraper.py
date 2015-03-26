@@ -71,7 +71,7 @@ def get_type_details(url):
     type['specific_properties'] = []
     type['property_details'] = []
     group = ''
-    for row in root.cssselect("table.definition-table tr"):
+    for row in root.cssselect("table.definition-table tbody tr"):
         # is this a row introducing a new type?
         cells = row.cssselect("th.supertype-name a")
         if len(cells) > 0:
