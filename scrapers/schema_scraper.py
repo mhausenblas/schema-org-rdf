@@ -46,14 +46,14 @@ def get_type_details(url):
     type = {}
     type['url'] = url
     ancestor_links = root.cssselect(".breadcrumbs a")
-    id = ancestor_links[-1].text_content()
+    id = ancestor_links[-1].text_content().strip()
     print id
     type['id'] = id
     del ancestor_links[-1]
     type['label'] = get_label(id)
     type['ancestors'] = []
     for a in ancestor_links:
-        type['ancestors'].append(a.text_content())
+        type['ancestors'].append(a.text_content().strip())
     el = root.cssselect("div[property='rdfs:comment']")[0]
     type['comment'] = get_inner_html(el)
     type['comment_plain'] = el.text_content().strip()
@@ -63,12 +63,12 @@ def get_type_details(url):
     row = root.cssselect("#mainContent > ul:last-of-type")
     if len(row) > 0:
         for a in row[0].cssselect("li a"):
-            type['subtypes'].append(a.text_content())
+            type['subtypes'].append(a.text_content().strip())
 
     for section in root.cssselect("table.definition-table:nth-of-type(2) tr"):
         if len(row) > 0:
             for a in section.cssselect("code a"):
-                type['instances'].append(a.text_content())
+                type['instances'].append(a.text_content().strip())
 
     if len(type['instances']) == 0:
         del type['instances']
@@ -81,14 +81,14 @@ def get_type_details(url):
         # is this a row introducing a new type?
         cells = row.cssselect("th.supertype-name a")
         if len(cells) > 0:
-            group = cells[0].text_content()
+            group = cells[0].text_content().strip()
             continue
         if group == '': continue
 
         if len(row.cssselect("th.prop-nam code")) == 0:
             continue
 
-        name = row.cssselect("th.prop-nam code")[0].text_content()
+        name = row.cssselect("th.prop-nam code")[0].text_content().strip()
         comment = row.cssselect("td.prop-desc")[0]
         type['properties'].append(name)
         if group != id: continue
@@ -97,9 +97,9 @@ def get_type_details(url):
                 'id': name,
                 'label': get_label(name),
                 'domains': [id],
-                'ranges': re.sub('\s+', ' ', row.cssselect("td.prop-ect")[0].text_content()).strip().replace(u'\xa0', u' ').encode('utf-8').split(' or '),
+                'ranges': re.sub('\s+', ' ', row.cssselect("td.prop-ect")[0].text_content()).replace(u'\xa0', '').strip().encode('utf-8').split(' or '),
                 'comment': get_inner_html(comment),
-                'comment_plain': comment.text_content(),
+                'comment_plain': comment.text_content().strip(),
                 'url': base_url + id
         })
     return type
