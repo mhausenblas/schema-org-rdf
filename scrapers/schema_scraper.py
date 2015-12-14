@@ -29,7 +29,7 @@ def parse(url):
 def get_all_type_ids():
     root = parse(full_docs_url)
     types = []
-    for a in root.cssselect("#thing_tree a[href]"):
+    for a in root.cssselect("#thing_tree a[href], #datatype_tree a[href]"):
         id = a.text_content()
         if id[-1] == '+': continue
         types.append(id)
