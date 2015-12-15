@@ -60,7 +60,15 @@ def get_type_details(url):
     type['instances'] = []
     type['subtypes'] = []
 
-    row = root.cssselect("#mainContent > ul:last-of-type")
+    # Check if more specific types are defined, depending on that the location
+    # of the subtypes move
+    subtypeIndex = 0
+    for checkHeadline in root.cssselect("h4"):
+        if checkHeadline.text_content().strip() == 'More specific Types available in extensions':
+            subtypeIndex = 1
+            break;
+
+    row = root.cssselect("#mainContent > ul:nth-last-of-type(%d)" % subtypeIndex)
     if len(row) > 0:
         for a in row[0].cssselect("li a"):
             type['subtypes'].append(a.text_content().strip())
