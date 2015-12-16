@@ -60,23 +60,28 @@ def get_type_details(url):
     type['instances'] = []
     type['subtypes'] = []
 
-    # Check if more specific types are defined, depending on that the location
-    # of the subtypes move
-    subtypeIndex = 0
-    for checkHeadline in root.cssselect("h4"):
-        if checkHeadline.text_content().strip() == 'More specific Types available in extensions':
-            subtypeIndex = 1
+    # Check if subtypes exist
+    for checkBoldTextHeadlines in root.cssselect("b"):
+        if checkBoldTextHeadlines.text_content().strip() == 'More specific Types':
+            # If there are any check if there are also "more specific types"
+            # defines which offsets the location of the subtypes
+            subtypeIndex = 0
+            for checkHeadline in root.cssselect("h4"):
+                if checkHeadline.text_content().strip() == 'More specific Types available in extensions':
+                    subtypeIndex = 1
+                    break;
+
+            row = root.cssselect("#mainContent > ul:nth-last-of-type(%d)" % subtypeIndex)
+            if len(row) > 0:
+                for a in row[0].cssselect("li a"):
+                    type['subtypes'].append(a.text_content().strip())
+
+            for section in root.cssselect("table.definition-table:nth-of-type(2) tr"):
+                if len(row) > 0:
+                    for a in section.cssselect("code a"):
+                        type['instances'].append(a.text_content().strip())
+
             break;
-
-    row = root.cssselect("#mainContent > ul:nth-last-of-type(%d)" % subtypeIndex)
-    if len(row) > 0:
-        for a in row[0].cssselect("li a"):
-            type['subtypes'].append(a.text_content().strip())
-
-    for section in root.cssselect("table.definition-table:nth-of-type(2) tr"):
-        if len(row) > 0:
-            for a in section.cssselect("code a"):
-                type['instances'].append(a.text_content().strip())
 
     if len(type['instances']) == 0:
         del type['instances']
