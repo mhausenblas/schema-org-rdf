@@ -48,6 +48,8 @@ def get_type_details(url):
     ancestor_links = root.cssselect(".breadcrumbs a")
     id = ancestor_links[-1].text_content().strip()
     print id
+    sys.stdout.flush()
+
     type['id'] = id
     del ancestor_links[-1]
     type['label'] = get_label(id)
