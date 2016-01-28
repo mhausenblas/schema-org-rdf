@@ -62,6 +62,33 @@ def get_type_details(url):
     type['instances'] = []
     type['subtypes'] = []
 
+
+    # Find out which table contains which data (properties or instances)
+    tables = root.cssselect("table.definition-table");
+
+    property_table_index = -1
+    instance_table_index = -1
+
+    if len(tables) == 2:
+        property_table_index = 0
+        instance_table_index = 1
+    elif len(tables) == 1:
+        if "may appear as values for the following properties" in root.cssselect("#mainContent")[0].text_content().encode('utf-8'):
+            property_table_index = -1
+            instance_table_index = 0
+        else:
+            property_table_index = 0
+            instance_table_index = -1
+
+    if (instance_table_index != -1):
+        # Extract the instance information
+        for section in root.cssselect("table.definition-table:nth-of-type(" + str(instance_table_index+1) + ") tr"):
+            #row = root.cssselect("#mainContent > ul:nth-last-of-type(%d)" % subtypeIndex)
+            #if len(row) > 0:
+            for a in section.cssselect("code a"):
+                type['instances'].append(a.text_content().strip())
+
+
     # Check if subtypes exist
     for checkBoldTextHeadlines in root.cssselect("b"):
         if checkBoldTextHeadlines.text_content().strip() == 'More specific Types':
@@ -78,45 +105,40 @@ def get_type_details(url):
                 for a in row[0].cssselect("li a"):
                     type['subtypes'].append(a.text_content().strip())
 
-            for section in root.cssselect("table.definition-table:nth-of-type(2) tr"):
-                if len(row) > 0:
-                    for a in section.cssselect("code a"):
-                        type['instances'].append(a.text_content().strip())
 
             break;
 
-    if len(type['instances']) == 0:
-        del type['instances']
     type['properties'] = []
     type['specific_properties'] = []
     type['property_details'] = []
     group = ''
 
-    for row in root.cssselect("table.definition-table:nth-of-type(1) tr"):
-        # is this a row introducing a new type?
-        cells = row.cssselect("th.supertype-name a")
-        if len(cells) > 0:
-            group = cells[0].text_content().strip()
-            continue
-        if group == '': continue
+    if (property_table_index != -1):
+        for row in root.cssselect("table.definition-table:nth-of-type(" + str(property_table_index+1) + ") tr"):
+            # is this a row introducing a new type?
+            cells = row.cssselect("th.supertype-name a")
+            if len(cells) > 0:
+                group = cells[0].text_content().strip()
+                continue
+            if group == '': continue
 
-        if len(row.cssselect("th.prop-nam code")) == 0:
-            continue
+            if len(row.cssselect("th.prop-nam code")) == 0:
+                continue
 
-        name = row.cssselect("th.prop-nam code")[0].text_content().strip()
-        comment = row.cssselect("td.prop-desc")[0]
-        type['properties'].append(name)
-        if group != id: continue
-        type['specific_properties'].append(name)
-        type['property_details'].append({
-                'id': name,
-                'label': get_label(name),
-                'domains': [id],
-                'ranges': re.sub('\s+', ' ', row.cssselect("td.prop-ect")[0].text_content()).replace(u'\xa0', '').strip().encode('utf-8').split(' or '),
-                'comment': get_inner_html(comment),
-                'comment_plain': comment.text_content().strip(),
-                'url': base_url + id
-        })
+            name = row.cssselect("th.prop-nam code")[0].text_content().strip()
+            comment = row.cssselect("td.prop-desc")[0]
+            type['properties'].append(name)
+            if group != id: continue
+            type['specific_properties'].append(name)
+            type['property_details'].append({
+                    'id': name,
+                    'label': get_label(name),
+                    'domains': [id],
+                    'ranges': re.sub('\s+', ' ', row.cssselect("td.prop-ect")[0].text_content()).replace(u'\xa0', '').strip().encode('utf-8').split(' or '),
+                    'comment': get_inner_html(comment),
+                    'comment_plain': comment.text_content().strip(),
+                    'url': base_url + id
+            })
     return type
 
 def get_label(s):
