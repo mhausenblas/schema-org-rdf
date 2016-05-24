@@ -13,55 +13,75 @@ class AppURLopener(urllib.URLopener):
 urllib._urlopener = AppURLopener()
 
 def get_all_types():
-    ids = get_all_type_ids()
+    type_urls = get_all_type_urls();
+
     types = {}
-    for id in ids:
-#        print >> sys.stderr, 'Parsing page for ' + id
-        types[id] = get_type_details(base_url + id)
+    for id, type_url in type_urls.items():
+        types[id] = get_type_details(id, type_url)
         time.sleep(1)
+
     return types
 
+
+def get_url_data (url):
+    try:
+        root = lxml.html.fromstring(urllib.urlopen(url).read())
+    except:
+        print '...There was a problem. Wait for 30 seconds and try again'
+        time.sleep(30)
+        return get_url_data(url);
+    return root;
+
 def parse(url):
-    root = lxml.html.fromstring(urllib.urlopen(url).read())
+    root = get_url_data(url)
     root.make_links_absolute(url)
     return root
 
-def get_all_type_ids():
+
+def get_all_type_urls():
     root = parse(full_docs_url)
-    types = []
+    types = {}
     for a in root.cssselect("#thing_tree a[href], #datatype_tree a[href]"):
         id = a.text_content()
         if id[-1] == '+': continue
-        types.append(id)
+        types[id] = a.get("href")
     return types
+
 
 def get_inner_html(el):
     result = el.text
+
+    if result is None:
+        result = ''
+
     for c in el.getchildren():
         result += lxml.etree.tostring(c)
     return result
     
-def get_type_details(url):
-    root = parse(url)
-    type = {}
-    type['url'] = url
-    ancestor_links = root.cssselect(".breadcrumbs a")
-    id = ancestor_links[-1].text_content().strip()
+def get_type_details(id, url):
     print id
     sys.stdout.flush()
 
+    root = parse(url)
+    type = {}
+    type['url'] = url
+
+    ancestor_links = root.cssselect(".breadcrumbs a")
+
     type['id'] = id
-    del ancestor_links[-1]
     type['label'] = get_label(id)
     type['ancestors'] = []
     for a in ancestor_links:
-        type['ancestors'].append(a.text_content().strip())
+        ancestor_name = a.text_content().strip()
+        if (ancestor_name != id and ancestor_name not in type['ancestors']):
+            type['ancestors'].append(ancestor_name)
+            print a.text_content().strip()
+
     el = root.cssselect("div[property='rdfs:comment']")[0]
     type['comment'] = get_inner_html(el)
     type['comment_plain'] = el.text_content().strip()
     type['instances'] = []
     type['subtypes'] = []
-
 
     # Find out which table contains which data (properties or instances)
     tables = root.cssselect("table.definition-table");

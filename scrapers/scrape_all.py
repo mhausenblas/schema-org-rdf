@@ -18,7 +18,7 @@ date = datetime.date.today().isoformat()
 print >> sys.stderr, 'Scraping schema.org'
 
 # Get ordered list
-types_list = schema_scraper.get_all_type_ids()
+types_list = schema_scraper.get_all_type_urls().keys();
 # Get details for types and properties
 types = schema_scraper.get_all_types()
 types = schema_scraper.add_supertype_relationships(types)
